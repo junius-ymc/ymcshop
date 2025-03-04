@@ -7,8 +7,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import ScrollToTopButton from "./ScrollToTopButton";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const Footer = () => {
   //console.log(hotSellL)
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
   return (
     <div>
       <footer>
@@ -23,9 +28,9 @@ const Footer = () => {
 
               <div className="setdiv-3">
                 <ul className="">
-                  <li><a href="/" target="_self">{chgLng.mHome1}</a></li>
-                  <li><NavLink to={"/contactus/"}>{chgLng.mContactUs}</NavLink></li>
-                  <li><NavLink to={"/aboutus/"}>{chgLng.mAboutUs}</NavLink></li>
+                  <li><a href="/" target="_self">{t("mHome1")}</a></li>
+                  <li><NavLink to={"/contactus/"}>{t("mContactUs")}</NavLink></li>
+                  <li><NavLink to={"/aboutus/"}>{t("mAboutUs")}</NavLink></li>
                 </ul>
               </div>
 

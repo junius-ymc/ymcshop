@@ -5,9 +5,13 @@ import { numberFormat } from "../../utils/number";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const NewProdCard = ({ item }) => {
 
   const actionAddtoCart = useEcomStore((state) => state.actionAddtoCart);
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   return (
 
@@ -18,7 +22,7 @@ const NewProdCard = ({ item }) => {
         {(item?.quantity === 0)
           ?
           <div className="show-sold-out-box">
-            <div className="show-sold-out-text">{chgLng.sSoldOut}</div>
+            <div className="show-sold-out-text">{t("sSoldOut")}</div>
           </div>
           : ""
         }
@@ -45,11 +49,11 @@ const NewProdCard = ({ item }) => {
 
       {/* ส่วนปุ่มและราคา */}
       <div className="new-products-data-end">
-        <span className="new-products-data-price">{numberFormat(item.price)} {chgLng.moneyUnit}</span>
+        <span className="new-products-data-price">{numberFormat(item.price)} {t("moneyUnit")}</span>
 
         <button
           // onClick={() => actionAddtoCart(item) + toast.success(`เพิ่ม ${item.title} ในตะกร้าแล้วจ้า 😊`, {
-          onClick={() => actionAddtoCart(item) + toast.success(`${chgLng.npcAddedToCart1} ${item.title} ${chgLng.npcAddedToCart2}`, {
+          onClick={() => actionAddtoCart(item) + toast.success(`${t("npcAddedToCart1")} ${item.title} ${t("npcAddedToCart2")}`, {
             bodyClassName: "toastify-toast-modify",
             // icon: <img src="/src/img/icon/ic-cart.png"/>,
             // icon: false,

@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 import { numberFormat } from "../../utils/number";
 import ProductModal from "../../components/ProductModal"; // นำเข้า ProductModal
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const ListCart = () => {
   const cart = useEcomStore((state) => state.carts);
   const user = useEcomStore((s) => s.user);
@@ -17,13 +19,15 @@ const ListCart = () => {
 
   const navigate = useNavigate();
 
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
   const handleSaveCart = async () => {
     await createUserCart(token, { cart })
       .then((res) => {
         // console.log(res);
         // toast.success("บันทึกใส่ตะกร้าเรียบร้อยแล้วจ้า", {
         // position: "top-center",
-        toast.success(chgLng.lcOrderSuccess, {
+        toast.success(t("lcOrderSuccess"), {
           bodyClassName: "toastify-toast-modify",
         });
         navigate("/checkout");
@@ -63,8 +67,8 @@ const ListCart = () => {
       <div className="cart-header">
         <div className="cart-header-title div-head">
           {/* <ListCheck size={36} /> */}
-          <img className="img-icon-m" src="../../../src/img/icon/ic-list.png" alt={chgLng.lcListCart} />
-          {chgLng.lcListCart} {cart.length} {chgLng.lcItem}
+          <img className="img-icon-m" src="../../../src/img/icon/ic-list.png" alt={t("lcListCart")} />
+          {t("lcListCart")} {cart.length} {t("lcItem")}
         </div>
       </div>
 
@@ -109,7 +113,7 @@ const ListCart = () => {
                   {/* Right */}
                   <div className="cart-list-left-data-2-right">
                     <div className="cart-list-left-data-2">
-                      {numberFormat(item.price * item.count)} {chgLng.moneyUnit}
+                      {numberFormat(item.price * item.count)} {t("moneyUnit")}
                     </div>
                     <div onClick={() => actionRemoveProduct(item.id)} className="ic-trash">
                       {/* <img className="img-icon-m" src="../../../src/img/icon/ic-x.png" alt="Trash" /> */}
@@ -124,15 +128,15 @@ const ListCart = () => {
           {/* Right */}
           <div className="cart-list-right-box-wrap">
             <div className="cart-list-right-box">
-              <div className="cart-list-right-title">{chgLng.lcTotal}</div>
+              <div className="cart-list-right-title">{t("lcTotal")}</div>
 
               <hr />
 
               <div className="cart-list-right-text-1">
 
-                <span>{chgLng.lcNetTotal}</span>
+                <span>{t("lcNetTotal")}</span>
                 <span className="cart-list-right-text-2">
-                  {numberFormat(getTotalPrice())} {chgLng.moneyUnit}
+                  {numberFormat(getTotalPrice())} {t("moneyUnit")}
                 </span>
 
               </div>
@@ -147,20 +151,20 @@ const ListCart = () => {
                       onClick={handleSaveCart}
                       className="bnt-mod cart-list-right-end-btn-1"
                     >
-                      {chgLng.lcOrderProducts}
+                      {t("lcOrderProducts")}
                     </button>
                   </Link>
                 ) : (
                   <Link to={"/login/"}>
                     <button className="bnt-mod cart-list-right-end-btn-1">
-                      {chgLng.mLogin}
+                      {t("mLogin")}
                     </button>
                   </Link>
                 )}
 
                 <Link to={"/shop/"}>
                   <button className="bnt-mod cart-list-right-end-btn-2">
-                    {chgLng.lcGotoShop}
+                    {t("lcGotoShop")}
                   </button>
                 </Link>
               </div>

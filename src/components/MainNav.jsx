@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 // import { User } from "lucide-react";
 // import ScrollToTopButton from "./ScrollToTopButton";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 function MainNav() {
   // Javascript
   const carts = useEcomStore((s) => s.carts);
@@ -21,6 +23,8 @@ function MainNav() {
   // const toggleDropdown = () => {
   //   setIsOpen(!isOpen);
   // };
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   // ใช้ useRef เพื่ออ้างอิงถึง NavBar
   const navbar = useRef(null);
@@ -46,7 +50,7 @@ function MainNav() {
     sessionStorage.removeItem("authToken");
     // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
     logout(true);
-    toast.success(`${chgLng.liLogout}`, {
+    toast.success(`${t("liLogout")}`, {
       bodyClassName: "toastify-toast-modify",
     });
     navigate("/"); // กลับไปหน้า Home
@@ -61,9 +65,9 @@ function MainNav() {
       <div className="topweb">
         <div className="wrapper">
           <div className="top-web-left">
-            <a href="/" target="_self">{chgLng.mHome1}</a>
-            <NavLink to={"/aboutus/"}>{chgLng.mAboutUs}</NavLink>
-            <NavLink to={"/contactus/"}>{chgLng.mContactUs}</NavLink>
+            <a href="/" target="_self">{t("mHome1")}</a>
+            <NavLink to={"/aboutus/"}>{t("mAboutUs")}</NavLink>
+            <NavLink to={"/contactus/"}>{t("mContactUs")}</NavLink>
           </div>
 
           <div className="top-web-right">
@@ -120,7 +124,7 @@ function MainNav() {
                       }
                       to={"/"}
                     >
-                      {chgLng.mHome}
+                      {t("mHome")}
                     </NavLink>
                   </li>
 
@@ -133,7 +137,7 @@ function MainNav() {
                       }
                       to={"/shop/"}
                     >
-                      {chgLng.mShop}
+                      {t("mShop")}
                     </NavLink>
                   </li>
 
@@ -146,7 +150,7 @@ function MainNav() {
                       }
                       to={"/cart/"}
                     >
-                      {chgLng.mCart}
+                      {t("mCart")}
 
                       {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
                       {
@@ -163,7 +167,7 @@ function MainNav() {
                     ?
                     <li>
                     <Link onClick={() => handleLogout()} className="bttn">
-                      {chgLng.mLogout}
+                      {t("mLogout")}
                     </Link>
                   </li>
                     :
@@ -177,7 +181,7 @@ function MainNav() {
                     //     }
                     //     to={"/login/"}
                     //   >
-                    //     {chgLng.mLogin}
+                    //     {t("mLogin")}
                     //   </NavLink>
                     // </li>
                   }

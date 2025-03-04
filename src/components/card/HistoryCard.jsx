@@ -4,9 +4,13 @@ import useEcomStore from "../../store/ecom-store";
 import { dateFormat } from "../../utils/dateformat";
 import { numberFormat } from "../../utils/number";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const HistoryCard = () => {
   const token = useEcomStore((state) => state.token);
   const [orders, setOrders] = useState([]);
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
   const sortedProducts = [...orders].sort((a, b) => b.id - a.id);
@@ -29,23 +33,23 @@ const HistoryCard = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case "Not Process":
-        statusMsg = chgLng.htrNotProcess;
+        statusMsg = t("htrNotProcess");
         return "historycard-order-status-not";
       case "Processing":
-        statusMsg = chgLng.htrProcessing;
+        statusMsg = t("htrProcessing");
         return "historycard-order-status-processing";
       case "Completed":
-        statusMsg = chgLng.htrCompleted;
+        statusMsg = t("htrCompleted");
         return "historycard-order-status-Completed";
       case "Cancelled":
-        statusMsg = chgLng.htrCancelled;
+        statusMsg = t("htrCancelled");
         return "historycard-order-status-Cancelled";
     }
   };
 
   return (
     <div className="div-wrap">
-      <div className="div-head">{chgLng.htrHistory}</div>
+      <div className="div-head">{t("htrHistory")}</div>
       <div className="div-content">
         <div className="div-content-box">
           <div className="historycard">
@@ -63,7 +67,7 @@ const HistoryCard = () => {
                   <div className="historycard-table">
                     <div className="historycard-table-header">
                       <div>
-                        <div>{chgLng.htrOrderDate}</div>
+                        <div>{t("htrOrderDate")}</div>
                         <div className="historycard-font-date">{dateFormat(item.createdAt)}</div>
                       </div>
                       <div>
@@ -71,26 +75,26 @@ const HistoryCard = () => {
                         <span className={`${getStatusColor(orderStatusData.status || item.orderStatus)} historycard-order-status`}>
                           {statusMsg || "ไม่ระบุ"}
                         </span>
-                        {orderStatusData?.status === "Completed" ? <div className="historycard-order-parcel-number">หมายเลขพัสดุ: {orderStatusData.parcelNumber || "ยังไม่มีหมายเลขพัสดุ"} </div> : ""}
+                        {orderStatusData?.status === "Completed" ? <div className="historycard-order-parcel-number">{t("htrParcelNumber")} {orderStatusData.parcelNumber || "???"} </div> : ""}
                       </div>
                     </div>
                     <div className="historycard-product-table-wrap">
                       <table className="historycard-product-table">
                         <thead>
                           <tr className="historycard-product-table-header">
-                            <th className="historycard-product-table-th">{chgLng.htrProducts}</th>
-                            <th className="historycard-product-table-th">{chgLng.htrPrice}</th>
-                            <th className="historycard-product-table-th">{chgLng.htrQuantity}</th>
-                            <th className="historycard-product-table-th">{chgLng.htrTotal}</th>
+                            <th className="historycard-product-table-th">{t("htrProducts")}</th>
+                            <th className="historycard-product-table-th">{t("htrPrice")}</th>
+                            <th className="historycard-product-table-th">{t("htrQuantity")}</th>
+                            <th className="historycard-product-table-th">{t("htrTotal")}</th>
                           </tr>
                         </thead>
                         <tbody>
                           {item.products?.map((product, index) => (
                             <tr className="historycard-product-table-tr" key={index}>
                               <td className="historycard-product-table-td">{product.product.title}</td>
-                              <td className="historycard-product-table-td">{numberFormat(product.product.price)} {chgLng.moneyUnit}</td>
+                              <td className="historycard-product-table-td">{numberFormat(product.product.price)} {t("moneyUnit")}</td>
                               <td className="historycard-product-table-td">{product.count}</td>
-                              <td className="historycard-product-table-td">{numberFormat(product.count * product.product.price)} {chgLng.moneyUnit}</td>
+                              <td className="historycard-product-table-td">{numberFormat(product.count * product.product.price)} {t("moneyUnit")}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -98,8 +102,8 @@ const HistoryCard = () => {
                     </div>
                     <div>
                       <div className="historycard-product-table-total">
-                        <span>{chgLng.htrNetTotal}</span>
-                        <span>{numberFormat(item.cartTotal)} {chgLng.moneyUnit}</span>
+                        <span>{t("htrNetTotal")}</span>
+                        <span>{numberFormat(item.cartTotal)} {t("moneyUnit")}</span>
                       </div>
                     </div>
                   </div>

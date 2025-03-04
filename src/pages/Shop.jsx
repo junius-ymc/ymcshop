@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import useEcomStore from "../store/ecom-store";
 import SearchCard from "../components/card/SearchCard";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 // Lazy load ProductCard
 const LazyProductCard = React.lazy(() => import("../components/card/ProductCard"));
 
@@ -10,6 +12,8 @@ const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
   const products = useEcomStore((state) => state.products);
   const location = useLocation();
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   const [currentPage, setCurrentPage] = useState(1);
   // จำนวนที่จะให้แสดงต่อ 1 หน้า
@@ -71,7 +75,7 @@ const Shop = () => {
           </div>
 
           <div className="scrollable-container">
-            <p className="div-head">{chgLng.sAllProd}</p>
+            <p className="div-head">{t("sAllProd")}</p>
 
             <div className="div-content shop-product-cart">
               {/* ใช้ Suspense เพื่อโหลด LazyProductCard แบบ lazy */}
@@ -89,7 +93,7 @@ const Shop = () => {
                 onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
                 disabled={currentPage <= 1}
               >
-                {chgLng.sPreviousbtn}
+                {t("sPreviousbtn")}
               </button>
 
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -111,7 +115,7 @@ const Shop = () => {
                 onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
                 disabled={currentPage >= totalPages}
               >
-                {chgLng.sNextbtn}
+                {t("sNextbtn")}
               </button>
             </div>
           </div>

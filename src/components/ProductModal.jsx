@@ -4,12 +4,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Zoom } from "swiper/modules";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 import "swiper/css";
 import 'swiper/css/zoom';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const ProductModal = ({ isOpen, onClose, product }) => {
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   if (!isOpen || !product) return null;
 
@@ -32,7 +36,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
           onClick={(e) => e.stopPropagation()} // ป้องกันปิด modal ถ้าคลิกข้างใน
         >
 
-          <button className="modal-bnt-close" onClick={onClose} title={chgLng.ttClose}>
+          <button className="modal-bnt-close" onClick={onClose} title={t("ttClose")}>
             ✖
             {/* <img className="img-icon-s" src="/src/img/icon/ic-x.png" /> */}
           </button>
@@ -54,13 +58,13 @@ const ProductModal = ({ isOpen, onClose, product }) => {
             {product.images?.map((img, index) => (
               <SwiperSlide key={index}>
                 <div className="swiper-zoom-container modal-swiper-slide">
-                  <img src={img.url} alt={product.title} title={chgLng.ttTileClickToZoom} />
+                  <img src={img.url} alt={product.title} title={t("ttTileClickToZoom")} />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          <p className="modal-title">{product.title} : {numberFormat(product.price)} {chgLng.moneyUnit}</p>
+          <p className="modal-title">{product.title} : {numberFormat(product.price)} {t("moneyUnit")}</p>
           <p className="modal-description">{product.description}</p>
 
         </motion.div>

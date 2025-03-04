@@ -5,6 +5,8 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { numberFormat } from "../../utils/number";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const SearchCard = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
   const products = useEcomStore((state) => state.products);
@@ -17,6 +19,8 @@ const SearchCard = () => {
 
   const [text, setText] = useState("");
   const [categorySelected, setCategorySelected] = useState([]);
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   // กำหนดช่วงราคา ในการค้นหาราคาสินค้า
   const sPriceStart = 0; // เริ่มตั้งแต่ราคาต่ำสุด
@@ -85,20 +89,20 @@ const SearchCard = () => {
     <div>
       <div className="search-card-head">
         
-        <p className="div-head">{chgLng.sbSearch}</p>
+        <p className="div-head">{t("sbSearch")}</p>
         <div className="div-content search-card-box">
-        <div className="search-card-by-text">{chgLng.sbProd}</div>
+        <div className="search-card-by-text">{t("sbProd")}</div>
         {/* Search by Text */}
         <input
           onChange={(e) => setText(e.target.value)}
           type="text"
-          placeholder={chgLng.sbSearch + " " + chgLng.sbProd + "...."}
+          placeholder={t("sbSearch") + " " + t("sbProd") + "...."}
           className="form-input"
         />
         <hr />
         {/* Search by Category */}
         <div className="search-card-by-category-box">
-          <div className="search-card-by-category">{chgLng.sbCategory}</div>
+          <div className="search-card-by-category">{t("sbCategory")}</div>
 
           <div className="search-card-by-category-check-status">
 
@@ -117,11 +121,11 @@ const SearchCard = () => {
         <hr />
         {/* Search by Price */}
         <div className="search-card-by-price-box">
-          <h1 className="search-card-by-price">{chgLng.sbPrice}</h1>
+          <h1 className="search-card-by-price">{t("sbPrice")}</h1>
           <div>
             <div className="search-card-by-price-value ">
-              <span>{chgLng.sbPriceMin}{numberFormat(price[0])}{chgLng.moneyUnit}</span>
-              <span>{chgLng.sbPriceMax}{numberFormat(price[1])}{chgLng.moneyUnit}</span>
+              <span>{t("sbPriceMin")}{numberFormat(price[0])}{t("moneyUnit")}</span>
+              <span>{t("sbPriceMax")}{numberFormat(price[1])}{t("moneyUnit")}</span>
             </div>
 
             <Slider

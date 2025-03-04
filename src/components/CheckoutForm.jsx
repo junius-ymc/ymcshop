@@ -6,11 +6,15 @@ import useEcomStore from "../store/ecom-store";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 export default function CheckoutForm() {
   const token = useEcomStore((state) => state.token);
   const clearCart = useEcomStore((state) => state.clearCart);
 
   const navigate = useNavigate();
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   const stripe = useStripe();
   const elements = useElements();
@@ -68,7 +72,7 @@ export default function CheckoutForm() {
 
       <div className="div-wrap">
 
-        <div className="div-head">{chgLng.mAboutUs}</div>
+        <div className="div-head">{t("mAboutUs")}</div>
         <div className="div-content">
           <div className="div-content-box">
 

@@ -1,6 +1,7 @@
 // rafce
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import Home from '../pages/Home'
 import Shop from '../pages/Shop'
 import Cart from '../pages/Cart'
@@ -68,6 +69,9 @@ const router = createBrowserRouter([
 ])
 
 const AppRoutes = () => {
+
+    const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
     return (
         <>
             <RouterProvider router={router} />

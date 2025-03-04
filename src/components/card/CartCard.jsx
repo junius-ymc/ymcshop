@@ -4,6 +4,8 @@ import useEcomStore from "../../store/ecom-store";
 import { Link } from "react-router-dom";
 import { numberFormat } from '../../utils/number';
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const CartCard = () => {
   // Javascript
   const carts = useEcomStore((state) => state.carts);
@@ -15,13 +17,15 @@ const CartCard = () => {
   );
   const getTotalPrice = useEcomStore((state) => state.getTotalPrice);
 
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
   return (
 
     <div className="modal-cartcard">
 
       <div className="div-head modal-cartcard-head setdiv-3">
-        <span><img className="img-icon-m" src="/src/img/icon/ic-cart.png" alt={chgLng.ccShoppingCart} /></span>
-        {chgLng.ccShoppingCart} {carts.length} {chgLng.lcItem}
+        <span><img className="img-icon-m" src="/src/img/icon/ic-cart.png" alt={t("ccShoppingCart")} /></span>
+        {t("ccShoppingCart")} {carts.length} {t("lcItem")}
       </div>
       {/* Border */}
       <div className="modal-cartcard-content">
@@ -91,7 +95,7 @@ const CartCard = () => {
               </div>
               {/* Right */}
               <div className="modal-cartcard-content-box-row-2-quantity-count-price">
-                {numberFormat(item.price * item.count)} {chgLng.moneyUnit}
+                {numberFormat(item.price * item.count)} {t("moneyUnit")}
               </div>
             </div>
           </div>
@@ -99,8 +103,8 @@ const CartCard = () => {
 
         {/* Total */}
         <div className="modal-cartcard-total">
-          <span className="modal-cartcard-total-count">{chgLng.ccTotalPrice}</span>
-          <span className="modal-cartcard-total-count-price">{numberFormat(getTotalPrice())} {chgLng.moneyUnit}</span>
+          <span className="modal-cartcard-total-count">{t("ccTotalPrice")}</span>
+          <span className="modal-cartcard-total-count-price">{numberFormat(getTotalPrice())} {t("moneyUnit")}</span>
         </div>
 
         {/* Button */}
@@ -108,7 +112,7 @@ const CartCard = () => {
           <button
             className="modal-cartcard-total-count-price-btn"
           >
-            {chgLng.ccPayment}
+            {t("ccPayment")}
           </button>
         </Link>
       </div>

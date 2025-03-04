@@ -5,12 +5,16 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { numberFormat } from "../../utils/number";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const SummaryCard = () => {
   const token = useEcomStore((state) => state.token);
   const [products, setProducts] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const user = useEcomStore((state) => state.user);
   // console.log("user form zustand", user);
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   let initialAddress, initialName;
   try {
@@ -65,7 +69,7 @@ const SummaryCard = () => {
 
   const hdlSaveAddress = () => {
     if (Object.values(addressData).some(val => !val) || Object.values(nameData).some(val => !val)) {
-      return toast.warning(chgLng.scVerifyFill, {
+      return toast.warning(t("scVerifyFill"), {
                 bodyClassName: "toastify-toast-modify",
               });
     }
@@ -81,7 +85,7 @@ const SummaryCard = () => {
 
   const hdlGoToPayment = () => {
     if (!addressSaved) {
-      return toast.warning(chgLng.scVerifyPay, {
+      return toast.warning(t("scVerifyPay"), {
         bodyClassName: "toastify-toast-modify",
       });
     }
@@ -105,39 +109,39 @@ const SummaryCard = () => {
 
 {/* Left */}
         <div className="summary-card-left">
-          <div className="div-head">{chgLng.scShippingAddress}</div>
+          <div className="div-head">{t("scShippingAddress")}</div>
           <div className="div-content">
             <div className="div-content-box">
               <input
                 name="fullName"
                 value={nameData.fullName}
                 onChange={handleNameChange}
-                placeholder={chgLng.scFullName}
-                title={chgLng.scFullName}
+                placeholder={t("scFullName")}
+                title={t("scFullName")}
                 className="form-input-checkout"
               />
-              <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder={chgLng.scHouseNo} title={chgLng.scHouseNo} className="form-input-checkout" />
-              <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder={chgLng.scDistrict} title={chgLng.scDistrict} className="form-input-checkout" />
-              <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder={chgLng.scCity} title={chgLng.scCity} className="form-input-checkout" />
-              <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder={chgLng.scProvince} title={chgLng.scProvince} className="form-input-checkout" />
-              <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder={chgLng.scZipCode} title={chgLng.scZipCode} className="form-input-checkout" />
+              <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder={t("scHouseNo")} title={t("scHouseNo")} className="form-input-checkout" />
+              <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder={t("scDistrict")} title={t("scDistrict")} className="form-input-checkout" />
+              <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder={t("scCity")} title={t("scCity")} className="form-input-checkout" />
+              <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder={t("scProvince")} title={t("scProvince")} className="form-input-checkout" />
+              <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder={t("scZipCode")} title={t("scZipCode")} className="form-input-checkout" />
               <input
                 name="phone"
                 value={nameData.phone}
                 onChange={handleNameChange}
-                placeholder={chgLng.scPhone}
-                title={chgLng.scPhone}
+                placeholder={t("scPhone")}
+                title={t("scPhone")}
                 className="form-input-checkout"
               />
               <hr />
-              <div className="summary-card-div-btn"><button onClick={hdlSaveAddress} className="bnt-mod summary-card-btn">{chgLng.scSaveAddress}</button></div>
+              <div className="summary-card-div-btn"><button onClick={hdlSaveAddress} className="bnt-mod summary-card-btn">{t("scSaveAddress")}</button></div>
             </div>
           </div>
         </div>
 
 {/* Right */}
         <div className="summary-card-right">
-          <div className="div-head">{chgLng.scYourOrder}</div>
+          <div className="div-head">{t("scYourOrder")}</div>
           <div className="div-content">
             <div className="div-content-box">
               {products?.map((item, index) => (
@@ -146,13 +150,13 @@ const SummaryCard = () => {
                     <div>
                       <p className="summary-card-right-list-title">{item.product.title}</p>
                       <p className="summary-card-right-list-count">
-                      {chgLng.scQuantity}: {item.count} x {numberFormat(item.product.price)}
+                      {t("scQuantity")}: {item.count} x {numberFormat(item.product.price)}
                       </p>
                     </div>
                     <div>
                       <p className="summary-card-right-list-price">
                         {numberFormat(item.count * item.product.price) + ' '}
-                        <span className="summary-card-right-list-total-price-unit">{chgLng.moneyUnit}</span>
+                        <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
                       </p>
                     </div>
                   </div>
@@ -160,28 +164,28 @@ const SummaryCard = () => {
               ))}
               <div>
                 <div className="summary-card-right-list-other">
-                  <p>{chgLng.scShippingCosts}:</p>
-                  <span className="summary-card-right-list-discount">{chgLng.scFreeOnlyInThailand}</span>
+                  <p>{t("scShippingCosts")}:</p>
+                  <span className="summary-card-right-list-discount">{t("scFreeOnlyInThailand")}</span>
                 </div>
                 <div className="summary-card-right-list-other">
-                  <p>{chgLng.scDiscount}:</p>
-                  <div className="summary-card-right-list-discount">-<span className="summary-card-right-list-total-price-unit"> {chgLng.moneyUnit}</span></div>
+                  <p>{t("scDiscount")}:</p>
+                  <div className="summary-card-right-list-discount">-<span className="summary-card-right-list-total-price-unit"> {t("moneyUnit")}</span></div>
                   
                 </div>
               </div>
               <div className="summary-card-right-list-other-box">
                 <hr />
                 <div className="summary-card-right-list-other">
-                  <p className="summary-card-right-list-total">{chgLng.scNetTotal}:</p>
+                  <p className="summary-card-right-list-total">{t("scNetTotal")}:</p>
                   <p className="summary-card-right-list-total-price">{numberFormat(cartTotal) + ' '}
-                  <span className="summary-card-right-list-total-price-unit">{chgLng.moneyUnit}</span>
+                  <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
                   </p>
                 </div>
                 <hr />
               </div>
               <div>
               <div className="summary-card-div-btn">
-                <button onClick={hdlGoToPayment} className="bnt-mod summary-card-btn">{chgLng.scProceedWithPayment}</button>
+                <button onClick={hdlGoToPayment} className="bnt-mod summary-card-btn">{t("scProceedWithPayment")}</button>
               </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import MainNav from "../components/MainNav";
 import Footer from "../components/Footer";
 
 const Layout = () => {
+
   return (
     <div>
 

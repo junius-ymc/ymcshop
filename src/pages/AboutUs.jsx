@@ -6,10 +6,14 @@
 
 import useEcomStore from "../store/ecom-store";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 
 
 const AboutUs = () => {
   //console.log(hotSellL)
+
+
+    const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   const user = useEcomStore((state) => state.user);
   // เช็ค user และแปลง JSON String เป็น Object อย่างปลอดภัย
@@ -20,7 +24,7 @@ const AboutUs = () => {
     <div>
       <div className="div-wrap">
 
-        <div className="div-head">{chgLng.mAboutUs} - {fullName}</div>
+        <div className="div-head">{t("mAboutUs")} - {fullName}</div>
         <div className="div-content">
           <div className="div-content-box">
 

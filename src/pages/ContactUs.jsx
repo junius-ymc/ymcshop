@@ -5,14 +5,18 @@ import React from "react";
 // import BestSeller from "../components/home/BestSeller";
 // import NewProduct from "../components/home/NewProduct";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const ContactUs = () => {
-  //console.log(hotSellL)
+  
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
   return (
     <div>
 
       <br></br>
       <br></br>
-      <p className="text-2xl text-center"> {chgLng.mContactUs}</p>
+      <p className="text-2xl text-center"> {t("mContactUs")}</p>
       <br></br>
       <br></br>
       <br></br>

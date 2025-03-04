@@ -7,11 +7,15 @@ import ProductModal from "../../components/ProductModal"; // นำเข้า 
 import CartModal from "../../components/CartModal"; // นำเข้า CartModal
 import { motion } from "framer-motion";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 
 const ProductCard = ({ item }) => {
   const actionAddtoCart = useEcomStore((state) => state.actionAddtoCart);
 
   // console.log(item)
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   // ProductModal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,7 +52,7 @@ const ProductCard = ({ item }) => {
             {(item?.quantity === 0)
               ?
               <div className="show-sold-out-box">
-                <div className="show-sold-out-text">{chgLng.sSoldOut}</div>
+                <div className="show-sold-out-text">{t("sSoldOut")}</div>
               </div>
               : ""
             }
@@ -74,7 +78,7 @@ const ProductCard = ({ item }) => {
 
           {/* ส่วนปุ่มและราคา */}
           <div className="shop-product-data-end">
-            <span className="shop-product-data-price">{numberFormat(item.price)} {chgLng.moneyUnit}</span>
+            <span className="shop-product-data-price">{numberFormat(item.price)} {t("moneyUnit")}</span>
 
             {(item?.quantity === 0)
               ?
