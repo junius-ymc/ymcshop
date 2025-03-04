@@ -61,7 +61,7 @@ const TextAnimation = () => {
         <div className="typewriter-text">
           <div className="mini-link-box-info">
             {displayText}
-            <img src="/src/img/icon/cursor.gif" />
+            <img src="/img/icon/cursor.gif" />
           </div>
         </div>
       </div>

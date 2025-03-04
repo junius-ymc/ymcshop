@@ -45,52 +45,52 @@ const ShowSupporter = () => {
     {
       id: "101",
       author: "Ben Adam",
-      url: "./src/img/carouselslider/01.jpg",
+      url: "/img/carouselslider/01.jpg",
     },
     {
       id: "102",
       author: "Ismad",
-      url: "./src/img/carouselslider/02.jpg",
+      url: "/img/carouselslider/02.jpg",
     },
     {
       id: "103",
       author: "SuZuKi",
-      url: "./src/img/carouselslider/03.jpg",
+      url: "/img/carouselslider/03.jpg",
     },
     {
       id: "104",
       author: "ฟฟฟฟฟ",
-      url: "./src/img/carouselslider/04.jpg",
+      url: "/img/carouselslider/04.jpg",
     },
     {
       id: "105",
       author: "Dyaa",
-      url: "./src/img/carouselslider/05.jpg",
+      url: "/img/carouselslider/05.jpg",
     },
     {
       id: "106",
       author: "ททททท Eldin",
-      url: "./src/img/carouselslider/06.jpg",
+      url: "/img/carouselslider/06.jpg",
     },
     {
       id: "107",
       author: "Dy xxx",
-      url: "./src/img/carouselslider/07.jpg",
+      url: "/img/carouselslider/07.jpg",
     },
     {
       id: "108",
       author: "Adam Ben",
-      url: "./src/img/carouselslider/08.jpg",
+      url: "/img/carouselslider/08.jpg",
     },
     {
       id: "109",
       author: "yyy xxx",
-      url: "./src/img/carouselslider/09.jpg",
+      url: "/img/carouselslider/09.jpg",
     },
     {
       id: "110",
       author: "dddd",
-      url: "./src/img/carouselslider/10.jpg",
+      url: "/img/carouselslider/10.jpg",
     }
   ];
 

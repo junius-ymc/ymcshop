@@ -84,7 +84,7 @@ const ProductCard = ({ item }) => {
               ?
               <div className="bnt-mod">
               <div className="flex items-center">
-                <img className="img-icon-m" src="/src/img/icon/ic-cart.png" />
+                <img className="img-icon-m" src="/img/icon/ic-cart.png" />
               </div>
             </div>
               : 
@@ -93,7 +93,7 @@ const ProductCard = ({ item }) => {
               className="bnt-mod"
             >
               <div className="flex items-center">
-                <img className="img-icon-m" src="/src/img/icon/ic-cart.png" />
+                <img className="img-icon-m" src="/img/icon/ic-cart.png" />
               </div>
             </button>
             }

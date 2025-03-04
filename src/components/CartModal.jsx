@@ -31,7 +31,7 @@ const CartModal = ({ isOpen, onClose }) => {
 
           <button className="modal-bnt-close" onClick={onClose}>
             ✖
-            {/* <img className="img-icon-s" src="/src/img/icon/ic-x.png" /> */}
+            {/* <img className="img-icon-s" src="/img/icon/ic-x.png" /> */}
           </button>
 
           <div>

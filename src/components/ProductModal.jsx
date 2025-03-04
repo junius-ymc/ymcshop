@@ -38,7 +38,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
 
           <button className="modal-bnt-close" onClick={onClose} title={t("ttClose")}>
             ✖
-            {/* <img className="img-icon-s" src="/src/img/icon/ic-x.png" /> */}
+            {/* <img className="img-icon-s" src="/img/icon/ic-x.png" /> */}
           </button>
 
           {/* Swiper สำหรับเลื่อนดูรูปภาพ */}

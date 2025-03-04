@@ -36,7 +36,7 @@ const Login = () => {
       roleRedirect(role);
       toast.success(`${t("liWelcomeBack")}`, {
         bodyClassName: "toastify-toast-modify",
-        // icon: <img src="/src/img/icon/ic-cart.png"/>,
+        // icon: <img src="/img/icon/ic-cart.png"/>,
         // icon: false,
       });
     } catch (err) {

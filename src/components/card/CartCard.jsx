@@ -24,7 +24,7 @@ const CartCard = () => {
     <div className="modal-cartcard">
 
       <div className="div-head modal-cartcard-head setdiv-3">
-        <span><img className="img-icon-m" src="/src/img/icon/ic-cart.png" alt={t("ccShoppingCart")} /></span>
+        <span><img className="img-icon-m" src="/img/icon/ic-cart.png" alt={t("ccShoppingCart")} /></span>
         {t("ccShoppingCart")} {carts.length} {t("lcItem")}
       </div>
       {/* Border */}
@@ -75,7 +75,7 @@ const CartCard = () => {
                     onClick={() => actionUpdateQuantity(item.id, item.count - 1)}
                     className="modal-cartcard-content-box-row-2-quantity-minus-btn"
                   >
-                    <img className="img-icon-s" src="/src/img/icon/ic-down.png" alt="Minus" />
+                    <img className="img-icon-s" src="/img/icon/ic-down.png" alt="Minus" />
                   </button>
                 )}
                 <div className="modal-cartcard-content-box-row-2-quantity">
@@ -89,7 +89,7 @@ const CartCard = () => {
                     onClick={() => actionUpdateQuantity(item.id, item.count + 1)}
                     className="modal-cartcard-content-box-row-2-quantity-plus-btn"
                   >
-                    <img className="img-icon-s" src="/src/img/icon/ic-up.png" alt="Plus" />
+                    <img className="img-icon-s" src="/img/icon/ic-up.png" alt="Plus" />
                   </button>
                 )}
               </div>

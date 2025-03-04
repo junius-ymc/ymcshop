@@ -67,7 +67,7 @@ const ListCart = () => {
       <div className="cart-header">
         <div className="cart-header-title div-head">
           {/* <ListCheck size={36} /> */}
-          <img className="img-icon-m" src="../../../src/img/icon/ic-list.png" alt={t("lcListCart")} />
+          <img className="img-icon-m" src="/img/icon/ic-list.png" alt={t("lcListCart")} />
           {t("lcListCart")} {cart.length} {t("lcItem")}
         </div>
       </div>
@@ -116,7 +116,7 @@ const ListCart = () => {
                       {numberFormat(item.price * item.count)} {t("moneyUnit")}
                     </div>
                     <div onClick={() => actionRemoveProduct(item.id)} className="ic-trash">
-                      {/* <img className="img-icon-m" src="../../../src/img/icon/ic-x.png" alt="Trash" /> */}
+                      {/* <img className="img-icon-m" src="/img/icon/ic-x.png" alt="Trash" /> */}
                       <Trash2 />
                     </div>
                   </div>
