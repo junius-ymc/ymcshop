@@ -1,24 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { listProductBy } from "../../api/product";
-import moment from "moment/min/moment-with-locales"; // นำเข้า เปลี่ยนรูปแบบเวลา
+// import moment from "moment/min/moment-with-locales"; // นำเข้า เปลี่ยนรูปแบบเวลา
+import { dateFormat } from "../../utils/dateformat"; // นำเข้า เปลี่ยนรูปแบบเวลา
 import ProductModal from "../ProductModal"; // ✅ นำเข้า ProductModal
 import ShowSupporter from "./ShowSupporter";
 import TextAnimation from "./TextAnimation";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 // เปลี่ยนรูปแบบเวลา วัน/เดือน/ปี
-export const dateFormat = (date) => {
-  if (uslc == "") {
-    return moment(date).locale('en').format('LL')
-  } else {
-    return moment(date).locale(uslc).format('LL')
-  }
-};
+// export const dateFormat = (date) => {
+  // if (uslc == "") {
+  //   return moment(date).locale('en').format('LL')
+  // } else {
+  //   return moment(date).locale(uslc).format('LL')
+  // }
+  // const { i18n } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  //   const changeLanguage = (lang) => {
+  //     i18n.changeLanguage(lang);
+  //   };
+//  if (i18n.changeLanguage(lang) === "th") {
+//   return moment(date).locale('th').format('LL')
+//  } else {
+//     return moment(date).locale('en').format('LL')
+//   }
+// };
 
 const ContentShowNewProduct = () => {
   const [data, setData] = useState([]);
   // ส่วนของ ProductModal
   const [isOpen, setIsOpen] = useState(false); // ✅ ควบคุมการเปิด/ปิด modal
   const [selectedProduct, setSelectedProduct] = useState(null); // ✅ เก็บสินค้าที่ถูกเลือก
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   useEffect(() => {
     loadData();
@@ -62,7 +76,7 @@ const ContentShowNewProduct = () => {
         <div className="link-box">
 
           <div className="mini-link-box-l">
-            <span> {chgLng.minfo} <i className=""></i></span>
+            <span> {t("minfo")} <i className=""></i></span>
           </div>
 
           <div>
@@ -76,7 +90,7 @@ const ContentShowNewProduct = () => {
       {/* ---------------------------- Start Content ShowNewProduct ---------------------------- */}
       <div className="wrapper">
         <div>
-          <p className="div-head"> {chgLng.mShowNewProduct} </p>
+          <p className="div-head"> {t("mShowNewProduct")} </p>
         </div>
         <div className="div-content first-box relative">
           {data?.map((item, index) => (
@@ -97,7 +111,7 @@ const ContentShowNewProduct = () => {
                 {(item?.quantity === 0)
                   ?
                   <div className="show-sold-out-box">
-                    <div className="show-sold-out-text">{chgLng.sSoldOut}</div>
+                    <div className="show-sold-out-text">{t("sSoldOut")}</div>
                   </div>
                   : ""
                 }
@@ -107,6 +121,7 @@ const ContentShowNewProduct = () => {
                 <div className="first-content-catagory">{item.category.name}</div>
                 <h4>{item.title}</h4>
                 <p>{dateFormat(item.updatedAt)}</p>
+                {/* <p>{item.updatedAt}</p> */}
               </div>
             </div>
           ))}

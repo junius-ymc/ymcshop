@@ -4,8 +4,9 @@ import AppRoutes from './routes/AppRoutes'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const App = () => {
+import "./i18n"; // นำเข้าไฟล์ตั้งค่า i18n
 
+const App = () => {
   return (
     <>
       <ToastContainer
