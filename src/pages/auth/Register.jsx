@@ -6,17 +6,19 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import zxcvbn from "zxcvbn";
 import { useForm } from "react-hook-form";
-
 import { useNavigate, Link } from "react-router-dom";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const registerSchema = z
+
   .object({
-    email: z.string().email({ message: chgLng.rgtInvalEmail }),
-    password: z.string().min(6, { message: chgLng.rgtPassChk }),
+    email: z.string().email({ message: "Invalid Email !!!" }),
+    password: z.string().min(6, { message: "Password must be more than 6 characters" }),
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: chgLng.rgtPassCon,
+    message: "Passwords do not match",
     path: ["confirmPassword"],
   });
 
@@ -25,6 +27,8 @@ const Register = () => {
   const [passwordScore, setPasswordScore] = useState(0);
 
   const navigate = useNavigate();
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   const {
     register,
@@ -53,10 +57,10 @@ const Register = () => {
     // console.log("ok ลูกพี่");
     // Send to Back
     try {
-      const res = await axios.post("https://ymc-shop-api.vercel.app/api/register", data);
+      const res = await axios.post("http://localhost:5001/api/register", data);
       //console.log(res.data);
       // toast.success(res.data);
-      toast.success(`${chgLng.rgtRegisterSuccess}`, {
+      toast.success(`${t("rgtRegisterSuccess")}`, {
         bodyClassName: "toastify-toast-modify",
       });
       setTimeout(() => {
@@ -69,9 +73,9 @@ const Register = () => {
       const msgNotif = err.response?.data?.msgnotif;
       let chgLngMsg = "";
       if (msgNotif === '1') {
-        chgLngMsg = chgLng.rgtEmailCheck;
+        chgLngMsg = t("rgtEmailCheck");
       } else if (msgNotif === '2') {
-        chgLngMsg = chgLng.rgtServerError;
+        chgLngMsg = t("rgtServerError");
       }
       toast.error(`${chgLngMsg}`, {
         bodyClassName: "toastify-toast-modify",
@@ -85,7 +89,7 @@ const Register = () => {
   return (
 
     <div className="div-wrap regist">
-      <div className="div-head">{chgLng.mRegister}</div>
+      <div className="div-head">{t("mRegister")}</div>
       <div className="div-content">
 
         <div className="div-content-box">
@@ -96,12 +100,12 @@ const Register = () => {
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="regist-div-with-space">
-                  <div className="login-form-sign-in">{chgLng.rgtSignUp}</div>
+                  <div className="login-form-sign-in">{t("rgtSignUp")}</div>
                   <div>
                     <input
                       autoComplete="off"
                       {...register("email")}
-                      placeholder={chgLng.rgtEmail}
+                      placeholder={t("rgtEmail")}
                       type="email"
                       className={`form-input regist-input
                   ${errors.email && "error-message"}
@@ -116,7 +120,7 @@ const Register = () => {
                     <input
                       autoComplete="new-password"
                       {...register("password")}
-                      placeholder={chgLng.rgtPassword}
+                      placeholder={t("rgtPassword")}
                       type="password"
                       className={`form-input regist-input
                   ${errors.password && "error-message"}
@@ -147,7 +151,7 @@ const Register = () => {
                   <div>
                     <input
                       {...register("confirmPassword")}
-                      placeholder={chgLng.rgtConPass}
+                      placeholder={t("rgtConPass")}
                       type="password"
                       className={`form-input regist-input
                   ${errors.confirmPassword && "error-message"}
@@ -160,11 +164,11 @@ const Register = () => {
 
                   <div>
                     <button className="bnt-mod regist-bttn">
-                      {chgLng.rgtRegister}
+                      {t("rgtRegister")}
                     </button>
                   </div>
                   <div className="check-box-mod regist-form-go-login">
-                    <Link to="/login/" className="">{chgLng.rgtGoLogin}</Link>
+                    <Link to="/login/" className="">{t("rgtGoLogin")}</Link>
                   </div>
                 </div>
               </form>

@@ -5,12 +5,16 @@ import { toast } from "react-toastify";
 import useEcomStore from "../../store/ecom-store";
 import { useNavigate, Link } from "react-router-dom";
 
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+
 const Login = () => {
   // Javascript
   const navigate = useNavigate();
   const actionLogin = useEcomStore((state) => state.actionLogin);
   // const user = useEcomStore((state) => state.user);
   // console.log("user form zustand", user);
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   const [form, setForm] = useState({
     email: "",
@@ -30,7 +34,7 @@ const Login = () => {
       const res = await actionLogin(form);
       const role = res.data.payload.role;
       roleRedirect(role);
-      toast.success(`${chgLng.liWelcomeBack}`, {
+      toast.success(`${t("liWelcomeBack")}`, {
         bodyClassName: "toastify-toast-modify",
         // icon: <img src="/src/img/icon/ic-cart.png"/>,
         // icon: false,
@@ -40,9 +44,9 @@ const Login = () => {
       // const errMsg = err.response?.data?.message;
       // toast.error(errMsg);
       const erRr = err.response?.data?.errrr;
-      let chgLngMsg = erRr === "1" ? chgLng.liErrMsg
-        : erRr === "2" ? chgLng.liPasswordInvalid
-          : chgLng.liServerError;
+      let chgLngMsg = erRr === "1" ? t("liErrMsg")
+        : erRr === "2" ? t("liPasswordInvalid")
+          : t("liServerError");
       toast.error(`${chgLngMsg}`, {
         bodyClassName: "toastify-toast-modify",
       });
@@ -61,7 +65,7 @@ const Login = () => {
   return (
 
     <div className="div-wrap login">
-      <div className="div-head">{chgLng.mLogin}</div>
+      <div className="div-head">{t("mLogin")}</div>
       <div className="div-content">
         <div className="div-content-box">
 
@@ -69,12 +73,12 @@ const Login = () => {
             <div className="setdiv-3">
 
               <form onSubmit={handleSubmit}>
-                <div className="login-form-sign-in">{chgLng.liSignin}</div>
+                <div className="login-form-sign-in">{t("liSignin")}</div>
                 <div className="login-form-input">
                   <div>
                     <input
                       autoComplete="off"
-                      placeholder={chgLng.liEmail}
+                      placeholder={t("liEmail")}
                       className="form-input login-input"
                       onChange={handleOnChange}
                       name="email"
@@ -84,7 +88,7 @@ const Login = () => {
                   <div>
                     <input
                       autoComplete="new-password"
-                      placeholder={chgLng.liPassword}
+                      placeholder={t("liPassword")}
                       className="form-input login-input"
                       onChange={handleOnChange}
                       name="password"
@@ -94,11 +98,11 @@ const Login = () => {
                 
                   <div>
                     <button className="bnt-mod login-bttn">
-                      {chgLng.mLogin}
+                      {t("mLogin")}
                     </button>
                   </div>
                   <div className="check-box-mod login-form-go-register">
-                     <Link to="/register/" className="">{chgLng.liGoRegister}</Link>
+                     <Link to="/register/" className="">{t("liGoRegister")}</Link>
                   </div>
                 </div>
               </form>
