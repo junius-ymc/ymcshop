@@ -1,0 +1,157 @@
+{
+  "hash": "d575ccae",
+  "configHash": "fdda92ec",
+  "lockfileHash": "e1962675",
+  "browserHash": "b501deb4",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "ca62d5a9",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "cf32d7fc",
+      "needsInterop": true
+    },
+    "react-toastify": {
+      "src": "../../node_modules/react-toastify/dist/react-toastify.esm.mjs",
+      "file": "react-toastify.js",
+      "fileHash": "b8d388f3",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "8586624c",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "9b869904",
+      "needsInterop": false
+    },
+    "zod": {
+      "src": "../../node_modules/zod/lib/index.mjs",
+      "file": "zod.js",
+      "fileHash": "9b858691",
+      "needsInterop": false
+    },
+    "@hookform/resolvers/zod": {
+      "src": "../../node_modules/@hookform/resolvers/zod/dist/zod.mjs",
+      "file": "@hookform_resolvers_zod.js",
+      "fileHash": "184eb494",
+      "needsInterop": false
+    },
+    "zxcvbn": {
+      "src": "../../node_modules/zxcvbn/lib/main.js",
+      "file": "zxcvbn.js",
+      "fileHash": "00e19797",
+      "needsInterop": true
+    },
+    "react-hook-form": {
+      "src": "../../node_modules/react-hook-form/dist/index.esm.mjs",
+      "file": "react-hook-form.js",
+      "fileHash": "005d2362",
+      "needsInterop": false
+    },
+    "@stripe/stripe-js": {
+      "src": "../../node_modules/@stripe/stripe-js/lib/index.mjs",
+      "file": "@stripe_stripe-js.js",
+      "fileHash": "0692ce3a",
+      "needsInterop": false
+    },
+    "@stripe/react-stripe-js": {
+      "src": "../../node_modules/@stripe/react-stripe-js/dist/react-stripe.esm.mjs",
+      "file": "@stripe_react-stripe-js.js",
+      "fileHash": "a9a85c5c",
+      "needsInterop": false
+    },
+    "swiper/react": {
+      "src": "../../node_modules/swiper/swiper-react.mjs",
+      "file": "swiper_react.js",
+      "fileHash": "1bb40086",
+      "needsInterop": false
+    },
+    "moment/min/moment-with-locales": {
+      "src": "../../node_modules/moment/min/moment-with-locales.js",
+      "file": "moment_min_moment-with-locales.js",
+      "fileHash": "cb5b8a9f",
+      "needsInterop": true
+    },
+    "swiper/modules": {
+      "src": "../../node_modules/swiper/modules/index.mjs",
+      "file": "swiper_modules.js",
+      "fileHash": "4923e7d1",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "99993c2c",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "f52c750b",
+      "needsInterop": false
+    },
+    "zustand": {
+      "src": "../../node_modules/zustand/esm/index.mjs",
+      "file": "zustand.js",
+      "fileHash": "81913e44",
+      "needsInterop": false
+    },
+    "zustand/middleware": {
+      "src": "../../node_modules/zustand/esm/middleware.mjs",
+      "file": "zustand_middleware.js",
+      "fileHash": "cfcd8600",
+      "needsInterop": false
+    },
+    "lodash": {
+      "src": "../../node_modules/lodash/lodash.js",
+      "file": "lodash.js",
+      "fileHash": "1df8645b",
+      "needsInterop": true
+    },
+    "rc-slider": {
+      "src": "../../node_modules/rc-slider/es/index.js",
+      "file": "rc-slider.js",
+      "fileHash": "f613ba43",
+      "needsInterop": false
+    },
+    "numeral": {
+      "src": "../../node_modules/numeral/numeral.js",
+      "file": "numeral.js",
+      "fileHash": "8177472e",
+      "needsInterop": true
+    },
+    "react-image-file-resizer": {
+      "src": "../../node_modules/react-image-file-resizer/build/index.js",
+      "file": "react-image-file-resizer.js",
+      "fileHash": "e7080ba1",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-GP5W2EX5": {
+      "file": "chunk-GP5W2EX5.js"
+    },
+    "chunk-ZU5SFTFX": {
+      "file": "chunk-ZU5SFTFX.js"
+    },
+    "chunk-HJYKCAVU": {
+      "file": "chunk-HJYKCAVU.js"
+    },
+    "chunk-QTVD6AVW": {
+      "file": "chunk-QTVD6AVW.js"
+    },
+    "chunk-PR4QN5HX": {
+      "file": "chunk-PR4QN5HX.js"
+    }
+  }
+}

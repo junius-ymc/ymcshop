@@ -1,0 +1,295 @@
+.modal-div-close {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-div-open {
+  position: relative;
+  background-color: var(--bgcontent);
+  box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
+  padding: 8px;
+  /* max-width: 512px; */
+  max-width: 70vh;
+  width: 100%;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-bnt-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: var(--red);
+  padding: 6px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 0px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 3px;
+  z-index: 20;
+  color: var(--gray);
+}
+
+.modal-bnt-close:hover {
+  background-color: var(--gray);
+  color: var(--redfull);
+}
+
+/* Start Product Modal */
+
+.modal-swiper-size {
+  width: 100%;
+  height: 83vh;
+  /* max-height: fit-content; */
+}
+
+.modal-swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-swiper-slide img {
+  width: 100%;
+  height: 84vh;
+  object-fit: contain;
+  border-radius: 8px;
+  /* cursor: move; */
+}
+
+.modal-title {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.modal-description {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--gray);
+  text-align: center;
+}
+
+/* End Product Modal */
+
+/* Start CartCard - Cart Modal */
+
+.modal-cart-div-open {
+  position: relative;
+  background-color: var(--bgcontent);
+  box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
+  padding: 8px;
+  /* padding-right: 0px; */
+  /* max-width: 512px; */
+  max-width: 70vh;
+  width: 100%;
+  border-radius: 8px;
+  border-top-left-radius: 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-cartcard {
+  max-width: 80vh;
+  width: 100%;
+  max-height: 80vh;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal-cartcard-head {
+  position: absolute;
+  /* top: -33px;
+  left: 210px; */
+  top: -31px;
+  left: 0px;
+  gap: 4px;
+}
+
+.modal-cartcard-content {
+  padding: 8px;
+}
+
+.modal-cartcard-content-box {
+  padding: 8px;
+  background-color: var(--white);
+  /* border-width: 1px; */
+  border: 1px solid var(--btbghov);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.modal-cartcard-content-box-row-1 {
+  margin-bottom: 8px;
+  /* border-width: 1px; */
+  border: 1px solid var(--btbgact);
+  border-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding: 4px;
+  background-color: var(--bgcontent);
+}
+
+.modal-cartcard-content-box-row-1-title {
+  font-size: var(--fontsize14);
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--gray);
+  /* text-align: center; */
+}
+
+.modal-cartcard-content-box-row-1-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-cartcard-content-box-row-1-data-left {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-cartcard-content-box-row-1-data-left img {
+  border-radius: 4px;
+  max-width: 100px;
+  height: auto;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-cartcard-content-box-row-1-data-left-no-img {
+  border-radius: 4px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--redfull);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgb(255, 255, 255, 10%), rgb(0 0 0 / 50%));
+  color: var(--texclact);
+  font-size: var(--fontsize13);
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-cartcard-content-box-row-1-data-description {
+  white-space: pre-wrap;
+  text-wrap: wrap;
+  color: var(--gray);
+  font-size: var(--fontsize14);
+  padding-left: 10px;
+}
+
+.modal-cartcard-content-box-row-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-cartcard-content-box-row-2-quantity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 1px; */
+}
+
+.modal-cartcard-content-box-row-2-quantity {
+  border-width: 1px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  margin-left: 6px;
+  margin-right: 6px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: var(--btbgact);
+  font-size: var(--fontsize12);
+}
+
+.modal-cartcard-content-box-row-2-quantity-minus-btn,
+.modal-cartcard-content-box-row-2-quantity-plus-btn {
+  background-color: var(--bluelite);
+  border-radius: 3px;
+}
+
+.modal-cartcard-content-box-row-2-quantity-minus-btn:hover,
+.modal-cartcard-content-box-row-2-quantity-plus-btn:hover {
+  background-color: var(--red);
+  color: var(--black);
+}
+
+.modal-cartcard-content-box-row-2-quantity-count {
+  padding-left: 4px;
+  padding-right: 4px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--black);
+  font-size: var(--fontsize13);
+}
+
+.modal-cartcard-content-box-row-2-quantity-count-price {
+  padding-left: 4px;
+  padding-right: 4px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--bluedeep);
+  font-size: var(--fontsize14);
+  font-weight: 500;
+}
+
+.modal-cartcard-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: var(--white);
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+.modal-cartcard-total-count {
+  font-size: var(--fontsize17);
+  font-weight: 700;
+}
+
+.modal-cartcard-total-count-price {
+  font-size: var(--fontsize17);
+  font-weight: 700;
+  color: var(--bluedeep);
+}
+
+.modal-cartcard-total-count-price-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 6px;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  background-color: var(--bluelite);
+  color: var(--white);
+  font-size: var(--fontsize18);
+  font-weight: 500;
+}
+
+.modal-cartcard-total-count-price-btn:hover {
+  background-color: var(--bluedeep);
+  color: var(--bgcontent);
+}
+
+/* End CartCard - Cart Modal */
