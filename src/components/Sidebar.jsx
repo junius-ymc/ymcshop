@@ -118,7 +118,7 @@ const Sidebar = () => {
 
           <a className="header-logo">
             {/* <button className="sidebar-menu-button" onClick={toggleSidebar}> */}
-            <img src="/src/img/logo-s.png" onClick={toggleSidebar} />
+            <img src="/img/logo-s.png" onClick={toggleSidebar} />
             {/* </button> */}
           </a>
 
@@ -137,7 +137,7 @@ const Sidebar = () => {
 
             <li className="nav-item">
               <NavLink className="nav-link" to="/shop/">
-                <img className="img-icon-m" src="/src/img/icon/ic-shopping.png" />
+                <img className="img-icon-m" src="/img/icon/ic-shopping.png" alt={t("mShop")} />
                 <span className="nav-label">{t("mShop")}</span>
               </NavLink>
             </li>
