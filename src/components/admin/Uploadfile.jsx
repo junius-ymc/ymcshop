@@ -13,19 +13,20 @@ const Uploadfile = ({ form, setForm }) => {
 
     const handleOnChange = (e) => {
         // code
-        setIsLoading(true)
-        const files = e.target.files
+        setIsLoading(true);
+        const files = e.target.files;
         if (files) {
-            setIsLoading(true)
-            let allFiles = form.images  // [] empty array
+            setIsLoading(true);
+            // let allFiles = form.images  // [] empty array
+            let allFiles = [...form.images]; // ✅ ใช้สำเนาเพื่อให้ React อัปเดต UI ได้
             for (let i = 0; i < files.length; i++) {
                 // console.log(files[i])
 
                 // Validate
-                const file = files[i]
+                const file = files[i];
                 if (!file.type.startsWith('image/')) {
-                    toast.error(`File ${file.name} บ่แม่นรูป`)
-                    continue
+                    toast.error(`File ${file.name} บ่แม่นรูป`);
+                    continue;
                 }
                 // Image Resize 
                 Resize.imageFileResizer(
@@ -39,23 +40,19 @@ const Uploadfile = ({ form, setForm }) => {
                         // endpoint Backend
                         uploadFiles(token, data)
                             .then((res) => {
-                                console.log(res)
-                                allFiles.push(res.data)
-                                setForm({
-                                    ...form,
-                                    images: allFiles
-                                })
-                                setIsLoading(false)
-                                toast.success('Upload image Sucess!!!')
+                                console.log(res);
+                                allFiles.push(res.data);
+                                setForm({ ...form, images: allFiles }); // ✅ อัปเดต state อย่างถูกต้อง
+                                setIsLoading(false);
+                                toast.success('Upload image Sucess!!!');
                             })
                             .catch((err) => {
-                                console.log(err)
-                                setIsLoading(false)
+                                console.log(err);
+                                setIsLoading(false);
                             })
                     },
                     "base64"
                 )
-
 
             }
         }
@@ -86,17 +83,14 @@ const Uploadfile = ({ form, setForm }) => {
         <div className='my-4'>
             <div className='flex mx-4 gap-4 my-4'>
                 {
-                    isLoading && <Loader className='w-16 h-16 animate-spin'/>
+                    isLoading && <Loader className='w-16 h-16 animate-spin' />
                 }
-                
-                {/* Image */}
+
+                {/* ✅ ใช้ form.images ตรง ๆ */}
                 {
                     form.images.map((item, index) =>
                         <div className='relative' key={index}>
-                            <img
-                                className='w-24 h-24 hover:scale-105'
-                                src={item.url} />
-
+                            <img className='w-24 hover:scale-105' src={item.url} />
                             <span
                                 onClick={() => handleDelete(item.public_id)}
                                 className='absolute top-0 right-0 bg-red-500 px-2 py-1 rounded-full text-xs cursor-pointer'>X</span>
@@ -106,12 +100,7 @@ const Uploadfile = ({ form, setForm }) => {
             </div>
 
             <div>
-                <input
-                    onChange={handleOnChange}
-                    type='file'
-                    name='images'
-                    multiple
-                />
+            <input onChange={handleOnChange} type='file' name='images' multiple />
             </div>
 
         </div>

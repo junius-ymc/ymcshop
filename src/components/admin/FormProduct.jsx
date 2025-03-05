@@ -3,10 +3,6 @@ import useEcomStore from "../../store/ecom-store";
 import { createProduct, deleteProduct } from "../../api/product";
 import { toast } from "react-toastify";
 import Uploadfile from "./Uploadfile";
-import { Link } from "react-router-dom";
-import { Pencil, Trash } from "lucide-react";
-import { numberFormat } from "../../utils/number";
-import { dateFormat } from "../../utils/dateformat";
 
 const initialState = {
   title: "",
@@ -48,9 +44,9 @@ const FormProduct = () => {
     e.preventDefault();
     try {
       const res = await createProduct(token, form);
-      setForm(initialState);
-      getProduct();
       toast.success(`เพิ่มข้อมูล ${res.data.title} สำเร็จ`);
+      setForm(initialState); // ✅ รีเซ็ตค่า form หลังจากบันทึกสำเร็จ
+      getProduct();
     } catch (err) {
       console.log(err);
     }
