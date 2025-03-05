@@ -56,7 +56,7 @@ const Login = () => {
 
   const roleRedirect = (role) => {
     if (role === "admin") {
-      navigate("/admin");
+      navigate("/admin/");
     } else {
       navigate(-1);
     }
