@@ -17,7 +17,7 @@ const Shop = () => {
   const [itemsPerPage] = useState(8);
 
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
-  const sortedProducts = [...products].sort((a, b) => b.id - a.id);
+  // const sortedProducts = [...products].sort((a, b) => b.id - a.id);
 
   useEffect(() => {
     getProduct();
@@ -34,9 +34,9 @@ const Shop = () => {
 
   // จัดการการ scroll เมื่อมี hash ID
   useEffect(() => {
-    if (location.hash && sortedProducts.length > 0) {
+    if (location.hash && products.length > 0) {
       const id = location.hash.replace("#", "");
-      const productIndex = sortedProducts.findIndex(
+      const productIndex = products.findIndex(
         (product) => product.id.toString() === id
       );
 
@@ -60,8 +60,8 @@ const Shop = () => {
   // คำนวณสินค้าที่จะแสดง
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = sortedProducts.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
+  const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(products.length / itemsPerPage);
 
   return (
     <div>
