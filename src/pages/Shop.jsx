@@ -52,10 +52,10 @@ const Shop = () => {
               block: "center",
             });
           }
-        }, 1000);
+        }, 500);
       }
     }
-  }, [location.hash, sortedProducts, itemsPerPage]);
+  }, [location.hash, products, itemsPerPage]);
 
   // คำนวณสินค้าที่จะแสดง
   const indexOfLastItem = currentPage * itemsPerPage;
