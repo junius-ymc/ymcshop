@@ -110,7 +110,7 @@ const SearchCard = () => {
               <div key={index} className="search-card-by-category-input">
                 <label>
                   <input onChange={handleCheck} value={item.id} type="checkbox" />
-                  <span className="check-box-mod"> {item.name}</span>
+                  <span className="check-box-mod search-card-by-category-text"> {item.name}</span>
                 </label>
               </div>
             ))}

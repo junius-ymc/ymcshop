@@ -1122,19 +1122,21 @@ header.sticky {
   /* margin-bottom: 8px; */
 }
 
+.search-card-by-category-text {
+  font-size: var(--fontsize14);
+}
+
 .search-card-by-category-check-status input[type='checkbox']:checked+span {
   color: var(--white);
   background-color: var(--bluelite);
   border: 0;
   border-radius: 5px;
-  font-size: var(--fontsize12);
+  font-size: var(--fontsize13);
 }
 
 .search-card-by-category-input {
   display: flex;
   align-items: center;
-  font-size: var(--fontsize13);
-  /* gap: 20px; */
 }
 
 .search-card-by-price-value {
