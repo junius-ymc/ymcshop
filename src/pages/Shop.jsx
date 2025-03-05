@@ -52,7 +52,7 @@ const Shop = () => {
               block: "center",
             });
           }
-        }, 100);
+        }, 1000);
       }
     }
   }, [location.hash, sortedProducts, itemsPerPage]);
