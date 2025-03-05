@@ -106,6 +106,7 @@ const FormProduct = () => {
             rows="4"
           />
           <input
+            type="number"
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={form.price}
             onChange={handleOnChange}
@@ -157,11 +158,10 @@ const FormProduct = () => {
           <button
             key={i + 1}
             onClick={() => paginate(i + 1)}
-            className={`mx-1 px-2 py-1 rounded-sm ${
-              currentPage === i + 1
+            className={`mx-1 px-2 py-1 rounded-sm ${currentPage === i + 1
                 ? "bg-blue-500 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
+              }`}
           >
             {i + 1}
           </button>
@@ -185,11 +185,10 @@ const FormProduct = () => {
           <button
             key={i + 1}
             onClick={() => paginate(i + 1)}
-            className={`mx-1 px-2 py-1 rounded-sm ${
-              currentPage === i + 1
+            className={`mx-1 px-2 py-1 rounded-sm ${currentPage === i + 1
                 ? "bg-blue-500 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
+              }`}
           >
             {i + 1}
           </button>
