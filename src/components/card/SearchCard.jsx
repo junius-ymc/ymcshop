@@ -45,7 +45,7 @@ const SearchCard = () => {
       } else {
         getProduct();
       }
-    }, 200);
+    }, 300);
 
     return () => clearTimeout(delay);
   }, [text]);
@@ -82,64 +82,64 @@ const SearchCard = () => {
 
     setTimeout(() => {
       setOk(!ok);
-    }, 200);
+    }, 300);
   };
 
   return (
     <div>
       <div className="search-card-head">
-        
+
         <p className="div-head">{t("sbSearch")}</p>
         <div className="div-content search-card-box">
-        <div className="search-card-by-text">{t("sbProd")}</div>
-        {/* Search by Text */}
-        <input
-          onChange={(e) => setText(e.target.value)}
-          type="text"
-          placeholder={t("sbSearch") + " " + t("sbProd") + "...."}
-          className="form-input"
-        />
-        <hr />
-        {/* Search by Category */}
-        <div className="search-card-by-category-box">
-          <div className="search-card-by-category">{t("sbCategory")}</div>
+          <div className="search-card-by-text">{t("sbProd")}</div>
+          {/* Search by Text */}
+          <input
+            onChange={(e) => setText(e.target.value)}
+            type="text"
+            placeholder={t("sbSearch") + " " + t("sbProd") + "...."}
+            className="form-input"
+          />
+          <hr />
+          {/* Search by Category */}
+          <div className="search-card-by-category-box">
+            <div className="search-card-by-category">{t("sbCategory")}</div>
 
-          <div className="search-card-by-category-check-status">
+            <div className="search-card-by-category-check-status">
 
-            {categories.map((item, index) => (
-              <div key={index} className="search-card-by-category-input">
-                <label>
-                  <input onChange={handleCheck} value={item.id} type="checkbox" />
-                  <span className="check-box-mod search-card-by-category-text"> {item.name}</span>
-                </label>
-              </div>
-            ))}
+              {categories.map((item, index) => (
+                <div key={index} className="search-card-by-category-input">
+                  <label>
+                    <input onChange={handleCheck} value={item.id} type="checkbox" />
+                    <span className="check-box-mod search-card-by-category-text"> {item.name}</span>
+                  </label>
+                </div>
+              ))}
 
-          </div>
-        </div>
-        
-        <hr />
-        {/* Search by Price */}
-        <div className="search-card-by-price-box">
-          <h1 className="search-card-by-price">{t("sbPrice")}</h1>
-          <div>
-            <div className="search-card-by-price-value ">
-              <span>{t("sbPriceMin")}{numberFormat(price[0])}{t("moneyUnit")}</span>
-              <span>{t("sbPriceMax")}{numberFormat(price[1])}{t("moneyUnit")}</span>
             </div>
+          </div>
 
-            <Slider
-              onChange={handlePrice}
-              range
-              min={sPriceStart}
-              max={sPriceOver}
-              defaultValue={[sPriceMin, sPriceMax]}
-            />
+          <hr />
+          {/* Search by Price */}
+          <div className="search-card-by-price-box">
+            <h1 className="search-card-by-price">{t("sbPrice")}</h1>
+            <div>
+              <div className="search-card-by-price-value ">
+                <span>{t("sbPriceMin")}{numberFormat(price[0])}{t("moneyUnit")}</span>
+                <span>{t("sbPriceMax")}{numberFormat(price[1])}{t("moneyUnit")}</span>
+              </div>
 
+              <Slider
+                onChange={handlePrice}
+                range
+                min={sPriceStart}
+                max={sPriceOver}
+                defaultValue={[sPriceMin, sPriceMax]}
+              />
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };
