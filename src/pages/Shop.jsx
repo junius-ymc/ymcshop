@@ -55,7 +55,7 @@ const Shop = () => {
         }, 100);
       }
     }
-  }, [location.hash, products, itemsPerPage]);
+  }, [location.hash, sortedProducts, itemsPerPage]);
 
   // คำนวณสินค้าที่จะแสดง
   const indexOfLastItem = currentPage * itemsPerPage;
