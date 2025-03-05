@@ -34,9 +34,9 @@ const Shop = () => {
 
   // จัดการการ scroll เมื่อมี hash ID
   useEffect(() => {
-    if (location.hash && sortedProducts.length > 0) {
+    if (location.hash && products.length > 0) {
       const id = location.hash.replace("#", "");
-      const productIndex = sortedProducts.findIndex(
+      const productIndex = products.findIndex(
         (product) => product.id.toString() === id
       );
 
