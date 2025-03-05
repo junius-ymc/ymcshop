@@ -1,12 +1,9 @@
-import React, { useEffect, useState, Suspense } from "react";
-import { useLocation } from "react-router-dom";
-import useEcomStore from "../store/ecom-store";
-import SearchCard from "../components/card/SearchCard";
-
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import useEcomStore from '../store/ecom-store';
+import ProductCard from '../components/card/ProductCard';
+import SearchCard from '../components/card/SearchCard';
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
-
-// Lazy load ProductCard
-const LazyProductCard = React.lazy(() => import("../components/card/ProductCard"));
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -78,12 +75,9 @@ const Shop = () => {
             <p className="div-head">{t("sAllProd")}</p>
 
             <div className="div-content shop-product-cart">
-              {/* ใช้ Suspense เพื่อโหลด LazyProductCard แบบ lazy */}
-              <Suspense fallback={<div>Loading...</div>}>
-                {currentItems.map((item) => (
-                  <LazyProductCard key={item.id} item={item} />
-                ))}
-              </Suspense>
+              {currentItems.map((item) => (
+                <ProductCard key={item.id} item={item} />
+              ))}
             </div>
 
             {/* Pagination */}
