@@ -1127,12 +1127,13 @@ header.sticky {
   background-color: var(--bluelite);
   border: 0;
   border-radius: 5px;
-  font-size: var(--fontsize13);
+  font-size: var(--fontsize12);
 }
 
 .search-card-by-category-input {
   display: flex;
   align-items: center;
+  font-size: var(--fontsize13);
   /* gap: 20px; */
 }
 
