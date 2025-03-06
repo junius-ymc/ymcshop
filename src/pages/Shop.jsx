@@ -10,9 +10,7 @@ const Shop = () => {
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   useEffect(() => {
-    setIsLoading(true);
     getProduct();
-    setIsLoading(false);
   }, []);
 
   return (
