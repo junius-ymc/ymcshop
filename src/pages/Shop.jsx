@@ -3,16 +3,11 @@ import useEcomStore from '../store/ecom-store';
 import ProductCard from '../components/card/ProductCard';
 import SearchCard from '../components/card/SearchCard';
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
-import { Loader } from 'lucide-react';
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
   const products = useEcomStore((state) => state.products);
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
-  // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
-  // const sortedProducts = [...products].sort((a, b) => b.id - a.id);
-
-  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,9 +28,6 @@ const Shop = () => {
             <p className="div-head">{t("sAllProd")}</p>
 
             <div className="div-content shop-product-cart">
-              {
-                isLoading && <Loader className='w-16 h-16 animate-spin' />
-              }
               {
                 products.map((item, index) =>
                   <ProductCard key={index} item={item} />
