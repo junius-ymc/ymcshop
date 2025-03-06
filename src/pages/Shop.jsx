@@ -31,7 +31,7 @@ const Shop = () => {
               {loading ? (
                 <div className="flex flex-col items-center">
                   <br />
-                  <p>🔄กำลังโหลดอยู่จ้า...🕒</p>
+                  <p>⏳ ..กำลังโหลดอยู่จ้า.. 🕒</p>
                   <br />
                   <br />
                   <Loader className="w-16 h-16 animate-spin mt-2" />
