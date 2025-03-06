@@ -29,13 +29,15 @@ const Shop = () => {
 
             <div className="div-content shop-product-cart">
               {loading ? (
-                <div className="flex flex-col items-center">
+                // เริ่ม ตัวโหลดดิ้ง
+                <div className="loading-box">
                   <br />
-                  <p className="text-lg font-semibold text-gray-600 animate-pulse mt-2 mb-3">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
+                  <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
                   <br />
-                  <Loader className="w-16 h-16 animate-spin mt-2 mb-3" />
+                  <Loader className="loading-animate-icon loading-animate-spin" />
                   <br />
                 </div>
+                // จบ ตัวโหลดดิ้ง
               ) : (
                 products.map((item, index) => (
                   <ProductCard key={index} item={item} />

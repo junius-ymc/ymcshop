@@ -419,6 +419,46 @@ img {
 
 /* ------------------------------------- End notifycart ------------------------------------- */
 
+/* ------------------------------------- Start Loading ------------------------------------- */
+
+.loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-box p {
+  font-size: var(--fontsize18);
+  font-weight: 600;
+  color: var(--gray);
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+.loading-animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.loading-animate-icon {
+  width: 64px;
+  height: 64px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+
+/* ------------------------------------- End Loading ------------------------------------- */
+
 /* ------------------------------------- Start NAVIGATION BAR ------------------------------------- */
 
 .wrapper {

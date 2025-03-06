@@ -3,6 +3,7 @@ import { listProductBy } from "../../api/product";
 import NewProdCard from "../card/NewProdCard";
 import SwiperShowNewProduct from "./SwiperShowNewProduct";
 import { SwiperSlide } from "swiper/react";
+import { Loader } from 'lucide-react';
 
 const NewProduct = () => {
   const [data, setData] = useState([]);
@@ -33,7 +34,15 @@ const NewProduct = () => {
     // Code
     <div className="div-content">
       {loading ? (
-        <p>🔄กำลังโหลดอยู่จ้า...🕒</p> // สามารถเปลี่ยนเป็น Spinner หรือ Skeleton ได้
+        // เริ่ม ตัวโหลดดิ้ง
+        <div className="loading-box">
+          <br />
+          <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
+          <br />
+          <Loader className="loading-animate-icon loading-animate-spin" />
+          <br />
+        </div>
+        // จบ ตัวโหลดดิ้ง
       ) : (
         <SwiperShowNewProduct>
           {data?.map((item, index) => (

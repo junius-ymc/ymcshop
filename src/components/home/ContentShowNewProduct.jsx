@@ -6,6 +6,7 @@ import ProductModal from "../ProductModal"; // ✅ นำเข้า ProductMod
 import ShowSupporter from "./ShowSupporter";
 import TextAnimation from "./TextAnimation";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import { Loader } from 'lucide-react';
 
 
 const ContentShowNewProduct = () => {
@@ -80,7 +81,15 @@ const ContentShowNewProduct = () => {
           <p className="div-head"> {t("mShowNewProduct")} </p>
         </div>
         {loading ? (
-          <p>🔄กำลังโหลดอยู่จ้า...🕒</p> // สามารถเปลี่ยนเป็น Spinner หรือ Skeleton ได้
+          // เริ่ม ตัวโหลดดิ้ง
+          <div className="loading-box">
+            <br />
+            <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
+            <br />
+            <Loader className="loading-animate-icon loading-animate-spin" />
+            <br />
+          </div>
+          // จบ ตัวโหลดดิ้ง
         ) : (
           <div className="div-content first-box relative">
             {data?.map((item, index) => (
