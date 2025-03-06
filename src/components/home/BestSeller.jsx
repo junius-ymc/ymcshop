@@ -6,6 +6,7 @@ import { SwiperSlide } from "swiper/react";
 
 const BestSeller = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // เพิ่มตัวแปร Loading
 
   useEffect(() => {
     // code
@@ -13,12 +14,16 @@ const BestSeller = () => {
   }, []);
 
   const loadData = () => {
+    setLoading(true); // เริ่มโหลด
     listProductBy("sold", "desc", 12) // จำนวนที่จะให้แสดงสินค้า
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false); // โหลดเสร็จ
       });
   };
 
@@ -27,15 +32,17 @@ const BestSeller = () => {
   return (
     // Code
     <div className="div-content">
-
-      <SwiperShowBestSeller>
-        {data?.map((item, index) => (
-          <SwiperSlide key={index}>
-            <NewProdCard item={item} />
-          </SwiperSlide>
-        ))}
-      </SwiperShowBestSeller>
-
+      {loading ? (
+        <p>🔄กำลังโหลดอยู่จ้า...🕒</p> // สามารถเปลี่ยนเป็น Spinner หรือ Skeleton ได้
+      ) : (
+        <SwiperShowBestSeller>
+          {data?.map((item, index) => (
+            <SwiperSlide key={index}>
+              <NewProdCard item={item} />
+            </SwiperSlide>
+          ))}
+        </SwiperShowBestSeller>
+      )}
     </div>
   );
 };

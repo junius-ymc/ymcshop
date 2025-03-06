@@ -5,26 +5,8 @@ import { dateFormat } from "../../utils/dateformat"; // นำเข้า เ�
 import ProductModal from "../ProductModal"; // ✅ นำเข้า ProductModal
 import ShowSupporter from "./ShowSupporter";
 import TextAnimation from "./TextAnimation";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 
-// เปลี่ยนรูปแบบเวลา วัน/เดือน/ปี
-// export const dateFormat = (date) => {
-  // if (uslc == "") {
-  //   return moment(date).locale('en').format('LL')
-  // } else {
-  //   return moment(date).locale(uslc).format('LL')
-  // }
-  // const { i18n } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
-  //   const changeLanguage = (lang) => {
-  //     i18n.changeLanguage(lang);
-  //   };
-//  if (i18n.changeLanguage(lang) === "th") {
-//   return moment(date).locale('th').format('LL')
-//  } else {
-//     return moment(date).locale('en').format('LL')
-//   }
-// };
 
 const ContentShowNewProduct = () => {
   const [data, setData] = useState([]);
@@ -33,18 +15,23 @@ const ContentShowNewProduct = () => {
   const [selectedProduct, setSelectedProduct] = useState(null); // ✅ เก็บสินค้าที่ถูกเลือก
 
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const [loading, setLoading] = useState(true); // เพิ่มตัวแปร Loading
 
   useEffect(() => {
     loadData();
   }, []);
 
   const loadData = () => {
+    setLoading(true); // เริ่มโหลด
     listProductBy("createdAt", "desc", 4)
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false); // โหลดเสร็จ
       });
   };
 
@@ -92,40 +79,44 @@ const ContentShowNewProduct = () => {
         <div>
           <p className="div-head"> {t("mShowNewProduct")} </p>
         </div>
-        <div className="div-content first-box relative">
-          {data?.map((item, index) => (
-            <div className="first-box-content" key={index} onClick={() => openModal(item)}>
-              <div>
-                {item.images && item.images.length > 0 ? (
-                  <div className="first-box-content-img">
-                    <img
-                      src={item.images[0].url}
-                      alt={item.title}
-                    />
-                  </div>
-                ) : (
-                  <div className="first-content-noimage">
-                    No Image
-                  </div>
-                )}
-                {(item?.quantity === 0)
-                  ?
-                  <div className="show-sold-out-box">
-                    <div className="show-sold-out-text">{t("sSoldOut")}</div>
-                  </div>
-                  : ""
-                }
-              </div>
+        {loading ? (
+          <p>🔄กำลังโหลดอยู่จ้า...🕒</p> // สามารถเปลี่ยนเป็น Spinner หรือ Skeleton ได้
+        ) : (
+          <div className="div-content first-box relative">
+            {data?.map((item, index) => (
+              <div className="first-box-content" key={index} onClick={() => openModal(item)}>
+                <div>
+                  {item.images && item.images.length > 0 ? (
+                    <div className="first-box-content-img">
+                      <img
+                        src={item.images[0].url}
+                        alt={item.title}
+                      />
+                    </div>
+                  ) : (
+                    <div className="first-content-noimage">
+                      No Image
+                    </div>
+                  )}
+                  {(item?.quantity === 0)
+                    ?
+                    <div className="show-sold-out-box">
+                      <div className="show-sold-out-text">{t("sSoldOut")}</div>
+                    </div>
+                    : ""
+                  }
+                </div>
 
-              <div className="first-content">
-                <div className="first-content-catagory">{item.category.name}</div>
-                <h4>{item.title}</h4>
-                <p>{dateFormat(item.updatedAt)}</p>
-                {/* <p>{item.updatedAt}</p> */}
+                <div className="first-content">
+                  <div className="first-content-catagory">{item.category.name}</div>
+                  <h4>{item.title}</h4>
+                  <p>{dateFormat(item.updatedAt)}</p>
+                  {/* <p>{item.updatedAt}</p> */}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
       {/* ---------------------------- End Content ShowNewProduct ---------------------------- */}
 
