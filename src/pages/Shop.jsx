@@ -3,6 +3,7 @@ import useEcomStore from '../store/ecom-store';
 import ProductCard from '../components/card/ProductCard';
 import SearchCard from '../components/card/SearchCard';
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import { Loader } from 'lucide-react';
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -27,13 +28,15 @@ const Shop = () => {
             <p className="div-head">{t("sAllProd")}</p>
 
             <div className="div-content shop-product-cart">
-            {loading ? (
-            <p>🔄กำลังโหลดอยู่จ้า...🕒</p> // ✅ ตรงนี้เปลี่ยนเป็น Skeleton หรือ Spinner ได้
-          ) : (
+              {loading
+                ?
+                `<p>🔄กำลังโหลดอยู่จ้า...🕒</p> ` +
+                <Loader className='w-16 h-16 animate-spin' />
+                :
                 products.map((item, index) => (
                   <ProductCard key={index} item={item} />
-              ))
-            )}
+                )
+                )}
             </div>
           </div>
         </div>
