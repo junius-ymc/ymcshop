@@ -10,19 +10,20 @@
 /* ------------------------------------- แถบบาร์ขนาดใหญ่ ------------------------------------- */
 .sidebar {
   position: fixed;
-  top: 28px;
+  top: 0px;
   right: 0px;
   z-index: 22;
   /* width: 180px; */
   width: 140px;
-  height: 93vh;
-  background: var(--bghead);
+  height: 100vh;
+  background: var(--gray);
   transition: all 0.4s ease;
   /* ตัดกรอบให้มุม */
   /* border-bottom-left-radius: 10px; */
   /* border-top-left-radius: 10px; */
   /* ตัดกรอบให้มุม */
   border-radius: 8px;
+  opacity: 95%;
 }
 
 /* ------------------------------------- แถบบาร์ย่อขนาดกลาง ------------------------------------- */
@@ -33,20 +34,14 @@
 .sidebar .sidebar-header {
   display: flex;
   position: relative;
-  padding: 5px 7px;
+  padding: 27px 7px;
   align-items: center;
   justify-content: space-between;
   /* ตัดกรอบให้มุม */
-  border-radius: 8px;
-}
-
-/* ------------------------------------- รูปโลโก้ ------------------------------------- */
-.sidebar-header .header-logo img {
-  width: auto;
-  height: 42px;
-  display: block;
-  object-fit: contain;
-  /* border-radius: 10%; */
+  /* border-radius: 8px; */
+  /* background: var(--black); */
+  /* height: 54px; */
+  /* height: 100%; */
 }
 
 /* ------------------------------------- ปุ่มลูกศร ซ้าย/ขวา ซ้อนโชว์แถบ ------------------------------------- */
@@ -68,10 +63,12 @@
   /* background: var(--red); */
 }
 
+
+
 .sidebar-header .sidebar-toggler {
   position: absolute;
-  /* top: -10px; */
-  right: 3px;
+  top: 10px;
+  right: 94px;
   height: 36px;
   width: 36px;
   border: none;
@@ -81,12 +78,15 @@
   justify-content: center;
   transition: 0.4s ease;
   border-radius: 6px;
-  border: 1px solid var(--bgcolo);
-  /* background: var(--red); */
+  /* border: 1px solid var(--bgcolo); */
+  background: var(--btbgcol);
+  /* z-index: 30; */
 }
 
+
+
 .sidebar.collapsed .sidebar-header .sidebar-toggler {
-  transform: translate(-4px, 54px);
+  transform: translate(87px, 0px);
 }
 
 .sidebar-header .sidebar-toggler span,
@@ -96,6 +96,7 @@
 
 .sidebar.collapsed .sidebar-header .sidebar-toggler span {
   transform: rotate(180deg);
+  /* transform: rotate(0deg); */
 }
 
 .sidebar-header .sidebar-toggler:hover {
@@ -109,7 +110,7 @@
   padding: 0 4px;
   flex-direction: column;
   /* transform: translateY(10px); */
-  transform: translateY(6px);
+  transform: translateY(4px);
   transition: 0.4s ease;
 }
 
@@ -117,8 +118,8 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
-  padding-bottom: 20px;
-  height: calc(103vh - 227px);
+  padding-bottom: 10px;
+  height: calc(100vh - 190px);
 }
 
 .sidebar .sidebar-nav .primary-nav:hover {
@@ -127,12 +128,12 @@
 
 .sidebar.collapsed .sidebar-nav .primary-nav {
   overflow: unset;
-  transform: translateY(60px);
+  transform: translateY(4px);
 }
 
 /* ------------------------------------- กำหนดขนาดของ กล่องย่อย ของแถบใหญ่ ------------------------------------- */
 .sidebar-nav .nav-item .nav-link {
-  color: var(--black);
+  color: var(--btbghov);
   display: flex;
   gap: 6px;
   white-space: nowrap;
@@ -141,7 +142,7 @@
   align-items: center;
   text-decoration: none;
   /* เส้นสีขอบ ของกล่อง */
-  border: 1px solid var(--bgcolo);
+  border: 1px solid var(--black);
   transition: 0.4s ease;
   /* font-size: 16px; */
   /* clamp(ขนาดเล็กสุด, สเกลในการขยาย, ขนาดใหญ่สุด) */
@@ -149,7 +150,7 @@
 }
 
 .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) {
-  color: var(--texheadhov);
+  color: var(--white);
   /* background: var(--btbghov); */
   background: var(--bluelite);
   cursor: pointer;
@@ -171,7 +172,7 @@
 /* ------------------------------------- ปุ่มสองตัวด้านล่าง ------------------------------------- */
 .sidebar-nav .secondary-nav {
   position: absolute;
-  bottom: 11px;
+  bottom: 30px;
   width: 100%;
 }
 
@@ -211,7 +212,7 @@
   overflow-y: unset;
   pointer-events: none;
   border-radius: 10px 0px 0px 10px;
-  background: var(--bghead);
+  background: var(--gray);
   transition: 0s;
 }
 
@@ -232,7 +233,7 @@
 }
 
 .dropdown-menu .nav-item .nav-link {
-  color: var(--bluedeep);
+  color: var(--btbgcol);
   padding: 5px 5px;
   /* font-size: 15px; */
   /* clamp(ขนาดเล็กสุด, สเกลในการขยาย, ขนาดใหญ่สุด) */
