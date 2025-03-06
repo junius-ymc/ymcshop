@@ -9,7 +9,7 @@ const Shop = () => {
   const products = useEcomStore((state) => state.products);
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
-  const sortedProducts = [...products].sort((a, b) => b.id - a.id);
+  // const sortedProducts = [...products].sort((a, b) => b.id - a.id);
 
   useEffect(() => {
     getProduct();
