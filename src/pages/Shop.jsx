@@ -10,12 +10,12 @@ const Shop = () => {
   const products = useEcomStore((state) => state.products);
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
-  const sortedProducts = [...products].sort((a, b) => b.id - a.id);
+  // const sortedProducts = [...products].sort((a, b) => b.id - a.id);
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    // setIsLoading(true);
+    setIsLoading(true);
     getProduct();
     setIsLoading(false);
   }, []);
@@ -37,7 +37,7 @@ const Shop = () => {
                 isLoading && <Loader className='w-16 h-16 animate-spin' />
               }
               {
-                sortedProducts.map((item, index) =>
+                products.map((item, index) =>
                   <ProductCard key={index} item={item} />
                 )
               }
