@@ -28,17 +28,19 @@ const Shop = () => {
             <p className="div-head">{t("sAllProd")}</p>
 
             <div className="div-content shop-product-cart">
-              {loading
-                ?
-                `
-                <p>🔄กำลังโหลดอยู่จ้า...🕒</p> 
-                ${<Loader className='w-16 h-16 animate-spin' />}
-                `
-                :
+              {loading ? (
+                <div className="flex flex-col items-center">
+                  <br />
+                  <p>🔄กำลังโหลดอยู่จ้า...🕒</p>
+                  <br />
+                  <br />
+                  <Loader className="w-16 h-16 animate-spin mt-2" />
+                </div>
+              ) : (
                 products.map((item, index) => (
                   <ProductCard key={index} item={item} />
-                )
-                )}
+                ))
+              )}
             </div>
           </div>
         </div>
