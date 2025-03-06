@@ -61,24 +61,6 @@ function MainNav() {
 
     <nav className="navbox">
 
-      {/* ----------- เริ่ม TOP WEB ----------- */}
-      <div className="topweb">
-        <div className="wrapper">
-          <div className="top-web-left">
-            <a href="/" target="_self">{t("mHome1")}</a>
-            <NavLink to={"/aboutus/"}>{t("mAboutUs")}</NavLink>
-            <NavLink to={"/contactus/"}>{t("mContactUs")}</NavLink>
-          </div>
-
-          <div className="top-web-right">
-            <i className="top-web-right"><img src="/img/icon/ic-facebook.png" /></i>
-            <i className="top-web-right"><img src="/img/icon/ic-instagram.png" /></i>
-            <i className="top-web-right"><img src="/img/icon/ic-youtube.png" /></i>
-          </div>
-        </div>
-      </div>
-      {/* ----------- จบ TOP WEB ----------- */}
-
       {/* ----------- เริ่ม NAVIGATION NAVBAR ----------- */}
       <header>
         <div className="wrapper">
@@ -90,7 +72,7 @@ function MainNav() {
               <div className="setdiv-3">
                 <i className="logo">
                   <NavLink to={"/"}>
-                    <img src="/img/logo-b.png" />
+                    <img src="/public/img/logo-b.png" />
                   </NavLink>
                 </i>
                 {/* </div> */}
@@ -98,7 +80,7 @@ function MainNav() {
 
                 {/* Start Show Menu Button */}
                 <div className="times-1" id="times-1" onClick={showMenu}>
-                  <img className="bttn" src="/img/icon/ic-menu.png" />
+                  <img className="bttn" src="/public/img/icon/ic-menu.png" />
                 </div>
                 {/* End Show Menu Button */}
 
@@ -107,12 +89,12 @@ function MainNav() {
                 <ul className="navbar" id="navbar" ref={navbar}>
                   <div className="times-2" id="times-2" >
                     <i onClick={hideMenu} className="bttn">
-                      <img className="img-icon-s" src="/img/icon/ic-x.png" />
+                      <img className="img-icon-s" src="/public/img/icon/ic-x.png" />
                     </i>
                   </div>
 
                   <div onClick={hideMenu} className="logo-s">
-                    <img className="img-logo-s" src="/img/logo-s.png" />
+                    <img className="img-logo-s" src="/public/img/logo-s.png" />
                   </div>
 
                   <li>
@@ -200,7 +182,7 @@ function MainNav() {
                   }
                   to={"/search/"}
                 >
-                  <img className="img-icon-s" src="/img/icon/ic-search.png" />
+                  <img className="img-icon-s" src="/public/img/icon/ic-search.png" />
                 </NavLink>
               </div> */}
               {/* ถึงตรงนี้ ส่วนของเมนู ค้นหาสินค้า */}
@@ -218,6 +200,9 @@ function MainNav() {
           {/* <ScrollToTopButton /> */}
 
         </div>
+
+
+        
       </header>
       {/* ----------- จบ NAVIGATION NAVBAR ----------- */}
 

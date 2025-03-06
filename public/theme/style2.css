@@ -53,6 +53,7 @@
 } */
 
 body {
+  height: 100%;
   background-color: var(--bgcolo);
   font-family: serif, sans-serif;
   /* เปลี่ยนฟอนท์เป็น มาะลิ ลิงค์มาจากกูเกิ้ล */
@@ -129,7 +130,7 @@ i {
 
 .div-content-box {
   background-color: var(--white);
-  padding: 12px;
+  padding: 10px;
   border-radius: 0.375rem;
   border-width: 1px;
   box-shadow: var(--box-shadow-mid);
@@ -158,9 +159,9 @@ i {
   background-color: var(--bgcontent);
 }
 
-.addgap {
+/* .addgap {
   gap: 12px;
-}
+} */
 
 /* ------------------------------------- End Set Div ------------------------------------- */
 
@@ -231,12 +232,30 @@ i {
 
 /* ------------------------------------- End form input ------------------------------------- */
 
+/* ------------------------------------- Start form check-box ------------------------------------- */
+
+.check-box-mod {
+  font-size: var(--fontsize15);
+  margin-left: 1px;
+  padding: 2px;
+  padding-right: 6px;
+  border-radius: 4px;
+}
+
+.check-box-mod:hover {
+  background-color: var(--bluelite);
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* ------------------------------------- End form check-box ------------------------------------- */
+
 /* ------------------------------------- Start Button ------------------------------------- */
 
 .bnt-mod {
   background-color: var(--bluelite);
   border-radius: 6px;
-  padding: 6px 8px;
+  padding: 6px 6px;
   box-shadow: var(--box-shadow-mid);
 }
 
@@ -249,7 +268,7 @@ i {
 .bttn {
   background-color: var(--btbgcol);
   color: var(--gray);
-  padding: 6px 8px;
+  padding: 5px 6px;
   border-radius: 6px;
   font-size: var(--fontsize15);
   font-weight: 600;
@@ -485,7 +504,7 @@ header .wrapper .navbar {
 }
 
 header .wrapper .navbar li a {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 header .wrapper .navbar li a:hover,
@@ -942,13 +961,13 @@ header.sticky {
   height: 100%;
   border-radius: 6px;
   z-index: 0;
+  overflow: hidden;
 }
 
 .show-sold-out-text {
   position: absolute;
-  bottom: 42%;
-  left: 10px;
-  right: 10px;
+  top: 45%;
+  right: -50px;
   color: var(--bgcontent);
   text-align: center;
   font-size: var(--fontsize18);
@@ -957,6 +976,15 @@ header.sticky {
   background-color: var(--red);
   opacity: 60%;
   border-radius: 2px;
+  transform: rotate(25deg);
+  width: 150%;
+  padding: 1px;
+}
+
+.show-sold-out-text:hover {
+  background-color: var(--texclact);
+  opacity: 70%;
+  transform: rotate(25deg) scale(1.2);
 }
 
 .wrap-shop {
@@ -1057,7 +1085,7 @@ header.sticky {
 /* ------------------------------------- Start Shop - SearchCard ------------------------------------- */
 .search-card {
   width: 30%;
-  min-width: 22vh;
+  min-width: 20vh;
   height: 100vh;
   /* padding: 12px; */
   padding-right: 0px;
@@ -1094,32 +1122,21 @@ header.sticky {
   /* margin-bottom: 8px; */
 }
 
+.search-card-by-category-text {
+  font-size: var(--fontsize14);
+}
+
 .search-card-by-category-check-status input[type='checkbox']:checked+span {
   color: var(--white);
   background-color: var(--bluelite);
   border: 0;
   border-radius: 5px;
+  font-size: var(--fontsize13);
 }
 
 .search-card-by-category-input {
   display: flex;
   align-items: center;
-  /* gap: 20px; */
-}
-
-.check-box-mod {
-  font-size: var(--fontsize15);
-  margin-left: 1px;
-  padding: 3px;
-  padding-right: 8px;
-  border-radius: 4px;
-}
-
-.check-box-mod:hover {
-  background-color: var(--bluelite);
-  color: var(--white);
-  cursor: pointer;
-
 }
 
 .search-card-by-price-value {
@@ -1127,7 +1144,6 @@ header.sticky {
   display: flex;
   justify-content: space-between;
   font-size: var(--fontsize12);
-  /* font-weight: 600; */
 }
 
 /* ------------------------------------- End Shop - SearchCard ------------------------------------- */
@@ -1238,6 +1254,11 @@ header.sticky {
   width: 150px;
   height: 100%;
   cursor: pointer;
+}
+
+.cart-list-left-data-1 img:hover {
+  transition-duration: 300ms;
+  transform: scale(1.06);
 }
 
 .cart-list-left-data-1-no-img {
@@ -1457,77 +1478,36 @@ header.sticky {
 /* ------------------------------------- Start Register ------------------------------------- */
 
 .regist {
+  /* justify-items: center; */
   /* width: 100%; */
-  display: flex;
-  justify-content: center;
-  background-color: #ffffff;
+  height: 100vh;
 }
 
 .regist-form {
-  /* width: 100%; */
-  padding: 32px;
   justify-items: center;
-  /* align-items: center; */
-}
-
-.regist-head {
-  font-size: 24px;
-  line-height: 32px;
-  text-align: center;
-  /* margin-top: 16px; */
-  margin-bottom: 20px;
-  font-weight: 600;
 }
 
 .regist-div-with-space {
   display: block;
+  justify-items: center;
 }
 
 .regist-div-with-space>*+* {
-  margin-top: 1rem;
-  /* 16px */
+  margin-top: 16px;
 }
 
-.email-input,
-.password-input,
-.confirmPassword-input {
-  border: 1px solid #e2e8f0;
-  /* เส้นขอบเทาอ่อน */
-  padding: 0.5rem 0.75rem;
-  /* padding แนวนอน 12px แนวตั้ง 8px */
-  border-radius: 0.375rem;
-  /* มุมโค้ง */
-  outline: none;
-  /* ลบเส้นขอบเมื่อมีการโฟกัส */
-  transition: all 0.2s ease;
-  /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
-  width: 350px;
+.regist-input {
+  /* width: 350px; */
+  margin-bottom: 1px;
 }
 
 .regist-bttn {
-  width: 350px;
   justify-content: center;
+  color: var(--white);
+  padding: 6px 16px;
 }
 
-/* เมื่อช่องกรอกได้รับการโฟกัส */
-.email-input,
-.password-input,
-.confirmPassword-input:focus {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
-  /* แสงฟ้ารอบๆ ช่องกรอก */
-  border-color: transparent;
-  /* ลบเส้นขอบ */
-}
-
-/* ตรวจสอบความถูกต้อง  */
-.email-input,
-.password-input,
-.confirmPassword-input:valid {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
-  color: green;
-}
-
-.email-input:invalid {
+.form-input:invalid {
   color: rgb(255, 0, 0);
   border-color: rgb(255, 0, 0);
 }
@@ -1545,10 +1525,20 @@ header.sticky {
   color: red;
 }
 
+.div-pass-score {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
 .pass-score {
   width: 20%;
   padding-left: 4px;
   padding-right: 4px;
+}
+
+.pass-score-block {
+  border-radius: 4px;
+  height: 8px;
 }
 
 .passscore-bg-red {
@@ -1563,7 +1553,190 @@ header.sticky {
   background-color: var(--greenfull);
 }
 
+.regist-form-go-login {
+  margin-top: 12px;
+  padding-left: 6px;
+  text-align: center;
+  font-size: var(--fontsize15);
+}
+
 /* ------------------------------------- End Register ------------------------------------- */
+
+/* ------------------------------------- Start Login ------------------------------------- */
+
+.login {
+  height: 100vh;
+}
+
+.login-form {
+  justify-items: center;
+}
+
+.login-form-input {
+  justify-items: center;
+}
+
+.login-input {
+  margin-bottom: 12px;
+}
+
+.form-input:invalid {
+  color: rgb(255, 0, 0);
+  border-color: rgb(255, 0, 0);
+}
+
+.login-bttn {
+  text-align: center;
+  color: var(--white);
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.login-form-sign-in {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.login-form-go-register {
+  margin-top: 12px;
+  padding-left: 6px;
+  text-align: center;
+  font-size: var(--fontsize15);
+}
+
+
+/* ------------------------------------- End Login ------------------------------------- */
+
+/* ------------------------------------- Start HistoryCard ------------------------------------- */
+
+.historycard {
+  margin: 0px 0px;
+}
+
+.historycard-product-table-wrap {
+  /* border: 1px solid var(--bghead); */
+  /* background-color: var(--btbgact); */
+  width: 100%;
+}
+
+.historycard-table {
+  /* background-color: var(--btbgact); */
+  border-radius: 6px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid var(--bghead);
+  /* margin-bottom: 10px; */
+}
+
+.historycard-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--texclact);
+  padding: 6px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: var(--white);
+  font-size: var(--fontsize13);
+  line-height: 10px;
+}
+
+.historycard-font-date {
+  font-weight: 600;
+  padding-top: 6px;
+  /* text-wrap: wrap; */
+}
+
+.historycard-order-status {
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 9999px;
+  font-size: var(--fontsize13);
+  color: var(--texclact);
+}
+
+.historycard-order-status-not {
+  background-color: var(--bgcolo);
+  /* color: var(--texclact); */
+}
+
+.historycard-order-status-processing {
+  background-color: var(--bgcolo);
+  color: var(--bluedeep);
+}
+
+.historycard-order-status-Completed {
+  background-color: var(--white);
+  color: var(--greenfull);
+}
+
+.historycard-order-status-Cancelled {
+  background-color: var(--bgcolo);
+  color: var(--redfull);
+}
+
+.historycard-order-parcel-number {
+  width: 100%;
+  text-align: center;
+  margin-top: 12px;
+  color: var(--greenfull);
+}
+
+.historycard-product-table {
+  width: 100%;
+  text-align: center;
+}
+
+.historycard-product-table-header {
+  background-color: var(--btbghov);
+  /* border: solid 1px var(--bghead); */
+}
+
+.historycard-product-table-th {
+  border: solid 1px var(--texclact);
+  background-color: var(--btbghov);
+}
+
+.historycard-product-table-tr {
+  font-size: var(--fontsize14);
+  color: var(--texclact);
+  /* background-color: var(--bgcontent); */
+}
+
+.historycard-product-table-td {
+  border: solid 1px var(--bghead);
+  /* background-color: var(--bghead); */
+}
+
+.historycard-product-table-total {
+  /* border: solid 1px var(--texclact); */
+  text-align: center;
+  /* color: var(--texclact); */
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+
+}
+
+.historycard-product-table-total span {
+  /* border: solid 1px var(--bghead); */
+  /* text-align: center; */
+  font-size: var(--fontsize17);
+  font-weight: 600;
+  /* background-color: var(--bgcontent); */
+  /* padding-left: 12%; */
+  /* padding-right: 12%; */
+  padding: 4px;
+}
+
+.historycard-product-table-space {
+  padding-top: 5px;
+}
+
+/* ------------------------------------- End HistoryCard ------------------------------------- */
 
 /* ------------------------------------- Start FOOTER ------------------------------------- */
 footer {
@@ -1744,7 +1917,7 @@ footer {
     display: flex;
     align-items: center;
     position: relative;
-    left: 62px;
+    left: 48px;
     transition: all 0.5s ease;
   }
 
@@ -1786,8 +1959,8 @@ footer {
   #times-1 {
     display: block;
     position: absolute;
-    top: -1px;
-    left: 14px;
+    top: 3px;
+    left: 0px;
     cursor: pointer;
   }
 
