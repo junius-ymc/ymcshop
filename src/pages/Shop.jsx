@@ -33,7 +33,8 @@ const Shop = () => {
                   <br />
                   <p className="text-lg font-semibold text-gray-600 animate-pulse mt-2 mb-3">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
                   <br />
-                  <Loader className="w-16 h-16 animate-spin mt-2" />
+                  <Loader className="w-16 h-16 animate-spin mt-2 mb-3" />
+                  <br />
                 </div>
               ) : (
                 products.map((item, index) => (
