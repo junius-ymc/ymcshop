@@ -30,7 +30,7 @@ const Shop = () => {
             <div className="div-content shop-product-cart">
               {loading
                 ?
-                `<p>🔄กำลังโหลดอยู่จ้า...🕒</p> ` +
+                // `<p>🔄กำลังโหลดอยู่จ้า...🕒</p> ` +
                 <Loader className='w-16 h-16 animate-spin' />
                 :
                 products.map((item, index) => (
