@@ -8,6 +8,7 @@ const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
   const products = useEcomStore((state) => state.products);
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const loading = useEcomStore((state) => state.loading); // ✅ ใช้ตัวแปร Loading
 
   useEffect(() => {
     getProduct();
@@ -26,11 +27,13 @@ const Shop = () => {
             <p className="div-head">{t("sAllProd")}</p>
 
             <div className="div-content shop-product-cart">
-              {
-                products.map((item, index) =>
+            {loading ? (
+            <p>🔄กำลังโหลดอยู่จ้า...🕒</p> // ✅ ตรงนี้เปลี่ยนเป็น Skeleton หรือ Spinner ได้
+          ) : (
+                products.map((item, index) => (
                   <ProductCard key={index} item={item} />
-                )
-              }
+              ))
+            )}
             </div>
           </div>
         </div>

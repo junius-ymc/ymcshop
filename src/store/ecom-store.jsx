@@ -20,6 +20,7 @@ const ecomStore = (set, get) => ({
       carts: [],
     });
   },
+  loading: false, // ✅ เพิ่มตัวแปร Loading
   actionAddtoCart: (product) => {
     const carts = get().carts;
     const updateCart = [...carts, { ...product, count: 1 }];
@@ -49,7 +50,7 @@ const ecomStore = (set, get) => ({
     }, 0);
   },
   actionLogin: async (form) => {
-    const res = await axios.post("https://ymc-shop-api.vercel.app/api/login", form);
+    const res = await axios.post("http://localhost:5001/api/login", form);
     set({
       user: res.data.payload,
       token: res.data.token,
@@ -65,11 +66,14 @@ const ecomStore = (set, get) => ({
     }
   },
   getProduct: async (count) => {
+    set({ loading: true }); // ✅ เริ่มโหลด
     try {
       const res = await listProduct(count);
       set({ products: res.data });
     } catch (err) {
       console.log(err);
+    } finally {
+      set({ loading: false }); // ✅ โหลดเสร็จ
     }
   },
   actionSearchFilters: async (arg) => {
