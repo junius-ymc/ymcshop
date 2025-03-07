@@ -65,11 +65,15 @@ const ecomStore = (set, get) => ({
       console.log(err);
     }
   },
-  getProduct: async (count) => {
+  getProduct: async (count, page = 1, append = false) => {
     set({ loading: true }); // ✅ เริ่มโหลด
     try {
-      const res = await listProduct(count);
-      set({ products: res.data });
+      const res = await listProduct(count, page);
+      // set({ products: res.data });
+      set((state) => ({
+        products: append ? [...state.products, ...res.data] : res.data, // ✅ Append ถ้าโหลดเพิ่ม
+        hasMore: res.data.length > 0, // ✅ เช็กว่ายังมีสินค้าอีกไหม
+      }));
     } catch (err) {
       console.log(err);
     } finally {
