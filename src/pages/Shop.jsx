@@ -15,7 +15,7 @@ const Shop = () => {
   const [page, setPage] = useState(1); // ✅ เก็บค่าหน้าปัจจุบัน
 
   useEffect(() => {
-    getProduct(4, page); // ✅ โหลดสินค้ารอบแรก
+    getProduct(8, page); // ✅ โหลดสินค้ารอบแรก
   }, []);
 
   // ✅ ฟังก์ชันโหลดเพิ่มสินค้า
