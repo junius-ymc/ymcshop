@@ -8,7 +8,8 @@ import { Loader } from "lucide-react";
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
   const products = useEcomStore((state) => state.products);
-  const loading = useEcomStore((state) => state.loading);
+  const loadingBox = useEcomStore((state) => state.loading);
+  const loading = useEcomStore((state) => state.loading); // ✅ ใช้ตัวแปร Loading
   const hasMore = useEcomStore((state) => state.hasMore); // ✅ เช็กว่ายังมีสินค้าหรือไม่
   const { t } = useTranslation();
 
@@ -53,7 +54,7 @@ const Shop = () => {
           <p className="div-head">{t("sAllProd")}</p>
 
           <div className="div-content shop-product-cart">
-          {loading ? (
+          {loadingBox ? (
                 // เริ่ม ตัวโหลดดิ้ง
                 <div className="loading-box">
                   <br />
@@ -71,7 +72,10 @@ const Shop = () => {
           </div>
 
           {/* ✅ แสดง Loader ตอนโหลดเพิ่ม */}
-          {loading && <Loader className="loading-animate-icon loading-animate-spin" />}
+          {loading && (
+          // <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
+          <Loader className="loading-animate-icon loading-animate-spin" />
+         )}
         </div>
       </div>
     </div>
