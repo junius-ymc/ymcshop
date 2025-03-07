@@ -60,8 +60,8 @@ const Shop = () => {
                   <br />
                   <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
                   <br />
-                  <Loader className="loading-animate-icon loading-animate-spin" />
-                  <br />
+                  {/* <Loader className="loading-animate-icon loading-animate-spin" /> */}
+                  {/* <br /> */}
                 </div>
                 // จบ ตัวโหลดดิ้ง
               ) : (
