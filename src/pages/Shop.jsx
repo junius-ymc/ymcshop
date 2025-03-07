@@ -8,8 +8,7 @@ import { Loader } from "lucide-react";
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
   const products = useEcomStore((state) => state.products);
-  const loadingBox = useEcomStore((state) => state.loading);
-  const loading = useEcomStore((state) => state.loading); // ✅ ใช้ตัวแปร Loading
+  const loading = useEcomStore((state) => state.loading);
   const hasMore = useEcomStore((state) => state.hasMore); // ✅ เช็กว่ายังมีสินค้าหรือไม่
   const { t } = useTranslation();
 
@@ -54,28 +53,24 @@ const Shop = () => {
           <p className="div-head">{t("sAllProd")}</p>
 
           <div className="div-content shop-product-cart">
-          {loadingBox ? (
-                // เริ่ม ตัวโหลดดิ้ง
-                <div className="loading-box">
-                  <br />
-                  <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
-                  <br />
-                  {/* <Loader className="loading-animate-icon loading-animate-spin" /> */}
-                  {/* <br /> */}
-                </div>
-                // จบ ตัวโหลดดิ้ง
-              ) : (
-            products.map((item, index) => (
+            {products.map((item, index) => (
               <ProductCard key={index} item={item} />
-            ))
-          )}
+            ))}
           </div>
 
           {/* ✅ แสดง Loader ตอนโหลดเพิ่ม */}
+          {/* {loading && <Loader className="w-16 h-16 animate-spin mx-auto my-4" />} */}
           {loading && (
-          // <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
-          <Loader className="loading-animate-icon loading-animate-spin" />
-         )}
+            // เริ่ม ตัวโหลดดิ้ง
+            <div className="loading-box">
+            <br />
+            <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
+            <br />
+            <Loader className="loading-animate-icon loading-animate-spin" />
+            <br />
+          </div>
+          // จบ ตัวโหลดดิ้ง
+          )}
         </div>
       </div>
     </div>
