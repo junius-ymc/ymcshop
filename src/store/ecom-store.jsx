@@ -81,11 +81,14 @@ const ecomStore = (set, get) => ({
     }
   },
   actionSearchFilters: async (arg) => {
+    set({ loading: true }); // ✅ เริ่มโหลด
     try {
       const res = await searchFilters(arg);
       set({ products: res.data });
     } catch (err) {
       console.log(err);
+    } finally {
+      set({ loading: false }); // ✅ โหลดเสร็จ
     }
   },
   clearCart: () => set({ carts: [] }),

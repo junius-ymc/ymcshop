@@ -60,7 +60,9 @@ const ProductCard = ({ item }) => {
             {item.images && item.images.length > 0 ? (
               <img
                 src={item.images[0].url}
-                className="shop-product-card-img" />
+                className="shop-product-card-img" 
+                loading="lazy" // เพิ่มบรรทัดนี้
+                />
             ) : (
               <div
                 className="shop-product-card-img shop-product-card-no-img">
