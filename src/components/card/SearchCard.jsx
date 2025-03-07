@@ -42,7 +42,7 @@ const SearchCard = () => {
     const delay = setTimeout(() => {
       if (text) {
         // actionSearchFilters({ query: text });
-        actionSearchFilters({ query: text.toUpperCase() }); // ✅ แปลงเป็นพิมพ์เล็ก
+        actionSearchFilters({ query: text.toLowerCase() }); // ✅ แปลงเป็นพิมพ์เล็ก
       } else {
         getProduct();
       }
