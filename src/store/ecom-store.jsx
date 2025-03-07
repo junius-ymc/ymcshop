@@ -20,6 +20,7 @@ const ecomStore = (set, get) => ({
       carts: [],
     });
   },
+  hasMore: true,
   loading: false, // ✅ เพิ่มตัวแปร Loading
   actionAddtoCart: (product) => {
     const carts = get().carts;
