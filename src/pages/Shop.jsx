@@ -22,7 +22,7 @@ const Shop = () => {
   const loadMore = () => {
     if (!loading && hasMore) {
       setPage((prev) => prev + 1);
-      getProduct(4, page + 1, true);  // ✅ เพิ่มสินค้าทีละ 4
+      getProduct(8, page + 1, true);  // ✅ เพิ่มสินค้าทีละ 8
     }
   };
 
