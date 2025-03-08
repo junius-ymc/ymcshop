@@ -112,29 +112,31 @@ const Shop = () => {
         <div className="scrollable-container">
           <p className="div-head">{t("sAllProd")}</p>
 
-          {/* ✅ แสดง Loader ตอนโหลดเพิ่ม */}
-          {loading && (
-            // เริ่ม ตัวโหลดดิ้ง
-            <div className="loading-box">
-              <br />
-              <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
-              <br />
-              <Loader className="loading-animate-icon loading-animate-spin" />
-              <br />
-            </div>
-            // จบ ตัวโหลดดิ้ง
-          )}
-
           <div className="div-content shop-product-cart">
+
+            {/* ✅ แสดง Loader ตอนโหลดเพิ่ม */}
+            {loading && (
+              // เริ่ม ตัวโหลดดิ้ง
+              <div className="loading-box">
+                <br />
+                <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
+                <br />
+                <Loader className="loading-animate-icon loading-animate-spin" />
+                <br />
+              </div>
+              // จบ ตัวโหลดดิ้ง
+            )}
+
             {products.map((item, index) => (
               <ProductCard key={index} item={item} />
             ))}
+
           </div>
 
           {/* ✅ แสดง Pagination */}
           <div className="shop-pagination">{renderPageNumbers()}</div>
 
-          
+
         </div>
       </div>
     </div>
