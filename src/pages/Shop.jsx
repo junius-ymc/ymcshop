@@ -142,14 +142,13 @@ const Shop = () => {
           {/* ✅ แสดง Pagination */}
           <div className="shop-pagination">
             <div>
-              <label>จำนวนสินค้าต่อหน้า:</label>
               <input
                 type="number"
                 name="listProductPerPage"
                 value={itemsPerPage}
                 onChange={handleItemsPerPageChange}
                 min="1"
-                title="จำนวนหน้า ที่จะให้แสดง"
+                title="จำนวนสินค้าต่อ 1หน้า"
                 className="form-input w-12 mb-0"
               />
             </div>
