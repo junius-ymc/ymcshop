@@ -16,6 +16,7 @@ const Shop = () => {
 
   useEffect(() => {
     getProduct(4, currentPage); // ✅ โหลดสินค้าตามหน้า
+    window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
   }, [currentPage]);
 
   // ✅ ฟังก์ชันเปลี่ยนหน้า
