@@ -283,10 +283,10 @@ i {
   transform: scale(1) translateY(1px);
 }
 
-.bttn:focus {
+/* .bttn:focus {
   background-color: var(--btbgact);
   color: var(--texclact);
-}
+} */
 
 .bttnact {
   background-color: var(--btbgact);
@@ -1043,41 +1043,29 @@ header .wrapper .navbar li a:hover,
   background-color: var(--bluelite);
 }
 
-.shop-pagination-bnt-previous:hover {
-  color: var(--bgcontent);
-  background-color: var(--bluedeep);
-}
-
+.shop-pagination-bnt-previous:hover,
 .shop-pagination-bnt-next:hover {
   color: var(--bgcontent);
   background-color: var(--bluedeep);
 }
 
-.shop-pagination-bnt-previous:disabled {
-  color: var(--bgcolo);
-  background-color: var(--bluelite);
-  opacity: 0.5;
-}
-
-.shop-pagination-bnt-next:disabled {
-  color: var(--bgcolo);
-  background-color: var(--bluelite);
-  opacity: 0.5;
-}
-
 .shop-pagination-bnt-number {
-  background-color: var(--btbgcol);
   font-size: var(--fontsize13);
 }
 
 .shop-pagination-bnt-number:hover {
-  background-color: var(--bluelite);
+  background-color: var(--bluedeep);
 }
 
 .shop-pagination-bnt-number-act {
   color: var(--bgcontent);
   background-color: var(--bluelite);
-  font-size: var(--fontsize13);
+}
+
+.shop-pagination-bnt-number:disabled {
+  color: var(--bgcolo);
+  background-color: var(--bluelite);
+  opacity: 0.5;
 }
 
 /* ------------------------------------- End Shop - Shop  ------------------------------------- */

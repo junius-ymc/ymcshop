@@ -20,8 +20,10 @@ const ecomStore = (set, get) => ({
       carts: [],
     });
   },
-  hasMore: true,
   loading: false, // ✅ เพิ่มตัวแปร Loading
+  totalPages: 1, // ✅ เก็บจำนวนหน้าทั้งหมด
+  currentPage: 1, // ✅ เก็บหน้าปัจจุบัน
+
   actionAddtoCart: (product) => {
     const carts = get().carts;
     const updateCart = [...carts, { ...product, count: 1 }];
@@ -29,6 +31,7 @@ const ecomStore = (set, get) => ({
     const uniqe = _.unionWith(updateCart, _.isEqual);
     set({ carts: uniqe });
   },
+
   actionUpdateQuantity: (productId, newQuantity) => {
     // console.log('Update Clickkkkk', productId, newQuantity)
     set((state) => ({
@@ -39,6 +42,7 @@ const ecomStore = (set, get) => ({
       ),
     }));
   },
+
   actionRemoveProduct: (productId) => {
     // console.log('remove jaaaaa', productId)
     set((state) => ({
@@ -50,6 +54,7 @@ const ecomStore = (set, get) => ({
       return total + item.price * item.count;
     }, 0);
   },
+
   actionLogin: async (form) => {
     const res = await axios.post("http://localhost:5001/api/login", form);
     set({
@@ -58,6 +63,7 @@ const ecomStore = (set, get) => ({
     });
     return res;
   },
+
   getCategory: async () => {
     try {
       const res = await listCategory();
@@ -66,21 +72,25 @@ const ecomStore = (set, get) => ({
       console.log(err);
     }
   },
-  getProduct: async (count, page = 1, append = false) => {
+
+  getProduct: async (count, page = 1) => {
     set({ loading: true }); // ✅ เริ่มโหลด
     try {
       const res = await listProduct(count, page);
       // set({ products: res.data });
-      set((state) => ({
-        products: append ? [...state.products, ...res.data] : res.data, // ✅ Append ถ้าโหลดเพิ่ม
-        hasMore: res.data.length > 0, // ✅ เช็กว่ายังมีสินค้าอีกไหม
-      }));
+      set({
+        products: res.data.products,
+        totalPages: res.data.totalPages, // ✅ รับค่าจำนวนหน้าจาก API
+        currentPage: page, // ✅ อัปเดตหน้าปัจจุบัน
+      });
     } catch (err) {
       console.log(err);
     } finally {
       set({ loading: false }); // ✅ โหลดเสร็จ
     }
   },
+  setPage: (page) => set({ currentPage: page }), // ✅ ฟังก์ชันเปลี่ยนหน้า
+
   actionSearchFilters: async (arg) => {
     set({ loading: true }); // ✅ เริ่มโหลด
     try {

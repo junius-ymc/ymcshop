@@ -9,10 +9,10 @@ export const createProduct = async (token, form) => {
   });
 };
 
-// export const listProduct = async (count = 10) => {
-// count = จำนวนที่ดึงจากฐานข้อมูล
-// ให้แสดงสินค้ากี่ชิ้นต่อ 1หน้า เช่น เมื่อเลื่อนสกอร์ จะแสดงสินค้าทีละ 8 ชิ้น
-export const listProduct = async (count = 8, page = 1) => {
+// ตัวแปร count = จำนวนที่ดึงจากฐานข้อมูล
+// export const listProduct = async (count = 100) => {
+// ให้แสดงสินค้ากี่ชิ้นต่อ 1หน้า เช่น จะแสดงสินค้าทีละ 8 ชิ้น
+export const listProduct = async (count = 4, page = 1) => {
   // code body
   // return axios.get("https://ymc-shop-api.vercel.app/api/products/" + count);
   return axios.get(`https://ymc-shop-api.vercel.app/api/products/${count}?page=${page}`);
