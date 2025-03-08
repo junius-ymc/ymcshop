@@ -112,15 +112,6 @@ const Shop = () => {
         <div className="scrollable-container">
           <p className="div-head">{t("sAllProd")}</p>
 
-          <div className="div-content shop-product-cart">
-            {products.map((item, index) => (
-              <ProductCard key={index} item={item} />
-            ))}
-          </div>
-
-          {/* ✅ แสดง Pagination */}
-          <div className="shop-pagination">{renderPageNumbers()}</div>
-
           {/* ✅ แสดง Loader ตอนโหลดเพิ่ม */}
           {loading && (
             // เริ่ม ตัวโหลดดิ้ง
@@ -133,6 +124,17 @@ const Shop = () => {
             </div>
             // จบ ตัวโหลดดิ้ง
           )}
+
+          <div className="div-content shop-product-cart">
+            {products.map((item, index) => (
+              <ProductCard key={index} item={item} />
+            ))}
+          </div>
+
+          {/* ✅ แสดง Pagination */}
+          <div className="shop-pagination">{renderPageNumbers()}</div>
+
+          
         </div>
       </div>
     </div>
