@@ -23,6 +23,7 @@ const ecomStore = (set, get) => ({
   loading: false, // ✅ เพิ่มตัวแปร Loading
   totalPages: 1, // ✅ เก็บจำนวนหน้าทั้งหมด
   currentPage: 1, // ✅ เก็บหน้าปัจจุบัน
+  itemsPerPage: 4, // ✅ ค่าเริ่มต้น
 
   actionAddtoCart: (product) => {
     const carts = get().carts;
@@ -82,6 +83,7 @@ const ecomStore = (set, get) => ({
         products: res.data.products,
         totalPages: res.data.totalPages, // ✅ รับค่าจำนวนหน้าจาก API
         currentPage: page, // ✅ อัปเดตหน้าปัจจุบัน
+        itemsPerPage: count, // ✅ อัปเดตจำนวนสินค้าต่อหน้า
       });
     } catch (err) {
       console.log(err);

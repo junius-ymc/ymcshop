@@ -12,18 +12,26 @@ const Shop = () => {
   const totalPages = useEcomStore((state) => state.totalPages);
   const currentPage = useEcomStore((state) => state.currentPage); // ✅ เพิ่มบรรทัดนี้
   const setPage = useEcomStore((state) => state.setPage); // ✅ เก็บค่าหน้าปัจจุบัน
+  const [itemsPerPage, setItemsPerPage] = useState(4); // ✅ ค่าเริ่มต้น
   const { t } = useTranslation();
 
   useEffect(() => {
-    getProduct(4, currentPage); // ✅ โหลดสินค้าตามหน้า
+    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
   }, [currentPage]);
+
+  const handleItemsPerPageChange = (e) => {
+    const newValue = parseInt(e.target.value, 10) || 1; // ✅ รับค่าจาก <input>
+    setItemsPerPage(newValue);
+    setPage(1); // ✅ กลับไปหน้าแรก
+    getProduct(newValue, 1); // ✅ ส่งค่าไป Backend
+  };
 
   // ✅ ฟังก์ชันเปลี่ยนหน้า
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setPage(page);
-      getProduct(4, page);
+      getProduct(itemsPerPage, page);
     }
   };
 
@@ -112,9 +120,7 @@ const Shop = () => {
 
         <div className="scrollable-container">
           <p className="div-head">{t("sAllProd")}</p>
-
           <div className="div-content shop-product-cart">
-
             {/* ✅ แสดง Loader ตอนโหลดเพิ่ม */}
             {loading && (
               // เริ่ม ตัวโหลดดิ้ง
@@ -131,12 +137,24 @@ const Shop = () => {
             {products.map((item, index) => (
               <ProductCard key={index} item={item} />
             ))}
-
           </div>
 
           {/* ✅ แสดง Pagination */}
-          <div className="shop-pagination">{renderPageNumbers()}</div>
-
+          <div className="shop-pagination">
+            <div>
+              <label>จำนวนสินค้าต่อหน้า:</label>
+              <input
+                type="number"
+                name="listProductPerPage"
+                value={itemsPerPage}
+                onChange={handleItemsPerPageChange}
+                min="1"
+                title="จำนวนหน้า ที่จะให้แสดง"
+                className="form-input w-12 mb-0"
+              />
+            </div>
+            {renderPageNumbers()}
+          </div>
 
         </div>
       </div>
