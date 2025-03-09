@@ -126,7 +126,7 @@ const Shop = () => {
               // เริ่ม ตัวโหลดดิ้ง
               <div className="loading-box">
                 <br />
-                <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
+                <p className="loading-animate-pulse">{t("waitMassLoading")}</p>
                 <br />
                 <Loader className="loading-animate-icon loading-animate-spin" />
                 <br />
@@ -142,13 +142,14 @@ const Shop = () => {
           {/* ✅ แสดง Pagination */}
           <div className="shop-pagination">
             <div>
+              {/* <label>{t("sListProductPerPage")}</label> */}
               <input
                 type="number"
                 name="listProductPerPage"
                 value={itemsPerPage}
                 onChange={handleItemsPerPageChange}
                 min="1"
-                title="จำนวนสินค้าต่อ 1หน้า"
+                title={t("sListProductPerPage")}
                 className="form-input w-12 mb-0"
               />
             </div>

@@ -1,7 +1,6 @@
 {
     "shopName": "YMC Shop - วายเอ็มซี ช็อป",
-    "waitMassCngLang": "Please wait... Changing language EN-",
-    "waitMassCngTheme": "Please wait... Changing Theme-",
+    "waitMassLoading": "⏳ ..Loading.. ⌛",
     "ttTileClickToZoom": "Double click to zoom in on the image. 🔎",
     "ttClose": "Close",
     "mHome": "Home",
@@ -27,8 +26,7 @@
     "minfo": "Infomation",
     "mShowNewProduct": "Latest Item",
     "sAllProd": "All products",
-    "sPreviousbtn": "Previous",
-    "sNextbtn": "Next",
+    "sListProductPerPage": "Number of products per page",
     "sSoldOut": "Sold Out",
     "sbSearch": "Search",
     "sbProd": "Products",
