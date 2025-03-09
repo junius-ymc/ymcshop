@@ -41,6 +41,7 @@ const SearchCard = () => {
   useEffect(() => {
     const delay = setTimeout(() => {
       if (text) {
+        console.log("ค้นหาคำจากหน้าบ้าน:", text.toLowerCase()); // ✅ Debug ค่าที่จะส่ง
         // actionSearchFilters({ query: text });
         actionSearchFilters({ query: text.toLowerCase() }); // ✅ แปลงเป็นพิมพ์เล็ก
       } else {
