@@ -136,6 +136,9 @@ i {
   box-shadow: var(--box-shadow-mid);
 }
 
+.div-cursor-pointer {
+  cursor: pointer;
+}
 
 .setdiv-1 {
   margin-left: auto;
