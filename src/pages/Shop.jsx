@@ -20,31 +20,6 @@ const Shop = () => {
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
 
-  useEffect(() => {
-    if (productId && products.length > 0 && itemsPerPage > 0) {
-      const productIndex = products.findIndex((p) => p.id === parseInt(productId));
-      if (productIndex !== -1) {
-        const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
-  
-        if (currentPage !== newPage) {
-          setPage(newPage); // ✅ เปลี่ยนหน้าให้ถูกต้อง
-        }
-      }
-    }
-  }, [productId, products, itemsPerPage, currentPage]); // ✅ คำนวณใหม่เมื่อค่าเปลี่ยน
-
-  useEffect(() => {
-    if (productId) {
-      const timer = setTimeout(() => {
-        const productElement = document.getElementById(`product-${productId}`);
-        if (productElement) {
-          productElement.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      }, 700); // ✅ รอให้เปลี่ยนหน้าเสร็จก่อนค่อยเลื่อน
-  
-      return () => clearTimeout(timer);
-    }
-  }, [currentPage, productId]); // ✅ Scroll เมื่อเปลี่ยนหน้าเสร็จ
 
   //   useEffect(() => {
   //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
@@ -150,6 +125,33 @@ const Shop = () => {
   //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
   //   }, 600);
   // }, [currentPage]);
+
+  useEffect(() => {
+    if (productId && itemsPerPage > 0) {
+      const productIndex = products.findIndex((p) => p.id === parseInt(productId));
+      if (productIndex !== -1) {
+        const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
+  
+        if (currentPage !== newPage) {
+          setPage(newPage); // ✅ เปลี่ยนหน้าก่อน แล้วค่อยโหลดสินค้า
+          return; // ✅ ออกจาก useEffect ไปก่อน เพื่อไม่ให้โหลดสินค้าทั้งหมด
+        }
+      }
+    }
+  }, [productId, itemsPerPage, products]);
+
+  useEffect(() => {
+    if (productId) {
+      const timer = setTimeout(() => {
+        const productElement = document.getElementById(`product-${productId}`);
+        if (productElement) {
+          productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 500); // ✅ ให้เวลากับการเปลี่ยนหน้า ก่อนเลื่อนไปยังสินค้า
+  
+      return () => clearTimeout(timer);
+    }
+  }, [currentPage]);
 
   return (
     <div className="div-wrap">
