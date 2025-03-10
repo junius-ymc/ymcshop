@@ -21,29 +21,30 @@ const Shop = () => {
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
 
   useEffect(() => {
-    if (productId) {
+    if (productId && products.length > 0 && itemsPerPage > 0) {
       const productIndex = products.findIndex((p) => p.id === parseInt(productId));
       if (productIndex !== -1) {
         const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
-        setPage(newPage);
-
-        // ✅ รอเปลี่ยนหน้าเสร็จแล้วค่อย Scroll
-        setTimeout(() => {
-          const productElement = document.getElementById(`product-${productId}`);
-          if (productElement) {
-            productElement.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-        }, 500);
+  
+        if (currentPage !== newPage) {
+          setPage(newPage); // ✅ เปลี่ยนหน้าให้ถูกต้อง
+        }
       }
     }
-  }, [productId, products, itemsPerPage]);
+  }, [productId, products, itemsPerPage, currentPage]); // ✅ คำนวณใหม่เมื่อค่าเปลี่ยน
 
-  //   useEffect(() => {
-  //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
-  //   setTimeout(() => {
-  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  //   }, 1000);
-  // }, [currentPage]);
+  useEffect(() => {
+    if (productId) {
+      const timer = setTimeout(() => {
+        const productElement = document.getElementById(`product-${productId}`);
+        if (productElement) {
+          productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 700); // ✅ รอให้เปลี่ยนหน้าเสร็จก่อนค่อยเลื่อน
+  
+      return () => clearTimeout(timer);
+    }
+  }, [currentPage, productId]); // ✅ Scroll เมื่อเปลี่ยนหน้าเสร็จ
 
   //   useEffect(() => {
   //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
@@ -52,9 +53,11 @@ const Shop = () => {
 
   const handleItemsPerPageChange = (e) => {
     const newValue = parseInt(e.target.value, 10) || 1; // ✅ รับค่าจาก <input>
-    setItemsPerPage(newValue);
-    setPage(1); // ✅ กลับไปหน้าแรก
-    getProduct(newValue, 1); // ✅ ส่งค่าไป Backend
+    setTimeout(() => {
+      setItemsPerPage(newValue);
+      setPage(1); // ✅ กลับไปหน้าแรก
+      getProduct(newValue, 1); // ✅ ส่งค่าไป Backend
+    }, 300);
   };
 
   // ✅ ฟังก์ชันเปลี่ยนหน้า
@@ -140,6 +143,13 @@ const Shop = () => {
 
     return pages;
   };
+
+  // useEffect(() => {
+      //     getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+  //   setTimeout(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   }, 600);
+  // }, [currentPage]);
 
   return (
     <div className="div-wrap">
