@@ -4,6 +4,7 @@ import ProductCard from "../components/card/ProductCard";
 import SearchCard from "../components/card/SearchCard";
 import { useTranslation } from "react-i18next";
 import { Loader } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -15,10 +16,39 @@ const Shop = () => {
   const [itemsPerPage, setItemsPerPage] = useState(4); // ✅ ค่าเริ่มต้น
   const { t } = useTranslation();
 
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
+
   useEffect(() => {
-    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
-    window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  }, [currentPage]);
+    if (productId) {
+      const productIndex = products.findIndex((p) => p.id === parseInt(productId));
+      if (productIndex !== -1) {
+        const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
+        setPage(newPage);
+
+        // ✅ รอเปลี่ยนหน้าเสร็จแล้วค่อย Scroll
+        setTimeout(() => {
+          const productElement = document.getElementById(`product-${productId}`);
+          if (productElement) {
+            productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }, 500);
+      }
+    }
+  }, [productId, products, itemsPerPage]);
+
+  //   useEffect(() => {
+  //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+  //   setTimeout(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   }, 1000);
+  // }, [currentPage]);
+
+  //   useEffect(() => {
+  //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+  //   window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  // }, [currentPage]);
 
   const handleItemsPerPageChange = (e) => {
     const newValue = parseInt(e.target.value, 10) || 1; // ✅ รับค่าจาก <input>

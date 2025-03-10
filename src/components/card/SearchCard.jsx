@@ -47,7 +47,7 @@ const SearchCard = () => {
       } else {
         getProduct();
       }
-    }, 300);
+    }, 400);
 
     return () => clearTimeout(delay);
   }, [text]);
@@ -84,7 +84,7 @@ const SearchCard = () => {
 
     setTimeout(() => {
       setOk(!ok);
-    }, 300);
+    }, 400);
   };
 
   return (

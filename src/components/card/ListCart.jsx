@@ -155,14 +155,14 @@ const ListCart = () => {
                     </button>
                   </Link>
                 ) : (
-                  <Link to={"/login/"}>
+                  <Link to={"/login"}>
                     <button className="bnt-mod cart-list-right-end-btn-1">
                       {t("mLogin")}
                     </button>
                   </Link>
                 )}
 
-                <Link to={"/shop/"}>
+                <Link to={"/shop"}>
                   <button className="bnt-mod cart-list-right-end-btn-2">
                     {t("lcGotoShop")}
                   </button>

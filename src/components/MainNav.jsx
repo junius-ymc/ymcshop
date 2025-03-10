@@ -117,7 +117,7 @@ function MainNav() {
                           ? "bttn bttnact"
                           : "bttn"
                       }
-                      to={"/shop/"}
+                      to={"/shop"}
                     >
                       {t("mShop")}
                     </NavLink>
@@ -130,7 +130,7 @@ function MainNav() {
                           ? "bttn bttnact"
                           : "bttn"
                       }
-                      to={"/cart/"}
+                      to={"/cart"}
                     >
                       {t("mCart")}
 

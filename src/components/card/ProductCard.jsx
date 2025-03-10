@@ -35,7 +35,7 @@ const ProductCard = ({ item }) => {
   return (
 
     <div>
-      <div id={item.id} className={item.id}></div>
+      {/* <div id={item.id} className={item.id}></div> */}
 
       <motion.div
         initial={{ opacity: 0, scale: 0.5, }}
@@ -43,7 +43,8 @@ const ProductCard = ({ item }) => {
         transition={{ duration: 0.2 }}
       >
 
-        <div className="shop-product-card">
+        <div className="shop-product-card" id={`product-${item.id}`}>
+
           {/* ส่วนรูปภาพ */}
 
           {/* เพิ่มปุ่มคลิ้ก Modal */}
@@ -60,9 +61,9 @@ const ProductCard = ({ item }) => {
             {item.images && item.images.length > 0 ? (
               <img
                 src={item.images[0].url}
-                className="shop-product-card-img" 
+                className="shop-product-card-img"
                 loading="lazy" // เพิ่มบรรทัดนี้
-                />
+              />
             ) : (
               <div
                 className="shop-product-card-img shop-product-card-no-img">
@@ -85,22 +86,22 @@ const ProductCard = ({ item }) => {
             {(item?.quantity === 0)
               ?
               <div className="bnt-mod">
-              <div className="flex items-center">
-                <img className="img-icon-m" src="/img/icon/ic-cart.png" />
+                <div className="flex items-center">
+                  <img className="img-icon-m" src="/img/icon/ic-cart.png" />
+                </div>
               </div>
-            </div>
-              : 
+              :
               <button
-              onClick={() => actionAddtoCart(item) + handleCartClick()}
-              className="bnt-mod"
-            >
-              <div className="flex items-center">
-                <img className="img-icon-m" src="/img/icon/ic-cart.png" />
-              </div>
-            </button>
+                onClick={() => actionAddtoCart(item) + handleCartClick()}
+                className="bnt-mod"
+              >
+                <div className="flex items-center">
+                  <img className="img-icon-m" src="/img/icon/ic-cart.png" />
+                </div>
+              </button>
             }
-            
-            
+
+
           </div>
         </div>
 

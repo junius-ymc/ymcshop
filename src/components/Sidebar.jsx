@@ -132,14 +132,14 @@ const Sidebar = () => {
             </li> */}
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/shop/">
+              <NavLink className="nav-link" to="/shop">
                 <img className="img-icon-m" src="/img/icon/ic-shopping.png" />
                 <span className="nav-label">{t("mShop")}</span>
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/cart/">
+              <NavLink className="nav-link" to="/cart">
                 <img className="img-icon-m" src="/img/icon/ic-cart.png" />
                 <span className="nav-label">{t("mCart")}</span>
                 {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
