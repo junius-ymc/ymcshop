@@ -54,13 +54,13 @@ const NewProdCard = ({ item }) => {
           // onClick={() => actionAddtoCart(item) + toast.success(`เพิ่ม ${item.title} ในตะกร้าแล้วจ้า 😊`, {
           onClick={() => actionAddtoCart(item) + toast.success(`${t("npcAddedToCart1")} ${item.title} ${t("npcAddedToCart2")}`, {
             bodyClassName: "toastify-toast-modify",
-            // icon: <img src="/public/img/icon/ic-cart.png"/>,
+            // icon: <img src="/img/icon/ic-cart.png"/>,
             // icon: false,
           })}
           className="bnt-mod"
         >
           <div>
-            <img className="img-icon-m" src="/public/img/icon/ic-cart.png" />
+            <img className="img-icon-m" src="/img/icon/ic-cart.png" />
           </div>
         </button>
       </div>
