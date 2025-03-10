@@ -20,19 +20,11 @@ const Shop = () => {
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
 
-
-  //   useEffect(() => {
-  //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
-  //   window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  // }, [currentPage]);
-
   const handleItemsPerPageChange = (e) => {
     const newValue = parseInt(e.target.value, 10) || 1; // ✅ รับค่าจาก <input>
-    setTimeout(() => {
-      setItemsPerPage(newValue);
-      setPage(1); // ✅ กลับไปหน้าแรก
-      getProduct(newValue, 1); // ✅ ส่งค่าไป Backend
-    }, 300);
+    setItemsPerPage(newValue);
+    setPage(1); // ✅ กลับไปหน้าแรก
+    getProduct(newValue, 1); // ✅ ส่งค่าไป Backend
   };
 
   // ✅ ฟังก์ชันเปลี่ยนหน้า
@@ -119,38 +111,11 @@ const Shop = () => {
     return pages;
   };
 
-  // useEffect(() => {
-      //     getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
-  //   setTimeout(() => {
-  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  //   }, 600);
-  // }, [currentPage]);
-
   useEffect(() => {
-    if (productId && itemsPerPage > 0) {
-      const productIndex = products.findIndex((p) => p.id === parseInt(productId));
-      if (productIndex !== -1) {
-        const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
-  
-        if (currentPage !== newPage) {
-          setPage(newPage); // ✅ เปลี่ยนหน้าก่อน แล้วค่อยโหลดสินค้า
-          return; // ✅ ออกจาก useEffect ไปก่อน เพื่อไม่ให้โหลดสินค้าทั้งหมด
-        }
-      }
-    }
-  }, [productId, itemsPerPage, products]);
-
-  useEffect(() => {
-    if (productId) {
-      const timer = setTimeout(() => {
-        const productElement = document.getElementById(`product-${productId}`);
-        if (productElement) {
-          productElement.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      }, 500); // ✅ ให้เวลากับการเปลี่ยนหน้า ก่อนเลื่อนไปยังสินค้า
-  
-      return () => clearTimeout(timer);
-    }
+    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+    }, 100);
   }, [currentPage]);
 
   return (
