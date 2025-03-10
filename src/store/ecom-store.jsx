@@ -80,6 +80,8 @@ const ecomStore = (set, get) => ({
     try {
       const res = await listProduct(count, page);
       // set({ products: res.data });
+      console.log("📦 ดึงสินค้าสำเร็จ:", res.data.length, "รายการ");
+      console.log("📌 กำลังโหลดหน้า:", page, " | จำนวนสินค้าต่อหน้า:", count);
       set({
         products: res.data.products,
         totalPages: res.data.totalPages, // ✅ รับค่าจำนวนหน้าจาก API
@@ -87,12 +89,17 @@ const ecomStore = (set, get) => ({
         itemsPerPage: count, // ✅ อัปเดตจำนวนสินค้าต่อหน้า
       });
     } catch (err) {
-      console.log(err);
+      console.log("❌ โหลดสินค้าล้มเหลว:", err);
     } finally {
       set({ loading: false }); // ✅ โหลดเสร็จ
     }
   },
-  setPage: (page) => set({ currentPage: page }), // ✅ ฟังก์ชันเปลี่ยนหน้า
+  // setPage: (page) => set({ currentPage: page }), // ✅ ฟังก์ชันเปลี่ยนหน้า
+  // ✅ ฟังก์ชันเปลี่ยนหน้า
+  setPage: (page) => set((state) => {
+    console.log("🚀 เปลี่ยนหน้าเป็น:", page);
+    return { currentPage: page };
+  }),
 
   actionSearchFilters: async (arg) => {
     set({ loading: true }); // ✅ เริ่มโหลด
