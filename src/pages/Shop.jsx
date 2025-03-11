@@ -4,7 +4,7 @@ import ProductCard from "../components/card/ProductCard";
 import SearchCard from "../components/card/SearchCard";
 import { useTranslation } from "react-i18next";
 import { Loader } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -19,6 +19,8 @@ const Shop = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
+
+  const navigate = useNavigate(); // ✅ เรียกใช้ Hook นี้แทน useHistory
 
   // ✅ เพิ่มการดึง calculatePageForProduct จาก store
   const calculatePageForProduct = useEcomStore((state) => state.calculatePageForProduct);
@@ -150,6 +152,10 @@ const Shop = () => {
           await getProduct(itemsPerPage, targetPage);
           setPage(targetPage);
         }
+
+        // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
+        // ✅ ใช้ navigate แทน history.replace
+        navigate("/shop", { replace: true });
   
         // ✅ ตรวจสอบ isMounted ก่อนสกอร์
         setTimeout(() => {
