@@ -159,14 +159,23 @@ const Shop = () => {
       }, 200);
   
         // ✅ ตรวจสอบ isMounted ก่อนสกอร์
-        setTimeout(() => {
-          if (isMounted) {
-            const productElement = productRefs.current[productId];
-            if (productElement) {
-              productElement.scrollIntoView({ behavior: 'smooth', div: 'center' });
-            }
+        // setTimeout(() => {
+        //   if (isMounted) {
+        //     const productElement = productRefs.current[productId];
+        //     if (productElement) {
+        //       productElement.scrollIntoView({ behavior: 'smooth', div: 'center' });
+        //     }
+        //   }
+        // }, 500);
+
+        const timer = setTimeout(() => {
+          const productElement = document.getElementById(`product-${productId}`);
+          if (productElement) {
+            productElement.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         }, 500);
+        return () => clearTimeout(timer);
+
       } catch (error) {
         console.error("Error navigating to product:", error);
       }
