@@ -128,6 +128,14 @@ const Shop = () => {
     return pages;
   };
 
+    // เมื่อโหลดหน้าเสร็จ
+  useEffect(() => {
+    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+    }, 100);
+  }, [currentPage]);
+
   // เมื่อโหลดหน้าเสร็จ
   useEffect(() => {
     let isMounted = true; // ✅ ตรวจสอบว่า Component ยังถูก Mount อยู่
@@ -155,7 +163,7 @@ const Shop = () => {
           if (isMounted) {
             const productElement = productRefs.current[productId];
             if (productElement) {
-              productElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+              productElement.scrollIntoView({ behavior: 'smooth', div: 'center' });
             }
           }
         }, 500);
@@ -170,14 +178,6 @@ const Shop = () => {
       isMounted = false; // ✅ Cleanup เมื่อ Component Unmount
     };
   }, [productId]); 
-
-  // เมื่อโหลดหน้าเสร็จ
-  useEffect(() => {
-    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    }, 100);
-  }, [currentPage]);
 
   console.log("📦 productId:", productId);
   // console.log("Total Pages:", totalPages);
