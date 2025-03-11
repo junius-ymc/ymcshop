@@ -156,14 +156,14 @@ const Shop = () => {
         // ✅ ใช้ navigate แทน history.replace
         setTimeout(() => {
         navigate("/shop", { replace: true });
-      }, 200);
+      }, 100);
   
         // ✅ ตรวจสอบ isMounted ก่อนสกอร์
         // setTimeout(() => {
         //   if (isMounted) {
         //     const productElement = productRefs.current[productId];
         //     if (productElement) {
-        //       productElement.scrollIntoView({ behavior: 'smooth', div: 'center' });
+        //       productElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         //     }
         //   }
         // }, 500);
@@ -172,7 +172,7 @@ const Shop = () => {
           // const productElement = document.getElementById(`product-${productId}`);
           const productElement = productRefs.current[productId];
           if (productElement) {
-            productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+            productElement.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         }, 500);
         return () => clearTimeout(timer);
