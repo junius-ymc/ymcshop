@@ -15,7 +15,8 @@ export const createProduct = async (token, form) => {
 export const listProduct = async (count = 4, page = 1) => {
   // code body
   // return axios.get("https://ymc-shop-api.vercel.app/api/products/" + count);
-  return axios.get(`https://ymc-shop-api.vercel.app/api/products/${count}?page=${page}`);
+  // return axios.get(`https://ymc-shop-api.vercel.app/api/products/${count}?page=${page}`);
+  return axios.get(`https://ymc-shop-api.vercel.app/api/products?count=${count}&page=${page}`);
 };
 
 export const readProduct = async (token, id) => {

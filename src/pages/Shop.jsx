@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import useEcomStore from "../store/ecom-store";
 import ProductCard from "../components/card/ProductCard";
 import SearchCard from "../components/card/SearchCard";
@@ -20,6 +20,13 @@ const Shop = () => {
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
 
+  // ✅ เพิ่มการดึง calculatePageForProduct จาก store
+  const calculatePageForProduct = useEcomStore((state) => state.calculatePageForProduct);
+
+  // ✅ ใช้ useRef เพื่อเก็บ reference ของสินค้า
+  const productRefs = useRef({});
+
+  // ฟังก์ชันเปลี่ยนจำนวนสินค้าต่อหน้า
   const handleItemsPerPageChange = (e) => {
     const newValue = parseInt(e.target.value, 10) || 1; // ✅ รับค่าจาก <input>
     setItemsPerPage(newValue);
@@ -27,11 +34,19 @@ const Shop = () => {
     getProduct(newValue, 1); // ✅ ส่งค่าไป Backend
   };
 
-  // ✅ ฟังก์ชันเปลี่ยนหน้า
+  // ฟังก์ชันเปลี่ยนหน้า Pagination
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
-      setPage(page);
-      getProduct(itemsPerPage, page);
+      setPage(page); // ✅ อัปเดตหน้าปัจจุบัน
+      getProduct(itemsPerPage, page); // ✅ โหลดสินค้าตามหน้า
+    }
+  };
+
+  // ฟังก์ชันสกอร์ไปยังตำแหน่งสินค้า
+  const scrollToProduct = (productId) => {
+    const productElement = productRefs.current[productId];
+    if (productElement) {
+      productElement.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -111,12 +126,54 @@ const Shop = () => {
     return pages;
   };
 
+  // เมื่อโหลดหน้าเสร็จ
+  // useEffect(() => {
+  //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+  //   setTimeout(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   }, 100);
+  // }, [currentPage]);
+
+  // เมื่อโหลดหน้าเสร็จ
+  // ✅ แก้ useEffect ให้ทำงานแบบ async
   useEffect(() => {
-    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    }, 100);
-  }, [currentPage]);
+    let isMounted = true; // ✅ ตรวจสอบว่า Component ยังถูก Mount อยู่
+  
+    const handleProductNavigation = async () => {
+      if (!productId || !isMounted) return; 
+  
+      try {
+        const targetPage = await calculatePageForProduct(productId, itemsPerPage);
+        
+        // ✅ ตรวจสอบทั้ง isMounted และเงื่อนไขหน้า
+        if (isMounted && targetPage !== currentPage) {
+          await getProduct(itemsPerPage, targetPage);
+          setPage(targetPage);
+        }
+  
+        // ✅ ตรวจสอบ isMounted ก่อนสกอร์
+        setTimeout(() => {
+          if (isMounted) {
+            const productElement = productRefs.current[productId];
+            if (productElement) {
+              productElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        }, 500);
+      } catch (error) {
+        console.error("Error navigating to product:", error);
+      }
+    };
+  
+    handleProductNavigation();
+  
+    return () => {
+      isMounted = false; // ✅ Cleanup เมื่อ Component Unmount
+    };
+  }, [productId]); 
+
+  console.log("📦 productId:", productId);
+  // console.log("Total Pages:", totalPages);
 
   return (
     <div className="div-wrap">
@@ -141,27 +198,35 @@ const Shop = () => {
               // จบ ตัวโหลดดิ้ง
             )}
 
-            {products.map((item, index) => (
-              <ProductCard key={index} item={item} />
+            {/* // ✅ แก้การ map สินค้าเพื่อเก็บ reference */}
+            {products?.map((item) => (
+              <div
+                key={item.id}
+                ref={(el) => (productRefs.current[item.id] = el)}
+              >
+                <ProductCard item={item} />
+              </div>
             ))}
           </div>
 
           {/* ✅ แสดง Pagination */}
-          <div className="shop-pagination">
-            <div>
-              {/* <label>{t("sListProductPerPage")}</label> */}
-              <input
-                type="number"
-                name="listProductPerPage"
-                value={itemsPerPage}
-                onChange={handleItemsPerPageChange}
-                min="1"
-                title={t("sListProductPerPage")}
-                className="form-input w-12 mb-0"
-              />
+          {totalPages > 1 && (
+            <div className="shop-pagination">
+              <div>
+                {/* <label>{t("sListProductPerPage")}</label> */}
+                <input
+                  type="number"
+                  name="listProductPerPage"
+                  value={itemsPerPage}
+                  onChange={handleItemsPerPageChange}
+                  min="1"
+                  title={t("sListProductPerPage")}
+                  className="form-input w-12 mb-0"
+                />
+              </div>
+              {renderPageNumbers()}
             </div>
-            {renderPageNumbers()}
-          </div>
+          )}
 
         </div>
       </div>
