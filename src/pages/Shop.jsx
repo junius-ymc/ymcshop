@@ -156,7 +156,7 @@ const Shop = () => {
         // ✅ ใช้ navigate แทน history.replace
         setTimeout(() => {
         navigate("/shop", { replace: true });
-      }, 100);
+      }, 400);
   
         // ✅ ตรวจสอบ isMounted ก่อนสกอร์
         // setTimeout(() => {
