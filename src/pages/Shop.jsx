@@ -169,7 +169,8 @@ const Shop = () => {
         // }, 500);
 
         const timer = setTimeout(() => {
-          const productElement = document.getElementById(`product-${productId}`);
+          // const productElement = document.getElementById(`product-${productId}`);
+          const productElement = productRefs.current[productId];
           if (productElement) {
             productElement.scrollIntoView({ behavior: "smooth", block: "center" });
           }
