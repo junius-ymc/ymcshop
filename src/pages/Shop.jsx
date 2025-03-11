@@ -129,12 +129,12 @@ const Shop = () => {
   };
 
   // เมื่อโหลดหน้าเสร็จ
-  // useEffect(() => {
-  //   getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
-  //   setTimeout(() => {
-  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  //   }, 100);
-  // }, [currentPage]);
+  useEffect(() => {
+    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+    }, 100);
+  }, [currentPage]);
 
   // เมื่อโหลดหน้าเสร็จ
   // ✅ แก้ useEffect ให้ทำงานแบบ async
@@ -155,17 +155,19 @@ const Shop = () => {
 
         // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
         // ✅ ใช้ navigate แทน history.replace
+        setTimeout(() => {
         navigate("/shop", { replace: true });
+      }, 300);
   
         // ✅ ตรวจสอบ isMounted ก่อนสกอร์
         setTimeout(() => {
           if (isMounted) {
             const productElement = productRefs.current[productId];
             if (productElement) {
-              productElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              productElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
           }
-        }, 500);
+        }, 600);
       } catch (error) {
         console.error("Error navigating to product:", error);
       }
