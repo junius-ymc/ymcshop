@@ -45,12 +45,12 @@ const Shop = () => {
   };
 
   // ฟังก์ชันสกอร์ไปยังตำแหน่งสินค้า
-  const scrollToProduct = (productId) => {
-    const productElement = productRefs.current[productId];
-    if (productElement) {
-      productElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  // const scrollToProduct = (productId) => {
+  //   const productElement = productRefs.current[productId];
+  //   if (productElement) {
+  //     productElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  //   }
+  // };
 
   // ✅ ฟังก์ชันสร้างเลขหน้า
   const renderPageNumbers = () => {
@@ -129,7 +129,6 @@ const Shop = () => {
   };
 
   // เมื่อโหลดหน้าเสร็จ
-  // ✅ แก้ useEffect ให้ทำงานแบบ async
   useEffect(() => {
     let isMounted = true; // ✅ ตรวจสอบว่า Component ยังถูก Mount อยู่
   
@@ -174,11 +173,11 @@ const Shop = () => {
 
   // เมื่อโหลดหน้าเสร็จ
   useEffect(() => {
-    getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
+    // getProduct(itemsPerPage, currentPage); // ✅ โหลดสินค้าตามหน้า
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
     }, 100);
-  }, [currentPage]);
+  }, []);
 
   console.log("📦 productId:", productId);
   // console.log("Total Pages:", totalPages);
