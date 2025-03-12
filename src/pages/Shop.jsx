@@ -168,8 +168,8 @@ const Shop = () => {
         //   }
         // }, 500);
 
+        // ✅ ตรวจสอบ isMounted ก่อนสกอร์
         const timer = setTimeout(() => {
-          // const productElement = document.getElementById(`product-${productId}`);
           const productElement = productRefs.current[productId];
           if (productElement) {
             productElement.scrollIntoView({ behavior: "smooth", block: "start" });
