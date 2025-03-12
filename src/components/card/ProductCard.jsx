@@ -43,7 +43,8 @@ const ProductCard = ({ item }) => {
         transition={{ duration: 0.2 }}
       >
 
-        <div className="shop-product-card" id={`product-${item.id}`}>
+        {/* <div className="shop-product-card" id={`product-${item.id}`}> */}
+        <div className="shop-product-card">
 
           {/* ส่วนรูปภาพ */}
 
