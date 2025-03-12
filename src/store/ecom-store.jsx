@@ -76,7 +76,7 @@ const ecomStore = (set, get) => ({
     }
   },
 
-  getProduct: async (itemsPerPage, page = 1) => {
+  getProduct: async (itemsPerPage, page) => {
     set({ loading: true });
     try {
       console.log("📦 กำลังโหลดสินค้า...");
