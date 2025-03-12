@@ -219,13 +219,14 @@ const Shop = () => {
 
             {/* // ✅ แก้การ map สินค้าเพื่อเก็บ reference */}
             {products?.map((item) => (
-              // <div
-              //   key={item.id}
-              //   ref={(el) => (productRefs.current[item.id] = el)}
-              // >
-                
-                <div id={`product-${item.id}`}><ProductCard item={item} /></div>
-              // </div>
+              <div id={`product-${item.id}`}>
+              <div
+                key={item.id}
+                ref={(el) => (productRefs.current[item.id] = el)}
+              >
+                <ProductCard item={item} />
+                </div>
+              </div>
               
             ))}
           </div>
