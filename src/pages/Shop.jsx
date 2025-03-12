@@ -170,10 +170,9 @@ const Shop = () => {
 
         // ✅ ตรวจสอบ isMounted ก่อนสกอร์
         const timer = setTimeout(() => {
-          // const productElement = productRefs.current[productId];
-          const productElement = document.getElementById(`product-${productId}`);
+          const productElement = productRefs.current[productId];
+          // const productElement = document.getElementById(`product-${productId}`);
           if (productElement) {
-            // productElement.scrollIntoView({ behavior: "smooth", block: "start" });
             productElement.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         }, 500);
