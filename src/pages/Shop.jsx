@@ -174,7 +174,7 @@ const Shop = () => {
           const productElement = document.getElementById(`product-${productId}`);
           if (productElement) {
             // productElement.scrollIntoView({ behavior: "smooth", block: "start" });
-            productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+            productElement.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         }, 500);
         return () => clearTimeout(timer);
