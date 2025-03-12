@@ -170,9 +170,11 @@ const Shop = () => {
 
         // ✅ ตรวจสอบ isMounted ก่อนสกอร์
         const timer = setTimeout(() => {
-          const productElement = productRefs.current[productId];
+          // const productElement = productRefs.current[productId];
+          const productElement = document.getElementById(`product-${productId}`);
           if (productElement) {
-            productElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            // productElement.scrollIntoView({ behavior: "smooth", block: "start" });
+            productElement.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         }, 500);
         return () => clearTimeout(timer);
@@ -222,7 +224,9 @@ const Shop = () => {
                 ref={(el) => (productRefs.current[item.id] = el)}
               >
                 <ProductCard item={item} />
+                <div id={`product-${item.id}`}></div>
               </div>
+              
             ))}
           </div>
 
