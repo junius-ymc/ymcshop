@@ -121,42 +121,42 @@ const Shop = () => {
     return pages;
   };
 
-  useEffect(() => {
-    if (productId && products.length > 0) {
-      const productIndex = products.findIndex((p) => p.id === parseInt(productId));
+  // useEffect(() => {
+  //   if (productId && products.length > 0) {
+  //     const productIndex = products.findIndex((p) => p.id === parseInt(productId));
 
-      if (productIndex !== -1) {
-        const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
+  //     if (productIndex !== -1) {
+  //       const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
 
-        if (currentPage !== newPage) {
-          setCurrentPage(newPage); // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
-        }
-      }
-    }
-  }, [productId, products, itemsPerPage]);
+  //       if (currentPage !== newPage) {
+  //         setCurrentPage(newPage); // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
+  //       }
+  //     }
+  //   }
+  // }, [productId, products, itemsPerPage]);
 
   // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
   // setTimeout(() => {
   //   navigate("/shop", { replace: true });
   // }, 400);
 
-  useEffect(() => {
-    if (productId) {
-      const timer = setTimeout(() => {
-        const productElement = document.getElementById(`product-${productId}`);
-        if (productElement) {
-          productElement.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-      }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
+  // useEffect(() => {
+  //   if (productId) {
+  //     const timer = setTimeout(() => {
+  //       const productElement = document.getElementById(`product-${productId}`);
+  //       if (productElement) {
+  //         productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+  //       }
+  //     }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
 
-      return () => clearTimeout(timer);
-    } 
-    // else {
-    //   setTimeout(() => {
-    //         window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    //       }, 100);
-    // }
-  }, [currentPage]);
+  //     return () => clearTimeout(timer);
+  //   } 
+  //   // else {
+  //   //   setTimeout(() => {
+  //   //         window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   //       }, 100);
+  //   // }
+  // }, [currentPage]);
 
     // ตรวจจับความเคลื่อนไหวของ itemsPerPage
     // useEffect(() => {
