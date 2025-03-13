@@ -170,7 +170,7 @@ const Shop = () => {
             window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
           }, 100);
     }
-  }, [currentPage, getProduct]);
+  }, [currentPage]);
 
   // console.log(products);
 
