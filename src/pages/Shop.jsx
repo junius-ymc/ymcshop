@@ -15,7 +15,7 @@ const Shop = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
-  const navigate = useNavigate(); // ✅ เรียกใช้ Hook นี้แทน useHistory
+  // const navigate = useNavigate(); // ✅ เรียกใช้ Hook นี้แทน useHistory
 
   // State สำหรับ Pagination
   const totalPages = useEcomStore((state) => state.totalPages);
@@ -120,21 +120,6 @@ const Shop = () => {
     return pages;
   };
 
-  // ตรวจจับความเคลื่อนไหวของ itemsPerPage
-  useEffect(() => {
-    getProduct();
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    }, 100);
-  }, [itemsPerPage]);
-
-  // ตรวจจับความเคลื่อนไหวของ currentPage
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  //   }, 100);
-  // }, [currentPage, getProduct]);
-
   useEffect(() => {
     if (productId && products.length > 0) {
       const productIndex = products.findIndex((p) => p.id === parseInt(productId));
@@ -171,6 +156,21 @@ const Shop = () => {
           }, 100);
     }
   }, [currentPage]);
+
+    // ตรวจจับความเคลื่อนไหวของ itemsPerPage
+    useEffect(() => {
+      getProduct();
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+      }, 100);
+    }, [itemsPerPage]);
+  
+    // ตรวจจับความเคลื่อนไหวของ currentPage
+    // useEffect(() => {
+    //   setTimeout(() => {
+    //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+    //   }, 100);
+    // }, [currentPage, getProduct]);
 
   // console.log(products);
 
