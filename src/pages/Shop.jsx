@@ -120,19 +120,19 @@ const Shop = () => {
   };
 
   // ตรวจจับความเคลื่อนไหวของ itemsPerPage
-  useEffect(() => {
-    getProduct();
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    }, 100);
-  }, [itemsPerPage, getProduct]);
+  // useEffect(() => {
+  //   getProduct();
+  //   setTimeout(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   }, 100);
+  // }, [itemsPerPage, getProduct]);
 
   // ตรวจจับความเคลื่อนไหวของ currentPage
-  useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    }, 100);
-  }, [currentPage, getProduct]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   }, 100);
+  // }, [currentPage, getProduct]);
 
   useEffect(() => {
     if (productId && products.length > 0) {
