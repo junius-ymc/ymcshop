@@ -149,8 +149,7 @@ const Shop = () => {
       }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
 
       return () => clearTimeout(timer);
-    } 
-    else {
+    } else {
       setTimeout(() => {
             window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
           }, 100);
