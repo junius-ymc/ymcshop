@@ -20,12 +20,7 @@ const ecomStore = (set, get) => ({
       carts: [],
     });
   },
-  products: [], // เก็บสินค้าทั้งหมด
   loading: false, // ✅ เพิ่มตัวแปร Loading
-  totalPages: 1, // ✅ เก็บจำนวนหน้าทั้งหมด
-  currentPage: 1, // ✅ เก็บหน้าปัจจุบัน
-  itemsPerPage: 4, // ✅ ค่าเริ่มต้น
-
   actionAddtoCart: (product) => {
     const carts = get().carts;
     const updateCart = [...carts, { ...product, count: 1 }];
