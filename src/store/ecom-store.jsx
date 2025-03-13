@@ -76,48 +76,17 @@ const ecomStore = (set, get) => ({
     }
   },
 
-  getProduct: async (itemsPerPage, page = 1) => {
-    set({ loading: true });
+  getProduct: async (count) => {
+    set({ loading: true }); // ✅ เริ่มโหลด
     try {
       console.log("📦 กำลังโหลดสินค้า...");
-      const res = await listProduct(itemsPerPage, page);
-      console.log("📦 ดึงสินค้าสำเร็จ ตอนนี้อยู่ที่หน้า:", page);
-      set({
-        products: res.data.products,
-        totalPages: res.data.totalPages,
-        // ใช้ค่าจาก API
-        // currentPage: res.data.currentPage, 
-        // itemsPerPage: res.data.itemsPerPage,
-        // ✅ ใช้ค่าจาก พารามิเตอร์
-        // currentPage: page, 
-        itemsPerPage: itemsPerPage,
-      });
+      const res = await listProduct(count);
+      console.log("📦 ดึงสินค้าสำเร็จ");
+      set({ products: res.data });
     } catch (err) {
       console.log("❌ โหลดสินค้าล้มเหลว:", err);
     } finally {
-      set({ loading: false });
-    }
-  },
-
-  // setPage: (page) => set({ currentPage: page }), // ✅ ฟังก์ชันเปลี่ยนหน้า
-  // ✅ ฟังก์ชันเปลี่ยนหน้า
-  setPage: (page) => {
-    set((state) => {
-      console.log("🚀 เปลี่ยนหน้าเป็น:", page);
-      return { currentPage: page };
-    });
-  },
-
-  // ✅ ฟังก์ชันคำนวณหน้าที่สินค้า
-  calculatePageForProduct: async (productId, itemsPerPage) => {
-    try {
-      // const res = await axios.get(`http://localhost:5001/api/products/${productId}/page?itemsPerPage=${itemsPerPage}`);
-      const res = await axios.get(`https://ymc-shop-api.vercel.app/api/products/${productId}/page?itemsPerPage=${itemsPerPage}`);
-      console.log("📦 ผลลัพธ์จาก API:", res.data); // ✅ เพิ่ม log เพื่อตรวจสอบ
-      return res.data.page; // ✅ ส่งค่าหน้าที่คำนวณได้กลับมา
-    } catch (error) {
-      console.error("Failed to fetch product page:", error);
-      return 1; // ✅ หากเกิดข้อผิดพลาด ให้กลับไปหน้าแรก
+      set({ loading: false }); // ✅ โหลดเสร็จ
     }
   },
 

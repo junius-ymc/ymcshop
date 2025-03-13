@@ -34,7 +34,7 @@ const ProductCard = ({ item }) => {
 
   return (
 
-    <div>
+    <div id={`product-${item.id}`}>
       {/* <div id={item.id} className={item.id}></div> */}
 
       <motion.div
