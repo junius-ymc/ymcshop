@@ -131,31 +131,29 @@ const Shop = () => {
   useEffect(() => {
     if (productId && products.length > 0) {
       const productIndex = products.findIndex((p) => p.id === parseInt(productId));
-
       if (productIndex !== -1) {
         const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
-
         if (currentPage !== newPage) {
-          setCurrentPage(newPage); // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
+          // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
+          setCurrentPage(newPage);
+          // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
+          const timer = setTimeout(() => {
+            navigate("/shop", { replace: true });
+          }, 300);
+          return () => clearTimeout(timer);
         }
       }
     }
-  }, [productId, products, itemsPerPage]);
+  }, [productId, products]);
 
   useEffect(() => {
     if (productId) {
-
       const timer = setTimeout(() => {
-        // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
-        setTimeout(() => {
-          navigate("/shop", { replace: true });
-        }, 400);
         const productElement = document.getElementById(`product-${productId}`);
         if (productElement) {
           productElement.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
-
       return () => clearTimeout(timer);
     } else {
       setTimeout(() => {
