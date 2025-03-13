@@ -21,6 +21,7 @@ const ecomStore = (set, get) => ({
     });
   },
   loading: false, // ✅ เพิ่มตัวแปร Loading
+  
   actionAddtoCart: (product) => {
     const carts = get().carts;
     const updateCart = [...carts, { ...product, count: 1 }];

@@ -137,10 +137,6 @@ const Shop = () => {
 
         if (currentPage !== newPage) {
           setCurrentPage(newPage); // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
-          // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
-          setTimeout(() => {
-            navigate("/shop", { replace: true });
-          }, 400);
         }
       }
     }
@@ -150,6 +146,10 @@ const Shop = () => {
     if (productId) {
 
       const timer = setTimeout(() => {
+        // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
+        setTimeout(() => {
+          navigate("/shop", { replace: true });
+        }, 400);
         const productElement = document.getElementById(`product-${productId}`);
         if (productElement) {
           productElement.scrollIntoView({ behavior: "smooth", block: "center" });
