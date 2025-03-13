@@ -156,7 +156,7 @@ const Shop = () => {
         if (productElement) {
           productElement.scrollIntoView({ behavior: "smooth", block: "center" });
         }
-      }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
+      }, 1000); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
       return () => clearTimeout(timer);
     } else {
       setTimeout(() => {
