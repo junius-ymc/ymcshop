@@ -137,10 +137,13 @@ const Shop = () => {
           // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
           setCurrentPage(newPage);
           // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
-          const timer = setTimeout(() => {
+          setTimeout(() => {
             navigate("/shop", { replace: true });
-          }, 600);
-          return () => clearTimeout(timer);
+          }, 500);
+          // const timer = setTimeout(() => {
+          //   navigate("/shop", { replace: true });
+          // }, 600);
+          // return () => clearTimeout(timer);
         }
       }
     }
