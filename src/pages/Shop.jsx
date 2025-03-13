@@ -167,7 +167,7 @@ const Shop = () => {
           {/* ✅ แสดง Pagination */}
           <div className="shop-pagination">
             <div>
-              <select
+              {/* <select
                 value={itemsPerPage} // ✅ ค่าปัจจุบัน
                 onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
                 title={t("sListProductPerPage")}
@@ -178,7 +178,7 @@ const Shop = () => {
                     {i + 1}
                   </option>
                 ))}
-              </select>
+              </select> */}
             </div>
             {/* **** Pagination อันใหม่ **** */}
             {/* {renderPageNumbers()} */}
