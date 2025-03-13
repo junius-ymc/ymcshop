@@ -4,7 +4,7 @@ import ProductCard from "../components/card/ProductCard";
 import SearchCard from "../components/card/SearchCard";
 import { useTranslation } from "react-i18next";
 import { Loader } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -15,6 +15,7 @@ const Shop = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
+  const navigate = useNavigate(); // ✅ เรียกใช้ Hook นี้แทน useHistory
 
   // State สำหรับ Pagination
   const totalPages = useEcomStore((state) => state.totalPages);
@@ -120,20 +121,48 @@ const Shop = () => {
   };
 
   // ตรวจจับความเคลื่อนไหวของ itemsPerPage
-  // useEffect(() => {
-  //   getProduct();
-  //   setTimeout(() => {
-  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  //   }, 100);
-  // }, [itemsPerPage, getProduct]);
+  useEffect(() => {
+    getProduct();
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+    }, 100);
+  }, [itemsPerPage]);
 
-  // ตรวจจับความเคลื่อนไหวของ currentPage
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-  //   }, 100);
-  // }, [currentPage, getProduct]);
-  
+  useEffect(() => {
+    if (productId && products.length > 0) {
+      const productIndex = products.findIndex((p) => p.id === parseInt(productId));
+
+      if (productIndex !== -1) {
+        const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
+
+        if (currentPage !== newPage) {
+          setCurrentPage(newPage); // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
+          // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
+          setTimeout(() => {
+            navigate("/shop", { replace: true });
+          }, 400);
+        }
+      }
+    }
+  }, [productId, products, itemsPerPage]);
+
+  useEffect(() => {
+    if (productId) {
+
+      const timer = setTimeout(() => {
+        const productElement = document.getElementById(`product-${productId}`);
+        if (productElement) {
+          productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
+
+      return () => clearTimeout(timer);
+    } else {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+      }, 100);
+    }
+  }, [currentPage]);
 
   // console.log(products);
 
@@ -167,7 +196,7 @@ const Shop = () => {
           {/* ✅ แสดง Pagination */}
           <div className="shop-pagination">
             <div>
-              {/* <select
+              <select
                 value={itemsPerPage} // ✅ ค่าปัจจุบัน
                 onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
                 title={t("sListProductPerPage")}
@@ -178,10 +207,10 @@ const Shop = () => {
                     {i + 1}
                   </option>
                 ))}
-              </select> */}
+              </select>
             </div>
             {/* **** Pagination อันใหม่ **** */}
-            {/* {renderPageNumbers()} */}
+            {renderPageNumbers()}
           </div>
 
         </div>
