@@ -4,7 +4,8 @@ import ProductCard from "../components/card/ProductCard";
 import SearchCard from "../components/card/SearchCard";
 import { useTranslation } from "react-i18next";
 import { Loader } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+// import { useLocation, useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
