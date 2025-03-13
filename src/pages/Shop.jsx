@@ -142,6 +142,7 @@ const Shop = () => {
         const newPage = Math.ceil((productIndex + 1) / itemsPerPage);
 
         if (currentPage !== newPage) {
+          getProduct();
           setCurrentPage(newPage); // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
         }
       }
@@ -159,14 +160,13 @@ const Shop = () => {
         const productElement = document.getElementById(`product-${productId}`);
         if (productElement) {
           productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+              }, 100);
         }
       }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
-
       return () => clearTimeout(timer);
-    } else {
-      setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-          }, 100);
     }
   }, [currentPage, getProduct]);
 
