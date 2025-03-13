@@ -166,16 +166,18 @@ const Shop = () => {
           {/* ✅ แสดง Pagination */}
           <div className="shop-pagination">
             <div>
-              {/* <label>{t("sListProductPerPage")}</label> */}
-              <input
-                type="number"
-                name="listProductPerPage"
-                value={itemsPerPage}
-                onChange={handleItemsPerPageChange}
-                min="1"
+              <select
+                value={itemsPerPage} // ✅ ค่าปัจจุบัน
+                onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
                 title={t("sListProductPerPage")}
-                className="form-input w-10 mb-0"
-              />
+                className="form-input w-12 mb-0"
+              >
+                {[...Array(10)].map((_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                ))}
+              </select>
             </div>
             {/* **** Pagination อันใหม่ **** */}
             {renderPageNumbers()}
