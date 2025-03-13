@@ -181,7 +181,7 @@ const Shop = () => {
               </select>
             </div>
             {/* **** Pagination อันใหม่ **** */}
-            {renderPageNumbers()}
+            {/* {renderPageNumbers()} */}
           </div>
 
         </div>
