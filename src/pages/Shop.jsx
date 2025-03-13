@@ -149,13 +149,14 @@ const Shop = () => {
     }
   }, [productId, products, itemsPerPage]);
 
-  // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
-  setTimeout(() => {
-    navigate("/shop", { replace: true });
-  }, 400);
+ 
 
   useEffect(() => {
     if (productId) {
+       // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
+  setTimeout(() => {
+    navigate("/shop", { replace: true });
+  }, 400);
       const timer = setTimeout(() => {
         const productElement = document.getElementById(`product-${productId}`);
         if (productElement) {
