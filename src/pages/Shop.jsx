@@ -139,7 +139,7 @@ const Shop = () => {
           // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
           const timer = setTimeout(() => {
             navigate("/shop", { replace: true });
-          }, 100);
+          }, 600);
           return () => clearTimeout(timer);
         }
       }
