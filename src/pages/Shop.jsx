@@ -120,19 +120,19 @@ const Shop = () => {
   };
 
   // ตรวจจับความเคลื่อนไหวของ itemsPerPage
-  useEffect(() => {
-    getProduct();
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    }, 100);
-  }, [itemsPerPage, getProduct]);
+  // useEffect(() => {
+  //   getProduct();
+  //   setTimeout(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   }, 100);
+  // }, [itemsPerPage, getProduct]);
 
   // ตรวจจับความเคลื่อนไหวของ currentPage
-  useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-    }, 100);
-  }, [currentPage, getProduct]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+  //   }, 100);
+  // }, [currentPage, getProduct]);
   
 
   // console.log(products);
@@ -167,7 +167,7 @@ const Shop = () => {
           {/* ✅ แสดง Pagination */}
           <div className="shop-pagination">
             <div>
-              <select
+              {/* <select
                 value={itemsPerPage} // ✅ ค่าปัจจุบัน
                 onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
                 title={t("sListProductPerPage")}
@@ -178,7 +178,7 @@ const Shop = () => {
                     {i + 1}
                   </option>
                 ))}
-              </select>
+              </select> */}
             </div>
             {/* **** Pagination อันใหม่ **** */}
             {renderPageNumbers()}
