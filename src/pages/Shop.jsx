@@ -145,6 +145,10 @@ const Shop = () => {
           setCurrentPage(newPage); // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
         }
       }
+    } else {
+      setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+          }, 100);
     }
   }, [productId, products, itemsPerPage]);
 
@@ -158,10 +162,6 @@ const Shop = () => {
       }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
 
       return () => clearTimeout(timer);
-    } else {
-      setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
-          }, 100);
     }
   }, [currentPage]);
 
