@@ -126,7 +126,7 @@ const Shop = () => {
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
     }, 100);
-  }, [itemsPerPage, getProduct]);
+  }, [itemsPerPage]);
 
   // ตรวจจับความเคลื่อนไหวของ currentPage
   // useEffect(() => {
