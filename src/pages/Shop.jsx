@@ -139,7 +139,7 @@ const Shop = () => {
           // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
           const timer = setTimeout(() => {
             navigate("/shop", { replace: true });
-          }, 450);
+          }, 500);
           return () => clearTimeout(timer);
         }
       }
@@ -151,7 +151,7 @@ const Shop = () => {
       const timer = setTimeout(() => {
         const productElement = document.getElementById(`product-${productId}`);
         if (productElement) {
-          productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          productElement.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
       return () => clearTimeout(timer);
