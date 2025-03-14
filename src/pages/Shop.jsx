@@ -18,7 +18,7 @@ const Shop = () => {
 
   // State สำหรับ Pagination
   const totalPages = useEcomStore((state) => state.totalPages);
-  const [itemsPerPage, setItemsPerPage] = useState(4); // ✅ ค่าเริ่มต้น
+  const [itemsPerPage, setItemsPerPage] = useState(5); // ✅ ค่าเริ่มต้น
   const [currentPage, setCurrentPage] = useState(1); // ✅ ค่าหน้าปัจจุบัน
   const navigate = useNavigate(); // ✅ เรียกใช้ Hook นี้แทน useHistory
 
