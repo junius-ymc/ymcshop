@@ -16,7 +16,7 @@ const ScrollToTopButton = () => {
       setScrollingDown(false);
     }
 
-    setShowButton(currentScroll > 25);
+    setShowButton(currentScroll > 50);
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   };
@@ -26,7 +26,7 @@ const ScrollToTopButton = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // ค้นหา div ที่เป็น scrollable โดยใช้ ID หรือ Class แทน
-  const scrollableDivs = document.querySelectorAll('.scrollable-container'); // หรือใช้ #id ถ้ามี id
+  // const scrollableDivs = document.querySelectorAll('.scrollable-container'); // หรือใช้ #id ถ้ามี id
 
   scrollableDivs.forEach((div) => {
     div.scrollTo({ top: 0, behavior: 'smooth' });

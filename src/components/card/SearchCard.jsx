@@ -4,7 +4,6 @@ import useEcomStore from "../../store/ecom-store";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { numberFormat } from "../../utils/number";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 
 const SearchCard = () => {
@@ -16,10 +15,8 @@ const SearchCard = () => {
 
   const getCategory = useEcomStore((state) => state.getCategory);
   const categories = useEcomStore((state) => state.categories);
-
   const [text, setText] = useState("");
   const [categorySelected, setCategorySelected] = useState([]);
-
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   // กำหนดช่วงราคา ในการค้นหาราคาสินค้า
@@ -27,7 +24,6 @@ const SearchCard = () => {
   const sPriceMin = 1; // ระหว่างราคาจากต่ำสุด
   const sPriceMax = 5000; // ระหว่างราคาถึงสูงสุด
   const sPriceOver = 10000; // ถึงราคาสูงสุด
-
   const [price, setPrice] = useState([sPriceMin, sPriceMax]);
   const [ok, setOk] = useState(false);
 
@@ -47,7 +43,7 @@ const SearchCard = () => {
       } else {
         getProduct();
       }
-    }, 400);
+    }, 1000);
 
     return () => clearTimeout(delay);
   }, [text]);
@@ -84,7 +80,7 @@ const SearchCard = () => {
 
     setTimeout(() => {
       setOk(!ok);
-    }, 400);
+    }, 1000);
   };
 
   return (

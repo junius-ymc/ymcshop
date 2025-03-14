@@ -15,13 +15,12 @@ const Shop = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
-  const navigate = useNavigate(); // ✅ เรียกใช้ Hook นี้แทน useHistory
 
   // State สำหรับ Pagination
   const totalPages = useEcomStore((state) => state.totalPages);
   const [itemsPerPage, setItemsPerPage] = useState(4); // ✅ ค่าเริ่มต้น
   const [currentPage, setCurrentPage] = useState(1); // ✅ ค่าหน้าปัจจุบัน
-  // const [endPage, setEndPage] = useState(); // ✅ ค่าหน้าปัจจุบัน
+  const navigate = useNavigate(); // ✅ เรียกใช้ Hook นี้แทน useHistory
 
   // คำนวณสินค้าที่จะแสดงในหน้าปัจจุบัน
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -33,6 +32,7 @@ const Shop = () => {
     setCurrentPage(pageNumber);
   };
 
+  // ฟังก์ชันสำหรับเปลี่ยนจำนวนรายการสินค้าต่อหน้า
   const handleItemsPerPageChange = (e) => {
     const newValue = parseInt(e.target.value, 10) || 1; // ✅ รับค่าจาก <input>
     setItemsPerPage(newValue);
@@ -136,14 +136,6 @@ const Shop = () => {
         if (currentPage !== newPage) {
           // ✅ เปลี่ยนไปหน้าที่สินค้านั้นอยู่
           setCurrentPage(newPage);
-          // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
-          setTimeout(() => {
-            navigate("/shop", { replace: true });
-          }, 500);
-          // const timer = setTimeout(() => {
-          //   navigate("/shop", { replace: true });
-          // }, 600);
-          // return () => clearTimeout(timer);
         }
       }
     }
@@ -155,8 +147,13 @@ const Shop = () => {
         const productElement = document.getElementById(`product-${productId}`);
         if (productElement) {
           productElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
+          const timer = setTimeout(() => {
+            navigate("/shop", { replace: true });
+          }, 510);
+          return () => clearTimeout(timer);
         }
-      }, 1000); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
+      }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
       return () => clearTimeout(timer);
     } else {
       setTimeout(() => {
