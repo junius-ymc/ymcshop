@@ -3,7 +3,7 @@ import useEcomStore from "../store/ecom-store";
 import ProductCard from "../components/card/ProductCard";
 import SearchCard from "../components/card/SearchCard";
 import { useTranslation } from "react-i18next";
-import { Loader } from "lucide-react";
+import { Loader, Search, X } from "lucide-react"; // ✅ ใช้ไอคอน Loading 🔍 ❌
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Shop = () => {
@@ -26,6 +26,10 @@ const Shop = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
+
+  // ซ่อน/แสดง SearchCard
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // ✅ ควบคุม Modal
+  const toggleSearch = () => setIsSearchOpen(!isSearchOpen); // ✅ เปิด/ปิด Modal
 
   // ฟังก์ชันสำหรับเปลี่ยนหน้า
   const goToPage = (pageNumber) => {
@@ -167,10 +171,27 @@ const Shop = () => {
   return (
     <div className="div-wrap">
       <div className="wrap-shop">
-        <div className="search-card">
-          <SearchCard />
-        </div>
 
+        {/* เริ่ม ส่วนของการแสดงค้นหาสินค้า */}
+        {/* ✅ Floating Button ค้นหา */}
+        <button className="floating-search-btn" onClick={toggleSearch}>
+          <Search size={24} />
+        </button>
+
+        {/* ✅ Modal ค้นหา */}
+        {isSearchOpen && (
+          <div className="modal-overlay" onClick={toggleSearch}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="close-btn" onClick={toggleSearch}>
+                <X size={24} />
+              </button>
+              <SearchCard />
+            </div>
+          </div>
+        )}
+        {/* จบ ส่วนของการแสดงค้นหาสินค้า */}
+
+        {/* เริ่ม ส่วนของการแสดงรายการสินค้า */}
         <div className="scrollable-container">
           <p className="div-head">{t("sAllProd")}</p>
           <div className="div-content shop-product-cart">
@@ -212,6 +233,8 @@ const Shop = () => {
           </div>
 
         </div>
+        {/* จบ ส่วนของการแสดงรายการสินค้า */}
+
       </div>
     </div>
   );
