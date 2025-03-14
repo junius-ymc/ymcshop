@@ -40,7 +40,7 @@ function MainNav() {
               <div className="setdiv-3">
                 <i className="logo">
                   <NavLink to={"/"}>
-                    <img src="/public/img/logo-b.png" />
+                    <img src="/img/logo-b.png" />
                   </NavLink>
                 </i>
                 {/* End ส่วนของโลโก้ ด้านซ้าย */}
