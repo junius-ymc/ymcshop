@@ -472,7 +472,7 @@ img {
 .floating-search-btn {
   position: fixed;
   top: 50%;
-  left: 12px;
+  left: 14px;
   background-color: var(--bluelite);
   color: white;
   border: none;
@@ -510,7 +510,7 @@ img {
   width: 90%;
   max-width: 400px;
   position: relative;
-
+  opacity: 90%;
 }
 
 /* ✅ ปุ่มปิด Modal */
