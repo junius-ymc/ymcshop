@@ -13,14 +13,10 @@
   top: 0px;
   right: 0px;
   z-index: 22;
-  /* width: 180px; */
-  width: 140px;
+  width: 150px;
   height: 100vh;
   background: var(--gray);
   transition: all 0.4s ease;
-  /* ตัดกรอบให้มุม */
-  /* border-bottom-left-radius: 10px; */
-  /* border-top-left-radius: 10px; */
   /* ตัดกรอบให้มุม */
   border-radius: 8px;
   opacity: 95%;
@@ -37,11 +33,6 @@
   padding: 27px 7px;
   align-items: center;
   justify-content: space-between;
-  /* ตัดกรอบให้มุม */
-  /* border-radius: 8px; */
-  /* background: var(--black); */
-  /* height: 54px; */
-  /* height: 100%; */
 }
 
 /* ------------------------------------- ปุ่มลูกศร ซ้าย/ขวา ซ้อนโชว์แถบ ------------------------------------- */
@@ -55,12 +46,6 @@
   justify-content: center;
   transition: 0.4s ease;
   border-radius: 6px;
-  /* top: -10px; */
-  /* right: 10px; */
-  /* height: 40px; */
-  /* width: 40px; */
-  /* border: 1px solid var(--bgcolo); */
-  /* background: var(--red); */
 }
 
 
@@ -83,7 +68,19 @@
   /* z-index: 30; */
 }
 
-
+/* ✅ Modal Overlay */
+.sidebar-toggler-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
 
 .sidebar.collapsed .sidebar-header .sidebar-toggler {
   transform: translate(87px, 0px);
@@ -96,7 +93,6 @@
 
 .sidebar.collapsed .sidebar-header .sidebar-toggler span {
   transform: rotate(180deg);
-  /* transform: rotate(0deg); */
 }
 
 .sidebar-header .sidebar-toggler:hover {
@@ -144,14 +140,11 @@
   /* เส้นสีขอบ ของกล่อง */
   border: 1px solid var(--black);
   transition: 0.4s ease;
-  /* font-size: 16px; */
-  /* clamp(ขนาดเล็กสุด, สเกลในการขยาย, ขนาดใหญ่สุด) */
   font-size: var(--fontsize14);
 }
 
 .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) {
   color: var(--white);
-  /* background: var(--btbghov); */
   background: var(--bluelite);
   cursor: pointer;
 }
@@ -218,7 +211,6 @@
 
 .sidebar.collapsed .dropdown-menu:has(.dropdown-link) {
   padding: 5px 10px 5px 5px;
-  /* padding: 7px 10px 7px 24px; */
 }
 
 .sidebar.sidebar.collapsed .nav-item:hover>.dropdown-menu {
@@ -235,8 +227,6 @@
 .dropdown-menu .nav-item .nav-link {
   color: var(--btbgcol);
   padding: 5px 5px;
-  /* font-size: 15px; */
-  /* clamp(ขนาดเล็กสุด, สเกลในการขยาย, ขนาดใหญ่สุด) */
   font-size: var(--fontsize13);
 }
 
@@ -260,17 +250,13 @@
 }
 
 .sidebar-menu-button {
-  /* display: none; */
   display: none;
 }
 
-.notifycart-on-menu{
+.notifycart-on-menu {
   display: none;
-    }
+}
 
-
-
-    
 /* ---------------------- Responsive media query code for small screens ---------------------- */
 /* ------------------------------------- ตำแหน่ง เมนูบาร์ตัวเล็ก ------------------------------------- */
 @media (max-width: 768px) {
@@ -279,9 +265,6 @@
     right: 12px;
     top: 9px;
     display: flex;
-    /* height: 40px; */
-    /* width: 40px; */
-    /* border-color: rgb(255, 0, 0); */
   }
 
   /* ------------------------------------- ซ่อนแถบเมนูออกจากด้าน ซ้าย/ขวา ------------------------------------- */

@@ -88,6 +88,10 @@ const Sidebar = () => {
       // product={selectedProduct}
       />
 
+      {!collapsed && (
+        <div className="sidebar-toggler-overlay" onClick={toggleSidebar}></div>
+      )}
+
       <button className="sidebar-menu-button" onClick={toggleSidebar}>
         <span className="bttn">
           <img className="img-icon-m" src="/img/icon/ic-menu.png" />
