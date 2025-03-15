@@ -152,7 +152,7 @@ const Sidebar = () => {
                     ?
                     <span></span>
                     :
-                    <span className="notifycart-3">{carts.length}</span>
+                    <span className="notifycart notifycart-2">{carts.length}</span>
                 }
                 {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
               </NavLink>
@@ -168,7 +168,7 @@ const Sidebar = () => {
                     ?
                     <span></span>
                     :
-                    <span className="notifycart notifycart-2">{carts.length}</span>
+                    <span className="notifycart-3">{carts.length}</span>
                 }
                 {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
               </Link>
