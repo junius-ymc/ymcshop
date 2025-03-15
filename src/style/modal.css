@@ -13,12 +13,9 @@
   background-color: var(--bgcontent);
   box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
   padding: 8px;
-  /* max-width: 512px; */
-  max-width: 70vh;
-  width: 100%;
   border-radius: 8px;
-  align-items: center;
-  justify-content: center;
+  width: 92%;
+  max-width: 420px;
 }
 
 .modal-bnt-close {
@@ -45,8 +42,7 @@
 
 .modal-swiper-size {
   width: 100%;
-  height: 83vh;
-  /* max-height: fit-content; */
+  height: auto;
 }
 
 .modal-swiper-slide {
@@ -56,8 +52,8 @@
 }
 
 .modal-swiper-slide img {
-  width: 100%;
-  height: 84vh;
+  max-width: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 8px;
   /* cursor: move; */
@@ -87,8 +83,6 @@
   background-color: var(--bgcontent);
   box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
   padding: 8px;
-  /* padding-right: 0px; */
-  /* max-width: 512px; */
   max-width: 70vh;
   width: 100%;
   border-radius: 8px;
@@ -107,8 +101,6 @@
 
 .modal-cartcard-head {
   position: absolute;
-  /* top: -33px;
-  left: 210px; */
   top: -31px;
   left: 0px;
   gap: 4px;
@@ -121,7 +113,6 @@
 .modal-cartcard-content-box {
   padding: 8px;
   background-color: var(--white);
-  /* border-width: 1px; */
   border: 1px solid var(--btbghov);
   border-radius: 6px;
   margin-bottom: 8px;
@@ -130,7 +121,6 @@
 
 .modal-cartcard-content-box-row-1 {
   margin-bottom: 8px;
-  /* border-width: 1px; */
   border: 1px solid var(--btbgact);
   border-radius: 4px;
   border-bottom-left-radius: 0px;
