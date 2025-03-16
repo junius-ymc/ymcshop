@@ -133,7 +133,7 @@ i {
 .back-to-top {
   background-color: var(--gray);
   position: fixed;
-  right: 50vw;
+  right: 45vw;
   bottom: 28px;
   border: none;
   border-radius: 4px;
