@@ -109,7 +109,7 @@ function MainNav() {
             </div>
           </div>
 
-          {/* <div className="wrap-sidebar"><Sidebar /></div> */}
+          <div className="wrap-sidebar"><Sidebar /></div>
 
         </div>
       </header>
