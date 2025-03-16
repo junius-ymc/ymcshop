@@ -426,7 +426,7 @@ img {
 
 /* ✅ Modal Content */
 .modal-content {
-  background: white;
+  /* background: white; */
   padding: 20px;
   border-radius: 8px;
   width: 90%;

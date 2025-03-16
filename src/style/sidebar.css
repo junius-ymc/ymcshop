@@ -12,7 +12,6 @@
   position: fixed;
   top: 0px;
   right: 0px;
-  z-index: 30 !important;
   width: 150px;
   height: 100vh;
   height: 100dvh;
@@ -21,6 +20,7 @@
   /* ตัดกรอบให้มุม */
   border-radius: 8px;
   opacity: 95%;
+  z-index: 30 !important;
 }
 
 /* ------------------------------------- แถบบาร์ย่อขนาดกลาง ------------------------------------- */
@@ -66,7 +66,7 @@
   border-radius: 6px;
   /* border: 1px solid var(--bgcolo); */
   background: var(--btbgcol);
-  /* z-index: 30; */
+  z-index: 30 !important;
 }
 
 /* ✅ Modal Overlay */
@@ -80,7 +80,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 30 !important;
 }
 
 .sidebar.collapsed .sidebar-header .sidebar-toggler {
