@@ -28,9 +28,9 @@ const SearchCard = () => {
   const [ok, setOk] = useState(false);
 
   // console.log(categories)
-  // useEffect(() => {
-  //   getCategory();
-  // }, []);
+  useEffect(() => {
+    getCategory();
+  }, []);
 
   // Step 1 Search Text
   // console.log(text)
