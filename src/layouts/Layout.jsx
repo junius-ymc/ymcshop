@@ -7,15 +7,11 @@ const Layout = () => {
 
   return (
     <div>
-
       <MainNav />
-
       <main className="content">
         <Outlet />
       </main>
-
       <Footer />
-
     </div>
   );
 };

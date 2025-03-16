@@ -20,7 +20,7 @@
   /* ตัดกรอบให้มุม */
   border-radius: 8px;
   opacity: 95%;
-  z-index: 30 !important;
+  z-index: 22;
 }
 
 /* ------------------------------------- แถบบาร์ย่อขนาดกลาง ------------------------------------- */
@@ -47,7 +47,7 @@
   justify-content: center;
   transition: 0.4s ease;
   border-radius: 6px;
-  z-index: 30 !important;
+  z-index: 22;
 }
 
 
@@ -67,7 +67,7 @@
   border-radius: 6px;
   /* border: 1px solid var(--bgcolo); */
   background: var(--btbgcol);
-  z-index: 30 !important;
+  /* z-index: 22 !important; */
 }
 
 /* ✅ Modal Overlay */
@@ -81,7 +81,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 30 !important;
+  z-index: 22;
 }
 
 .sidebar.collapsed .sidebar-header .sidebar-toggler {
