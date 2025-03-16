@@ -19,7 +19,7 @@ const SearchCardModal = ({ isOpen, onClose }) => {
         <motion.div
           className="modal-cart-div-open"
           initial={{ x: -500, opacity: 0 }} // เริ่มจากด้านล่างและจาง
-          animate={{ x: 0, opacity: 1 }} // ค่อยๆ เลื่อนขึ้นมาและชัดขึ้น
+          animate={{ x: 0, opacity: '86%' }} // ค่อยๆ เลื่อนขึ้นมาและชัดขึ้น
           exit={{ x: 500, opacity: 0 }} // กลับลงไปและจางหาย
           transition={{ duration: 0.3 }} // ตั้งค่า transition ให้สมูท
           onClick={(e) => e.stopPropagation()} // ป้องกันปิด modal ถ้าคลิกข้างใน

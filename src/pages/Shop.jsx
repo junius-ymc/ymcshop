@@ -176,7 +176,7 @@ const Shop = () => {
 
         {/* เริ่ม ส่วนของการแสดงค้นหาสินค้า */}
         {/* ✅ Floating Button ค้นหา */}
-        <button className="floating-search-btn" onClick={handleSearchCardClick}>
+        <button className="bttn floating-search-btn" onClick={handleSearchCardClick}>
           <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
         </button>
 

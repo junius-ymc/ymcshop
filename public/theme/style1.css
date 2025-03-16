@@ -937,7 +937,6 @@ header .wrapper .navbar li a {
   top: 50%;
   left: 14px;
   background-color: var(--bluelite);
-  color: white;
   border: none;
   padding: 8px;
   border-radius: 50%;
@@ -945,21 +944,21 @@ header .wrapper .navbar li a {
   cursor: pointer;
   transition: 0.3s;
   z-index: 1;
-}
-
-.floating-search-btn:hover {
-  background-color: var(--bluedeep);
+  opacity: 85%;
 }
 
 .search-card-head {
-  width: 100%;
   padding: 14px;
+  width: auto;
+  height: 100%;
+  max-height: 74vh;
+  max-height: 74dvh;
+  overflow-y: auto;
 }
 
 .search-card-box {
   background-color: var(--white);
   border-top-left-radius: 6px;
-
 }
 
 .search-card-by-text,
@@ -1003,7 +1002,7 @@ header .wrapper .navbar li a {
   text-wrap: wrap;
   display: flex;
   justify-content: space-between;
-  font-size: var(--fontsize12);
+  font-size: var(--fontsize13);
 }
 
 /* ------------------------------------- End Shop - SearchCard ------------------------------------- */
