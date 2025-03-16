@@ -32,7 +32,6 @@ function MainNav() {
     <nav className="navbox">
       <header>
         <div className="wrapper">
-
           <div className="setdiv-1">
             <div className="setdiv-2 addgap">
 
@@ -108,10 +107,8 @@ function MainNav() {
 
             </div>
           </div>
-
-          <div className="wrap-sidebar"><Sidebar /></div>
-
         </div>
+        <div className="wrap-sidebar"><Sidebar /></div>
       </header>
     </nav>
 
