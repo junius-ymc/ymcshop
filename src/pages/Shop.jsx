@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useEcomStore from "../store/ecom-store";
 import ProductCard from "../components/card/ProductCard";
-import SearchCard from "../components/card/SearchCard";
 import { useTranslation } from "react-i18next";
-import { Loader, Search, X } from "lucide-react"; // ✅ ใช้ไอคอน Loading 🔍 ❌
+import { Loader } from "lucide-react"; // ✅ เพิ่มไอคอน Loading
 import { useLocation, useNavigate } from "react-router-dom";
+import SearchCardModal from "../components/SearchCardModal";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -27,9 +27,11 @@ const Shop = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 
-  // ซ่อน/แสดง SearchCard
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // ✅ ควบคุม Modal
-  const toggleSearch = () => setIsSearchOpen(!isSearchOpen); // ✅ เปิด/ปิด Modal
+  // ซ่อน/แสดง modal SearchCard
+  const [isModalOpenSearchCard, setIsModalOpenSearchCard] = useState(false);
+  const handleSearchCardClick = () => {
+    setIsModalOpenSearchCard(true);
+  };
 
   // ฟังก์ชันสำหรับเปลี่ยนหน้า
   const goToPage = (pageNumber) => {
@@ -174,21 +176,15 @@ const Shop = () => {
 
         {/* เริ่ม ส่วนของการแสดงค้นหาสินค้า */}
         {/* ✅ Floating Button ค้นหา */}
-        <button className="floating-search-btn" onClick={toggleSearch}>
-          <Search size={24} />
+        <button className="floating-search-btn" onClick={handleSearchCardClick}>
+          <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
         </button>
 
         {/* ✅ Modal ค้นหา */}
-        {isSearchOpen && (
-          <div className="modal-overlay" onClick={toggleSearch}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="close-btn" onClick={toggleSearch}>
-                <X size={24} />
-              </button>
-              <SearchCard />
-            </div>
-          </div>
-        )}
+        <SearchCardModal
+          isOpen={isModalOpenSearchCard}
+          onClose={() => setIsModalOpenSearchCard(false)}
+        />
         {/* จบ ส่วนของการแสดงค้นหาสินค้า */}
 
         {/* เริ่ม ส่วนของการแสดงรายการสินค้า */}

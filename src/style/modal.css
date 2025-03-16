@@ -84,6 +84,7 @@
   box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
   padding: 8px;
   max-width: 70vh;
+  max-width: 70dvh;
   width: 100%;
   border-radius: 8px;
   border-top-left-radius: 0px;
@@ -93,15 +94,17 @@
 
 .modal-cartcard {
   max-width: 80vh;
+  max-width: 80dvh;
   width: 100%;
   max-height: 80vh;
+  max-height: 80dvh;
   height: 100%;
   overflow-y: auto;
 }
 
 .modal-cartcard-head {
   position: absolute;
-  top: -31px;
+  top: -33px;
   left: 0px;
   gap: 4px;
 }

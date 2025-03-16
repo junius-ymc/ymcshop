@@ -87,7 +87,10 @@ const SearchCard = () => {
     <div>
       <div className="search-card-head">
 
-        <p className="div-head">{t("sbSearch")}</p>
+      <div className="div-head modal-cartcard-head setdiv-3">
+        <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
+        {t("sbSearch")}
+      </div>
         <div className="div-content search-card-box">
           <div className="search-card-by-text">{t("sbProd")}</div>
           {/* Search by Text */}
