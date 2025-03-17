@@ -1709,35 +1709,26 @@ footer .wrapper ul li a:hover {
   header .wrapper .navbar {
     display: none;
   }
-
+  
 }
 
 /* ------------------------------------- End RESPONSIVE 550px ------------------------------------- */
 
 /* ------------------------------------- Start RESPONSIVE 480px ------------------------------------- */
-/* @media(max-width:480px) {
+@media(max-width:480px) {
 
-  .first-box {
-    display: block;
-    overflow: hidden;
-    padding: 24px;
-  }
-  .first-box img {
-    overflow: hidden;
-    padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+  footer .wrapper ul {
+    gap: 6px;
   }
 
-} */
+}
 /* ------------------------------------- End RESPONSIVE 480px ------------------------------------- */
 
-/* ------------------------------------- Start height RESPONSIVE 480px ------------------------------------- */
+/* ------------------------------------- Start HEIGHT RESPONSIVE 500px ------------------------------------- */
 
 @media (max-height: 500px) {
 
   .collection-crsl .content-crsl {
-    /* display: none; */
     max-width: 200px;
   }
 
@@ -1749,4 +1740,4 @@ footer .wrapper ul li a:hover {
 
 }
 
-/* ------------------------------------- End height RESPONSIVE 480px ------------------------------------- */
+/* ------------------------------------- End HEIGHT RESPONSIVE 500px ------------------------------------- */
