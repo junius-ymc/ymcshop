@@ -3,11 +3,8 @@ import { listProductBy } from "../../api/product";
 // import moment from "moment/min/moment-with-locales"; // นำเข้า เปลี่ยนรูปแบบเวลา
 import { dateFormat } from "../../utils/dateformat"; // นำเข้า เปลี่ยนรูปแบบเวลา
 import ProductModal from "../ProductModal"; // ✅ นำเข้า ProductModal
-import ShowSupporter from "./ShowSupporter";
-import TextAnimation from "./TextAnimation";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
-import { Loader } from 'lucide-react';
-
+import LoaderDiv from "../LoaderDiv";
 
 const ContentShowNewProduct = () => {
   const [data, setData] = useState([]);
@@ -50,48 +47,13 @@ const ContentShowNewProduct = () => {
   return (
     <div>
 
-      {/* ---------------------------- Start ShowSupporter ---------------------------- */}
       <div className="wrapper">
-        <div className="showsupporter">
-          <ShowSupporter />
-        </div>
-      </div>
-      {/* ---------------------------- End ShowSupporter ---------------------------- */}
-
-
-      {/* ---------------------------- Start infomation ---------------------------- */}
-      <div className="wrapper">
-        <div className="link-box">
-
-          <div className="mini-link-box-l">
-            <span> {t("minfo")} <i className=""></i></span>
-          </div>
-
-          <div>
-            <TextAnimation />
-          </div>
-
-        </div>
-      </div>
-      {/* ---------------------------- End infomation ---------------------------- */}
-
-      {/* ---------------------------- Start Content ShowNewProduct ---------------------------- */}
-      <div className="wrapper">
-        <div>
-          <p className="div-head"> {t("mShowNewProduct")} </p>
-        </div>
         {loading ? (
-          // เริ่ม ตัวโหลดดิ้ง
-          <div className="loading-box">
-            <br />
-            <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
-            <br />
-            <Loader className="loading-animate-icon loading-animate-spin" />
-            <br />
-          </div>
-          // จบ ตัวโหลดดิ้ง
+          // ✅ เริ่ม แสดง Loader
+          <LoaderDiv />
+          // ✅ จบ แสดง Loader
         ) : (
-          <div className="div-content first-box relative">
+          <div className=" first-box relative">
             {data?.map((item, index) => (
               <div className="first-box-content" key={index} onClick={() => openModal(item)}>
                 <div>
@@ -127,7 +89,6 @@ const ContentShowNewProduct = () => {
           </div>
         )}
       </div>
-      {/* ---------------------------- End Content ShowNewProduct ---------------------------- */}
 
       {/* ✅ แสดง Modal ถ้ามีการคลิกสินค้า */}
       <ProductModal isOpen={isOpen} onClose={closeModal} product={selectedProduct} />

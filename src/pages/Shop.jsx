@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import useEcomStore from "../store/ecom-store";
 import ProductCard from "../components/card/ProductCard";
 import { useTranslation } from "react-i18next";
-import { Loader } from "lucide-react"; // ✅ เพิ่มไอคอน Loading
 import { useLocation, useNavigate } from "react-router-dom";
 import SearchCardModal from "../components/SearchCardModal";
+import LoaderDiv from "../components/LoaderDiv";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -191,18 +191,9 @@ const Shop = () => {
         <div className="scrollable-container">
           <p className="div-head">{t("sAllProd")}</p>
           <div className="div-content shop-product-cart">
-            {/* ✅ แสดง Loader ตอนโหลดเพิ่ม */}
-            {loading && (
-              // เริ่ม ตัวโหลดดิ้ง
-              <div className="loading-box">
-                <br />
-                <p className="loading-animate-pulse">{t("waitMassLoading")}</p>
-                <br />
-                <Loader className="loading-animate-icon loading-animate-spin" />
-                <br />
-              </div>
-              // จบ ตัวโหลดดิ้ง
-            )}
+            {/* ✅ เริ่ม แสดง Loader */}
+            {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+            {/* ✅ จบ แสดง Loader */}
             {currentItems?.map((item, index) => (
               <ProductCard key={index} item={item} />
             ))}

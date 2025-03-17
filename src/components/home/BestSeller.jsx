@@ -3,7 +3,7 @@ import { listProductBy } from "../../api/product";
 import NewProdCard from "../card/NewProdCard";
 import SwiperShowBestSeller from "./SwiperShowBestSeller";
 import { SwiperSlide } from "swiper/react";
-import { Loader } from 'lucide-react';
+import LoaderDiv from "../LoaderDiv";
 
 const BestSeller = () => {
   const [data, setData] = useState([]);
@@ -34,15 +34,9 @@ const BestSeller = () => {
     // Code
     <div className="div-content">
       {loading ? (
-        // เริ่ม ตัวโหลดดิ้ง
-        <div className="loading-box">
-          <br />
-          <p className="loading-animate-pulse">⏳ ..กำลังโหลดอยู่จ้า.. ⌛</p>
-          <br />
-          <Loader className="loading-animate-icon loading-animate-spin" />
-          <br />
-        </div>
-        // จบ ตัวโหลดดิ้ง
+        // ✅ เริ่ม แสดง Loader
+        <LoaderDiv />
+        // ✅ จบ แสดง Loader
       ) : (
         <SwiperShowBestSeller>
           {data?.map((item, index) => (

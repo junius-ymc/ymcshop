@@ -574,14 +574,14 @@ header .wrapper .navbar li a {
   border-top-left-radius: 0px;
 }
 
-.mini-link-box-l {
+.mini-link-box {
   /* display: inline-flex; */
   font-size: var(--fontsize16);
   text-align: center;
   color: var(--red);
   background-color: var(--bghead);
   display: inline-block;
-  padding: 3px;
+  padding: 3px 6px;
   font-weight: 500;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
