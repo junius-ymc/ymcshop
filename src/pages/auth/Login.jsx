@@ -4,8 +4,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import useEcomStore from "../../store/ecom-store";
 import { useNavigate, Link } from "react-router-dom";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import LoaderDiv from "../../components/LoaderDiv"; // ✅ เพิ่ม Div Loading
 
 const Login = () => {
   // Javascript
@@ -15,6 +15,7 @@ const Login = () => {
   // console.log("user form zustand", user);
 
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
 
   const [form, setForm] = useState({
     email: "",
@@ -29,6 +30,7 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true); // เริ่มโหลด
     e.preventDefault();
     try {
       const res = await actionLogin(form);
@@ -50,6 +52,8 @@ const Login = () => {
       toast.error(`${chgLngMsg}`, {
         bodyClassName: "toastify-toast-modify",
       });
+    } finally {
+      setLoading(false); // โหลดเสร็จ
     }
 
   };
@@ -71,6 +75,10 @@ const Login = () => {
 
           <div className="login-form">
             <div className="setdiv-3">
+
+              {/* ✅ เริ่ม แสดง Loader */}
+              {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+              {/* ✅ จบ แสดง Loader */}
 
               <form onSubmit={handleSubmit}>
                 <div className="login-form-sign-in">{t("liSignin")}</div>
@@ -95,14 +103,14 @@ const Login = () => {
                       type="password"
                     />
                   </div>
-                
+
                   <div>
                     <button className="bnt-mod login-bttn">
                       {t("mLogin")}
                     </button>
                   </div>
                   <div className="check-box-mod login-form-go-register">
-                     <Link to="/register/" className="">{t("liGoRegister")}</Link>
+                    <Link to="/register/" className="">{t("liGoRegister")}</Link>
                   </div>
                 </div>
               </form>
