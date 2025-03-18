@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import LoaderDiv from '../components/LoaderDiv'
 
 const LoadingToRedirect = () => {
-    const [count, setCount] = useState(3)
+    const [count, setCount] = useState(4)
     const [redirect, setRedirect] = useState(false)
     const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
 
