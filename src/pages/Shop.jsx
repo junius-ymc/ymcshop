@@ -33,6 +33,11 @@ const Shop = () => {
     setIsModalOpenSearchCard(true);
   };
 
+  // ✅ เพิ่มฟังก์ชันให้เปลี่ยนหน้าเป็นหน้าแรก
+  const resetToFirstPage = () => {
+    setCurrentPage(1);
+  };
+
   // ฟังก์ชันสำหรับเปลี่ยนหน้า
   const goToPage = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -184,6 +189,7 @@ const Shop = () => {
         <SearchCardModal
           isOpen={isModalOpenSearchCard}
           onClose={() => setIsModalOpenSearchCard(false)}
+          resetPage={resetToFirstPage} // ✅ ส่งฟังก์ชันนี้ไป
         />
         {/* จบ ส่วนของการแสดงค้นหาสินค้า */}
 

@@ -6,18 +6,14 @@ import "rc-slider/assets/index.css";
 import { numberFormat } from "../../utils/number";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 
-const SearchCard = () => {
-  const getProduct = useEcomStore((state) => state.getProduct);
+const SearchCard = ({ resetPage }) => {
   const products = useEcomStore((state) => state.products);
-  const actionSearchFilters = useEcomStore(
-    (state) => state.actionSearchFilters
-  );
-
+  const getProduct = useEcomStore((state) => state.getProduct);
+  const actionSearchFilters = useEcomStore((state) => state.actionSearchFilters);
   const getCategory = useEcomStore((state) => state.getCategory);
   const categories = useEcomStore((state) => state.categories);
   const [text, setText] = useState("");
   const [categorySelected, setCategorySelected] = useState([]);
-  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   // กำหนดช่วงราคา ในการค้นหาราคาสินค้า
   const sPriceStart = 0; // เริ่มตั้งแต่ราคาต่ำสุด
@@ -27,19 +23,22 @@ const SearchCard = () => {
   const [price, setPrice] = useState([sPriceMin, sPriceMax]);
   const [ok, setOk] = useState(false);
 
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
   // console.log(categories)
   useEffect(() => {
     getCategory();
   }, []);
 
-  // Step 1 Search Text
+  // ✅ Step 1: ค้นหาด้วย Text
   // console.log(text)
   useEffect(() => {
     const delay = setTimeout(() => {
       if (text) {
-        // console.log("ค้นหาคำจากหน้าบ้าน:", text.toLowerCase()); // ✅ Debug ค่าที่จะส่ง
         // actionSearchFilters({ query: text });
         actionSearchFilters({ query: text.toLowerCase() }); // ✅ แปลงเป็นพิมพ์เล็ก
+        resetPage(); // ✅ รีเซ็ตไปหน้าแรก
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         getProduct();
       }
@@ -48,7 +47,7 @@ const SearchCard = () => {
     return () => clearTimeout(delay);
   }, [text]);
 
-  // Step 2 Search by Category
+  // ✅ Step 2: ค้นหาด้วย Category
   const handleCheck = (e) => {
     // console.log(e.target.value)
     const inCheck = e.target.value; // ค่าที่เรา ติ๊ก
@@ -61,23 +60,25 @@ const SearchCard = () => {
       inState.splice(findCheck, 1);
     }
     setCategorySelected(inState);
-
     if (inState.length > 0) {
       actionSearchFilters({ category: inState });
+      resetPage(); // ✅ รีเซ็ตไปหน้าแรก
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       getProduct();
     }
   };
   // console.log(categorySelected)
 
-  // Step 3 Search by Price
+  // ✅ Step 3: ค้นหาด้วย Price
   useEffect(() => {
     actionSearchFilters({ price });
   }, [ok]);
   const handlePrice = (value) => {
     //  console.log(value);
     setPrice(value);
-
+    resetPage(); // ✅ รีเซ็ตไปหน้าแรก
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(() => {
       setOk(!ok);
     }, 500);
@@ -87,10 +88,10 @@ const SearchCard = () => {
     <div>
       <div className="search-card-head">
 
-      <div className="div-head modal-cartcard-head setdiv-3">
-        <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
-        {t("sbSearch")}
-      </div>
+        <div className="div-head modal-cartcard-head setdiv-3">
+          <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
+          {t("sbSearch")}
+        </div>
         <div className="div-content search-card-box">
           <div className="search-card-by-text">{t("sbProd")}</div>
           {/* Search by Text */}
@@ -104,9 +105,7 @@ const SearchCard = () => {
           {/* Search by Category */}
           <div className="search-card-by-category-box">
             <div className="search-card-by-category">{t("sbCategory")}</div>
-
             <div className="search-card-by-category-check-status">
-
               {categories.map((item, index) => (
                 <div key={index} className="search-card-by-category-input">
                   <label>
@@ -115,7 +114,6 @@ const SearchCard = () => {
                   </label>
                 </div>
               ))}
-
             </div>
           </div>
 
@@ -128,7 +126,6 @@ const SearchCard = () => {
                 <span>{t("sbPriceMin")}{numberFormat(price[0])}{t("moneyUnit")}</span>
                 <span>{t("sbPriceMax")}{numberFormat(price[1])}{t("moneyUnit")}</span>
               </div>
-
               <Slider
                 onChange={handlePrice}
                 range
@@ -136,10 +133,10 @@ const SearchCard = () => {
                 max={sPriceOver}
                 defaultValue={[sPriceMin, sPriceMax]}
               />
-
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

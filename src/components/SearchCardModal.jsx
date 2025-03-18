@@ -2,7 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SearchCard from "./card/SearchCard";
 
-const SearchCardModal = ({ isOpen, onClose }) => {
+const SearchCardModal = ({ isOpen, onClose, resetPage }) => {
 
   if (!isOpen) return null;
 
@@ -31,7 +31,8 @@ const SearchCardModal = ({ isOpen, onClose }) => {
           </button>
 
           <div>
-            <SearchCard />
+            {/* ✅ ส่งไป SearchCard */}
+            <SearchCard resetPage={resetPage} />
           </div>
 
         </motion.div>
