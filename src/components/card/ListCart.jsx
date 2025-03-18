@@ -8,25 +8,23 @@ import { createUserCart } from "../../api/user";
 import { toast } from "react-toastify";
 import { numberFormat } from "../../utils/number";
 import ProductModal from "../../components/ProductModal"; // นำเข้า ProductModal
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import LoaderDiv from "../LoaderDiv";
 
 const ListCart = () => {
   const cart = useEcomStore((state) => state.carts);
   const user = useEcomStore((s) => s.user);
   const token = useEcomStore((s) => s.token);
   const getTotalPrice = useEcomStore((state) => state.getTotalPrice);
-
   const navigate = useNavigate();
-
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
 
   const handleSaveCart = async () => {
+    setLoading(true); // เริ่มโหลด
     await createUserCart(token, { cart })
       .then((res) => {
         // console.log(res);
-        // toast.success("บันทึกใส่ตะกร้าเรียบร้อยแล้วจ้า", {
-        // position: "top-center",
         toast.success(t("lcOrderSuccess"), {
           bodyClassName: "toastify-toast-modify",
         });
@@ -36,6 +34,7 @@ const ListCart = () => {
         console.log("err", err);
         toast.warning(err.response.data.message);
       });
+    setLoading(false); // โหลดเสร็จ
   };
 
   const actionRemoveProduct = useEcomStore(
@@ -58,16 +57,13 @@ const ListCart = () => {
   };
 
   return (
-
-    // <div className="div-wrap">
-
     <div className="div-wrap">
 
       {/* Header */}
       <div className="cart-header">
         <div className="cart-header-title div-head">
           {/* <ListCheck size={36} /> */}
-          <img className="img-icon-m" src="/img/icon/ic-list.png" alt={t("lcListCart")} />
+          <img className="img-icon-m" src="../../../public/img/icon/ic-list.png" alt={t("lcListCart")} />
           {t("lcListCart")} {cart.length} {t("lcItem")}
         </div>
       </div>
@@ -95,15 +91,6 @@ const ListCart = () => {
                       </div>
                     )}
 
-                    {/* {(item?.quantity === 0)
-                      ?
-                      <div className="show-sold-out-box">
-                        <div className="show-sold-out-text">Sold Out</div>
-                      </div>
-                      : ""
-                    }
-                    </div> */}
-
                     <div>
                       <span className="cart-list-left-data-1-text-1">{item.title} </span>
                       <span className="cart-list-left-data-1-text-2"> {numberFormat(item.price)}x{item.count}</span>
@@ -116,7 +103,7 @@ const ListCart = () => {
                       {numberFormat(item.price * item.count)} {t("moneyUnit")}
                     </div>
                     <div onClick={() => actionRemoveProduct(item.id)} className="ic-trash">
-                      {/* <img className="img-icon-m" src="/img/icon/ic-x.png" alt="Trash" /> */}
+                      {/* <img className="img-icon-m" src="/public/img/icon/ic-x.png" alt="Trash" /> */}
                       <Trash2 />
                     </div>
                   </div>
@@ -129,20 +116,14 @@ const ListCart = () => {
           <div className="cart-list-right-box-wrap">
             <div className="cart-list-right-box">
               <div className="cart-list-right-title">{t("lcTotal")}</div>
-
               <hr />
-
               <div className="cart-list-right-text-1">
-
                 <span>{t("lcNetTotal")}</span>
                 <span className="cart-list-right-text-2">
                   {numberFormat(getTotalPrice())} {t("moneyUnit")}
                 </span>
-
               </div>
-
               <hr />
-
               <div className="cart-list-right-end">
                 {user ? (
                   <Link>
@@ -176,9 +157,11 @@ const ListCart = () => {
         {/* ✅ แสดง Modal ถ้ามีการคลิกสินค้า */}
         <ProductModal isOpen={isOpen} onClose={closeModal} product={selectedProduct} />
 
-      </div>
+        {/* ✅ เริ่ม แสดง Loader */}
+        {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+        {/* ✅ จบ แสดง Loader */}
 
-      {/* </div> */}
+      </div>
 
     </div>
   );

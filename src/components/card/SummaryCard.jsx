@@ -4,17 +4,14 @@ import useEcomStore from "../../store/ecom-store";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { numberFormat } from "../../utils/number";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import LoaderDiv from "../LoaderDiv";
 
 const SummaryCard = () => {
   const token = useEcomStore((state) => state.token);
   const [products, setProducts] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const user = useEcomStore((state) => state.user);
-  // console.log("user form zustand", user);
-
-  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   let initialAddress, initialName;
   try {
@@ -46,14 +43,12 @@ const SummaryCard = () => {
     };
   }
 
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const [addressData, setAddressData] = useState(initialAddress);
   const [nameData, setNameData] = useState(initialName);
   const [addressSaved, setAddressSaved] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    hdlGetUserCart(token);
-  }, []);
+  const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
 
   const hdlGetUserCart = (token) => {
     listUserCart(token)
@@ -70,13 +65,15 @@ const SummaryCard = () => {
   const hdlSaveAddress = () => {
     if (Object.values(addressData).some(val => !val) || Object.values(nameData).some(val => !val)) {
       return toast.warning(t("scVerifyFill"), {
-                bodyClassName: "toastify-toast-modify",
-              });
+        bodyClassName: "toastify-toast-modify",
+      });
     }
+    setLoading(true);
     saveAddress(token, JSON.stringify(addressData), JSON.stringify(nameData))
       .then((res) => {
         toast.success(res.data.message);
         setAddressSaved(true);
+        setLoading(false); // โหลดเสร็จ
       })
       .catch((err) => {
         console.log(err);
@@ -89,6 +86,7 @@ const SummaryCard = () => {
         bodyClassName: "toastify-toast-modify",
       });
     }
+    setLoading(true); // เริ่มโหลด
     navigate("/user/payment");
   };
 
@@ -100,6 +98,10 @@ const SummaryCard = () => {
     setNameData({ ...nameData, [e.target.name]: e.target.value });
   };
 
+  useEffect(() => {
+    hdlGetUserCart(token);
+  }, []);
+
   // console.log(products);
 
   return (
@@ -107,7 +109,11 @@ const SummaryCard = () => {
     <div className="div-wrap">
       <div className="summary-card">
 
-{/* Left */}
+        {/* ✅ เริ่ม แสดง Loader */}
+        {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+        {/* ✅ จบ แสดง Loader */}
+
+        {/* Left */}
         <div className="summary-card-left">
           <div className="div-head">{t("scShippingAddress")}</div>
           <div className="div-content">
@@ -139,7 +145,7 @@ const SummaryCard = () => {
           </div>
         </div>
 
-{/* Right */}
+        {/* Right */}
         <div className="summary-card-right">
           <div className="div-head">{t("scYourOrder")}</div>
           <div className="div-content">
@@ -150,7 +156,7 @@ const SummaryCard = () => {
                     <div>
                       <p className="summary-card-right-list-title">{item.product.title}</p>
                       <p className="summary-card-right-list-count">
-                      {t("scQuantity")}: {item.count} x {numberFormat(item.product.price)}
+                        {t("scQuantity")}: {item.count} x {numberFormat(item.product.price)}
                       </p>
                     </div>
                     <div>
@@ -170,7 +176,7 @@ const SummaryCard = () => {
                 <div className="summary-card-right-list-other">
                   <p>{t("scDiscount")}:</p>
                   <div className="summary-card-right-list-discount">-<span className="summary-card-right-list-total-price-unit"> {t("moneyUnit")}</span></div>
-                  
+
                 </div>
               </div>
               <div className="summary-card-right-list-other-box">
@@ -178,15 +184,15 @@ const SummaryCard = () => {
                 <div className="summary-card-right-list-other">
                   <p className="summary-card-right-list-total">{t("scNetTotal")}:</p>
                   <p className="summary-card-right-list-total-price">{numberFormat(cartTotal) + ' '}
-                  <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
+                    <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
                   </p>
                 </div>
                 <hr />
               </div>
               <div>
-              <div className="summary-card-div-btn">
-                <button onClick={hdlGoToPayment} className="bnt-mod summary-card-btn">{t("scProceedWithPayment")}</button>
-              </div>
+                <div className="summary-card-div-btn">
+                  <button onClick={hdlGoToPayment} className="bnt-mod summary-card-btn">{t("scProceedWithPayment")}</button>
+                </div>
               </div>
             </div>
           </div>
