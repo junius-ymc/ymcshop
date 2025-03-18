@@ -14,10 +14,10 @@ const LoadingToRedirect = () => {
                 if (currentCount === 1) {
                     clearInterval(interval)
                     setRedirect(true)
+                    setLoading(false); // โหลดเสร็จ
                 }
                 return currentCount - 1
             })
-
         }, 1000)
 
         return () => clearInterval(interval)
