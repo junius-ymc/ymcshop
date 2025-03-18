@@ -63,7 +63,7 @@ const ListCart = () => {
       <div className="cart-header">
         <div className="cart-header-title div-head">
           {/* <ListCheck size={36} /> */}
-          <img className="img-icon-m" src="../../../public/img/icon/ic-list.png" alt={t("lcListCart")} />
+          <img className="img-icon-m" src="/img/icon/ic-list.png" alt={t("lcListCart")} />
           {t("lcListCart")} {cart.length} {t("lcItem")}
         </div>
       </div>
