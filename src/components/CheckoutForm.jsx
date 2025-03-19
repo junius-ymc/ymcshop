@@ -39,6 +39,7 @@ export default function CheckoutForm() {
       toast.error(payload.error.message);
     } else if (payload.paymentIntent.status === "succeeded") {
       console.log("Ready or Saveorder");
+      setLoading(true); // เริ่มโหลด
       // Create Order
       saveOrder(token, payload)
         .then((res) => {
@@ -52,6 +53,9 @@ export default function CheckoutForm() {
         })
         .catch((err) => {
           console.log(err);
+        })
+        .finally(() => {
+          setLoading(false); // โหลดเสร็จ
         });
     } else {
       console.log("Something wrong!!!");
