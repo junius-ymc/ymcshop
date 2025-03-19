@@ -55,7 +55,6 @@ const Login = () => {
     } finally {
       setLoading(false); // โหลดเสร็จ
     }
-
   };
 
   const roleRedirect = (role) => {
@@ -81,7 +80,7 @@ const Login = () => {
               {/* ✅ จบ แสดง Loader */}
 
               <form onSubmit={handleSubmit}>
-                <div className="login-form-sign-in">{t("liSignin")}</div>
+                <div className="title-text-form">{t("liSignin")}</div>
                 <div className="login-form-input">
                   <div>
                     <input
@@ -109,8 +108,8 @@ const Login = () => {
                       {t("mLogin")}
                     </button>
                   </div>
-                  <div className="check-box-mod login-form-go-register">
-                    <Link to="/register/" className="">{t("liGoRegister")}</Link>
+                  <div className="check-box-mod text-form-go-to">
+                    <Link to="/register">{t("liGoRegister")}</Link>
                   </div>
                 </div>
               </form>

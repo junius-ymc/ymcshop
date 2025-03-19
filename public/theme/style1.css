@@ -20,6 +20,8 @@
   --texheadhov: #0e0d0d;
   --black: #000000;
 
+
+
   /* ส่วนของ Font */
   /* clamp(ขนาดเล็กสุด, สเกลในการขยาย, ขนาดใหญ่สุด) */
   --fontsize18: clamp(1.063rem, calc(7vw + 1.125rem), 1.188rem);
@@ -36,6 +38,8 @@
   /* ส่วนของ Shadow */
   --box-shadow-mid: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
+  /* สีที่คลุมหน้าจอ */
+  --bgoverlay: #fcfcfc80;
 
   /* var(--red); เอาไปใช้ */
 }
@@ -137,7 +141,7 @@ i {
   bottom: 28px;
   border: none;
   border-radius: 4px;
-  z-index: 19;
+  z-index: 16;
   cursor: pointer;
   transition: opacity 0.5s ease;
   padding: 3px;
@@ -203,7 +207,7 @@ i {
   border-radius: 6px;
   border: 1px solid var(--red);
   padding: 10px 10px;
-  background-color: var(--bgcontent);
+  /* background-color: var(--bgcontent); */
   border-top-left-radius: 0px;
 }
 
@@ -212,7 +216,7 @@ i {
 }
 
 .div-content-box {
-  background-color: var(--white);
+  /* background-color: var(--white); */
   padding: 10px;
   border-radius: 0.375rem;
   border-width: 1px;
@@ -347,50 +351,12 @@ img {
   background-color: var(--btbgact);
 }
 
+.form-input:invalid {
+  color: rgb(255, 0, 0);
+  border-color: rgb(255, 0, 0);
+}
+
 /* ------------------------------------- End Input ------------------------------------- */
-
-/* ------------------------------------- Start Loading ------------------------------------- */
-
-.loading-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.loading-box p {
-  font-size: var(--fontsize18);
-  font-weight: 600;
-  color: var(--gray);
-  margin-top: 8px;
-  margin-bottom: 12px;
-}
-
-@keyframes pulse {
-  50% {
-    opacity: .5;
-  }
-}
-
-.loading-animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.loading-animate-icon {
-  width: 64px;
-  height: 64px;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.loading-animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-/* ------------------------------------- End Loading ------------------------------------- */
 
 /* ------------------------------------- Start Notify ------------------------------------- */
 
@@ -457,7 +423,6 @@ img {
 
 header {
   position: fixed;
-  z-index: 20;
   top: 0;
   transition: 0.5s;
   box-shadow: var(--box-shadow-mid);
@@ -469,13 +434,13 @@ header {
   border-top-right-radius: 10px;
   background-color: var(--gray);
   height: 54px;
+  z-index: 20;
 }
 
 header .wrapper {
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 20;
 }
 
 .navbox {
@@ -961,7 +926,8 @@ header .wrapper .navbar li a {
 }
 
 .search-card-box {
-  background-color: var(--white);
+  /* background-color: var(--white); */
+  /* background-color: var(--white); */
   border-top-left-radius: 6px;
 }
 
@@ -1321,15 +1287,22 @@ header .wrapper .navbar li a {
 
 /* ------------------------------------- Start Register ------------------------------------- */
 
-.regist {
-  /* justify-items: center; */
-  /* width: 100%; */
+.regist,
+.login {
   height: 100vh;
   height: 100dvh;
 }
 
-.regist-form {
+.regist-form,
+.login-form,
+.login-form-input {
   justify-items: center;
+}
+
+.title-text-form {
+  text-align: center;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 .regist-div-with-space {
@@ -1352,22 +1325,17 @@ header .wrapper .navbar li a {
   padding: 6px 16px;
 }
 
-.form-input:invalid {
-  color: rgb(255, 0, 0);
-  border-color: rgb(255, 0, 0);
-}
-
 /* ข้อความข้อผิดพลาด */
 .error-message {
-  color: red;
+  color: var(--redfull);
   /* สีแดง */
   font-size: var(--fontsize14);
-  border-color: rgb(255, 0, 0);
+  border-color: var(--redfull);
   background-color: var(--btbgact);
 }
 
 .error-message-text {
-  color: red;
+  color: var(--red);
 }
 
 .div-pass-score {
@@ -1398,37 +1366,18 @@ header .wrapper .navbar li a {
   background-color: var(--greenfull);
 }
 
-.regist-form-go-login {
+.text-form-go-to {
   margin-top: 12px;
   padding-left: 6px;
   text-align: center;
-  font-size: var(--fontsize15);
 }
 
 /* ------------------------------------- End Register ------------------------------------- */
 
 /* ------------------------------------- Start Login ------------------------------------- */
 
-.login {
-  height: 100vh;
-  height: 100dvh;
-}
-
-.login-form {
-  justify-items: center;
-}
-
-.login-form-input {
-  justify-items: center;
-}
-
 .login-input {
   margin-bottom: 12px;
-}
-
-.form-input:invalid {
-  color: rgb(255, 0, 0);
-  border-color: rgb(255, 0, 0);
 }
 
 .login-bttn {
@@ -1436,18 +1385,6 @@ header .wrapper .navbar li a {
   color: var(--white);
   padding-left: 24px;
   padding-right: 24px;
-}
-
-.login-form-sign-in {
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.login-form-go-register {
-  margin-top: 12px;
-  padding-left: 6px;
-  text-align: center;
-  font-size: var(--fontsize15);
 }
 
 /* ------------------------------------- End Login ------------------------------------- */

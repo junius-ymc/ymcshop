@@ -7,28 +7,27 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import zxcvbn from "zxcvbn";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
-
-const registerSchema = z
-
-  .object({
-    email: z.string().email({ message: "Invalid Email !!!" }),
-    password: z.string().min(6, { message: "Password must be more than 6 characters" }),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
-  });
+import LoaderDiv from "../../components/LoaderDiv";
 
 const Register = () => {
   // Javascript
-  const [passwordScore, setPasswordScore] = useState(0);
-
-  const navigate = useNavigate();
-
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const registerSchema = z
+
+  .object({
+    email: z.string().email({ message: t("rgtInvalEmail") }),
+    password: z.string().min(6, { message: t("rgtPassChk") }),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: t("rgtPassCon"),
+    path: ["confirmPassword"],
+  });
+
+  const [passwordScore, setPasswordScore] = useState(0);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
 
   const {
     register,
@@ -48,19 +47,11 @@ const Register = () => {
   }, [watch().password]);
 
   const onSubmit = async (data) => {
-    // const passwordScore = zxcvbn(data.password).score;
-    // console.log(passwordScore);
-    // if (passwordScore < 3) {
-    //   toast.warning("Password บ่ Strong!!!!!");
-    //   return;
-    // }
-    // console.log("ok ลูกพี่");
-    // Send to Back
+    setLoading(true); // เริ่มโหลด
     try {
       // const res = await axios.post("http://localhost:5001/api/register", data);
       const res = await axios.post("https://ymc-shop-api.vercel.app/api/register", data);
       //console.log(res.data);
-      // toast.success(res.data);
       toast.success(`${t("rgtRegisterSuccess")}`, {
         bodyClassName: "toastify-toast-modify",
       });
@@ -68,40 +59,36 @@ const Register = () => {
         navigate("/");
       }, 2000);
     } catch (err) {
-      // const errMsg = err.response?.data?.message;
-      // toast.error(errMsg);
       //console.log(err);
       const msgNotif = err.response?.data?.msgnotif;
-      let chgLngMsg = "";
-      if (msgNotif === '1') {
-        chgLngMsg = t("rgtEmailCheck");
-      } else if (msgNotif === '2') {
-        chgLngMsg = t("rgtServerError");
-      }
+      let chgLngMsg = msgNotif === "1" ? t("rgtEmailCheck")
+        : msgNotif === "2" ? t("rgtServerError")
+          : t("rgtServerError");
       toast.error(`${chgLngMsg}`, {
         bodyClassName: "toastify-toast-modify",
       });
+    } finally {
+      setLoading(false); // โหลดเสร็จ
     }
   };
 
-  // const tam = Array.from(Array(5))
-  // console.log(tam)
   //console.log(passwordScore);
   return (
 
     <div className="div-wrap regist">
       <div className="div-head">{t("mRegister")}</div>
       <div className="div-content">
-
         <div className="div-content-box">
-
           <div className="regist-form">
-
             <div className="setdiv-3">
+
+              {/* ✅ เริ่ม แสดง Loader */}
+              {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+              {/* ✅ จบ แสดง Loader */}
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="regist-div-with-space">
-                  <div className="login-form-sign-in">{t("rgtSignUp")}</div>
+                  <div className="title-text-form">{t("rgtSignUp")}</div>
                   <div>
                     <input
                       autoComplete="off"
@@ -141,7 +128,7 @@ const Register = () => {
                                   ? "passscore-bg-ora"
                                   : "passscore-bg-gre"
                                 }
-              `}
+                                `}
                             ></div>
                           </span>
                         ))}
@@ -168,16 +155,15 @@ const Register = () => {
                       {t("rgtRegister")}
                     </button>
                   </div>
-                  <div className="check-box-mod regist-form-go-login">
-                    <Link to="/login/" className="">{t("rgtGoLogin")}</Link>
+                  <div className="check-box-mod text-form-go-to">
+                    <Link to="/login" className="">{t("rgtGoLogin")}</Link>
                   </div>
                 </div>
               </form>
+
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
 
