@@ -4,8 +4,8 @@
   align-items: center;
   position: fixed;
   inset: 0px;
-  z-index: 19;
   background-color: var(--bgoverlay);
+  z-index: 20;
 }
 
 .loader {

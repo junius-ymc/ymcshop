@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 18;
+  z-index: 20;
 }
 
 .modal-div-open {
@@ -31,7 +31,7 @@
   border-radius: 0px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 3px;
-  z-index: 18;
+  z-index: 20;
   color: var(--gray);
 }
 

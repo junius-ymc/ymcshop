@@ -434,7 +434,7 @@ header {
   border-top-right-radius: 10px;
   background-color: var(--gray);
   height: 54px;
-  z-index: 20;
+  z-index: 18;
 }
 
 header .wrapper {
