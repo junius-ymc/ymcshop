@@ -7,7 +7,7 @@ const LoaderDiv = () => {
     <>
       <section>
         <div className="loader">
-          <div className="loader-text loader-text-pluse">{t("waitMassLoading")}</div>
+          <div className="loader-text loader-text-pluse">{t("waitMessLoading")}</div>
           {[...Array(20)].map((_, index) => (
             <span key={index} style={{ "--i": index + 1 }}></span>
           ))}

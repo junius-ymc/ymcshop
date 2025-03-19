@@ -30,7 +30,7 @@ const LoadingToRedirect = () => {
     return (
         <div className="div-wrap">
             {/* No Permission, Redirect in {count} */}
-            {loading && (<div className="div-content"><div className="loader"><LoaderDiv />{count}</div></div>)}
+            {loading && (<div className="div-content div-content-radius-full div-content-box"><div className="loader"><LoaderDiv /><br /><br />{count}</div></div>)}
         </div>
     )
 }

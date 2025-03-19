@@ -68,7 +68,7 @@ const SummaryCard = () => {
         bodyClassName: "toastify-toast-modify",
       });
     }
-    setLoading(true);
+    setLoading(true); // เริ่มโหลด
     saveAddress(token, JSON.stringify(addressData), JSON.stringify(nameData))
       .then((res) => {
         toast.success(res.data.message);

@@ -207,6 +207,10 @@ i {
   border-top-left-radius: 0px;
 }
 
+.div-content-radius-full {
+  border-top-left-radius: 6px;
+}
+
 .div-content-box {
   background-color: var(--white);
   padding: 10px;
