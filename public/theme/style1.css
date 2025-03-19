@@ -299,14 +299,13 @@ img {
 }
 
 .form-input:hover {
+  border-color: var(--bluedeep);
   background-color: var(--bluelite);
-  color: var(--white);
 }
 
 .form-input:focus {
   border: solid 1px;
   border-radius: 4px;
-  /* border-color: var(--bluelite); */
   outline: 2px solid transparent;
   outline-offset: 2px;
   border-color: transparent;
@@ -324,14 +323,15 @@ img {
   font-size: var(--fontsize14);
   color: var(--bluedeep);
   background-color: var(--white);
-  height: 20px;
+  height: 22px;
 }
 
 .form-input-checkout:hover {
   border: solid 1px;
   border-radius: 4px;
-  border-color: var(--bluelite);
-  background-color: var(--bgcontent);
+  border-color: var(--bluedeep);
+  background-color: var(--bluelite);
+  color: var(--white);
 }
 
 .form-input-checkout:focus {

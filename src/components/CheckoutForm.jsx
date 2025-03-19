@@ -5,22 +5,20 @@ import { saveOrder } from "../api/user";
 import useEcomStore from "../store/ecom-store";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import LoaderDiv from "./LoaderDiv";
 
 export default function CheckoutForm() {
   const token = useEcomStore((state) => state.token);
   const clearCart = useEcomStore((state) => state.clearCart);
-
   const navigate = useNavigate();
-
-  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
-
   const stripe = useStripe();
   const elements = useElements();
-
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const [loading, setLoading] = useState(false); // เพิ่มตัวแปร Loading
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,16 +26,13 @@ export default function CheckoutForm() {
     if (!stripe || !elements) {
       return;
     }
-
     setIsLoading(true);
-
+    setLoading(true); // เริ่มโหลด
     const payload = await stripe.confirmPayment({
       elements,
       redirect: "if_required",
     });
-
     // console.log("payload", payload);
-
     if (payload.error) {
       setMessage(payload.error.message);
       console.log("error");
@@ -49,7 +44,10 @@ export default function CheckoutForm() {
         .then((res) => {
           console.log(res);
           clearCart()
-          toast.success("Payment Success!!!");
+          // toast.success("Payment Success!!!");
+          toast.success(`${t("pmPaymentSuccess")}`, {
+            bodyClassName: "toastify-toast-modify",
+          });
           navigate("/user/history");
         })
         .catch((err) => {
@@ -57,10 +55,13 @@ export default function CheckoutForm() {
         });
     } else {
       console.log("Something wrong!!!");
-      toast.warning("ชำระเงินไม่สำเร็จ");
+      // toast.warning("ชำระเงินไม่สำเร็จ");
+      toast.error(`${t("pmPaymentFailed")}`, {
+        bodyClassName: "toastify-toast-modify",
+      });
     }
-
     setIsLoading(false);
+    setLoading(false); // โหลดเสร็จ
   };
 
   const paymentElementOptions = {
@@ -69,13 +70,14 @@ export default function CheckoutForm() {
 
   return (
     <>
-
       <div className="div-wrap">
-
-        <div className="div-head">{t("mAboutUs")}</div>
+        <div className="div-head">{t("pmPayment")}</div>
         <div className="div-content">
           <div className="div-content-box">
 
+            {/* ✅ เริ่ม แสดง Loader */}
+            {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+            {/* ✅ จบ แสดง Loader */}
             <form className="space-y-6" id="payment-form" onSubmit={handleSubmit}>
               <PaymentElement id="payment-element" options={paymentElementOptions} />
               <button
@@ -87,7 +89,7 @@ export default function CheckoutForm() {
                   {isLoading ? (
                     <div className="spinner" id="spinner"></div>
                   ) : (
-                    "Pay now"
+                    t("pmPayNow")
                   )}
                 </span>
               </button>
@@ -99,7 +101,6 @@ export default function CheckoutForm() {
         </div>
 
       </div>
-
     </>
   );
 }

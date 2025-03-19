@@ -98,5 +98,9 @@
     "htrProcessing": "In process of delivery 📦",
     "htrCompleted": "The product has been delivered.✅",
     "htrParcelNumber": "Parcel Number 📦 ",
-    "htrCancelled": "Cancelled ❌"
+    "htrCancelled": "Cancelled ❌",
+    "pmPayment": "Payment",
+    "pmPaymentSuccess": "Payment Successful ✅",
+    "pmPaymentFailed": "Payment Failed !!! ❌",
+    "pmPayNow": "Pay Now"
 }
