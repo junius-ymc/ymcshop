@@ -74,5 +74,7 @@
 }
 
 .loading-to-redirect {
+  height: 100vh;
+  height: 100dvh;
   background: var(--bgcontent);
 }
