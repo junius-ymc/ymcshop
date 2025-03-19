@@ -13,7 +13,7 @@ const Payment = () => {
   const [loading, setLoading] = useState(true); // เพิ่มตัวแปร Loading
 
   useEffect(() => {
-    setLoading(true); // เริ่มโหลด
+    // setLoading(true); // เริ่มโหลด
     payment(token)
       .then((res) => {
         // console.log(res); 
@@ -35,21 +35,21 @@ const Payment = () => {
 
   return (
     <div>
-      {clientSecret && (
-        <Elements
-          options={{ clientSecret, appearance, loader }}
-          stripe={stripePromise}
-        >
-          {loading ? (
-            <div className="div-wrap">
-              <div className="div-content div-content-radius-full div-content-box">
-                <div className="loader">
-                  <LoaderDiv />
-                </div>
-              </div>
+      {loading ? (
+        // ✅ แสดง Loading
+        <div className="div-wrap loading-to-redirect">
+          <div className="div-content div-content-radius-full div-content-box">
+            <div className="loader">
+              <LoaderDiv />
             </div>
-          ) : (<CheckoutForm />)}
-        </Elements>
+          </div>
+        </div>
+      ) : (
+        clientSecret && (
+          <Elements options={{ clientSecret, appearance, loader }} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
+        )
       )}
     </div>
   );
