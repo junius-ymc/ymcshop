@@ -5,12 +5,14 @@ import { dateFormat } from "../../utils/dateformat";
 import { numberFormat } from "../../utils/number";
 
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import LoaderDiv from "../LoaderDiv";
 
 const HistoryCard = () => {
   const token = useEcomStore((state) => state.token);
   const [orders, setOrders] = useState([]);
 
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const [loading, setLoading] = useState(true); // เพิ่มตัวแปร Loading
 
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
   const sortedProducts = [...orders].sort((a, b) => b.id - a.id);
@@ -20,12 +22,16 @@ const HistoryCard = () => {
   }, []);
 
   const hdlGetOrders = (token) => {
+    setLoading(true); // เริ่มโหลด
     getOrders(token)
       .then((res) => {
         setOrders(res.data.orders);
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false); // โหลดเสร็จ
       });
   };
 
@@ -52,6 +58,11 @@ const HistoryCard = () => {
       <div className="div-head">{t("htrHistory")}</div>
       <div className="div-content">
         <div className="div-content-box">
+        {loading ? (
+            // ✅ เริ่ม แสดง Loader
+            <LoaderDiv />
+            // ✅ จบ แสดง Loader
+          ) : (
           <div className="historycard">
             {sortedProducts?.map((item, index) => {
               let orderStatusData = {};
@@ -112,6 +123,7 @@ const HistoryCard = () => {
               );
             })}
           </div>
+          )}
         </div>
       </div>
     </div>
