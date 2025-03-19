@@ -72,3 +72,7 @@
     transform: scale(0);
   }
 }
+
+.loading-to-redirect {
+  background: var(--bgcontent);
+}
