@@ -130,21 +130,21 @@ const ListCart = () => {
                     <button
                       disabled={cart.length < 1}
                       onClick={handleSaveCart}
-                      className="bnt-mod cart-list-right-end-btn-1"
+                      className="btn-mod cart-list-right-end-btn-1"
                     >
                       {t("lcOrderProducts")}
                     </button>
                   </Link>
                 ) : (
                   <Link to={"/login"}>
-                    <button className="bnt-mod cart-list-right-end-btn-1">
+                    <button className="btn-mod cart-list-right-end-btn-1">
                       {t("mLogin")}
                     </button>
                   </Link>
                 )}
 
                 <Link to={"/shop"}>
-                  <button className="bnt-mod cart-list-right-end-btn-2">
+                  <button className="btn-mod cart-list-right-end-btn-2">
                     {t("lcGotoShop")}
                   </button>
                 </Link>

@@ -86,7 +86,7 @@ const ProductCard = ({ item }) => {
 
             {(item?.quantity === 0)
               ?
-              <div className="bnt-mod">
+              <div className="btn-mod">
                 <div className="flex items-center">
                   <img className="img-icon-m" src="/img/icon/ic-cart.png" />
                 </div>
@@ -94,7 +94,7 @@ const ProductCard = ({ item }) => {
               :
               <button
                 onClick={() => actionAddtoCart(item) + handleCartClick()}
-                className="bnt-mod"
+                className="btn-mod"
               >
                 <div className="flex items-center">
                   <img className="img-icon-m" src="/img/icon/ic-cart.png" />

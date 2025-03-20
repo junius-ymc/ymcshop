@@ -6,8 +6,9 @@
   --orangfull: #ffa600;
   --greenfull: #00ff00;
   /* --bluelite: #1e90ff; */
-  --bluelite: #3b82f6;
-  --bluedeep: #003cff;
+  --bluelite: #1e90ff;
+  --bluedeep: #3b82f6;
+  /* --bluedeep: #003cff; */
   --white: #ffffff;
   --bgcontent: #fcfcfc;
   --btbgact: #f3f4f6;
@@ -37,6 +38,7 @@
 
   /* ส่วนของ Shadow */
   --box-shadow-mid: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --box-shadow-sml: 0px 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
 
   /* สีที่คลุมหน้าจอ */
   --bgoverlay: #fcfcfc80;
@@ -97,19 +99,6 @@ i {
 
 /* ------------------------------------- Start Button ------------------------------------- */
 
-.bnt-mod {
-  background-color: var(--bluelite);
-  border-radius: 6px;
-  padding: 6px 6px;
-  box-shadow: var(--box-shadow-mid);
-}
-
-.bnt-mod:hover {
-  background-color: var(--btbgact);
-  color: var(--bluedeep);
-  transform: scale(1) translateY(1px);
-}
-
 .bttn {
   background-color: var(--btbgcol);
   color: var(--gray);
@@ -120,7 +109,6 @@ i {
   display: flex;
   box-shadow: var(--box-shadow-mid);
   position: relative;
-  /* width: fit-content; */
 }
 
 .bttn:hover {
@@ -134,6 +122,19 @@ i {
   transform: scale(1) translateY(1px);
 }
 
+.btn-mod {
+  background-color: var(--bluelite);
+  border-radius: 6px;
+  padding: 6px 6px;
+  box-shadow: var(--box-shadow-mid);
+}
+
+.btn-mod:hover {
+  background-color: var(--btbgact);
+  color: var(--bluedeep);
+  transform: scale(1) translateY(1px);
+}
+
 .back-to-top {
   background-color: var(--gray);
   position: fixed;
@@ -141,10 +142,10 @@ i {
   bottom: 28px;
   border: none;
   border-radius: 4px;
-  z-index: 16;
   cursor: pointer;
   transition: opacity 0.5s ease;
   padding: 3px;
+  z-index: 16;
 }
 
 .back-to-top img {
@@ -183,6 +184,11 @@ i {
 
 /* ------------------------------------- Start Div ------------------------------------- */
 
+.content {
+  background-color: var(--white);
+  height: 100%;
+}
+
 .div-wrap {
   padding: 12px;
   padding-top: 66px;
@@ -207,8 +213,8 @@ i {
   border-radius: 6px;
   border: 1px solid var(--red);
   padding: 10px 10px;
-  /* background-color: var(--bgcontent); */
   border-top-left-radius: 0px;
+  background-color: var(--bgcontent);
 }
 
 .div-content-radius-full {
@@ -216,11 +222,11 @@ i {
 }
 
 .div-content-box {
-  /* background-color: var(--white); */
   padding: 10px;
   border-radius: 0.375rem;
   border-width: 1px;
   box-shadow: var(--box-shadow-mid);
+  background-color: var(--white);
 }
 
 .div-cursor-pointer {
@@ -246,7 +252,9 @@ i {
 
 .setdiv-empty-space-bottom {
   padding-bottom: 24px;
-  background-color: var(--bgcontent);
+  background-color: var(--white);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* ------------------------------------- End Div ------------------------------------- */
@@ -275,13 +283,12 @@ img {
 }
 
 .logo {
-  /* background-color: transparent; */
   width: 82px;
   height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: relative; */
+  /* background-color: transparent; */
 }
 
 /* ------------------------------------- End Images ------------------------------------- */
@@ -308,8 +315,6 @@ img {
 }
 
 .form-input:focus {
-  border: solid 1px;
-  border-radius: 4px;
   outline: 2px solid transparent;
   outline-offset: 2px;
   border-color: transparent;
@@ -332,7 +337,6 @@ img {
 
 .form-input-checkout:hover {
   border: solid 1px;
-  border-radius: 4px;
   border-color: var(--bluedeep);
   background-color: var(--bluelite);
   color: var(--white);
@@ -340,7 +344,6 @@ img {
 
 .form-input-checkout:focus {
   border: solid 1px;
-  border-radius: 4px;
   outline: 2px solid transparent;
   outline-offset: 2px;
   border-color: transparent;
@@ -399,6 +402,10 @@ img {
   --toastify-toast-width: 450px;
 }
 
+/* ------------------------------------- End Notify ------------------------------------- */
+
+/* ------------------------------------- Start Trash ------------------------------------- */
+
 .ic-trash {
   color: var(--red);
   cursor: pointer;
@@ -411,8 +418,7 @@ img {
   color: var(--gray);
   transition: transform 0.2s ease, opacity 0.1s 0.0s ease;
 }
-
-/* ------------------------------------- End Notify ------------------------------------- */
+/* ------------------------------------- End Trash ------------------------------------- */
 
 /* ------------------------------------- Start NAVIGATION BAR ------------------------------------- */
 
@@ -459,12 +465,7 @@ header .wrapper .navbar li a {
 
 /* ------------------------------------- Start Main Content Box ------------------------------------- */
 
-.content {
-  background-color: var(--bgcontent);
-  height: 100%;
-  margin-left: 0px;
-  margin-right: 0px;
-}
+
 
 /* ------------------------------------- Start Home ------------------------------------- */
 /* ------------------------------------- Start Home - ContentShowNewProduct ------------------------------------- */
@@ -476,13 +477,13 @@ header .wrapper .navbar li a {
 }
 
 .collection-crsl {
-  /* height: 58vh; */
   height: 100%;
   background-color: var(--bgcontent);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+  /* height: 58vh; */
 }
 
 .collection-crsl .content-crsl {
@@ -499,10 +500,10 @@ header .wrapper .navbar li a {
 .collection-crsl .content-crsl img {
   max-width: 100%;
   height: auto;
+  border-radius: 0;
   /* aspect-ratio: 9 / 16; */
   /* aspect-ratio: 1 / 1; */
   /* object-fit: contain; */
-  border-radius: 0;
   /* border-bottom-left-radius: .6rem; */
   /* border-bottom-right-radius: .6rem; */
 }
@@ -526,7 +527,6 @@ header .wrapper .navbar li a {
 
 /* ----------- infomation ----------- */
 .link-box {
-  background-color: var(--bgcontent);
   padding-top: 12px;
   padding-bottom: 24px;
   border-radius: 6px;
@@ -538,13 +538,11 @@ header .wrapper .navbar li a {
   border-radius: 6px;
   border: 1px solid var(--btbghov);
   padding: 5px 0px;
-  /* ระยะห่างช่อง บน-ล่าง และ ซ้าย-ขวา */
-  background-color: var(--white);
+  background-color: var(--bgcontent);
   border-top-left-radius: 0px;
 }
 
 .mini-link-box {
-  /* display: inline-flex; */
   font-size: var(--fontsize16);
   text-align: center;
   color: var(--red);
@@ -558,48 +556,42 @@ header .wrapper .navbar li a {
 
 .mini-link-box-info {
   color: var(--black);
-  /* เอฟเฟกต์เคอร์เซอร์ */
-  border-right: 1px solid var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
+  /* เอฟเฟกต์เคอร์เซอร์ */
+  /* border-right: 1px solid var(--black); */
 }
 
 /* ใส่รูปเอฟเฟกต์เคอร์เซอร์ */
 .mini-link-box-info img {
   height: 18px;
-  width: 5px;
+  width: 4px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
-/*------------ Start TextAnimation -------------*/
-
+/* TextAnimation -------------*/
 .typewriter-container {
   font-family: monospace;
   font-size: var(--fontsize15);
   width: 100%;
-  /* white-space: nowrap; */
   overflow: hidden;
   padding: 2px;
   padding-left: 4px;
+  /* white-space: nowrap; */
 }
 
 .typewriter-text {
   display: inline-block;
 }
 
-.typewriter-container img {
-  height: 17px;
-}
-
-/*------------ End TextAnimation -------------*/
-
 /*------------ FIRST BOX Content -------------*/
 .first-box {
-  background-color: var(--white);
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 210px 210px;
-  gap: 1px;
+  /* gap: 1px; */
 }
 
 .first-box-content {
@@ -614,7 +606,6 @@ header .wrapper .navbar li a {
 }
 
 .first-box-content::before {
-  color: var(--btbghov);
   background-color: var(--btbghov);
   content: "";
   position: absolute;
@@ -627,8 +618,7 @@ header .wrapper .navbar li a {
 }
 
 .first-box-content:hover img {
-  transform: scale(1.12);
-  transition: transform 0.4s ease;
+  transform: scale(1.1);
 }
 
 .first-content-noimage {
@@ -647,7 +637,6 @@ header .wrapper .navbar li a {
   position: absolute;
   bottom: 0;
   left: 0;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)); */
   background: linear-gradient(rgb(255, 255, 255, 5%), rgb(0 0 0 / 10%));
   width: 100%;
   height: 100%;
@@ -677,7 +666,7 @@ header .wrapper .navbar li a {
   font-size: var(--fontsize14);
   background-color: var(--bluelite);
   display: inline-block;
-  padding: 3px;
+  padding: 2px 4px;
   border-radius: 3px;
   color: var(--white);
   z-index: 10;
@@ -706,9 +695,9 @@ header .wrapper .navbar li a {
   border-width: 1px;
   border-radius: 6px;
   padding: 8px;
-  /* width: 100%; */
   box-shadow: var(--box-shadow-mid);
   background-color: var(--white);
+  /* width: 100%; */
 }
 
 .new-products-card:hover {
@@ -717,14 +706,12 @@ header .wrapper .navbar li a {
 
 .new-products-card-img {
   border-radius: 5px;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-sml);
   height: 200px;
 }
 
 .new-products-card-img:hover {
-  transition-duration: 350ms;
-  transform: scale(1.06);
-  /* object-fit: cover; */
+  transform: scale(1.05);
 }
 
 .new-products-card-no-img {
@@ -744,7 +731,7 @@ header .wrapper .navbar li a {
 
 .new-products-data-id,
 .shop-product-data-id {
-  font-size: var(--fontsize11);
+  font-size: var(--fontsize10);
   color: var(--texclact);
 }
 
@@ -829,22 +816,19 @@ header .wrapper .navbar li a {
 .wrap-shop {
   display: flex;
   justify-content: center;
-  gap: 12px;
 }
 
 .scrollable-container {
   width: 100%;
-  /* height: 100vh; */
-  /* overflow-y: auto; */
 }
 
 .shop-product-cart {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
   justify-content: center;
   align-items: center;
   width: 100%;
+  gap: 12px;
 }
 
 /* -------------------------------------- */
@@ -857,12 +841,8 @@ header .wrapper .navbar li a {
 }
 
 .shop-pagination-bnt {
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  margin: 0 5px;
+  padding: 4px 10px;
   border-radius: 4px;
   font-size: var(--fontsize14);
 }
@@ -879,7 +859,7 @@ header .wrapper .navbar li a {
 }
 
 .shop-pagination-bnt-number {
-  font-size: var(--fontsize13);
+  font-size: var(--fontsize14);
 }
 
 .shop-pagination-bnt-number:hover {
@@ -895,6 +875,18 @@ header .wrapper .navbar li a {
   color: var(--bgcolo);
   background-color: var(--bluelite);
   opacity: 0.5;
+}
+
+.items-per-page {
+  width: 42px;
+  height: 30px;
+  margin-bottom: 0px;
+}
+
+.items-per-page:hover {
+  color: var(--white);
+  background-color: var(--bluelite);
+  font-size: var(--fontsize14);
 }
 
 /* ------------------------------------- End Shop - Shop  ------------------------------------- */
@@ -1005,7 +997,6 @@ header .wrapper .navbar li a {
 .shop-product-card-img:hover {
   transition-duration: 300ms;
   transform: scale(1.06);
-  /* object-fit: cover; */
 }
 
 .shop-product-card-no-img {
@@ -1066,8 +1057,9 @@ header .wrapper .navbar li a {
 .cart-list-left-data-1 img {
   border-radius: 4px;
   width: 150px;
-  height: 100%;
+  height: 180px;
   cursor: pointer;
+  box-shadow: var(--box-shadow-sml);
 }
 
 .cart-list-left-data-1 img:hover {
@@ -1651,6 +1643,26 @@ footer .wrapper ul li a:hover {
     display: none;
   }
   
+  .cart-list-left-data-1 img {
+    width: 70px;
+    height: 100px;
+  }
+
+  .shop-pagination-bnt {
+    margin: 0 4px;
+    padding: 2px 8px;
+    font-size: var(--fontsize12);
+  }
+
+  .shop-pagination-bnt-number {
+    font-size: var(--fontsize12);
+  }
+
+  .items-per-page {
+    height: 25px;
+    font-size: var(--fontsize12);
+  }
+
 }
 
 /* ------------------------------------- End RESPONSIVE 550px ------------------------------------- */

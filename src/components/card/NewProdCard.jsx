@@ -57,7 +57,7 @@ const NewProdCard = ({ item }) => {
             // icon: <img src="/img/icon/ic-cart.png"/>,
             // icon: false,
           })}
-          className="bnt-mod"
+          className="btn-mod"
         >
           <div>
             <img className="img-icon-m" src="/img/icon/ic-cart.png" />

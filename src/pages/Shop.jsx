@@ -212,7 +212,7 @@ const Shop = () => {
                 value={itemsPerPage} // ✅ ค่าปัจจุบัน
                 onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
                 title={t("sListProductPerPage")}
-                className="form-input w-12 mb-0"
+                className="form-input items-per-page"
               >
                 {[...Array(10)].map((_, i) => (
                   <option key={i + 1} value={i + 1}>
