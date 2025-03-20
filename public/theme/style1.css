@@ -918,9 +918,10 @@ header .wrapper .navbar li a {
 }
 
 .search-card-box {
-  /* background-color: var(--white); */
-  /* background-color: var(--white); */
-  border-top-left-radius: 6px;
+  border-top-left-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid var(--red);
+  padding: 10px 10px;
 }
 
 .search-card-by-text,

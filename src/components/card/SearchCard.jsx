@@ -92,7 +92,7 @@ const SearchCard = ({ resetPage }) => {
           <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
           {t("sbSearch")}
         </div>
-        <div className="div-content search-card-box">
+        <div className="search-card-box">
           <div className="search-card-by-text">{t("sbProd")}</div>
           {/* Search by Text */}
           <input
