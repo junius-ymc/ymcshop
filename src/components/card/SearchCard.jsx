@@ -24,6 +24,7 @@ const SearchCard = ({ resetPage }) => {
   const [ok, setOk] = useState(false);
 
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  let sbCategoryId = [];
 
   // console.log(categories)
   useEffect(() => {
@@ -106,11 +107,23 @@ const SearchCard = ({ resetPage }) => {
           <div className="search-card-by-category-box">
             <div className="search-card-by-category">{t("sbCategory")}</div>
             <div className="search-card-by-category-check-status">
+
               {categories.map((item, index) => (
+
+                sbCategoryId = item.id === 1 ? t("sbCategoryId1")
+                  : item.id === 2 ? t("sbCategoryId2")
+                    : item.id === 3 ? t("sbCategoryId3")
+                      : item.id === 4 ? t("sbCategoryId4")
+                        : item.id === 5 ? t("sbCategoryId5")
+                          : item.id === 6 ? t("sbCategoryId6")
+                            : item.id === 7 ? t("sbCategoryId7")
+                              : item.id === 8 ? t("sbCategoryId8")
+                                : item.name,
+
                 <div key={index} className="search-card-by-category-input">
                   <label>
                     <input onChange={handleCheck} value={item.id} type="checkbox" />
-                    <span className="check-box-mod search-card-by-category-text"> {item.name}</span>
+                    <span className="check-box-mod search-card-by-category-text"> {sbCategoryId}</span>
                   </label>
                 </div>
               ))}
