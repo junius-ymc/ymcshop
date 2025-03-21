@@ -120,6 +120,7 @@ i {
   background-color: var(--btbgact);
   color: var(--texclact);
   transform: scale(1) translateY(1px);
+  cursor:default; 
 }
 
 .btn-mod {
