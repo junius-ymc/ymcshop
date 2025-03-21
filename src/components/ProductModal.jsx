@@ -64,7 +64,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <p className="modal-title">{product.title} : {numberFormat(product.price)} {t("moneyUnit")}</p>
+          <p className="modal-title">{product.title}: {numberFormat(product.price)} {t("moneyUnit")}</p>
           <p className="modal-description">{product.description}</p>
           </div>
         </motion.div>
