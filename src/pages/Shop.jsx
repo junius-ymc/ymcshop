@@ -196,13 +196,22 @@ const Shop = () => {
         {/* เริ่ม ส่วนของการแสดงรายการสินค้า */}
         <div className="scrollable-container">
           <p className="div-head">{t("sAllProd")}</p>
-          <div className="div-content shop-product-cart">
-            {/* ✅ เริ่ม แสดง Loader */}
-            {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
-            {/* ✅ จบ แสดง Loader */}
-            {currentItems?.map((item, index) => (
-              <ProductCard key={index} item={item} />
-            ))}
+          <div className="div-content">
+            
+            <div className="shop-head-title">
+              {t("sAllProd")} {products.length} รายการ,
+              หน้า {currentPage}/{Math.ceil(products.length / itemsPerPage)}
+            </div>
+
+            <div className="shop-product-cart">
+              {/* ✅ เริ่ม แสดง Loader */}
+              {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+              {/* ✅ จบ แสดง Loader */}
+              {currentItems?.map((item, index) => (
+                <ProductCard key={index} item={item} />
+              ))}
+            </div>
+
           </div>
 
           {/* ✅ แสดง Pagination */}
