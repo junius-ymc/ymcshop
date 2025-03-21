@@ -831,6 +831,14 @@ header .wrapper .navbar li a {
   gap: 12px;
 }
 
+.shop-head-title {
+  font-size: var(--fontsize16);
+  font-weight: 600;
+  text-align: center;
+  color: var(--texclact);
+  padding: 0px 6px 6px;
+}
+
 /* -------------------------------------- */
 
 .shop-pagination {
