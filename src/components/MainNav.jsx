@@ -38,9 +38,9 @@ function MainNav() {
               {/* Start ส่วนของโลโก้ ด้านซ้าย */}
               <div className="setdiv-3">
                 <i className="logo">
-                  <NavLink to={"/"}>
+                  <a href="/" target="_self">
                     <img src="/img/logo-b.png" />
-                  </NavLink>
+                  </a>
                 </i>
                 {/* End ส่วนของโลโก้ ด้านซ้าย */}
 

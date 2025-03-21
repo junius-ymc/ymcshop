@@ -28,9 +28,9 @@ const Footer = () => {
 
               <div className="setdiv-3">
                 <ul className="">
-                  <li><a href="/" target="_self">{t("mHome1")}</a></li>
-                  <li><NavLink to={"/contactus/"}>{t("mContactUs")}</NavLink></li>
+                  <li><NavLink to={"/"}>{t("mHome1")}</NavLink></li>
                   <li><NavLink to={"/aboutus/"}>{t("mAboutUs")}</NavLink></li>
+                  <li><NavLink to={"/contactus/"}>{t("mContactUs")}</NavLink></li>
                 </ul>
               </div>
 
