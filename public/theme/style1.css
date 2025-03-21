@@ -732,7 +732,7 @@ header .wrapper .navbar li a {
 .new-products-data-id,
 .shop-product-data-id {
   font-size: var(--fontsize10);
-  color: var(--texclact);
+  color: var(--bgcolo);
 }
 
 .new-products-data-text-cut,
@@ -1053,6 +1053,8 @@ header .wrapper .navbar li a {
 .cart-list-left-data-1 {
   display: flex;
   gap: 0.5rem;
+  background-color: var(--bgcontent);
+  border-radius: 4px;
 }
 
 .cart-list-left-data-1 img {
@@ -1070,8 +1072,8 @@ header .wrapper .navbar li a {
 
 .cart-list-left-data-1-no-img {
   border-radius: 6px;
-  height: 150px;
   width: 150px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1086,22 +1088,23 @@ header .wrapper .navbar li a {
   font-weight: 600;
   white-space: wrap;
   color: var(--gray);
+  /* background-color: var(--bluelite); */
 }
 
 .cart-list-left-data-1-text-2 {
   font-size: var(--fontsize11);
-  color: var(--bgcolo);
+  color: var(--texclact);
+  /* background-color: var(--white); */
 }
 
 .cart-list-left-data-1-text-3 {
   font-size: var(--fontsize13);
-  /* line-height: 1.25rem; */
   color: var(--gray);
   white-space: pre-wrap;
   text-wrap: wrap;
   padding-top: 4px;
-  /* height: 100%; */
-  /* align-content: center; */
+  line-height: 1.25rem;
+  /* background-color: var(--btbgcol); */
 }
 
 .cart-list-left-data-2-right {

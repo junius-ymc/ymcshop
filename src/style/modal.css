@@ -12,7 +12,7 @@
 
 .modal-div-open {
   position: relative;
-  background-color: var(--bgcontent);
+  background-color: var(--white);
   box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
   padding: 8px;
   border-radius: 8px;
@@ -25,9 +25,7 @@
   top: 0px;
   right: 0px;
   background-color: var(--red);
-  padding: 6px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding: 0px 6px;
   border-radius: 0px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 3px;
@@ -55,21 +53,25 @@
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 4px;
   /* cursor: move; */
 }
 
+.modal-wrap {
+  background-color: var(--bgcontent);
+  border-radius: 4px;
+}
+
 .modal-title {
-  font-size: 14px;
-  line-height: 22px;
+  font-size: var(--fontsize13);
   font-weight: 600;
   margin-top: 4px;
   text-align: center;
 }
 
 .modal-description {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: var(--fontsize13);
+  line-height: 1.25rem;
   color: var(--gray);
   text-align: center;
 }
@@ -81,7 +83,6 @@
 .modal-cart-div-open {
   position: relative;
   background-color: var(--bgcontent);
-  /* background-color: var(--bgoverlay); */
   box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
   padding: 8px;
   max-width: 72vh;
@@ -104,13 +105,13 @@
 }
 
 .modal-cartcard {
-  /* max-width: 80vh; */
-  /* max-width: 80dvh; */
   width: auto;
   height: 98%;
   max-height: 74vh;
   max-height: 74dvh;
   overflow-y: auto;
+  /* max-width: 80vh; */
+  /* max-width: 80dvh; */
 }
 
 .modal-cartcard-head {
@@ -131,24 +132,20 @@
   border-radius: 6px;
   margin-bottom: 8px;
   width: 100%;
+  box-shadow: var(--box-shadow-mid);
 }
 
 .modal-cartcard-content-box-row-1 {
   margin-bottom: 8px;
   border: 1px solid var(--btbgact);
   border-radius: 4px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
   padding: 4px;
   background-color: var(--bgcontent);
 }
 
 .modal-cartcard-content-box-row-1-title {
-  font-size: var(--fontsize14);
-  line-height: 20px;
+  font-size: var(--fontsize13);
   font-weight: 600;
-  color: var(--gray);
-  /* text-align: center; */
 }
 
 .modal-cartcard-content-box-row-1-data {
@@ -169,30 +166,28 @@
   border-radius: 4px;
   max-width: 100px;
   height: auto;
-  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 .modal-cartcard-content-box-row-1-data-left-no-img {
   border-radius: 4px;
   width: 100px;
   height: 100px;
-  background-color: var(--redfull);
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(rgb(255, 255, 255, 10%), rgb(0 0 0 / 50%));
   color: var(--texclact);
-  font-size: var(--fontsize13);
-  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  font-size: var(--fontsize12);
 }
 
 .modal-cartcard-content-box-row-1-data-description {
   white-space: pre-wrap;
   text-wrap: wrap;
   color: var(--gray);
-  font-size: var(--fontsize14);
+  font-size: var(--fontsize13);
   padding-left: 10px;
+  line-height: 1.25rem;
 }
 
 .modal-cartcard-content-box-row-2 {
@@ -206,7 +201,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 1px; */
 }
 
 .modal-cartcard-content-box-row-2-quantity {
@@ -214,10 +208,8 @@
   border-radius: 3px;
   display: flex;
   align-items: center;
-  margin-left: 6px;
-  margin-right: 6px;
-  padding-left: 2px;
-  padding-right: 2px;
+  margin: 0 4px;
+  padding: 0 2px;
   background-color: var(--btbgact);
   font-size: var(--fontsize12);
 }
@@ -235,8 +227,7 @@
 }
 
 .modal-cartcard-content-box-row-2-quantity-count {
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 0 4px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -245,14 +236,12 @@
 }
 
 .modal-cartcard-content-box-row-2-quantity-count-price {
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 0 4px;
   display: flex;
   align-items: center;
   text-align: center;
   color: var(--bluedeep);
   font-size: var(--fontsize14);
-  font-weight: 500;
 }
 
 .modal-cartcard-total {
@@ -260,8 +249,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 0 8px;
   background-color: var(--white);
   border-radius: 5px;
   border-width: 1px;
@@ -281,14 +269,12 @@
 .modal-cartcard-total-count-price-btn {
   margin-top: 16px;
   width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px 0;
   border-radius: 6px;
-  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
   background-color: var(--bluelite);
   color: var(--white);
   font-size: var(--fontsize18);
-  font-weight: 500;
+  box-shadow: var(--box-shadow-mid);
 }
 
 .modal-cartcard-total-count-price-btn:hover {
@@ -302,7 +288,6 @@
 
 .modal-search-card {
   background-color: #ffffffe1;
-  /* background-color: var(--bgoverlay); */
 }
 
 /* End Search Card Modal */
