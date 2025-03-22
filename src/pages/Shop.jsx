@@ -197,10 +197,10 @@ const Shop = () => {
         <div className="scrollable-container">
           <p className="div-head">{t("sAllProd")}</p>
           <div className="div-content">
-            
+
             <div className="shop-head-title">
-              {t("sAllProd")} {products.length} รายการ,
-              หน้า {currentPage}/{Math.ceil(products.length / itemsPerPage)}
+              {t("sAllProd")} {products.length} {t("sItem")}{", "}
+              {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
             </div>
 
             <div className="shop-product-cart">

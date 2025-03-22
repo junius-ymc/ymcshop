@@ -6,15 +6,12 @@ import { numberFormat } from "../../utils/number";
 import ProductModal from "../../components/ProductModal"; // นำเข้า ProductModal
 import CartModal from "../../components/CartModal"; // นำเข้า CartModal
 import { motion } from "framer-motion";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 
 
 const ProductCard = ({ item }) => {
   const actionAddtoCart = useEcomStore((state) => state.actionAddtoCart);
-
   // console.log(item)
-
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   // ProductModal
@@ -31,9 +28,7 @@ const ProductCard = ({ item }) => {
     setIsModalOpenCart(true);
   };
 
-
   return (
-
     <div id={`product-${item.id}`}>
       {/* <div id={item.id} className={item.id}></div> */}
 
@@ -43,11 +38,8 @@ const ProductCard = ({ item }) => {
         transition={{ duration: 0.2 }}
       >
 
-        {/* <div className="shop-product-card" id={`product-${item.id}`}> */}
         <div className="shop-product-card">
-
           {/* ส่วนรูปภาพ */}
-
           {/* เพิ่มปุ่มคลิ้ก Modal */}
           <div onClick={handleImageClick} className="shop-product-card-box">
 
@@ -74,7 +66,7 @@ const ProductCard = ({ item }) => {
 
           </div>
           {/* ส่วนข้อมูลสินค้า */}
-          <div className="shop-product-data" onClick={handleImageClick}>
+          <div className="shop-product-data">
             <p className="shop-product-data-id">ID: {item.id}</p>
             <p className="shop-product-data-text-cut shop-product-data-title">{item.title}</p>
             <p className="shop-product-data-text-cut shop-product-data-description">{item.description}</p>
@@ -82,7 +74,9 @@ const ProductCard = ({ item }) => {
 
           {/* ส่วนปุ่มและราคา */}
           <div className="shop-product-data-end">
-            <span className="shop-product-data-price">{numberFormat(item.price)} {t("moneyUnit")}</span>
+            <a href={`/shop?productId=${item.id}`} target="_blank">
+              <span className="shop-product-data-price">{numberFormat(item.price)} {t("moneyUnit")}</span>
+            </a>
 
             {(item?.quantity === 0)
               ?
@@ -102,7 +96,6 @@ const ProductCard = ({ item }) => {
               </button>
             }
 
-
           </div>
         </div>
 
@@ -121,7 +114,6 @@ const ProductCard = ({ item }) => {
       </motion.div >
 
     </div >
-
   );
 };
 

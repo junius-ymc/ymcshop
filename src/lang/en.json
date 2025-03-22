@@ -26,6 +26,8 @@
     "minfo": "Infomation",
     "mShowNewProduct": "Latest Item",
     "sAllProd": "All products",
+    "sItem": "items",
+    "sPage": "Page",
     "sListProductPerPage": "Number of products per page",
     "sSoldOut": "Sold Out",
     "sbSearch": "Search",
