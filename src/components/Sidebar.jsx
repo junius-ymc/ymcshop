@@ -3,8 +3,19 @@ import { useNavigate, NavLink, Link } from "react-router-dom";
 import useEcomStore from "../store/ecom-store";
 import CartModal from "./CartModal";
 import { toast } from "react-toastify";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import IconShopping from "./icon/IconShopping";
+import IconCart from "./icon/IconCart";
+import IconCartList from "./icon/IconCartList";
+import IconLanguage from "./icon/IconLanguage";
+import IconTheme from "./icon/IconTheme";
+import IconUser from "./icon/IconUser";
+import IconHome from "./icon/IconHome";
+import IconThemeSml from "./icon/IconThemeSml";
+import IconRegister from "./icon/IconRegister";
+import IconLogin from "./icon/IconLogin";
+import IconHistory from "./icon/IconHistory";
+import IconLogout from "./icon/IconLogout";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(window.innerWidth <= 1425);
@@ -23,7 +34,6 @@ const Sidebar = () => {
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang); // ✅ บันทึกค่าภาษาไว้
   };
-
 
   useEffect(() => {
     const handleResize = () => setCollapsed(window.innerWidth <= 1425);
@@ -55,12 +65,6 @@ const Sidebar = () => {
     setIsModalOpenCart(true);
   };
 
-  // const logoutNotify = () => {
-  //   logout(true);
-  //   toast.success(`${t("liLogout")}`, {
-  //     bodyClassName: "toastify-toast-modify",
-  //   });
-
   // ฟังก์ชัน Logout เพื่อลบ Token
   const handleLogout = () => {
     // ลบ Token และ Email
@@ -85,7 +89,6 @@ const Sidebar = () => {
       <CartModal
         isOpen={isModalOpenCart}
         onClose={() => setIsModalOpenCart(false)}
-      // product={selectedProduct}
       />
 
       {!collapsed && (
@@ -94,7 +97,7 @@ const Sidebar = () => {
 
       <button className="sidebar-menu-button" onClick={toggleSidebar}>
         <span className="bttn">
-          <img className="img-icon-m" src="/img/icon/ic-menu.png" />
+          <img className="img-icon-m" src="/public/img/icon/ic-menu.png" />
           {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
           <span className="notifycart-on-menu">
             {
@@ -112,13 +115,9 @@ const Sidebar = () => {
       <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
         <header className="sidebar-header">
 
-
-
           <button className="sidebar-toggler" onClick={toggleSidebar}>
             <span>
-              {/* <span className="sidebar-nav nav-item nav-link"> */}
-              <img className="img-icon-m" src="/img/icon/ic-left.png" />
-              {/* </span> */}
+              <img className="img-icon-m" src="/public/img/icon/ic-left.png" />
             </span>
           </button>
 
@@ -128,23 +127,16 @@ const Sidebar = () => {
           {/* ------------------------------- Start Sidebar primary-nav ------------------------------- */}
           <ul className="nav-list primary-nav">
 
-            {/* <li className="nav-item">
-              <NavLink className="nav-link" to="/">
-                <img className="img-icon-m" src="/img/icon/ic-home.png" />
-                <span className="nav-label">{t("mHome1}</span>
-              </NavLink>
-            </li> */}
-
             <li className="nav-item">
-              <NavLink className="nav-link" to="/shop">
-                <img className="img-icon-m" src="/img/icon/ic-shopping.png" />
+              <NavLink className="nav-link" to="/shop" title={t("mShop")}>
+                <div className="icon-menu"><IconShopping /></div>
                 <span className="nav-label">{t("mShop")}</span>
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/cart">
-                <img className="img-icon-m" src="/img/icon/ic-cart.png" />
+              <NavLink className="nav-link" to="/cart" title={t("mCart")}>
+                <div className="icon-menu"><IconCart /></div>
                 <span className="nav-label">{t("mCart")}</span>
                 {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
                 {
@@ -159,8 +151,8 @@ const Sidebar = () => {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="#" onClick={() => handleCartClick()}>
-                <img className="img-icon-m" src="/img/icon/ic-list.png" />
+              <Link className="nav-link" to="#" onClick={() => handleCartClick()} title={t("ccShoppingCart")}>
+                <div className="icon-menu"><IconCartList /></div>
                 <span className="nav-label">{t("ccShoppingCart")}</span>
                 {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
                 {
@@ -175,65 +167,53 @@ const Sidebar = () => {
             </li>
 
             <li className={`nav-item dropdown-container ${openDropdown === 0 ? "open" : ""}`}>
-              <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(0)}>
-                <img className="img-icon-m" src="/img/icon/ic-language.png" />
+              <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(0)} title={t("mLang")}>
+                <div className="icon-menu"><IconLanguage /></div>
                 <span className="nav-label">{t("mLang")}</span>
-                <span className="dropdown-icon"><img className="img-icon-xs" src="/img/icon/ic-down.png" /></span>
+                <span className="dropdown-icon"><img className="img-icon-xs" src="/public/img/icon/ic-down.png" /></span>
               </a>
               <ul className="dropdown-menu" style={{ height: openDropdown === 0 ? "auto" : 0 }}>
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mLang")}</a></li>
-                {/* <li className="nav-item">
-                  <a href="/chglng.html?usl=th" target="_self" className="nav-link dropdown-link">
-                    <img className="img-icon-xs" src="/img/icon/ic-th.png" /> {t("mShowLang1")}
-                  </a>
-                </li> */}
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("th")} className="nav-link dropdown-link">
-                    <img className="img-icon-xs" src="/img/icon/ic-th.png" /> {t("mShowLang1")}
+                    <img className="img-icon-xs" src="/public/img/icon/ic-th.png" /> {t("mShowLang1")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("en")} className="nav-link dropdown-link">
-                    <img className="img-icon-xs" src="/img/icon/ic-en.png" /> {t("mShowLang2")}
+                    <img className="img-icon-xs" src="/public/img/icon/ic-en.png" /> {t("mShowLang2")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("jp")} className="nav-link dropdown-link">
-                    <img className="img-icon-xs" src="/img/icon/ic-jp.png" /> {t("mShowLang3")}
+                    <img className="img-icon-xs" src="/public/img/icon/ic-jp.png" /> {t("mShowLang3")}
                   </a>
                 </li>
               </ul>
             </li>
 
             <li className={`nav-item dropdown-container ${openDropdown === 1 ? "open" : ""}`}>
-              <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(1)}>
-                <img className="img-icon-m" src="/img/icon/ic-theme.png" />
+              <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(1)} title={t("mTheme")}>
+                <div className="icon-menu"><IconTheme /></div>
                 <span className="nav-label">{t("mTheme")}</span>
-                <span className="dropdown-icon"><img className="img-icon-xs" src="/img/icon/ic-down.png" /></span>
+                <span className="dropdown-icon"><img className="img-icon-xs" src="/public/img/icon/ic-down.png" /></span>
               </a>
               <ul className="dropdown-menu" style={{ height: openDropdown === 1 ? "auto" : 1 }}>
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mTheme")}</a></li>
                 <li className="nav-item">
                   <a className="nav-link dropdown-link">
-                    <img className="img-icon-xs" src="/img/icon/ic-theme.png" /> {t("mTheme1")}
+                    <div className="icon-menu-s"><IconThemeSml /></div>
+                    {t("mTheme1")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link dropdown-link">
-                    <img className="img-icon-xs" src="/img/icon/ic-theme.png" /> {t("mTheme2")}
+                    <div className="icon-menu-s"><IconThemeSml /></div>
+                    {t("mTheme2")}
                   </a>
                 </li>
               </ul>
             </li>
-
-            {/* <li className="nav-item">
-              <NavLink className="nav-link" to="/">
-                <img className="img-icon-m" src="/img/icon/ic-home.png" />
-                <span className="nav-label">{t("mHome1")}</span>
-              </NavLink>
-            </li> */}
-
-
 
           </ul>
           {/* ------------------------------- End Sidebar primary-nav ------------------------------- */}
@@ -242,68 +222,50 @@ const Sidebar = () => {
           <ul className="nav-list secondary-nav">
 
             <li className={`nav-item dropdown-container ${openDropdown === 2 ? "open" : ""}`}>
-              <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(2)}>
-                <img className="img-icon-m" src="/img/icon/ic-person.png" />
+              <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(2)} title={t("mUser")}>
+                <div className="icon-menu"><IconUser /></div>
                 <span className="nav-label">{t("mUser")}</span>
-                <span className="dropdown-icon"><img className="img-icon-xs" src="/img/icon/ic-down.png" /></span>
+                <span className="dropdown-icon"><img className="img-icon-xs" src="/public/img/icon/ic-down.png" /></span>
               </a>
               {
                 user
                   ?
-
                   <ul className="dropdown-menu" style={{ height: openDropdown === 2 ? "auto" : 2 }}>
                     <li className="nav-item">
                       <NavLink className="nav-link dropdown-link" to="/user/history/">
-                        <img className="img-icon-xs" src="/img/icon/ic-history.png" />
+                        <div className="icon-menu-s icon-menu-stroke"><IconHistory /></div>
                         <span className="nav-item">{t("mHistory")}</span>
                       </NavLink>
                     </li>
                     <li className="nav-item">
-                      {/* <Link className="nav-link dropdown-link" to="/" onClick={() => logout()}> */}
-                      {/* <Link className="nav-link dropdown-link" to="/" onClick={() => handleLogout()}>
-                        <img className="img-icon-xs" src="/img/icon/ic-logout.png" />
-                        <span className="nav-item">{t("mLogout")}</span>
-                      </Link> */}
                       <Link className="nav-link dropdown-link" onClick={() => handleLogout()}>
-                        <img className="img-icon-xs" src="/img/icon/ic-logout.png" />
+                        <div className="icon-menu-s icon-menu-stroke"><IconLogout /></div>
                         <span className="nav-item">{t("mLogout")}</span>
                       </Link>
-                      {/* {isLoggedIn && (
-                        // <Link className="nav-link dropdown-link" to="/login" onClick={() => handleLogout()}>
-                        <Link className="nav-link dropdown-link" onClick={() => handleLogout()}>
-                        <img className="img-icon-xs" src="/img/icon/ic-logout.png" />
-                        <span className="nav-item">{t("mLogout")}</span>
-                      </Link>
-                      )} */}
                     </li>
                   </ul>
-
                   :
-
                   <ul className="dropdown-menu" style={{ height: openDropdown === 2 ? "auto" : 2 }}>
                     <li className="nav-item">
                       <NavLink className="nav-link dropdown-link" to="/register/">
-                        <img className="img-icon-xs" src="/img/icon/ic-register.png" />
+                        <div className="icon-menu-s"><IconRegister /></div>
                         <span className="nav-item">{t("mRegister")}</span>
                       </NavLink>
                     </li>
                     <li className="nav-item">
                       <NavLink className="nav-link dropdown-link" to="/login/">
-                        <img className="img-icon-xs" src="/img/icon/ic-login.png" />
+                        <div className="icon-menu-s icon-menu-stroke"><IconLogin /></div>
                         <span className="nav-item">{t("mLogin")}</span>
                       </NavLink>
                     </li>
                   </ul>
-
               }
-
-
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
-                <img className="img-icon-m" src="/img/icon/ic-home.png" />
-                <span className="nav-label">{t("mHome1")}</span>
+              <NavLink className="nav-link" to="/" title={t("mHome")}>
+                <div className="icon-menu"><IconHome /></div>
+                <span className="nav-label">{t("mHome")}</span>
               </NavLink>
             </li>
 

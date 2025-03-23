@@ -230,7 +230,7 @@
 .dropdown-menu .nav-item .nav-link {
   color: var(--btbgcol);
   padding: 5px 5px;
-  font-size: var(--fontsize13);
+  font-size: var(--fontsize12);
 }
 
 .sidebar.collapsed .dropdown-menu .nav-link {

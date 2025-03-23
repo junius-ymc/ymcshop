@@ -120,7 +120,7 @@ i {
   background-color: var(--btbgact);
   color: var(--texclact);
   transform: scale(1) translateY(1px);
-  cursor:default; 
+  cursor: default;
 }
 
 .btn-mod {
@@ -259,6 +259,56 @@ i {
 }
 
 /* ------------------------------------- End Div ------------------------------------- */
+/* ------------------------------------- Start Icon SVG ------------------------------------- */
+.icon-menu {
+  margin: 0 1px;
+  width: 24px;
+  height: 24px;
+  fill: var(--bgcolo);
+}
+
+.icon-menu-theme {
+  margin: 2px 4px;
+  width: 20px;
+  height: 20px;
+  fill: var(--bgcolo);
+}
+
+.icon-menu-s {
+  width: 15px;
+  height: 15px;
+  fill: var(--bgcolo);
+}
+
+.icon-menu-stroke {
+  fill: none;
+  stroke: var(--bgcolo);
+  stroke-width: 2px;
+}
+
+.icon-menu:hover,
+.icon-menu-theme:hover,
+.icon-menu-s:hover {
+  fill: var(--white);
+}
+
+.icon-menu-stroke:hover {
+  fill: none;
+  stroke: var(--white);
+}
+
+.icon-shopping-cart {
+  /* margin: 0 1px; */
+  width: 24px;
+  height: 24px;
+  fill: var(--gray);
+}
+
+.icon-shopping-cart:hover {
+  fill: var(--black);
+}
+
+/* ------------------------------------- End Icon SVG ------------------------------------- */
 
 /* ------------------------------------- Start Images ------------------------------------- */
 
@@ -281,15 +331,6 @@ img {
 .img-icon-m {
   width: 24px;
   height: 24px;
-}
-
-.logo {
-  width: 82px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: transparent; */
 }
 
 /* ------------------------------------- End Images ------------------------------------- */
@@ -419,6 +460,7 @@ img {
   color: var(--gray);
   transition: transform 0.2s ease, opacity 0.1s 0.0s ease;
 }
+
 /* ------------------------------------- End Trash ------------------------------------- */
 
 /* ------------------------------------- Start NAVIGATION BAR ------------------------------------- */
@@ -460,6 +502,24 @@ header .wrapper .navbar {
 
 header .wrapper .navbar li a {
   margin-left: 10px;
+}
+
+.logo {
+  width: 82px;
+  height: 42px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  fill: var(--bluedeep);
+  /* เปลี่ยนสีของ SVG */
+  color: var(--red);
+  /* เปลี่ยนสีของข้อความหรือ stroke ใน SVG */
+  background-color: var(--bluelite);
+  /* เปลี่ยนสีพื้นหลัง */
+  /* filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(1000%) hue-rotate(300deg); */
+  /* background-color: var(--bluelite); */
+  /* background-color: transparent; */
+
 }
 
 /* ------------------------------------- End NAVIGATION BAR ------------------------------------- */
@@ -838,6 +898,10 @@ header .wrapper .navbar li a {
   text-align: center;
   color: var(--texclact);
   padding: 0px 6px 6px;
+  /* background-color: var(--white); */
+  /* display:inline-table; */
+  /* border-top-right-radius: 6px; */
+  /* border-top-left-radius: 6px; */
 }
 
 /* -------------------------------------- */
@@ -1655,7 +1719,7 @@ footer .wrapper ul li a:hover {
   header .wrapper .navbar {
     display: none;
   }
-  
+
   .cart-list-left-data-1 img {
     width: 70px;
     height: 100px;
@@ -1688,6 +1752,7 @@ footer .wrapper ul li a:hover {
   }
 
 }
+
 /* ------------------------------------- End RESPONSIVE 480px ------------------------------------- */
 
 /* ------------------------------------- Start HEIGHT RESPONSIVE 500px ------------------------------------- */

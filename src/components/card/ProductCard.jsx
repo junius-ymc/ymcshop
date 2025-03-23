@@ -7,7 +7,7 @@ import ProductModal from "../../components/ProductModal"; // นำเข้า 
 import CartModal from "../../components/CartModal"; // นำเข้า CartModal
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
-
+import IconShoppingCart from "../icon/IconShoppingCart";
 
 const ProductCard = ({ item }) => {
   const actionAddtoCart = useEcomStore((state) => state.actionAddtoCart);
@@ -82,7 +82,7 @@ const ProductCard = ({ item }) => {
               ?
               <div className="btn-mod">
                 <div className="flex items-center">
-                  <img className="img-icon-m" src="/img/icon/ic-cart.png" />
+                  <IconShoppingCart />
                 </div>
               </div>
               :
@@ -91,7 +91,7 @@ const ProductCard = ({ item }) => {
                 className="btn-mod"
               >
                 <div className="flex items-center">
-                  <img className="img-icon-m" src="/img/icon/ic-cart.png" />
+                  <IconShoppingCart />
                 </div>
               </button>
             }
