@@ -1,14 +1,16 @@
 import React from "react";
-import { Trash2 } from "lucide-react";
 import useEcomStore from "../../store/ecom-store";
 import { Link } from "react-router-dom";
 import { numberFormat } from '../../utils/number';
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import IconTrash from "../icon/IconTrash";
+import IconCartList from "../icon/IconCartList";
 
 const CartCard = () => {
   // Javascript
   const carts = useEcomStore((state) => state.carts);
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
   const actionUpdateQuantity = useEcomStore(
     (state) => state.actionUpdateQuantity
   );
@@ -17,14 +19,13 @@ const CartCard = () => {
   );
   const getTotalPrice = useEcomStore((state) => state.getTotalPrice);
 
-  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
-
   return (
-
     <div className="modal-cartcard">
 
       <div className="div-head modal-cartcard-head setdiv-3">
-        <span><img className="img-icon-m" src="/img/icon/ic-cart.png" alt={t("ccShoppingCart")} /></span>
+        <span>
+          <IconCartList className="icon-cart" />
+        </span>
         {t("ccShoppingCart")} {carts.length} {t("lcItem")}
       </div>
       {/* Border */}
@@ -55,11 +56,8 @@ const CartCard = () => {
                 </div>
 
                 {/* Right */}
-                <div
-                  onClick={() => actionRemoveProduct(item.id)}
-                  className="ic-trash"
-                >
-                  <Trash2 />
+                <div onClick={() => actionRemoveProduct(item.id)}>
+                  <IconTrash className="icon-trash" />
                 </div>
               </div>
             </div>
@@ -73,10 +71,10 @@ const CartCard = () => {
                 ) : (
                   <button
                     onClick={() => actionUpdateQuantity(item.id, item.count - 1)}
-                    className="modal-cartcard-content-box-row-2-quantity-minus-btn"
-                  >
-                    <img className="img-icon-s" src="/img/icon/ic-down.png" alt="Minus" />
-                  </button>
+                    alt="Minus"
+                    title="Minus"
+                    className="icon-arrow icon-arrow-down"
+                  > - </button>
                 )}
                 <div className="modal-cartcard-content-box-row-2-quantity">
                   {/* <div> */}
@@ -87,10 +85,10 @@ const CartCard = () => {
                 ) : (
                   <button
                     onClick={() => actionUpdateQuantity(item.id, item.count + 1)}
-                    className="modal-cartcard-content-box-row-2-quantity-plus-btn"
-                  >
-                    <img className="img-icon-s" src="/img/icon/ic-up.png" alt="Plus" />
-                  </button>
+                    alt="Plus"
+                    title="Plus"
+                    className="icon-arrow icon-arrow-up"
+                  > + </button>
                 )}
               </div>
               {/* Right */}
@@ -118,7 +116,6 @@ const CartCard = () => {
       </div>
 
     </div>
-
   );
 };
 

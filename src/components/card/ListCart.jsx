@@ -1,7 +1,6 @@
 // rafce
 // import React from "react";
 import React, { useState } from "react";
-import { Trash2 } from "lucide-react";
 import useEcomStore from "../../store/ecom-store";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserCart } from "../../api/user";
@@ -10,6 +9,8 @@ import { numberFormat } from "../../utils/number";
 import ProductModal from "../../components/ProductModal"; // นำเข้า ProductModal
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../LoaderDiv";
+import IconTrash from "../icon/IconTrash";
+import IconCart from "../icon/IconCart";
 
 const ListCart = () => {
   const cart = useEcomStore((state) => state.carts);
@@ -62,8 +63,9 @@ const ListCart = () => {
       {/* Header */}
       <div className="cart-header">
         <div className="cart-header-title div-head">
-          {/* <ListCheck size={36} /> */}
-          <img className="img-icon-m" src="/img/icon/ic-list.png" alt={t("lcListCart")} />
+          <span>
+            <IconCart className="icon-cart" />
+          </span>
           {t("lcListCart")} {cart.length} {t("lcItem")}
         </div>
       </div>
@@ -102,9 +104,8 @@ const ListCart = () => {
                     <div className="cart-list-left-data-2">
                       {numberFormat(item.price * item.count)} {t("moneyUnit")}
                     </div>
-                    <div onClick={() => actionRemoveProduct(item.id)} className="ic-trash">
-                      {/* <img className="img-icon-m" src="/public/img/icon/ic-x.png" alt="Trash" /> */}
-                      <Trash2 />
+                    <div onClick={() => actionRemoveProduct(item.id)}>
+                      <IconTrash className="icon-trash" />
                     </div>
                   </div>
                 </div>

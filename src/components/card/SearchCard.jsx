@@ -5,6 +5,7 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { numberFormat } from "../../utils/number";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import IconSearchTitle from "../icon/IconSearchTitle";
 
 const SearchCard = ({ resetPage }) => {
   const products = useEcomStore((state) => state.products);
@@ -90,7 +91,9 @@ const SearchCard = ({ resetPage }) => {
       <div className="search-card-head">
 
         <div className="div-head modal-cartcard-head setdiv-3">
-          <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
+          <span>
+            <IconSearchTitle className="icon-search-title" />
+          </span>
           {t("sbSearch")}
         </div>
         <div className="search-card-box">

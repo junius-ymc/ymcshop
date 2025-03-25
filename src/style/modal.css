@@ -24,18 +24,18 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  background-color: var(--red);
-  padding: 0px 6px;
-  border-radius: 0px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 3px;
+  background-color: var(--bgcontent);
+  border-radius: 50%;
+  padding: 1px 1px;
+  fill: var(--red);
+  width: 27px;
+  height: 27px;
   z-index: 20;
-  color: var(--gray);
 }
 
 .modal-bnt-close:hover {
-  background-color: var(--gray);
-  color: var(--redfull);
+  fill: var(--gray);
+  stroke: var(--red);
 }
 
 .modal-swiper-size {
@@ -54,7 +54,6 @@
   height: auto;
   object-fit: contain;
   border-radius: 4px;
-  /* cursor: move; */
 }
 
 .modal-wrap {
@@ -122,7 +121,7 @@
 }
 
 .modal-cartcard-content {
-  padding: 8px;
+  padding: 4px;
 }
 
 .modal-cartcard-content-box {
@@ -214,18 +213,6 @@
   font-size: var(--fontsize12);
 }
 
-.modal-cartcard-content-box-row-2-quantity-minus-btn,
-.modal-cartcard-content-box-row-2-quantity-plus-btn {
-  background-color: var(--bluelite);
-  border-radius: 3px;
-}
-
-.modal-cartcard-content-box-row-2-quantity-minus-btn:hover,
-.modal-cartcard-content-box-row-2-quantity-plus-btn:hover {
-  background-color: var(--red);
-  color: var(--black);
-}
-
 .modal-cartcard-content-box-row-2-quantity-count {
   padding: 0 4px;
   display: flex;
@@ -287,7 +274,8 @@
 /* Start Search Card Modal */
 
 .modal-search-card {
-  background-color: #ffffffcc;
+  /* background-color: #ffffffcc; */
+  background-color: #ffffffbf;
 }
 
 /* End Search Card Modal */

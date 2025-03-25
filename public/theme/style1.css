@@ -303,30 +303,59 @@ i {
   stroke: var(--white);
   fill: var(--black);
   border: 1px solid var(--black);
-  /* background-color: var(--bluedeep); */
 }
 
-.img-icon-s {
-  width: 18px;
-  height: 18px;
+.icon-arrow {
+  width: 22px;
+  height: 22px;
+  padding: 1px 2px;
+  color: var(--black);
+  background-color: var(--bgcontent);
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-.img-icon-m {
+.icon-arrow-up,
+.icon-arrow-down {
+  font-size: var(--fontsize16);
+  font-weight: bolder;
+}
+
+.icon-arrow-up:hover,
+.icon-arrow-down:hover {
+  color: var(--white);
+  background-color: var(--bluelite);
+  border: 1px solid var(--gray);
+}
+
+.icon-trash {
+  fill: var(--red);
+  cursor: pointer;
+  padding: 1px 2px;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+}
+
+.icon-trash:hover {
+  background-color: var(--redfull);
+  fill: var(--gray);
+  transition: transform 0.2s ease, opacity 0.1s 0.0s ease;
+}
+
+.icon-cart {
+  fill: var(--gray);
   width: 24px;
   height: 24px;
 }
 
-.ic-trash {
-  color: var(--red);
-  cursor: pointer;
-  padding: 2px;
-  border-radius: 4px;
-}
-
-.ic-trash:hover {
-  background-color: var(--redfull);
-  color: var(--gray);
-  transition: transform 0.2s ease, opacity 0.1s 0.0s ease;
+.icon-search-title {
+  fill: var(--gray);
+  width: 24px;
+  height: 24px;
+  transform: rotate(90deg);
 }
 
 /* ------------------------------------- End Icon SVG ------------------------------------- */
@@ -955,7 +984,7 @@ header .wrapper .navbar li a {
 /* ------------------------------------- Start Shop - SearchCard ------------------------------------- */
 
 .search-card-head {
-  padding: 14px;
+  padding: 4px;
   width: auto;
   height: 98%;
   max-height: 74vh;

@@ -1,10 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CartCard from "./card/CartCard";
-
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
+import IconClose from "./icon/IconClose";
 
 const CartModal = ({ isOpen, onClose }) => {
 
@@ -29,9 +26,8 @@ const CartModal = ({ isOpen, onClose }) => {
           onClick={(e) => e.stopPropagation()} // ป้องกันปิด modal ถ้าคลิกข้างใน
         >
 
-          <button className="modal-bnt-close" onClick={onClose}>
-            ✖
-            {/* <img className="img-icon-s" src="/img/icon/ic-x.png" /> */}
+          <button onClick={onClose} className="modal-bnt-close">
+            <IconClose className="modal-bnt-close" />
           </button>
 
           <div>
