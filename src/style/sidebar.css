@@ -102,6 +102,18 @@
   stroke-width: 2px;
 }
 
+.icon-cart-list {
+  fill: none;
+  stroke: var(--bgcolo);
+  stroke-width: 2px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-cart-list:hover {
+  stroke: var(--white);
+}
+
 .icon-menu:hover,
 .icon-menu-theme:hover,
 .icon-menu-s:hover {
