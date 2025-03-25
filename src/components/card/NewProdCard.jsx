@@ -5,6 +5,7 @@ import { numberFormat } from "../../utils/number";
 import { useNavigate  } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import IconCart from '../icon/IconCart';
 
 const NewProdCard = ({ item }) => {
 
@@ -57,11 +58,8 @@ const NewProdCard = ({ item }) => {
             // icon: <img src="/img/icon/ic-cart.png"/>,
             // icon: false,
           })}
-          className="btn-mod"
         >
-          <div>
-            <img className="img-icon-m" src="/img/icon/ic-cart.png" />
-          </div>
+          <IconCart className="icon-shopping-cart" />
         </button>
       </div>
 

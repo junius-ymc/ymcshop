@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import SearchCardModal from "../components/SearchCardModal";
 import LoaderDiv from "../components/LoaderDiv";
+import IconSearch from "../components/icon/IconSearch";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -181,8 +182,10 @@ const Shop = () => {
 
         {/* เริ่ม ส่วนของการแสดงค้นหาสินค้า */}
         {/* ✅ Floating Button ค้นหา */}
-        <button className="bttn floating-search-btn" onClick={handleSearchCardClick}>
-          <span><img className="img-icon-m" src="/img/icon/ic-search.png" alt={t("sbSearch")} /></span>
+        <button className="floating-search-btn" onClick={handleSearchCardClick}>
+          <span>
+          <IconSearch className="icon-search-btn" />
+          </span>
         </button>
 
         {/* ✅ Modal ค้นหา */}

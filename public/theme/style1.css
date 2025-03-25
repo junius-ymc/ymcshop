@@ -21,8 +21,6 @@
   --texheadhov: #0e0d0d;
   --black: #000000;
 
-
-
   /* ส่วนของ Font */
   /* clamp(ขนาดเล็กสุด, สเกลในการขยาย, ขนาดใหญ่สุด) */
   --fontsize18: clamp(1.063rem, calc(7vw + 1.125rem), 1.188rem);
@@ -61,11 +59,11 @@ body {
   height: 100%;
   background-color: var(--bgcolo);
   font-family: serif, sans-serif;
-  /* เปลี่ยนฟอนท์เป็น มาะลิ ลิงค์มาจากกูเกิ้ล */
-  /* font-family: "Mali", serif, sans-serif; */
   font-weight: 400;
   font-style: normal;
   font-size: var(--fontsize15);
+  /* เปลี่ยนฟอนท์เป็น มาะลิ ลิงค์มาจากกูเกิ้ล */
+  /* font-family: "Mali", serif, sans-serif; */
 
   /* overflow-y: auto;
   scrollbar-width: thin;
@@ -106,8 +104,8 @@ i {
   border-radius: 6px;
   font-size: var(--fontsize15);
   font-weight: 600;
-  display: flex;
   box-shadow: var(--box-shadow-mid);
+  display: flex;
   position: relative;
 }
 
@@ -260,67 +258,52 @@ i {
 
 /* ------------------------------------- End Div ------------------------------------- */
 /* ------------------------------------- Start Icon SVG ------------------------------------- */
-.icon-menu {
-  margin: 0 1px;
-  width: 24px;
-  height: 24px;
-  fill: var(--bgcolo);
-}
 
-.icon-menu-theme {
-  margin: 2px 4px;
-  width: 20px;
-  height: 20px;
-  fill: var(--bgcolo);
-}
-
-.icon-menu-s {
-  width: 15px;
-  height: 15px;
-  fill: var(--bgcolo);
-}
-
-.icon-menu-stroke {
-  fill: none;
-  stroke: var(--bgcolo);
-  stroke-width: 2px;
-}
-
-.icon-menu:hover,
-.icon-menu-theme:hover,
-.icon-menu-s:hover {
+.icon-shopping-cart {
+  width: 36px;
+  height: 36px;
+  padding: 5px 6px;
+  border-radius: 6px;
+  box-shadow: var(--box-shadow-mid);
+  background-color: var(--bluelite);
   fill: var(--white);
 }
 
-.icon-menu-stroke:hover {
-  fill: none;
-  stroke: var(--white);
-}
-
-.icon-shopping-cart {
-  /* margin: 0 1px; */
-  width: 24px;
-  height: 24px;
-  fill: var(--gray);
-}
-
 .icon-shopping-cart:hover {
+  transform: scale(1) translateY(1px);
+  background-color: var(--bluedeep);
+  /* fill: var(--black); */
+}
+
+/* ✅ Floating Button */
+.floating-search-btn {
+  position: fixed;
+  top: 50%;
+  left: 14px;
+  transition: 0.3s;
+  z-index: 1;
+  opacity: 85%;
+}
+
+.icon-search-btn {
+  width: 45px;
+  height: 45px;
+  padding: 2px 4px;
+  box-shadow: var(--box-shadow-mid);
+  background-color: var(--bluelite);
+  fill: var(--bgcolo);
+  stroke: var(--black);
+  stroke-width: 2px;
+  border: 1px solid var(--bluedeep);
+  border-radius: 50%;
+  /* border-radius: 6px; */
+}
+
+.icon-search-btn:hover {
+  stroke: var(--white);
   fill: var(--black);
-}
-
-/* ------------------------------------- End Icon SVG ------------------------------------- */
-
-/* ------------------------------------- Start Images ------------------------------------- */
-
-img {
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-}
-
-.img-icon-xs {
-  width: 14px;
-  height: 14px;
+  border: 1px solid var(--black);
+  /* background-color: var(--bluedeep); */
 }
 
 .img-icon-s {
@@ -331,6 +314,29 @@ img {
 .img-icon-m {
   width: 24px;
   height: 24px;
+}
+
+.ic-trash {
+  color: var(--red);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.ic-trash:hover {
+  background-color: var(--redfull);
+  color: var(--gray);
+  transition: transform 0.2s ease, opacity 0.1s 0.0s ease;
+}
+
+/* ------------------------------------- End Icon SVG ------------------------------------- */
+
+/* ------------------------------------- Start Images ------------------------------------- */
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 /* ------------------------------------- End Images ------------------------------------- */
@@ -445,23 +451,6 @@ img {
 }
 
 /* ------------------------------------- End Notify ------------------------------------- */
-
-/* ------------------------------------- Start Trash ------------------------------------- */
-
-.ic-trash {
-  color: var(--red);
-  cursor: pointer;
-  padding: 2px;
-  border-radius: 4px;
-}
-
-.ic-trash:hover {
-  background-color: var(--redfull);
-  color: var(--gray);
-  transition: transform 0.2s ease, opacity 0.1s 0.0s ease;
-}
-
-/* ------------------------------------- End Trash ------------------------------------- */
 
 /* ------------------------------------- Start NAVIGATION BAR ------------------------------------- */
 
@@ -964,22 +953,6 @@ header .wrapper .navbar li a {
 
 /* ------------------------------------- End Shop - Shop  ------------------------------------- */
 /* ------------------------------------- Start Shop - SearchCard ------------------------------------- */
-
-/* ✅ Floating Button */
-.floating-search-btn {
-  position: fixed;
-  top: 50%;
-  left: 14px;
-  background-color: var(--bluelite);
-  border: none;
-  padding: 8px;
-  border-radius: 50%;
-  box-shadow: var(--box-shadow-mid);
-  cursor: pointer;
-  transition: 0.3s;
-  z-index: 1;
-  opacity: 85%;
-}
 
 .search-card-head {
   padding: 14px;

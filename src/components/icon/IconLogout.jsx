@@ -1,9 +1,7 @@
-// import React from 'react';
-
-const IconLogout = () => (
+const IconLogout = ({ className = className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="icon-menu-s icon-menu-stroke"
+    className={className}
     width="24"
     height="24"
     viewBox="0 0 24 24"

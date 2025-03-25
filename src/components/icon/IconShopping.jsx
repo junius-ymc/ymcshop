@@ -1,9 +1,7 @@
-// import React from 'react';
-
-const IconShopping = () => (
+const IconShopping = ({ className = className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="icon-menu"
+    className={className}
     width="64"
     height="64"
     viewBox="4 4.273 28.999 27.48"
