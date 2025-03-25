@@ -153,7 +153,7 @@ const Sidebar = () => {
 
             <li className="nav-item">
               <Link className="nav-link" to="#" onClick={() => handleCartClick()} title={t("ccShoppingCart")}>
-                <div className="icon-menu"><IconCartList className="icon-menu" /></div>
+                <div className="icon-cart-list"><IconCartList className="icon-cart-list" /></div>
                 <span className="nav-label">{t("ccShoppingCart")}</span>
                 {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
                 {

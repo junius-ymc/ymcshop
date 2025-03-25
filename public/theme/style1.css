@@ -347,6 +347,15 @@ i {
 
 .icon-cart {
   fill: var(--gray);
+  stroke: var(--gray);
+  width: 24px;
+  height: 24px;
+}
+
+.icon-cart-list-modal {
+  fill: none;
+  stroke: var(--gray);
+  stroke-width: 2px;
   width: 24px;
   height: 24px;
 }
@@ -444,26 +453,28 @@ img {
   position: absolute;
   background-color: var(--red);
   color: var(--white);
-  padding: 0px 6px;
+  padding: 0px 5px;
   border-radius: 9999px;
 }
 
 .notifycart-1 {
   top: -9px;
   left: 40px;
-  font-size: var(--fontsize12);
+  font-size: var(--fontsize10);
+  font-weight: 600;
 }
 
 .notifycart-2 {
   top: -2px;
   left: 24px;
-  font-size: var(--fontsize13);
+  font-size: var(--fontsize10);
+  font-weight: 600;
 }
 
 .notifycart-3 {
   position: absolute;
-  top: 9px;
-  left: 20px;
+  top: 8px;
+  left:28px;
   font-size: var(--fontsize13);
   font-weight: 600;
   color: var(--red);

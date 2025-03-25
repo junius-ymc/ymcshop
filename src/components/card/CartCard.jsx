@@ -24,7 +24,7 @@ const CartCard = () => {
 
       <div className="div-head modal-cartcard-head setdiv-3">
         <span>
-          <IconCartList className="icon-cart" />
+          <IconCartList className="icon-cart-list-modal" />
         </span>
         {t("ccShoppingCart")} {carts.length} {t("lcItem")}
       </div>
