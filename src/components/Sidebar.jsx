@@ -179,17 +179,17 @@ const Sidebar = () => {
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mLang")}</a></li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("th")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/public/img/icon/ic-th.png" /> {t("mShowLang1")}
+                    <img className="icon-menu-s" src="/img/icon/ic-th.png" /> {t("mShowLang1")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("en")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/public/img/icon/ic-en.png" /> {t("mShowLang2")}
+                    <img className="icon-menu-s" src="/img/icon/ic-en.png" /> {t("mShowLang2")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("jp")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/public/img/icon/ic-jp.png" /> {t("mShowLang3")}
+                    <img className="icon-menu-s" src="/img/icon/ic-jp.png" /> {t("mShowLang3")}
                   </a>
                 </li>
               </ul>
