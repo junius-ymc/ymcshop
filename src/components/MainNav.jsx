@@ -33,7 +33,7 @@ function MainNav() {
       <header>
         <div className="wrapper">
           <div className="setdiv-1">
-            <div className="setdiv-2 addgap">
+            <div className="setdiv-2">
 
               {/* Start ส่วนของโลโก้ ด้านซ้าย */}
               <div className="setdiv-3">

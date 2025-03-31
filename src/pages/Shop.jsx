@@ -53,7 +53,6 @@ const Shop = () => {
   };
 
   // console.log("totalPages", totalPages);
-  // console.log("currentPage", currentPage);
 
   // ✅ ฟังก์ชันสร้างเลขหน้า
   const renderPageNumbers = () => {
@@ -72,7 +71,7 @@ const Shop = () => {
     // ✅ ปุ่ม "หน้าแรกสุด" (<<)
     if (currentPage > 2) {
       pages.push(
-        <button key="first" onClick={() => goToPage(1)} className="bttn shop-pagination-bnt">
+        <button key="first" onClick={() => goToPage(1)} className="bttn shop-pagination-bnt shop-pagination-bnt-first-end">
           {"<<"}
         </button>
       );
@@ -123,7 +122,7 @@ const Shop = () => {
     // ✅ ปุ่ม "หน้าสุดท้าย" (>>)
     if (currentPage < totalPagesToShow - 1) {
       pages.push(
-        <button key="last" onClick={() => goToPage(totalPagesToShow)} className="bttn shop-pagination-bnt">
+        <button key="last" onClick={() => goToPage(totalPagesToShow)} className="bttn shop-pagination-bnt shop-pagination-bnt-first-end">
           {">>"}
         </button>
       );

@@ -52,7 +52,7 @@
   list-style: none;
   text-decoration: none;
   /* เอ็ฟเฟ็คการเปลี่ยนในส่วนต่างๆ */
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 
 body {
@@ -98,8 +98,7 @@ i {
 /* ------------------------------------- Start Button ------------------------------------- */
 
 .bttn {
-  background-color: var(--btbgcol);
-  color: var(--gray);
+  color: var(--bgcontent);
   padding: 5px 6px;
   border-radius: 6px;
   font-size: var(--fontsize15);
@@ -107,16 +106,18 @@ i {
   box-shadow: var(--box-shadow-mid);
   display: flex;
   position: relative;
+  border: 1px solid var(--black);
 }
 
 .bttn:hover {
-  background-color: var(--btbghov);
   transform: scale(1) translateY(1px);
+  border: 1px solid var(--bluelite);
+  color: var(--bluelite);
 }
 
 .bttnact {
-  background-color: var(--btbgact);
-  color: var(--texclact);
+  color: var(--bluelite);
+  border: 1px solid var(--bluelite);
   transform: scale(1) translateY(1px);
   cursor: default;
 }
@@ -474,10 +475,12 @@ img {
 .notifycart-3 {
   position: absolute;
   top: 8px;
-  left:28px;
+  left: 25px;
   font-size: var(--fontsize13);
   font-weight: 600;
-  color: var(--red);
+  color: var(--gray);
+  background-color: var(--bgcolo);
+  border-radius: 2px;
 }
 
 .toastify-toast-modify {
@@ -530,7 +533,7 @@ header .wrapper .navbar {
 }
 
 header .wrapper .navbar li a {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .logo {
@@ -949,6 +952,10 @@ header .wrapper .navbar li a {
   font-size: var(--fontsize14);
 }
 
+.shop-pagination-bnt-first-end {
+  color: var(--bluelite);
+}
+
 .shop-pagination-bnt-previous,
 .shop-pagination-bnt-next {
   background-color: var(--bluelite);
@@ -965,6 +972,7 @@ header .wrapper .navbar li a {
 }
 
 .shop-pagination-bnt-number:hover {
+  color: var(--bgcontent);
   background-color: var(--bluedeep);
 }
 
@@ -982,7 +990,9 @@ header .wrapper .navbar li a {
 .items-per-page {
   width: 42px;
   height: 30px;
+  cursor: pointer;
   margin-bottom: 0px;
+  margin-right: 2px;
 }
 
 .items-per-page:hover {
@@ -1616,11 +1626,12 @@ footer .wrapper p {
   font-size: var(--fontsize12);
 }
 
-footer .wrapper ul {
+footer .wrapper ul,
+.text-link-right  {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 13px;
 }
 
 footer .wrapper ul li a {
@@ -1629,17 +1640,19 @@ footer .wrapper ul li a {
 }
 
 footer .wrapper ul li a:hover {
-  color: var(--red);
+  color: var(--bluelite);
+}
+
+footer .wrapper ul li .textact {
+  color: var(--bluelite);
 }
 
 /* ------------------------------------- End FOOTER ------------------------------------- */
 
 
 /* ------------------------------------------- RESPONSIVE ------------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 1250px ------------------------------------- */
-
-@media(max-width:1275px) {
+@media(max-width: 1275px) {
 
   .content {
     margin-left: 0px;
@@ -1654,11 +1667,9 @@ footer .wrapper ul li a:hover {
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 1250px ------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 880px ------------------------------------- */
-/* @media(max-width:880px) {
+/* @media(max-width: 880px) {
 
   .grid-container {
     grid-template-columns: minmax(10px, 1fr);
@@ -1678,9 +1689,7 @@ footer .wrapper ul li a:hover {
 
 } */
 /* ------------------------------------- End RESPONSIVE 880px ------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 768px ------------------------------------- */
-
 @media (max-width: 768px) {
 
   .content {
@@ -1693,12 +1702,9 @@ footer .wrapper ul li a:hover {
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 768px ------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 680px ------------------------------------- */
-
-@media(max-width:680px) {
+@media(max-width: 680px) {
 
   .first-box {
     grid-template-columns: 1fr 1fr;
@@ -1722,11 +1728,18 @@ footer .wrapper ul li a:hover {
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 680px ------------------------------------- */
+/* ------------------------------------- Start RESPONSIVE 620px ------------------------------------- */
+@media(max-width: 620px) {
 
+  footer .wrapper ul,
+  .text-link-right {
+    gap: 10px;
+  }
+
+}
+/* ------------------------------------- End RESPONSIVE 620px ------------------------------------- */
 /* ------------------------------------- Start RESPONSIVE 550px ------------------------------------- */
-
 @media (max-width: 550px) {
 
   header .wrapper .navbar {
@@ -1753,23 +1766,24 @@ footer .wrapper ul li a:hover {
     font-size: var(--fontsize12);
   }
 
+  .text-link-right {
+    display: none;
+  }
+
 }
-
 /* ------------------------------------- End RESPONSIVE 550px ------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 480px ------------------------------------- */
-@media(max-width:480px) {
+@media(max-width: 480px) {
 
-  footer .wrapper ul {
+  footer .wrapper ul,
+  .text-link-right {
     gap: 8px;
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 480px ------------------------------------- */
 
 /* ------------------------------------- Start HEIGHT RESPONSIVE 500px ------------------------------------- */
-
 @media (max-height: 500px) {
 
   .collection-crsl .content-crsl {
@@ -1778,10 +1792,9 @@ footer .wrapper ul li a:hover {
 
   .modal-swiper-slide img {
     /* width: 50vh; */
-    width: 50%;
+    width: 46%;
     height: auto;
   }
 
 }
-
 /* ------------------------------------- End HEIGHT RESPONSIVE 500px ------------------------------------- */

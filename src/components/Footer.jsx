@@ -1,18 +1,28 @@
-// rafce
-// rfce
-// import React, { useState, useRef } from "react";
-// import { NavLink } from "react-router-dom";
-// import useEcomStore from "../store/ecom-store";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import useEcomStore from "../store/ecom-store";
 import ScrollToTopButton from "./ScrollToTopButton";
-
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import { toast } from "react-toastify";
 
 const Footer = () => {
-  //console.log(hotSellL)
 
+  const user = useEcomStore((s) => s.user);
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const logout = useEcomStore((s) => s.logout);
+  const navigate = useNavigate();
+
+  // ฟังก์ชัน Logout เพื่อลบ Token
+  const handleLogout = () => {
+    // ลบ Token
+    localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
+    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
+    logout(true);
+    toast.success(`${t("liLogout")}`, {
+      bodyClassName: "toastify-toast-modify",
+    });
+    navigate("/"); // กลับไปหน้า Home
+  };
 
   return (
     <div>
@@ -27,10 +37,55 @@ const Footer = () => {
               </div>
 
               <div className="setdiv-3">
-                <ul className="">
-                  <li><NavLink to={"/"}>{t("mHome")}</NavLink></li>
-                  <li><NavLink to={"/aboutus/"}>{t("mAboutUs")}</NavLink></li>
-                  <li><NavLink to={"/contactus/"}>{t("mContactUs")}</NavLink></li>
+                <ul>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "textact" : ""}
+                      to={"/"}
+                    >
+                      {t("mHome")}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "textact" : ""}
+                      to={"/shop"}
+                    >
+                      {t("mShop")}
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "textact" : ""}
+                      to={"/cart"}
+                    >
+                      {t("mCart")}
+                    </NavLink>
+                  </li>
+
+                  <div className="text-link-right">
+                    <li>
+                      <NavLink className={({ isActive }) => isActive ? "textact" : ""}
+                        to={"/aboutus"}
+                      >
+                        {t("mAboutUs")}
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className={({ isActive }) => isActive ? "textact" : ""}
+                        to={"/contactus"}
+                      >
+                        {t("mContactUs")}
+                      </NavLink>
+                    </li>
+                  </div>
+                  {user
+                    ?
+                    <li>
+                      <NavLink onClick={() => handleLogout()}>
+                        {t("mLogout")}
+                      </NavLink>
+                    </li>
+                    :
+                    ""
+                  }
                 </ul>
               </div>
 
