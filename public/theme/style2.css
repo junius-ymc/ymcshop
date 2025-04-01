@@ -107,7 +107,6 @@ i {
   display: flex;
   position: relative;
   border: 1px solid var(--black);
-  /* background-color: var(--btbgcol); */
 }
 
 .bttn:hover {
@@ -248,7 +247,7 @@ i {
 .setdiv-3 {
   display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 .setdiv-empty-space-bottom {
@@ -354,6 +353,22 @@ i {
   height: 24px;
 }
 
+.icon-shopping {
+  fill: var(--gray);
+  width: 22px;
+  height: 20px;
+  margin-right: 4px;
+}
+
+.icon-register {
+  fill: none;
+  stroke: var(--gray);
+  stroke-width: 2px;
+  width: 22px;
+  height: 20px;
+  margin-right: 4px;
+}
+
 .icon-cart-list-modal {
   fill: none;
   stroke: var(--gray);
@@ -367,6 +382,18 @@ i {
   width: 24px;
   height: 24px;
   transform: rotate(90deg);
+}
+
+.icon-logout {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2px;
+  width: 18px;
+  height: 18px;
+}
+
+.icon-logout:hover {
+  stroke: var(--bluelite);
 }
 
 /* ------------------------------------- End Icon SVG ------------------------------------- */
@@ -476,10 +503,12 @@ img {
 .notifycart-3 {
   position: absolute;
   top: 8px;
-  left: 28px;
+  left: 25px;
   font-size: var(--fontsize13);
   font-weight: 600;
-  color: var(--red);
+  color: var(--gray);
+  background-color: var(--bgcolo);
+  border-radius: 2px;
 }
 
 .toastify-toast-modify {
@@ -532,25 +561,16 @@ header .wrapper .navbar {
 }
 
 header .wrapper .navbar li a {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .logo {
-  width: 82px;
+  width: 83px;
   height: 42px;
   display: block;
   align-items: center;
   justify-content: center;
-  fill: var(--bluedeep);
-  /* เปลี่ยนสีของ SVG */
-  color: var(--red);
-  /* เปลี่ยนสีของข้อความหรือ stroke ใน SVG */
   background-color: var(--bluelite);
-  /* เปลี่ยนสีพื้นหลัง */
-  /* filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(1000%) hue-rotate(300deg); */
-  /* background-color: var(--bluelite); */
-  /* background-color: transparent; */
-
 }
 
 /* ------------------------------------- End NAVIGATION BAR ------------------------------------- */
@@ -951,6 +971,10 @@ header .wrapper .navbar li a {
   font-size: var(--fontsize14);
 }
 
+.shop-pagination-bnt-first-end {
+  color: var(--bluelite);
+}
+
 .shop-pagination-bnt-previous,
 .shop-pagination-bnt-next {
   background-color: var(--bluelite);
@@ -967,6 +991,7 @@ header .wrapper .navbar li a {
 }
 
 .shop-pagination-bnt-number:hover {
+  color: var(--bgcontent);
   background-color: var(--bluedeep);
 }
 
@@ -984,7 +1009,9 @@ header .wrapper .navbar li a {
 .items-per-page {
   width: 42px;
   height: 30px;
+  cursor: pointer;
   margin-bottom: 0px;
+  margin-right: 2px;
 }
 
 .items-per-page:hover {
@@ -1643,10 +1670,8 @@ footer .wrapper ul li .textact {
 
 
 /* ------------------------------------------- RESPONSIVE ------------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 1250px ------------------------------------- */
-
-@media(max-width:1275px) {
+@media(max-width: 1275px) {
 
   .content {
     margin-left: 0px;
@@ -1661,11 +1686,9 @@ footer .wrapper ul li .textact {
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 1250px ------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 880px ------------------------------------- */
-/* @media(max-width:880px) {
+/* @media(max-width: 880px) {
 
   .grid-container {
     grid-template-columns: minmax(10px, 1fr);
@@ -1685,9 +1708,7 @@ footer .wrapper ul li .textact {
 
 } */
 /* ------------------------------------- End RESPONSIVE 880px ------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 768px ------------------------------------- */
-
 @media (max-width: 768px) {
 
   .content {
@@ -1700,12 +1721,9 @@ footer .wrapper ul li .textact {
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 768px ------------------------------------- */
-
 /* ------------------------------------- Start RESPONSIVE 680px ------------------------------------- */
-
-@media(max-width:680px) {
+@media(max-width: 680px) {
 
   .first-box {
     grid-template-columns: 1fr 1fr;
@@ -1729,20 +1747,18 @@ footer .wrapper ul li .textact {
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 680px ------------------------------------- */
-/* ------------------------------------- Start RESPONSIVE 480px ------------------------------------- */
-@media(max-width:620px) {
+/* ------------------------------------- Start RESPONSIVE 620px ------------------------------------- */
+@media(max-width: 620px) {
 
   footer .wrapper ul,
   .text-link-right {
-    gap: 8px;
+    gap: 10px;
   }
 
 }
-/* ------------------------------------- End RESPONSIVE 480px ------------------------------------- */
+/* ------------------------------------- End RESPONSIVE 620px ------------------------------------- */
 /* ------------------------------------- Start RESPONSIVE 550px ------------------------------------- */
-
 @media (max-width: 550px) {
 
   header .wrapper .navbar {
@@ -1774,20 +1790,19 @@ footer .wrapper ul li .textact {
   }
 
 }
-
 /* ------------------------------------- End RESPONSIVE 550px ------------------------------------- */
 /* ------------------------------------- Start RESPONSIVE 480px ------------------------------------- */
-/* @media(max-width:480px) {
+@media(max-width: 480px) {
 
+  footer .wrapper ul,
   .text-link-right {
-    display: none;
+    gap: 8px;
   }
 
-} */
+}
 /* ------------------------------------- End RESPONSIVE 480px ------------------------------------- */
 
 /* ------------------------------------- Start HEIGHT RESPONSIVE 500px ------------------------------------- */
-
 @media (max-height: 500px) {
 
   .collection-crsl .content-crsl {
@@ -1796,10 +1811,9 @@ footer .wrapper ul li .textact {
 
   .modal-swiper-slide img {
     /* width: 50vh; */
-    width: 50%;
+    width: 46%;
     height: auto;
   }
 
 }
-
 /* ------------------------------------- End HEIGHT RESPONSIVE 500px ------------------------------------- */
