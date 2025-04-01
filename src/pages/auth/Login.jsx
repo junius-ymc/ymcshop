@@ -6,6 +6,7 @@ import useEcomStore from "../../store/ecom-store";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../../components/LoaderDiv"; // ✅ เพิ่ม Div Loading
+import IconLogin from "../../components/icon/IconLogin";
 
 const Login = () => {
   // Javascript
@@ -68,7 +69,12 @@ const Login = () => {
   return (
 
     <div className="div-wrap login">
-      <div className="div-head">{t("mLogin")}</div>
+      <div className="div-head">
+        <span className="setdiv-2">
+          <IconLogin className="icon-register" />
+          {t("mLogin")}
+        </span>
+      </div>
       <div className="div-content">
         <div className="div-content-box">
 

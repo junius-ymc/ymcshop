@@ -247,7 +247,7 @@ i {
 .setdiv-3 {
   display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 .setdiv-empty-space-bottom {
@@ -351,6 +351,22 @@ i {
   stroke: var(--gray);
   width: 24px;
   height: 24px;
+}
+
+.icon-shopping {
+  fill: var(--gray);
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+
+.icon-register {
+  fill: none;
+  stroke: var(--gray);
+  stroke-width: 2px;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
 }
 
 .icon-cart-list-modal {

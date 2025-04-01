@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import SearchCardModal from "../components/SearchCardModal";
 import LoaderDiv from "../components/LoaderDiv";
 import IconSearch from "../components/icon/IconSearch";
+import IconShopping from "../components/icon/IconShopping";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -197,7 +198,12 @@ const Shop = () => {
 
         {/* เริ่ม ส่วนของการแสดงรายการสินค้า */}
         <div className="scrollable-container">
-          <p className="div-head">{t("sAllProd")}</p>
+        <div className="div-head">
+            <span className="setdiv-2">
+              <IconShopping className="icon-shopping" />
+              {t("sShoppping")}
+            </span>
+          </div>
           <div className="div-content">
 
             <div className="shop-head-title">

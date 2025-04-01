@@ -9,21 +9,22 @@ import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../../components/LoaderDiv";
+import IconRegister from "../../components/icon/IconRegister";
 
 const Register = () => {
   // Javascript
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const registerSchema = z
 
-  .object({
-    email: z.string().email({ message: t("rgtInvalEmail") }),
-    password: z.string().min(6, { message: t("rgtPassChk") }),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: t("rgtPassCon"),
-    path: ["confirmPassword"],
-  });
+    .object({
+      email: z.string().email({ message: t("rgtInvalEmail") }),
+      password: z.string().min(6, { message: t("rgtPassChk") }),
+      confirmPassword: z.string(),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: t("rgtPassCon"),
+      path: ["confirmPassword"],
+    });
 
   const [passwordScore, setPasswordScore] = useState(0);
   const navigate = useNavigate();
@@ -76,7 +77,12 @@ const Register = () => {
   return (
 
     <div className="div-wrap regist">
-      <div className="div-head">{t("mRegister")}</div>
+      <div className="div-head">
+        <span className="setdiv-2">
+          <IconRegister className="icon-register" />
+          {t("mRegister")}
+        </span>
+      </div>
       <div className="div-content">
         <div className="div-content-box">
           <div className="regist-form">
