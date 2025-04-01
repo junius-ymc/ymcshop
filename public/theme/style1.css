@@ -355,7 +355,7 @@ i {
 
 .icon-shopping {
   fill: var(--gray);
-  width: 24px;
+  width: 22px;
   height: 21px;
   margin-right: 4px;
 }
@@ -364,7 +364,7 @@ i {
   fill: none;
   stroke: var(--gray);
   stroke-width: 2px;
-  width: 24px;
+  width: 22px;
   height: 21px;
   margin-right: 4px;
 }
