@@ -39,7 +39,7 @@ function MainNav() {
               <div className="setdiv-3">
                 <i className="logo">
                   <a href="/" target="_self">
-                    <img src="/img/logo-b.png" />
+                    <img src="/img/logo.png" />
                   </a>
                 </i>
                 {/* End ส่วนของโลโก้ ด้านซ้าย */}

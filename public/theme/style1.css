@@ -537,21 +537,12 @@ header .wrapper .navbar li a {
 }
 
 .logo {
-  width: 82px;
+  width: 83px;
   height: 42px;
   display: block;
   align-items: center;
   justify-content: center;
-  fill: var(--bluedeep);
-  /* เปลี่ยนสีของ SVG */
-  color: var(--red);
-  /* เปลี่ยนสีของข้อความหรือ stroke ใน SVG */
-  background-color: var(--bluelite);
-  /* เปลี่ยนสีพื้นหลัง */
-  /* filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(1000%) hue-rotate(300deg); */
-  /* background-color: var(--bluelite); */
   /* background-color: transparent; */
-
 }
 
 /* ------------------------------------- End NAVIGATION BAR ------------------------------------- */
