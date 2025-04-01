@@ -26,6 +26,7 @@ const Sidebar = () => {
   const user = useEcomStore((s) => s.user);
   const logout = useEcomStore((s) => s.logout);
   const navigate = useNavigate();
+  const [theme, setTheme] = useState("style1"); // ค่าเริ่มต้น
 
   // console.log(Boolean(user))
   // console.log(carts)
@@ -82,6 +83,22 @@ const Sidebar = () => {
     });
     navigate("/"); // กลับไปหน้า Home
 
+  };
+
+  // ✅ โหลดค่าธีมจาก localStorage ทันทีที่หน้าโหลดขึ้นมา
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.getElementById("theme-style").href = `/src/style/${savedTheme}.css`;
+    }
+  }, []);
+
+  // ✅ ฟังก์ชันเปลี่ยนธีม
+  const changeTheme = (selectedTheme) => {
+    setTheme(selectedTheme);
+    document.getElementById("theme-style").href = `/src/style/${selectedTheme}.css`;
+    localStorage.setItem("theme", selectedTheme); // บันทึกค่าธีม
   };
 
   return (
@@ -206,13 +223,13 @@ const Sidebar = () => {
               <ul className="dropdown-menu" style={{ height: openDropdown === 1 ? "auto" : 1 }}>
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mTheme")}</a></li>
                 <li className="nav-item">
-                  <a className="nav-link dropdown-link">
+                  <a className="nav-link dropdown-link" onClick={() => changeTheme("style1")}>
                     <div className="icon-menu-s"><IconTheme className="icon-menu-s" /></div>
                     {t("mTheme1")}
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link dropdown-link">
+                  <a className="nav-link dropdown-link" onClick={() => changeTheme("style2")}>
                     <div className="icon-menu-s"><IconTheme className="icon-menu-s" /></div>
                     {t("mTheme2")}
                   </a>
