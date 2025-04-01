@@ -25,6 +25,7 @@ import ManageOrders from '../pages/admin/ManageOrders'
 // จากตรงนี้เสริมเองทั้งหมด 
 import AboutUs from '../pages/AboutUs'
 import ContactUs from '../pages/ContactUs'
+import HowToPay from '../components/HowToPay'
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
             // จากตรงนี้เสริมเองทั้งหมด
             { path: 'aboutus', element: <AboutUs /> },
             { path: 'contactus', element: <ContactUs /> },
+            { path: 'howtopay', element: <HowToPay /> },
         ]
     },
     {

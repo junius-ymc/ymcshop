@@ -384,6 +384,18 @@ i {
   transform: rotate(90deg);
 }
 
+.icon-logout {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2px;
+  width: 18px;
+  height: 18px;
+}
+
+.icon-logout:hover {
+  stroke: var(--bluelite);
+}
+
 /* ------------------------------------- End Icon SVG ------------------------------------- */
 
 /* ------------------------------------- Start Images ------------------------------------- */

@@ -3,6 +3,7 @@ import useEcomStore from "../store/ecom-store";
 import ScrollToTopButton from "./ScrollToTopButton";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import { toast } from "react-toastify";
+import IconLogout from "./icon/IconLogout";
 
 const Footer = () => {
 
@@ -59,6 +60,13 @@ const Footer = () => {
                       {t("mCart")}
                     </NavLink>
                   </li>
+                  <li>
+                    <NavLink className={({ isActive }) => isActive ? "textact" : ""}
+                      to={"/howtopay"}
+                    >
+                      {t("mHowToPay")}
+                    </NavLink>
+                  </li>
 
                   <div className="text-link-right">
                     <li>
@@ -80,7 +88,7 @@ const Footer = () => {
                     ?
                     <li>
                       <NavLink onClick={() => handleLogout()}>
-                        {t("mLogout")}
+                        <IconLogout className="icon-logout" />
                       </NavLink>
                     </li>
                     :
