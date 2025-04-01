@@ -60,6 +60,8 @@ const Footer = () => {
                       {t("mCart")}
                     </NavLink>
                   </li>
+
+                  <div className="text-link-right">
                   <li>
                     <NavLink className={({ isActive }) => isActive ? "textact" : ""}
                       to={"/howtopay"}
@@ -67,8 +69,6 @@ const Footer = () => {
                       {t("mHowToPay")}
                     </NavLink>
                   </li>
-
-                  <div className="text-link-right">
                     <li>
                       <NavLink className={({ isActive }) => isActive ? "textact" : ""}
                         to={"/aboutus"}
