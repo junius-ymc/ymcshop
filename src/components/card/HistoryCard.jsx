@@ -53,7 +53,7 @@ const HistoryCard = () => {
   return (
     <div className="div-wrap">
       <div className="div-head">
-        <span className="setdiv-2">
+        <span className="setdiv-3">
           <IconHistory className="icon-register" />
           {t("htrHistory")}
         </span>

@@ -70,7 +70,7 @@ const Login = () => {
 
     <div className="div-wrap login">
       <div className="div-head">
-        <span className="setdiv-2">
+        <span className="setdiv-3">
           <IconLogin className="icon-register" />
           {t("mLogin")}
         </span>

@@ -78,7 +78,7 @@ const Register = () => {
 
     <div className="div-wrap regist">
       <div className="div-head">
-        <span className="setdiv-2">
+        <span className="setdiv-3">
           <IconRegister className="icon-register" />
           {t("mRegister")}
         </span>

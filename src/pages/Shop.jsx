@@ -199,7 +199,7 @@ const Shop = () => {
         {/* เริ่ม ส่วนของการแสดงรายการสินค้า */}
         <div className="scrollable-container">
         <div className="div-head">
-            <span className="setdiv-2">
+            <span className="setdiv-3">
               <IconShopping className="icon-shopping" />
               {t("sShoppping")}
             </span>
