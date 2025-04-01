@@ -90,14 +90,14 @@ const Sidebar = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
-      document.getElementById("theme-style").href = `/src/style/${savedTheme}.css`;
+      document.getElementById("theme-style").href = `/theme/${savedTheme}.css`;
     }
   }, []);
 
   // ✅ ฟังก์ชันเปลี่ยนธีม
   const changeTheme = (selectedTheme) => {
     setTheme(selectedTheme);
-    document.getElementById("theme-style").href = `/src/style/${selectedTheme}.css`;
+    document.getElementById("theme-style").href = `/theme/${selectedTheme}.css`;
     localStorage.setItem("theme", selectedTheme); // บันทึกค่าธีม
   };
 
