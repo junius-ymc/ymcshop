@@ -1614,6 +1614,40 @@ header .wrapper .navbar li a {
 }
 
 /* ------------------------------------- End HistoryCard ------------------------------------- */
+/* ------------------------------------- Start HowToPay ------------------------------------- */
+
+.howtopay {
+  font-size: var(--fontsize13);
+  display: flex;
+  gap: 12px;
+}
+
+.howtopay-text {
+  display: flex;
+  width: 50%;
+  justify-content: end;
+  align-items: center;
+}
+
+.howtopay-text-b {
+  display:contents;
+  font-size: var(--fontsize13);
+  font-weight: 600;
+}
+
+.howtopay-div-img {
+  width: 50%;
+  max-width: 300px;
+}
+
+.howtopay-div-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-sml);
+}
+
+/* ------------------------------------- End HowToPay ------------------------------------- */
 
 /* ------------------------------------- Start FOOTER ------------------------------------- */
 

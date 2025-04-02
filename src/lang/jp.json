@@ -113,5 +113,21 @@
     "pmPayment": "支払い",
     "pmPaymentSuccess": "お支払いが完了しました ✅",
     "pmPaymentFailed": "支払いに失敗しました !!! ❌",
-    "pmPayNow": "今すぐ支払う"
+    "pmPayNow": "今すぐ支払う",
+    "htpText1": "最初にサインインする必要があります。",
+    "htpText2": "ログインしたら",
+    "htpText3": "ボタンをクリックしてください",
+    "htpText4": "情報を入力してください",
+    "htpText5": "きちんと整える",
+    "htpText6": "それから",
+    "htpText7": "選ぶ",
+    "htpText8": "クレジットカードで支払う",
+    "htpText9": "Card",
+    "htpText10": "タブをクリック",
+    "htpText11": "による支払い",
+    "htpText12": "PromtPay",
+    "htpText13": "スキャンして支払う",
+    "htpText14": "による",
+    "htpText15": "銀行サポート",
+    "_blank": ""
 }
