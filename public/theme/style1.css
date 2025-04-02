@@ -253,6 +253,7 @@ i {
 .setgrid-1 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .setdiv-empty-space-bottom {
@@ -1317,12 +1318,10 @@ header .wrapper .navbar li a {
 
 .summary-card-left {
   width: auto;
-  margin-right: 4px;
 }
 
 .summary-card-right {
   width: auto;
-  margin-left: 4px;
 }
 
 .summary-card-right-list {
@@ -1767,16 +1766,6 @@ footer .wrapper ul li .textact {
 
   .setgrid-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  .summary-card-left {
-    margin-right: 0;
-    margin-bottom: 5px;
-  }
-
-  .summary-card-right {
-    margin-left: 0;
-    margin-top: 5px;
   }
 
 }
