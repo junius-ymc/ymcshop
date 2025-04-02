@@ -571,6 +571,7 @@ header .wrapper .navbar li a {
   align-items: center;
   justify-content: center;
   background-color: var(--bluelite);
+  border-radius: 4px;
 }
 
 /* ------------------------------------- End NAVIGATION BAR ------------------------------------- */

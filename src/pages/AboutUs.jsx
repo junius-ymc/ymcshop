@@ -22,7 +22,10 @@ const AboutUs = () => {
               <br></br>
               <p className="text-4xl">หน้าตาเว็บ YMC SHOP ฉบับปรับปรุงใหม่</p>
               <br />
-              <p className="text-2xl">หัวข้อเนื้อหา</p>
+              <div className="setgrid-1">
+                <div className="text-2xl">หัวข้อเนื้อหา - 1</div>
+                <div className="text-2xl">หัวข้อเนื้อหา - 2</div>
+              </div>
               <br />
               <div className=" flex justify-center items-center">
                 <IconShopping className="icon-shopping" />

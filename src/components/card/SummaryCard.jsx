@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { numberFormat } from "../../utils/number";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../LoaderDiv";
+import { Helmet } from "react-helmet-async";
 
 const SummaryCard = () => {
   const token = useEcomStore((state) => state.token);
@@ -108,90 +109,95 @@ const SummaryCard = () => {
 
     <div className="div-wrap">
       <div className="summary-card">
+        <Helmet>
+          <title>{t("scYourOrder")} | {t("shopName")}</title>
+        </Helmet>
 
         {/* ✅ เริ่ม แสดง Loader */}
         {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
         {/* ✅ จบ แสดง Loader */}
 
-        {/* Left */}
-        <div className="summary-card-left">
-          <div className="div-head">{t("scShippingAddress")}</div>
-          <div className="div-content">
-            <div className="div-content-box">
-              <input
-                name="fullName"
-                value={nameData.fullName}
-                onChange={handleNameChange}
-                placeholder={t("scFullName")}
-                title={t("scFullName")}
-                className="form-input-checkout"
-              />
-              <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder={t("scHouseNo")} title={t("scHouseNo")} className="form-input-checkout" />
-              <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder={t("scDistrict")} title={t("scDistrict")} className="form-input-checkout" />
-              <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder={t("scCity")} title={t("scCity")} className="form-input-checkout" />
-              <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder={t("scProvince")} title={t("scProvince")} className="form-input-checkout" />
-              <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder={t("scZipCode")} title={t("scZipCode")} className="form-input-checkout" />
-              <input
-                name="phone"
-                value={nameData.phone}
-                onChange={handleNameChange}
-                placeholder={t("scPhone")}
-                title={t("scPhone")}
-                className="form-input-checkout"
-              />
-              <hr />
-              <div className="summary-card-div-btn"><button onClick={hdlSaveAddress} className="btn-mod summary-card-btn">{t("scSaveAddress")}</button></div>
+        <div className="setgrid-1">
+          {/* Left */}
+          <div className="summary-card-left">
+            <div className="div-head">{t("scShippingAddress")}</div>
+            <div className="div-content">
+              <div className="div-content-box">
+                <input
+                  name="fullName"
+                  value={nameData.fullName}
+                  onChange={handleNameChange}
+                  placeholder={t("scFullName")}
+                  title={t("scFullName")}
+                  className="form-input-checkout"
+                />
+                <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder={t("scHouseNo")} title={t("scHouseNo")} className="form-input-checkout" />
+                <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder={t("scDistrict")} title={t("scDistrict")} className="form-input-checkout" />
+                <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder={t("scCity")} title={t("scCity")} className="form-input-checkout" />
+                <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder={t("scProvince")} title={t("scProvince")} className="form-input-checkout" />
+                <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder={t("scZipCode")} title={t("scZipCode")} className="form-input-checkout" />
+                <input
+                  name="phone"
+                  value={nameData.phone}
+                  onChange={handleNameChange}
+                  placeholder={t("scPhone")}
+                  title={t("scPhone")}
+                  className="form-input-checkout"
+                />
+                <hr />
+                <div className="summary-card-div-btn"><button onClick={hdlSaveAddress} className="btn-mod summary-card-btn">{t("scSaveAddress")}</button></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right */}
-        <div className="summary-card-right">
-          <div className="div-head">{t("scYourOrder")}</div>
-          <div className="div-content">
-            <div className="div-content-box">
-              {products?.map((item, index) => (
-                <div key={index}>
-                  <div className="summary-card-right-list">
-                    <div>
-                      <p className="summary-card-right-list-title">{item.product.title}</p>
-                      <p className="summary-card-right-list-count">
-                        {t("scQuantity")}: {item.count} x {numberFormat(item.product.price)}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="summary-card-right-list-price">
-                        {numberFormat(item.count * item.product.price) + ' '}
-                        <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
-                      </p>
+          {/* Right */}
+          <div className="summary-card-right">
+            <div className="div-head">{t("scYourOrder")}</div>
+            <div className="div-content">
+              <div className="div-content-box">
+                {products?.map((item, index) => (
+                  <div key={index}>
+                    <div className="summary-card-right-list">
+                      <div>
+                        <p className="summary-card-right-list-title">{item.product.title}</p>
+                        <p className="summary-card-right-list-count">
+                          {t("scQuantity")}: {item.count} x {numberFormat(item.product.price)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="summary-card-right-list-price">
+                          {numberFormat(item.count * item.product.price) + ' '}
+                          <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-              <div>
-                <div className="summary-card-right-list-other">
-                  <p>{t("scShippingCosts")}:</p>
-                  <span className="summary-card-right-list-discount">{t("scFreeOnlyInThailand")}</span>
-                </div>
-                <div className="summary-card-right-list-other">
-                  <p>{t("scDiscount")}:</p>
-                  <div className="summary-card-right-list-discount">-<span className="summary-card-right-list-total-price-unit"> {t("moneyUnit")}</span></div>
+                ))}
+                <div>
+                  <div className="summary-card-right-list-other">
+                    <p>{t("scShippingCosts")}:</p>
+                    <span className="summary-card-right-list-discount">{t("scFreeOnlyInThailand")}</span>
+                  </div>
+                  <div className="summary-card-right-list-other">
+                    <p>{t("scDiscount")}:</p>
+                    <div className="summary-card-right-list-discount">-<span className="summary-card-right-list-total-price-unit"> {t("moneyUnit")}</span></div>
 
+                  </div>
                 </div>
-              </div>
-              <div className="summary-card-right-list-other-box">
-                <hr />
-                <div className="summary-card-right-list-other">
-                  <p className="summary-card-right-list-total">{t("scNetTotal")}:</p>
-                  <p className="summary-card-right-list-total-price">{numberFormat(cartTotal) + ' '}
-                    <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
-                  </p>
+                <div className="summary-card-right-list-other-box">
+                  <hr />
+                  <div className="summary-card-right-list-other">
+                    <p className="summary-card-right-list-total">{t("scNetTotal")}:</p>
+                    <p className="summary-card-right-list-total-price">{numberFormat(cartTotal) + ' '}
+                      <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
+                    </p>
+                  </div>
+                  <hr />
                 </div>
-                <hr />
-              </div>
-              <div>
-                <div className="summary-card-div-btn">
-                  <button onClick={hdlGoToPayment} className="btn-mod summary-card-btn">{t("scProceedWithPayment")}</button>
+                <div>
+                  <div className="summary-card-div-btn">
+                    <button onClick={hdlGoToPayment} className="btn-mod summary-card-btn">{t("scProceedWithPayment")}</button>
+                  </div>
                 </div>
               </div>
             </div>
