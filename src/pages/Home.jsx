@@ -6,6 +6,7 @@ import BestSeller from "../components/home/BestSeller";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import ShowSupporter from "../components/home/ShowSupporter";
 import TextAnimation from "../components/home/TextAnimation";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
