@@ -127,7 +127,7 @@
 .modal-cartcard-content-box {
   padding: 8px;
   background-color: var(--white);
-  border: 1px solid var(--btbghov);
+  border: 1px solid var(--bgcolo);
   border-radius: 6px;
   margin-bottom: 8px;
   width: 100%;

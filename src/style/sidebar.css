@@ -191,7 +191,7 @@
 }
 
 .sidebar .sidebar-nav .primary-nav:hover {
-  scrollbar-color: var(--btbghov) transparent;
+  scrollbar-color: var(--bgcolo) transparent;
 }
 
 .sidebar.collapsed .sidebar-nav .primary-nav {
@@ -201,7 +201,7 @@
 
 /* ------------------------------------- กำหนดขนาดของ กล่องย่อย ของแถบใหญ่ ------------------------------------- */
 .sidebar-nav .nav-item .nav-link {
-  color: var(--btbghov);
+  color: var(--bgcolo);
   display: flex;
   gap: 6px;
   white-space: nowrap;
@@ -297,7 +297,7 @@
 }
 
 .dropdown-menu .nav-item .nav-link {
-  color: var(--btbgcol);
+  color: var(--bghead);
   padding: 5px 5px;
   font-size: var(--fontsize12);
 }

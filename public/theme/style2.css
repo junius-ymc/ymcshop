@@ -14,7 +14,7 @@
   --btbgact: #f3f4f6;
   --bghead: #e3e3e3;
   --btbgcol: #e3e3e3;
-  --btbghov: #d4d4d4;
+  --bgcolo: #d4d4d4;
   --bgcolo: #d6d6d6;
   --texclact: #a8a2a2;
   --gray: #272626;
@@ -655,7 +655,7 @@ header .wrapper .navbar li a {
   display: flex;
   justify-content: space-between;
   border-radius: 6px;
-  border: 1px solid var(--btbghov);
+  border: 1px solid var(--bgcolo);
   padding: 5px 0px;
   background-color: var(--bgcontent);
   border-top-left-radius: 0px;
@@ -725,7 +725,7 @@ header .wrapper .navbar li a {
 }
 
 .first-box-content::before {
-  background-color: var(--btbghov);
+  background-color: var(--bgcolo);
   content: "";
   position: absolute;
   bottom: 0;
@@ -748,7 +748,7 @@ header .wrapper .navbar li a {
   align-items: center;
   justify-content: center;
   border-radius: 6px;
-  color: var(--btbghov);
+  color: var(--bgcolo);
 }
 
 .first-box-content::after {
@@ -797,7 +797,7 @@ header .wrapper .navbar li a {
 }
 
 .first-content p {
-  color: var(--btbghov);
+  color: var(--bgcolo);
   font-size: var(--fontsize12);
 }
 
@@ -1298,7 +1298,7 @@ header .wrapper .navbar li a {
 
 .cart-list-right-end-btn-2 {
   width: 100%;
-  background-color: var(--btbgcol);
+  background-color: var(--bghead);
   font-size: var(--fontsize17);
   font-weight: 600;
 }
@@ -1585,12 +1585,12 @@ header .wrapper .navbar li a {
 }
 
 .historycard-product-table-header {
-  background-color: var(--btbghov);
+  background-color: var(--bgcolo);
 }
 
 .historycard-product-table-th {
   border: solid 1px var(--texclact);
-  background-color: var(--btbghov);
+  background-color: var(--bgcolo);
 }
 
 .historycard-product-table-tr {
@@ -1797,8 +1797,8 @@ footer .wrapper ul li .textact {
     font-size: var(--fontsize12);
   }
 
-  .text-link-right {
-    display: none;
+  footer .wrapper p {
+    font-size: var(--fontsize11);
   }
 
 }
@@ -1812,9 +1812,23 @@ footer .wrapper ul li .textact {
     gap: 8px;
   }
 
+  footer .wrapper p {
+    font-size: var(--fontsize10);
+  }
+
 }
 
 /* ------------------------------------- End RESPONSIVE 480px ------------------------------------- */
+/* ------------------------------------- Start RESPONSIVE 410px ------------------------------------- */
+@media(max-width: 410px) {
+
+  .text-link-right {
+    display: none;
+  }
+
+}
+
+/* ------------------------------------- End RESPONSIVE 410px ------------------------------------- */
 
 /* ------------------------------------- Start HEIGHT RESPONSIVE 500px ------------------------------------- */
 @media (max-height: 500px) {
