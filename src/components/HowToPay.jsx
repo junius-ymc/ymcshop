@@ -95,8 +95,8 @@ const HowToPay = () => {
                 <br /> ธนาคารกรุงศรีอยุธยา<div className="howtopay-text-b"> (Krungsri)</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/howtopay/06.png" title="สแกนจ่ายผ่าน PromtPay โดย QR Code" target="_howtopay">
-                  <img src="/img/howtopay/06.png" alt={t("pmPayment")} />
+              <a href="/img/howtopay/06.png" title={t("htpText13") +" "+ t("htpText12") +" "+ t("htpText14") +" "+ t("htpText16")} target="_howtopay">
+              <img src="/img/howtopay/06.png" alt={t("pmPayment")} />
                 </a>
               </div>
             </div>
