@@ -1316,10 +1316,7 @@ header .wrapper .navbar li a {
   justify-content: center;
 }
 
-.summary-card-left {
-  width: auto;
-}
-
+.summary-card-left,
 .summary-card-right {
   width: auto;
 }
