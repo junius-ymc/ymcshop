@@ -12,6 +12,9 @@ const Home = () => {
 
   return (
     <div className="div-wrap">
+      <Helmet>
+        <title>{t("mHome")} | {t("shopName")}</title>
+      </Helmet>
 
       {/* ---------------------------- Start ShowSupporter ---------------------------- */}
       <div className="wrapper">
