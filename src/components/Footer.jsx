@@ -69,20 +69,6 @@ const Footer = () => {
                       {t("mHowToPay")}
                     </NavLink>
                   </li>
-                    <li>
-                      <NavLink className={({ isActive }) => isActive ? "textact" : ""}
-                        to={"/aboutus"}
-                      >
-                        {t("mAboutUs")}
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink className={({ isActive }) => isActive ? "textact" : ""}
-                        to={"/contactus"}
-                      >
-                        {t("mContactUs")}
-                      </NavLink>
-                    </li>
                   </div>
                   {user
                     ?
