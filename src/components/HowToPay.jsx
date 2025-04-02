@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import { Helmet } from "react-helmet-async";
 
 const HowToPay = () => {
 
@@ -7,8 +8,11 @@ const HowToPay = () => {
   return (
     <div>
       <div className="div-wrap">
+        <Helmet>
+          <title>{t("mHowToPay")} | {t("shopName")}</title>
+        </Helmet>
 
-        <div className="div-head">{t("mHowToPay")}</div>
+        <div className="div-head">{t("mHowToPay")} - ยังทำไม่เสร็จจ้า😅</div>
         <div className="div-content">
           <div className="div-content-box">
 

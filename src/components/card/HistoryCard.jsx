@@ -6,6 +6,7 @@ import { numberFormat } from "../../utils/number";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../LoaderDiv";
 import IconHistory from "../icon/IconHistory";
+import { Helmet } from "react-helmet-async";
 
 const HistoryCard = () => {
   const token = useEcomStore((state) => state.token);
@@ -52,6 +53,9 @@ const HistoryCard = () => {
 
   return (
     <div className="div-wrap">
+      <Helmet>
+        <title>{t("htrHistory")} | {t("shopName")}</title>
+      </Helmet>
       <div className="div-head">
         <span className="setdiv-3">
           <IconHistory className="icon-register" />

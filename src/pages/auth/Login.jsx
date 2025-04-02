@@ -7,6 +7,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../../components/LoaderDiv"; // ✅ เพิ่ม Div Loading
 import IconLogin from "../../components/icon/IconLogin";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   // Javascript
@@ -69,6 +70,9 @@ const Login = () => {
   return (
 
     <div className="div-wrap login">
+      <Helmet>
+        <title>{t("mLogin")} | {t("shopName")}</title>
+      </Helmet>
       <div className="div-head">
         <span className="setdiv-3">
           <IconLogin className="icon-register" />

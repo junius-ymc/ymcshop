@@ -1,16 +1,18 @@
-// import React from "react";
-// import ContentCarouselPa from "../components/home/ContentCarouselPa";
-// import ContentCarouselPb from "../components/home/ContentCarouselPb";
-// import BestSeller from "../components/home/BestSeller";
-// import NewProduct from "../components/home/NewProduct";
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import { Helmet } from "react-helmet-async";
 
 const AboutUs = () => {
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   //console.log(hotSellL)
   return (
     <div>
+      <Helmet>
+        <title>{t("mAboutUs")} | {t("shopName")}</title>
+      </Helmet>
       <div className="div-wrap">
 
-        <div className="div-head">{chgLng.mAboutUs}</div>
+        <div className="div-head">{t("mAboutUs")}</div>
         <div className="div-content">
           <div className="div-content-box">
 

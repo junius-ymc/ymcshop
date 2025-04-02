@@ -7,6 +7,7 @@ import SearchCardModal from "../components/SearchCardModal";
 import LoaderDiv from "../components/LoaderDiv";
 import IconSearch from "../components/icon/IconSearch";
 import IconShopping from "../components/icon/IconShopping";
+import { Helmet } from "react-helmet-async";
 
 const Shop = () => {
   const getProduct = useEcomStore((state) => state.getProduct);
@@ -179,6 +180,9 @@ const Shop = () => {
   return (
     <div className="div-wrap">
       <div className="wrap-shop">
+      <Helmet>
+        <title>{t("mShop")} | {t("shopName")}</title>
+      </Helmet>
 
         {/* เริ่ม ส่วนของการแสดงค้นหาสินค้า */}
         {/* ✅ Floating Button ค้นหา */}

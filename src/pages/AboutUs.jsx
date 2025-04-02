@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../components/LoaderDiv";
 import IconShopping from "../components/icon/IconShopping";
+import { Helmet } from "react-helmet-async";
 
 const AboutUs = () => {
 
@@ -9,8 +10,11 @@ const AboutUs = () => {
   return (
     <div>
       <div className="div-wrap">
+      <Helmet>
+        <title>{t("mAboutUs")} | {t("shopName")}</title>
+      </Helmet>
 
-        <div className="div-head">{t("mAboutUs")} - โหมดทดสอบ</div>
+      <div className="div-head">{t("mAboutUs")} - ยังทำไม่เสร็จจ้า😅</div>
         <div className="div-content">
           <div className="div-content-box">
 
@@ -20,7 +24,7 @@ const AboutUs = () => {
               <br />
               <p className="text-2xl">หัวข้อเนื้อหา</p>
               <br />
-              <div className=" flex justify-center items-center icon-shopping">
+              <div className=" flex justify-center items-center">
                 <IconShopping className="icon-shopping" />
               </div>
               <br />

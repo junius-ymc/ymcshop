@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัว�
 import LoaderDiv from "../LoaderDiv";
 import IconTrash from "../icon/IconTrash";
 import IconCart from "../icon/IconCart";
+import { Helmet } from "react-helmet-async";
 
 const ListCart = () => {
   const cart = useEcomStore((state) => state.carts);
@@ -59,6 +60,9 @@ const ListCart = () => {
 
   return (
     <div className="div-wrap">
+      <Helmet>
+        <title>{t("mCart")} | {t("shopName")}</title>
+      </Helmet>
 
       {/* Header */}
       <div className="cart-header">

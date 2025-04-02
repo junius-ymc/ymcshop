@@ -10,6 +10,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../../components/LoaderDiv";
 import IconRegister from "../../components/icon/IconRegister";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   // Javascript
@@ -77,6 +78,9 @@ const Register = () => {
   return (
 
     <div className="div-wrap regist">
+      <Helmet>
+        <title>{t("mRegister")} | {t("shopName")}</title>
+      </Helmet>
       <div className="div-head">
         <span className="setdiv-3">
           <IconRegister className="icon-register" />
