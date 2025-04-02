@@ -17,6 +17,9 @@ import IconHistory from "./icon/IconHistory";
 import IconLogout from "./icon/IconLogout";
 import IconArrow from "./icon/IconArrow";
 import IconMenuSideBar from "./icon/IconMenuSideBar";
+import IconHowToPay from "./icon/IconHowToPay";
+import IconAboutUs from "./icon/IconAboutUs";
+import IconContactUs from "./icon/IconContactUs";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(window.innerWidth <= 1425);
@@ -184,6 +187,13 @@ const Sidebar = () => {
               </Link>
             </li>
 
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/howtopay" title={t("mHowToPay")}>
+                <div className="icon-menu"><IconHowToPay className="icon-menu" /></div>
+                <span className="nav-label">{t("mHowToPay")}</span>
+              </NavLink>
+            </li>
+
             <li className={`nav-item dropdown-container ${openDropdown === 0 ? "open" : ""}`}>
               <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(0)} title={t("mLang")}>
                 <div className="icon-menu"><IconLanguage className="icon-menu" /></div>
@@ -235,6 +245,20 @@ const Sidebar = () => {
                   </a>
                 </li>
               </ul>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/aboutus" title={t("mAboutUs")}>
+                <div className="icon-menu"><IconAboutUs className="icon-menu" /></div>
+                <span className="nav-label">{t("mAboutUs")}</span>
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/contactus" title={t("mContactUs")}>
+                <div className="icon-menu"><IconContactUs className="icon-menu" /></div>
+                <span className="nav-label">{t("mContactUs")}</span>
+              </NavLink>
             </li>
 
           </ul>
