@@ -25,7 +25,7 @@ import ManageOrders from '../pages/admin/ManageOrders'
 // จากตรงนี้เสริมเองทั้งหมด 
 import AboutUs from '../pages/AboutUs'
 import ContactUs from '../pages/ContactUs'
-import HowToPay from '../components/HowToPay'
+import HowToPay from '../pages/HowToPay'
 
 
 const router = createBrowserRouter([

@@ -1625,7 +1625,7 @@ header .wrapper .navbar li a {
 
 .howtopay-text {
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: end;
   align-items: center;
 }
@@ -1637,7 +1637,7 @@ header .wrapper .navbar li a {
 }
 
 .howtopay-div-img {
-  width: 50%;
+  width: 60%;
   max-width: 300px;
 }
 
