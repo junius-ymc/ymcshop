@@ -43,8 +43,8 @@ const HowToPay = () => {
 
             <div className="howtopay">
               <div className="howtopay-text">{t("htpText4")}<div className="howtopay-text-b">{t("scShippingAddress")}</div>{t("htpText5")}
-                <br />{t("htpText3")}<div className="howtopay-text-b">{t("scSaveAddress")}</div>
-                <br />{t("htpText6")}{t("htpText3")}<div className="howtopay-text-b">{t("scProceedWithPayment")}</div>
+                <br />{t("htpText3")}<div className="howtopay-text-b">1. {t("scSaveAddress")}</div>
+                <br />{t("htpText6")}{t("htpText3")}<div className="howtopay-text-b">2. {t("scProceedWithPayment")}</div>
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/howtopay/03.png" title={t("scShippingAddress")} target="_howtopay">
