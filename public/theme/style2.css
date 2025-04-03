@@ -5,7 +5,6 @@
   --red: #ec0b0b;
   --orangfull: #ffa600;
   --greenfull: #00ff00;
-  /* --bluelite: #1e90ff; */
   --bluelite: #1e90ff;
   --bluedeep: #3b82f6;
   /* --bluedeep: #003cff; */
@@ -13,12 +12,9 @@
   --bgcontent: #fcfcfc;
   --btbgact: #f3f4f6;
   --bghead: #e3e3e3;
-  --btbgcol: #e3e3e3;
-  --bgcolo: #d4d4d4;
   --bgcolo: #d6d6d6;
   --texclact: #a8a2a2;
   --gray: #272626;
-  --texheadhov: #0e0d0d;
   --black: #000000;
 
   /* ส่วนของ Font */
@@ -1226,7 +1222,6 @@ header .wrapper .navbar li a {
   text-wrap: wrap;
   padding-top: 4px;
   line-height: 1.25rem;
-  /* background-color: var(--btbgcol); */
 }
 
 .cart-list-left-data-2-right {
@@ -1315,7 +1310,6 @@ header .wrapper .navbar li a {
 .summary-card {
   display: flex;
   justify-content: center;
-  gap: 12px;
 }
 
 .summary-card-left,
@@ -1621,6 +1615,40 @@ header .wrapper .navbar li a {
 }
 
 /* ------------------------------------- End HistoryCard ------------------------------------- */
+/* ------------------------------------- Start HowToPay ------------------------------------- */
+
+.howtopay {
+  font-size: var(--fontsize13);
+  display: flex;
+  gap: 12px;
+}
+
+.howtopay-text {
+  display: flex;
+  width: 50%;
+  justify-content: end;
+  align-items: center;
+}
+
+.howtopay-text-b {
+  display:contents;
+  font-size: var(--fontsize13);
+  font-weight: 600;
+}
+
+.howtopay-div-img {
+  width: 50%;
+  max-width: 300px;
+}
+
+.howtopay-div-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-sml);
+}
+
+/* ------------------------------------- End HowToPay ------------------------------------- */
 
 /* ------------------------------------- Start FOOTER ------------------------------------- */
 
