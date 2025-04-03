@@ -22,8 +22,8 @@ const HowToPay = () => {
                 <div className="howtopay-text-b">{t("htpText1")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/public/img/howtopay/01.png" title={t("mHowToPay")} target="_howtopay">
-                  <img src="/public/img/howtopay/01.png" alt={t("mHowToPay")} />
+                <a href="/img/howtopay/01.png" title={t("mHowToPay")} target="_howtopay">
+                  <img src="/img/howtopay/01.png" alt={t("mHowToPay")} />
                 </a>
               </div>
             </div>
@@ -34,8 +34,8 @@ const HowToPay = () => {
                 <br />{t("htpText3")}<div className="howtopay-text-b">{t("lcOrderProducts")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/public/img/howtopay/02.png" title={t("lcOrderProducts")} target="_howtopay">
-                  <img src="/public/img/howtopay/02.png" alt={t("lcOrderProducts")} />
+                <a href="/img/howtopay/02.png" title={t("lcOrderProducts")} target="_howtopay">
+                  <img src="/img/howtopay/02.png" alt={t("lcOrderProducts")} />
                 </a>
               </div>
             </div>
@@ -47,8 +47,8 @@ const HowToPay = () => {
                 <br />{t("htpText6")}{t("htpText3")}<div className="howtopay-text-b">{t("scProceedWithPayment")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/public/img/howtopay/03.png" title={t("scShippingAddress")} target="_howtopay">
-                  <img src="/public/img/howtopay/03.png" alt={t("scShippingAddress")} />
+                <a href="/img/howtopay/03.png" title={t("scShippingAddress")} target="_howtopay">
+                  <img src="/img/howtopay/03.png" alt={t("scShippingAddress")} />
                 </a>
               </div>
             </div>
@@ -62,8 +62,8 @@ const HowToPay = () => {
                 <br />1.3 {t("htpText3")}<div className="howtopay-text-b">{t("pmPayNow")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/public/img/howtopay/04.png" title={t("htpText8") + t("htpText9")} target="_howtopay">
-                  <img src="/public/img/howtopay/04.png" alt={t("pmPayment")} />
+                <a href="/img/howtopay/04.png" title={t("htpText8") + t("htpText9")} target="_howtopay">
+                  <img src="/img/howtopay/04.png" alt={t("pmPayment")} />
                 </a>
               </div>
             </div>
@@ -77,8 +77,8 @@ const HowToPay = () => {
                 <br />2.3 {t("htpText3")}<div className="howtopay-text-b">{t("pmPayNow")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/public/img/howtopay/05.png" title={t("htpText11") + t("htpText12")} target="_howtopay">
-                  <img src="/public/img/howtopay/05.png" alt={t("pmPayment")} />
+                <a href="/img/howtopay/05.png" title={t("htpText11") + t("htpText12")} target="_howtopay">
+                  <img src="/img/howtopay/05.png" alt={t("pmPayment")} />
                 </a>
               </div>
             </div>
@@ -94,8 +94,8 @@ const HowToPay = () => {
                 <br />ธนาคารกรุงศรีอยุธยา<div className="howtopay-text-b"> (Krungsri)</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/public/img/howtopay/06.png" title={t("htpText13") + t("htpText12") + t("htpText14") + t("htpText16")} target="_howtopay">
-                  <img src="/public/img/howtopay/06.png" alt={t("pmPayment")} />
+                <a href="/img/howtopay/06.png" title={t("htpText13") + t("htpText12") + t("htpText14") + t("htpText16")} target="_howtopay">
+                  <img src="/img/howtopay/06.png" alt={t("pmPayment")} />
                 </a>
               </div>
             </div>
