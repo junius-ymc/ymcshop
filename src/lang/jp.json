@@ -76,6 +76,7 @@
     "scProceedWithPayment": "支払い手続きに進む",
     "scVerifyFill": "すべてのフィールドに入力してください",
     "scVerifyPay": "まず「1.住所を保存」ボタンを押します。",
+    "scSaveAddressSus": "データが正常に保存されました。ボタンを押してください▶ 2.支払い手続きに進む",
     "rgtRegister": "登録する",
     "rgtSignUp": "サインアップ",
     "rgtGoLogin": "すでにアカウントをお持ちですか? サインインするにはここをクリックしてください。",

@@ -72,12 +72,24 @@ const SummaryCard = () => {
     setLoading(true); // เริ่มโหลด
     saveAddress(token, JSON.stringify(addressData), JSON.stringify(nameData))
       .then((res) => {
-        toast.success(res.data.message);
+        const msgNotif = res.data?.msgfromapi;
+        let chgLngMsg = msgNotif === "1" ? t("scSaveAddressSus")
+          : t("rgtServerError");
+        toast.success(`${chgLngMsg}`, {
+          bodyClassName: "toastify-toast-modify",
+        });
+        // toast.success(res.data.message);
         setAddressSaved(true);
-        setLoading(false); // โหลดเสร็จ
+        // setLoading(false); // โหลดเสร็จ
       })
       .catch((err) => {
         console.log(err);
+        toast.error(`${t("rgtServerError")}`, {
+          bodyClassName: "toastify-toast-modify",
+        });
+      })
+      .finally(() => {
+        setLoading(false); // โหลดเสร็จ
       });
   };
 

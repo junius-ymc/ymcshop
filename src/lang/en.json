@@ -76,6 +76,7 @@
     "scProceedWithPayment": "Proceed with Payment",
     "scVerifyFill": "Please fill in all fields",
     "scVerifyPay": "First, press the '1.Save address' button.",
+    "scSaveAddressSus": "Data has been saved. Press button▶ 2.Proceed with Payment",
     "rgtRegister": "Register",
     "rgtSignUp": "Sign Up",
     "rgtGoLogin": "Already have an account? Click here to sign in",
