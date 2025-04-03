@@ -145,7 +145,7 @@ const SummaryCard = () => {
                   className="form-input-checkout"
                 />
                 <hr />
-                <div className="summary-card-div-btn"><button onClick={hdlSaveAddress} className="btn-mod summary-card-btn">{t("scSaveAddress")}</button></div>
+                <div className="summary-card-div-btn"><button onClick={hdlSaveAddress} className="btn-mod summary-card-btn">1. {t("scSaveAddress")}</button></div>
               </div>
             </div>
           </div>
@@ -196,7 +196,7 @@ const SummaryCard = () => {
                 </div>
                 <div>
                   <div className="summary-card-div-btn">
-                    <button onClick={hdlGoToPayment} className="btn-mod summary-card-btn">{t("scProceedWithPayment")}</button>
+                    <button onClick={hdlGoToPayment} className="btn-mod summary-card-btn">2. {t("scProceedWithPayment")}</button>
                   </div>
                 </div>
               </div>
