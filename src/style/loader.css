@@ -26,18 +26,18 @@
   transform: translate(-50%, -50%);
   font-size: var(--fontsize15);
   font-weight: 600;
-  color: var(--bluelite);
+  color: var(--red);
   text-wrap: nowrap;
 }
 
 @keyframes pulse {
   50% {
-    opacity: .5;
+    opacity: .25;
   }
 }
 
 .loader-text-pluse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .loader span {

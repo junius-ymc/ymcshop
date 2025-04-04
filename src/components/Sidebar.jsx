@@ -148,6 +148,13 @@ const Sidebar = () => {
           {/* ------------------------------- Start Sidebar primary-nav ------------------------------- */}
           <ul className="nav-list primary-nav">
 
+          <li className="nav-item">
+              <NavLink className="nav-link" to="/" title={t("mHome")}>
+                <div className="icon-menu"><IconHome className="icon-menu" /></div>
+                <span className="nav-label">{t("mHome")}</span>
+              </NavLink>
+            </li>
+
             <li className="nav-item">
               <NavLink className="nav-link" to="/shop" title={t("mShop")}>
                 <div className="icon-menu"><IconShopping className="icon-menu" /></div>
@@ -169,22 +176,6 @@ const Sidebar = () => {
                 }
                 {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
               </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="#" onClick={() => handleCartClick()} title={t("ccShoppingCart")}>
-                <div className="icon-menu"><IconCartList className="icon-menu icon-cart-list" /></div>
-                <span className="nav-label">{t("ccShoppingCart")}</span>
-                {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
-                {
-                  carts.length === 0
-                    ?
-                    <span></span>
-                    :
-                    <span className="notifycart-3">{carts.length}</span>
-                }
-                {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
-              </Link>
             </li>
 
             <li className="nav-item">
@@ -311,10 +302,19 @@ const Sidebar = () => {
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/" title={t("mHome")}>
-                <div className="icon-menu"><IconHome className="icon-menu" /></div>
-                <span className="nav-label">{t("mHome")}</span>
-              </NavLink>
+              <Link className="nav-link" to="#" onClick={() => handleCartClick()} title={t("ccShoppingCart")}>
+                <div className="icon-menu"><IconCartList className="icon-menu icon-cart-list" /></div>
+                <span className="nav-label">{t("ccShoppingCart")}</span>
+                {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
+                {
+                  carts.length === 0
+                    ?
+                    <span></span>
+                    :
+                    <span className="notifycart-3">{carts.length}</span>
+                }
+                {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
+              </Link>
             </li>
 
           </ul>
