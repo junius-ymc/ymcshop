@@ -1170,7 +1170,7 @@ header .wrapper .navbar li a {
 
 .cart-list-left-box {
   width: 100%;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .cart-list-left-data {
@@ -1255,7 +1255,7 @@ header .wrapper .navbar li a {
 /* ---------------------------------------------------- กล่องทางขวา */
 
 .cart-list-right-box-wrap {
-  padding: 8px;
+  padding: 10px;
   padding-top: 0px;
   padding-right: 0px;
 }
