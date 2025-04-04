@@ -180,15 +180,15 @@ const Shop = () => {
   return (
     <div className="div-wrap">
       <div className="wrap-shop">
-      <Helmet>
-        <title>{t("mShop")} | {t("shopName")}</title>
-      </Helmet>
+        <Helmet>
+          <title>{t("mShop")} | {t("shopName")}</title>
+        </Helmet>
 
         {/* เริ่ม ส่วนของการแสดงค้นหาสินค้า */}
         {/* ✅ Floating Button ค้นหา */}
         <button className="floating-search-btn" onClick={handleSearchCardClick}>
           <span>
-          <IconSearch className="icon-search-btn" />
+            <IconSearch className="icon-search-btn" />
           </span>
         </button>
 
@@ -202,7 +202,7 @@ const Shop = () => {
 
         {/* เริ่ม ส่วนของการแสดงรายการสินค้า */}
         <div className="scrollable-container">
-        <div className="div-head">
+          <div className="div-head">
             <span className="setdiv-3">
               <IconShopping className="icon-shopping" />
               {t("sShoppping")}
@@ -210,7 +210,7 @@ const Shop = () => {
           </div>
           <div className="div-content">
 
-            <div className="shop-head-title">
+            <div className="shop-head-title-top">
               {t("sAllProd")} {products.length} {t("sItem")}{", "}
               {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
             </div>
@@ -222,6 +222,11 @@ const Shop = () => {
               {currentItems?.map((item, index) => (
                 <ProductCard key={index} item={item} />
               ))}
+            </div>
+
+            <div className="shop-head-title-top shop-head-title-bottom">
+              {t("sAllProd")} {products.length} {t("sItem")}{", "}
+              {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
             </div>
 
           </div>

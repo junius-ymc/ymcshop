@@ -18,6 +18,7 @@
   border-radius: 8px;
   width: 92%;
   max-width: 420px;
+  border: 1px solid var(--red);
 }
 
 .modal-bnt-close {
@@ -92,6 +93,7 @@
   border-top-left-radius: 0px;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--red);
 }
 
 @media (max-height: 500px) {
@@ -116,7 +118,7 @@
 .modal-cartcard-head {
   position: absolute;
   top: -33px;
-  left: 0px;
+  left: -1px;
   gap: 4px;
 }
 
@@ -129,7 +131,7 @@
   background-color: var(--white);
   border: 1px solid var(--bgcolo);
   border-radius: 6px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   width: 100%;
   box-shadow: var(--box-shadow-mid);
 }
@@ -203,13 +205,13 @@
 }
 
 .modal-cartcard-content-box-row-2-quantity {
-  border-width: 1px;
   border-radius: 3px;
   display: flex;
   align-items: center;
   margin: 0 4px;
   padding: 0 2px;
   background-color: var(--btbgact);
+  border: 1px solid var(--bgcolo);
   font-size: var(--fontsize12);
 }
 
@@ -227,7 +229,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: var(--bluedeep);
+  color: var(--bluelite);
   font-size: var(--fontsize14);
 }
 
@@ -239,7 +241,7 @@
   padding: 0 8px;
   background-color: var(--white);
   border-radius: 5px;
-  border-width: 1px;
+  border: 1px solid var(--bgcolo);
 }
 
 .modal-cartcard-total-count {
@@ -272,10 +274,8 @@
 /* End CartCard - Cart Modal */
 
 /* Start Search Card Modal */
-
 .modal-search-card {
-  /* background-color: #ffffffcc; */
-  background-color: #ffffffbf;
+  background-color: var(--modalsearchcard);
 }
 
 /* End Search Card Modal */
