@@ -14,11 +14,11 @@ const Footer = () => {
 
   // ฟังก์ชัน Logout เพื่อลบ Token
   const handleLogout = () => {
+    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
+    logout(true);
     // ลบ Token
     localStorage.removeItem("authToken");
     sessionStorage.removeItem("authToken");
-    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
-    logout(true);
     toast.success(`${t("liLogout")}`, {
       bodyClassName: "toastify-toast-modify",
     });
@@ -62,13 +62,13 @@ const Footer = () => {
                   </li>
 
                   <div className="text-link-right">
-                  <li>
-                    <NavLink className={({ isActive }) => isActive ? "textact" : ""}
-                      to={"/howtopay"}
-                    >
-                      {t("mHowToPay")}
-                    </NavLink>
-                  </li>
+                    <li>
+                      <NavLink className={({ isActive }) => isActive ? "textact" : ""}
+                        to={"/howtopay"}
+                      >
+                        {t("mHowToPay")}
+                      </NavLink>
+                    </li>
                   </div>
                   {user
                     ?

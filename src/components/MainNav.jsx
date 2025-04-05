@@ -16,11 +16,11 @@ function MainNav() {
 
   // ฟังก์ชัน Logout เพื่อลบ Token
   const handleLogout = () => {
+    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
+    logout(true);
     // ลบ Token
     localStorage.removeItem("authToken");
     sessionStorage.removeItem("authToken");
-    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
-    logout(true);
     toast.success(`${t("liLogout")}`, {
       bodyClassName: "toastify-toast-modify",
     });

@@ -72,13 +72,14 @@ const Sidebar = () => {
 
   // ฟังก์ชัน Logout เพื่อลบ Token
   const handleLogout = () => {
+
+    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
+    logout(true);
+
     // ลบ Token และ Email
     localStorage.removeItem("authToken");
     sessionStorage.removeItem("authToken");
     // localStorage.removeItem("rememberedEmail"); // ลบ Email ถ้ามี
-
-    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
-    logout(true);
 
     // แจ้งเตือนว่าล็อกเอาท์สำเร็จ
     toast.success(`${t("liLogout")}`, {
@@ -148,7 +149,7 @@ const Sidebar = () => {
           {/* ------------------------------- Start Sidebar primary-nav ------------------------------- */}
           <ul className="nav-list primary-nav">
 
-          <li className="nav-item">
+            <li className="nav-item">
               <NavLink className="nav-link" to="/" title={t("mHome")}>
                 <div className="icon-menu"><IconHome className="icon-menu" /></div>
                 <span className="nav-label">{t("mHome")}</span>
