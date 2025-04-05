@@ -1,10 +1,10 @@
 import React from "react";
 import useEcomStore from "../../store/ecom-store";
-import { Link } from "react-router-dom";
 import { numberFormat } from '../../utils/number';
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import IconTrash from "../icon/IconTrash";
 import IconCartList from "../icon/IconCartList";
+// import { Link } from "react-router-dom";
 
 const CartCard = () => {
   // Javascript
@@ -106,13 +106,13 @@ const CartCard = () => {
         </div>
 
         {/* Button */}
-        <Link to="/cart/">
+        {/* <Link to="/cart/">
           <button
             className="modal-cartcard-total-count-price-btn"
           >
             {t("ccPayment")}
           </button>
-        </Link>
+        </Link> */}
       </div>
 
     </div>

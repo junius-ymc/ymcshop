@@ -2,8 +2,12 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CartCard from "./card/CartCard";
 import IconClose from "./icon/IconClose";
+import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import { Link } from "react-router-dom";
 
 const CartModal = ({ isOpen, onClose }) => {
+
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   if (!isOpen) return null;
 
@@ -32,6 +36,16 @@ const CartModal = ({ isOpen, onClose }) => {
 
           <div>
             <CartCard />
+            <Link to="/shop" onClick={onClose}>
+              <button className="modal-cartcard-total-count-price-btn">
+                {t("ccContinueShopping")}
+              </button>
+            </Link>
+            <Link to="/cart" onClick={onClose}>
+              <button className="modal-cartcard-total-count-price-btn">
+                {t("ccPayment")}
+              </button>
+            </Link>
           </div>
 
         </motion.div>

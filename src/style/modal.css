@@ -1,4 +1,4 @@
-/* Start Product Modal */
+/* ------------------------------------------- Start Product Modal */
 
 .modal-div-close {
   position: fixed;
@@ -76,17 +76,16 @@
   text-align: center;
 }
 
-/* End Product Modal */
-
-/* Start CartCard - Cart Modal */
+/* ------------------------------------------- End Product Modal */
+/* ------------------------------------------- Start CartCard - Cart Modal */
 
 .modal-cart-div-open {
   position: relative;
   background-color: var(--bgcontent);
   box-shadow: 0px 0px 5px 5px rgba(68, 68, 68, 0.3);
   padding: 8px;
-  max-width: 72vh;
-  max-width: 72dvh;
+  max-width: 70vh;
+  max-width: 70dvh;
   width: 94%;
   height: auto;
   border-radius: 8px;
@@ -96,20 +95,11 @@
   border: 1px solid var(--bluelite);
 }
 
-@media (max-height: 500px) {
-  .modal-cart-div-open {
-    max-width: 120vh;
-    max-width: 120dvh;
-    width: 94%;
-    height: auto;
-  }
-}
-
 .modal-cartcard {
+  max-height: 60vh;
+  max-height: 60dvh;
+  height: 94%;
   width: auto;
-  height: 98%;
-  max-height: 74vh;
-  max-height: 74dvh;
   overflow-y: auto;
   /* max-width: 80vh; */
   /* max-width: 80dvh; */
@@ -257,14 +247,14 @@
 }
 
 .modal-cartcard-total-count-price-btn {
-  margin-top: 16px;
+  margin-top: 10px;
   width: 100%;
-  padding: 8px 0;
   border-radius: 6px;
   background-color: var(--bluelite);
-  color: var(--white);
+  color: var(--gray);
   font-size: var(--fontsize18);
   box-shadow: var(--box-shadow-mid);
+  padding: 1px 0;
 }
 
 .modal-cartcard-total-count-price-btn:hover {
@@ -272,11 +262,26 @@
   color: var(--bgcontent);
 }
 
-/* End CartCard - Cart Modal */
-
-/* Start Search Card Modal */
+/* ------------------------------------------- End CartCard - Cart Modal */
+/* ------------------------------------------- Start Search Card Modal */
 .modal-search-card {
   background-color: var(--modalsearchcard);
 }
 
-/* End Search Card Modal */
+/* ------------------------------------------- End Search Card Modal */
+
+/* ------------------------------------------- RESPONSIVE ------------------------------------------- */
+
+@media (max-height: 500px) {
+  .modal-cart-div-open {
+    max-width: 120vh;
+    max-width: 120dvh;
+    height: auto;
+  }
+
+  .modal-cartcard {
+    max-height: 55vh;
+    max-height: 55dvh;
+    width: auto;
+  }
+}
