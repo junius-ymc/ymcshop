@@ -949,7 +949,7 @@ header .wrapper .navbar li a {
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 11px;
+  gap: 12px;
 }
 
 .shop-head-title-top {
@@ -960,11 +960,11 @@ header .wrapper .navbar li a {
   border-radius: 12px 12px 0 0;
   color: var(--texclact);
   background-color: var(--bghead);
-  margin-bottom: 12px;
+  margin-bottom: 13px;
 }
 
 .shop-head-title-bottom {
-  margin-top: 12px;
+  margin-top: 13px;
   margin-bottom: 0;
   border-radius: 0 0 12px 12px;
 }
