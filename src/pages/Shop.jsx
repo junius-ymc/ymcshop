@@ -214,7 +214,6 @@ const Shop = () => {
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}
                 {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
               </div>
-
               <div className="shop-product-cart">
                 {/* ✅ เริ่ม แสดง Loader */}
                 {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
@@ -223,34 +222,31 @@ const Shop = () => {
                   <ProductCard key={index} item={item} />
                 ))}
               </div>
-
               <div className="shop-head-title-top shop-head-title-bottom">
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}
                 {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
               </div>
             </div>
-          </div>
-
-          {/* ✅ แสดง Pagination */}
-          <div className="shop-pagination">
-            <div>
-              <select
-                value={itemsPerPage} // ✅ ค่าปัจจุบัน
-                onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
-                title={t("sListProductPerPage")}
-                className="form-input items-per-page"
-              >
-                {[...Array(10)].map((_, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
+            {/* ✅ แสดง Pagination */}
+            <div className="shop-pagination">
+              <div>
+                <select
+                  value={itemsPerPage} // ✅ ค่าปัจจุบัน
+                  onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
+                  title={t("sListProductPerPage")}
+                  className="form-input items-per-page"
+                >
+                  {[...Array(10)].map((_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {/* **** Pagination อันใหม่ **** */}
+              {renderPageNumbers()}
             </div>
-            {/* **** Pagination อันใหม่ **** */}
-            {renderPageNumbers()}
           </div>
-
         </div>
         {/* จบ ส่วนของการแสดงรายการสินค้า */}
 
