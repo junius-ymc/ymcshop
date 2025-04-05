@@ -63,7 +63,6 @@ const HistoryCard = () => {
         </span>
       </div>
       <div className="div-content">
-        <div className="div-content-box">
           {loading ? (
             // ✅ เริ่ม แสดง Loader
             <LoaderDiv />
@@ -80,7 +79,6 @@ const HistoryCard = () => {
 
                 return (
                   <div key={index + 1}>
-                    <div className="historycard-product-table-space"></div>
                     <div className="historycard-table">
                       <div className="historycard-table-header">
                         <div>
@@ -132,7 +130,6 @@ const HistoryCard = () => {
           )}
         </div>
       </div>
-    </div>
   );
 };
 
