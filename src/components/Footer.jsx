@@ -33,11 +33,11 @@ const Footer = () => {
           <div className="setdiv-1">
             <div className="setdiv-2">
 
-              <div className="setdiv-3">
+              <div className="setdiv-3 footer-left">
                 <p>&copy; YMC Shop. 2025</p>
               </div>
 
-              <div className="setdiv-3">
+              <div className="setdiv-3 footer-right">
                 <ul>
                   <li>
                     <NavLink className={({ isActive }) => isActive ? "textact" : ""}
