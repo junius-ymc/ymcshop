@@ -63,73 +63,74 @@ const HistoryCard = () => {
         </span>
       </div>
       <div className="div-content">
-          {loading ? (
-            // ✅ เริ่ม แสดง Loader
-            <LoaderDiv />
-            // ✅ จบ แสดง Loader
-          ) : (
-            <div className="historycard">
-              {sortedProducts?.map((item, index) => {
-                let orderStatusData = {};
-                try {
-                  orderStatusData = item.orderStatus ? JSON.parse(item.orderStatus) : {};
-                } catch (error) {
-                  orderStatusData = {};
-                }
+        {loading ? (
+          // ✅ เริ่ม แสดง Loader
+          <LoaderDiv />
+          // ✅ จบ แสดง Loader
+        ) : (
+          <div className="historycard">
+            {sortedProducts?.map((item, index) => {
+              let orderStatusData = {};
+              try {
+                orderStatusData = item.orderStatus ? JSON.parse(item.orderStatus) : {};
+              } catch (error) {
+                orderStatusData = {};
+              }
 
-                return (
-                  <div key={index + 1}>
-                    <div className="historycard-table">
-                      <div className="historycard-table-header">
-                        <div>
-                          <div>{t("htrOrderDate")}</div>
-                          <div className="historycard-font-date">{dateFormat(item.createdAt)}</div>
-                        </div>
-                        <div>
-                          {/* <span className="">หมายเลขพัสดุ: {orderStatusData.parcelNumber || "ยังไม่มีหมายเลขพัสดุ"} </span>  */}
-                          <span className={`${getStatusColor(orderStatusData.status || item.orderStatus)} historycard-order-status`}>
-                            {statusMsg || "ไม่ระบุ"}
-                          </span>
-                          {orderStatusData?.status === "Completed" ? <div className="historycard-order-parcel-number">{t("htrParcelNumber")} {orderStatusData.parcelNumber || "???"} </div> : ""}
-                        </div>
-                      </div>
-                      <div className="historycard-product-table-wrap">
-                        <table className="historycard-product-table">
-                          <thead>
-                            <tr className="historycard-product-table-header">
-                              <th className="historycard-product-table-th">{t("htrProducts")}</th>
-                              <th className="historycard-product-table-th">{t("htrPrice")}</th>
-                              <th className="historycard-product-table-th">{t("htrQuantity")}</th>
-                              <th className="historycard-product-table-th">{t("htrTotal")}</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {item.products?.map((product, index) => (
-                              <tr className="historycard-product-table-tr" key={index}>
-                                <td className="historycard-product-table-td">{product.product.title}</td>
-                                <td className="historycard-product-table-td">{numberFormat(product.product.price)} {t("moneyUnit")}</td>
-                                <td className="historycard-product-table-td">{product.count}</td>
-                                <td className="historycard-product-table-td">{numberFormat(product.count * product.product.price)} {t("moneyUnit")}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+              return (
+                <div key={index + 1}>
+                  <div className="historycard-product-table-space"></div>
+                  <div className="historycard-table">
+                    <div className="historycard-table-header">
+                      <div>
+                        <div>{t("htrOrderDate")}</div>
+                        <div className="historycard-font-date">{dateFormat(item.createdAt)}</div>
                       </div>
                       <div>
-                        <div className="historycard-product-table-total">
-                          <span>{t("htrNetTotal")}</span>
-                          <span>{numberFormat(item.cartTotal)} {t("moneyUnit")}</span>
-                        </div>
+                        {/* <span className="">หมายเลขพัสดุ: {orderStatusData.parcelNumber || "ยังไม่มีหมายเลขพัสดุ"} </span>  */}
+                        <span className={`${getStatusColor(orderStatusData.status || item.orderStatus)} historycard-order-status`}>
+                          {statusMsg || "ไม่ระบุ"}
+                        </span>
+                        {orderStatusData?.status === "Completed" ? <div className="historycard-order-parcel-number">{t("htrParcelNumber")} {orderStatusData.parcelNumber || "???"} </div> : ""}
                       </div>
                     </div>
-                    <div className="historycard-product-table-space"></div>
+                    <div className="historycard-product-table-wrap">
+                      <table className="historycard-product-table">
+                        <thead>
+                          <tr className="historycard-product-table-header">
+                            <th className="historycard-product-table-th">{t("htrProducts")}</th>
+                            <th className="historycard-product-table-th">{t("htrPrice")}</th>
+                            <th className="historycard-product-table-th">{t("htrQuantity")}</th>
+                            <th className="historycard-product-table-th">{t("htrTotal")}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {item.products?.map((product, index) => (
+                            <tr className="historycard-product-table-tr" key={index}>
+                              <td className="historycard-product-table-td">{product.product.title}</td>
+                              <td className="historycard-product-table-td">{numberFormat(product.product.price)} {t("moneyUnit")}</td>
+                              <td className="historycard-product-table-td">{product.count}</td>
+                              <td className="historycard-product-table-td">{numberFormat(product.count * product.product.price)} {t("moneyUnit")}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div>
+                      <div className="historycard-product-table-total">
+                        <span>{t("htrNetTotal")}</span>
+                        <span>{numberFormat(item.cartTotal)} {t("moneyUnit")}</span>
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
+                  <div className="historycard-product-table-space"></div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
+    </div>
   );
 };
 
