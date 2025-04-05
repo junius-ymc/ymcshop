@@ -209,26 +209,26 @@ const Shop = () => {
             </span>
           </div>
           <div className="div-content">
+            <div className="shop-head-title-top-box">
+              <div className="shop-head-title-top">
+                {t("sAllProd")} {products.length} {t("sItem")}{", "}
+                {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
+              </div>
 
-            <div className="shop-head-title-top">
-              {t("sAllProd")} {products.length} {t("sItem")}{", "}
-              {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
+              <div className="shop-product-cart">
+                {/* ✅ เริ่ม แสดง Loader */}
+                {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+                {/* ✅ จบ แสดง Loader */}
+                {currentItems?.map((item, index) => (
+                  <ProductCard key={index} item={item} />
+                ))}
+              </div>
+
+              <div className="shop-head-title-top shop-head-title-bottom">
+                {t("sAllProd")} {products.length} {t("sItem")}{", "}
+                {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
+              </div>
             </div>
-
-            <div className="shop-product-cart">
-              {/* ✅ เริ่ม แสดง Loader */}
-              {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
-              {/* ✅ จบ แสดง Loader */}
-              {currentItems?.map((item, index) => (
-                <ProductCard key={index} item={item} />
-              ))}
-            </div>
-
-            <div className="shop-head-title-top shop-head-title-bottom">
-              {t("sAllProd")} {products.length} {t("sItem")}{", "}
-              {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
-            </div>
-
           </div>
 
           {/* ✅ แสดง Pagination */}
