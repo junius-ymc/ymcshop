@@ -27,7 +27,7 @@ const AboutUs = () => {
               </div>
               <br />
               <div className="flex justify-center items-center">
-                <img className="w-auto" src="/public/img/Logo-for-test.png" />
+                <img className="w-auto" src="/img/Logo-for-test.png" />
               </div>
               <br />
               <div className=" flex justify-center items-center">
