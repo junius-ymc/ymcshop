@@ -18,7 +18,7 @@
   border-radius: 8px;
   width: 92%;
   max-width: 420px;
-  border: 1px solid var(--bluelite);
+  border: 1px solid var(--red);
 }
 
 .modal-bnt-close {
@@ -92,7 +92,7 @@
   border-top-left-radius: 0px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--bluelite);
+  border: 1px solid var(--red);
 }
 
 .modal-cartcard {
@@ -110,7 +110,7 @@
   top: -33px;
   left: -1px;
   gap: 4px;
-  background-color: var(--bluelite);
+  background-color: var(--red);
 }
 
 .modal-cartcard-content {
@@ -252,7 +252,7 @@
   border-radius: 6px;
   background-color: var(--bluelite);
   color: var(--gray);
-  font-size: var(--fontsize18);
+  font-size: var(--fontsize16);
   box-shadow: var(--box-shadow-mid);
   padding: 1px 0;
   font-weight: 600;

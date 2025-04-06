@@ -14,7 +14,7 @@
 .swiper-button-next,
 .swiper-button-prev {
   background-color: rgba(201, 198, 198, 0.1);
-  --swiper-navigation-color: var(--bluelite);
+  --swiper-navigation-color: var(--red);
   --swiper-navigation-size: 28px;
   padding: 20px;
   border-radius: 15%;
@@ -23,5 +23,5 @@
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   background-color: rgba(212, 212, 212, 0.3);
-  --swiper-navigation-color: var(--red);
+  --swiper-navigation-color: var(--bluelite);
 }

@@ -1,13 +1,14 @@
 :root {
-  /* ส่วนของ Color */
+  /* ขนาดความกว้างของเนื้อหาทั้งหมด */
   --windowwide: 1200px;
-  --redfull: #ff0000;
-  --red: #ec0b0b;
+
+  /* ส่วนของ Color */
   --orangfull: #ffa600;
   --greenfull: #00ff00;
+  --redfull: #ff0000;
+  --red: #ec0b0b;
   --bluelite: #1e90ff;
   --bluedeep: #3b82f6;
-  /* --bluedeep: #003cff; */
   --white: #ffffff;
   --bgcontent: #fcfcfc;
   --btbgact: #f3f4f6;
@@ -16,6 +17,16 @@
   --texclact: #a8a2a2;
   --gray: #262626;
   --black: #000000;
+
+  /* สีที่คลุม modal-search-card */
+  --modalsearchcard: #eeeeeebf;
+
+  /* สีที่คลุมหน้าจอ */
+  --bgoverlay: #fcfcfc80;
+
+  /* ส่วนของ Color ที่ใช้ร่วมกัน */
+  --white-default: #ffffff;
+  --black-default: #000000;
 
   /* ส่วนของ Font */
   /* clamp(ขนาดเล็กสุด, สเกลในการขยาย, ขนาดใหญ่สุด) */
@@ -33,12 +44,6 @@
   /* ส่วนของ Shadow */
   --box-shadow-mid: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --box-shadow-sml: 0px 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
-
-  /* สีที่คลุมหน้าจอ */
-  --bgoverlay: #fcfcfc80;
-
-  /* สีที่คลุม modal-search-card */
-  --modalsearchcard: #eeeeeebf;
 
   /* var(--red); เอาไปใช้ */
 }
@@ -111,13 +116,13 @@ i {
 
 .bttn:hover {
   transform: scale(1) translateY(1px);
-  border: 1px solid var(--bluelite);
-  color: var(--bluelite);
+  border: 1px solid var(--redfull);
+  color: var(--red);
 }
 
 .bttnact {
-  color: var(--bluelite);
-  border: 1px solid var(--bluelite);
+  border: 1px solid var(--redfull);
+  color: var(--red);
   transform: scale(1) translateY(1px);
   cursor: default;
 }
@@ -202,7 +207,7 @@ i {
   font-weight: 600;
   text-align: center;
   color: var(--bgcontent);
-  background-color: var(--red);
+  background-color: var(--bluelite);
   display: inline-block;
   padding: 3px 6px;
   border-top-right-radius: 6px;
@@ -211,7 +216,7 @@ i {
 
 .div-content {
   border-radius: 6px;
-  border: 1px solid var(--red);
+  border: 1px solid var(--bluelite);
   padding: 10px 10px;
   border-top-left-radius: 0px;
   background-color: var(--bgcontent);
@@ -272,8 +277,8 @@ i {
   padding: 5px 6px;
   border-radius: 6px;
   box-shadow: var(--box-shadow-mid);
-  background-color: var(--bluelite);
-  fill: var(--white);
+  background-color: var(--red);
+  fill: var(--white-default);
 }
 
 .icon-shopping-cart:hover {
@@ -297,19 +302,18 @@ i {
   height: 45px;
   padding: 2px 4px;
   box-shadow: var(--box-shadow-mid);
-  background-color: var(--bluelite);
-  fill: var(--bgcolo);
-  stroke: var(--black);
+  background-color: var(--red);
+  fill: var(--black-default);
+  stroke: var(--white-default);
   stroke-width: 2px;
-  border: 1px solid var(--bluedeep);
+  border: 1px solid var(--black);
   border-radius: 50%;
-  /* border-radius: 6px; */
 }
 
 .icon-search-btn:hover {
-  stroke: var(--white);
-  fill: var(--black);
-  border: 1px solid var(--black);
+  stroke: var(--black-default);
+  fill: var(--white-default);
+  border: 1px solid var(--bluedeep);
 }
 
 .icon-arrow {
@@ -487,7 +491,7 @@ img {
 .notifycart {
   position: absolute;
   background-color: var(--red);
-  color: var(--white);
+  color: var(--white-default);
   padding: 0px 5px;
   border-radius: 9999px;
 }
@@ -578,7 +582,7 @@ header .wrapper .navbar li a {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  background-color: var(--bluelite);
+  background-color: var(--red);
 }
 
 /* ------------------------------------- End NAVIGATION BAR ------------------------------------- */
@@ -708,10 +712,10 @@ header .wrapper .navbar li a {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 210px 210px;
-  gap: 4px;
 }
 
 .first-box-content {
+  margin: 2px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -784,17 +788,17 @@ header .wrapper .navbar li a {
 /* ----------- first-content-catagory ----------- */
 .first-content-catagory {
   font-size: var(--fontsize14);
-  background-color: var(--bluelite);
+  background-color: var(--red);
   display: inline-block;
   padding: 2px 4px;
   border-radius: 3px;
-  color: var(--white);
+  color: var(--white-default);
   z-index: 10;
 }
 
 .first-content h4 {
   margin: 2px 0;
-  color: var(--white);
+  color: var(--white-default);
   font-size: var(--fontsize15);
 }
 
@@ -822,7 +826,7 @@ header .wrapper .navbar li a {
 }
 
 .new-products-card:hover {
-  border: 1px solid var(--bluelite);
+  border: 1px solid var(--red);
 }
 
 .new-products-card-img {
@@ -914,12 +918,12 @@ header .wrapper .navbar li a {
   position: absolute;
   top: 45%;
   right: -50px;
-  color: var(--bgcontent);
+  color: var(--redfull);
   text-align: center;
   font-size: var(--fontsize18);
   font-weight: 600;
   z-index: 1;
-  background-color: var(--red);
+  background-color: var(--bluedeep);
   opacity: 60%;
   border-radius: 2px;
   transform: rotate(25deg);
@@ -973,7 +977,49 @@ header .wrapper .navbar li a {
   border-radius: 14px;
 }
 
-/* -------------------------------------- */
+/* ------------------------------------- ProductCard  */
+
+.shop-product-card {
+  border-width: 1px;
+  border-radius: 6px;
+  border: 1px solid var(--bgcolo);
+  box-shadow: var(--box-shadow-mid);
+  padding: 8px;
+  width: 200px;
+  background-color: var(--white);
+}
+
+.shop-product-card:hover {
+  border: 1px solid var(--red);
+}
+
+.shop-product-card-box {
+  cursor: pointer;
+  position: relative;
+}
+
+.shop-product-card-img {
+  border-radius: 6px;
+  width: 100%;
+  height: 210px;
+  /* object-fit: contain; */
+}
+
+.shop-product-card-img:hover {
+  transition-duration: 300ms;
+  transform: scale(1.06);
+}
+
+.shop-product-card-no-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgb(255, 255, 255, 10%), rgb(0 0 0 / 50%));
+  color: var(--texclact);
+}
+
+/* ------------------------------------- ProductCard  */
+/* -------------------------------------- pagination */
 
 .shop-pagination {
   display: flex;
@@ -990,7 +1036,7 @@ header .wrapper .navbar li a {
 }
 
 .shop-pagination-bnt-first-end {
-  color: var(--bluelite);
+  color: var(--red);
 }
 
 .shop-pagination-bnt-first-end:hover {
@@ -999,14 +1045,14 @@ header .wrapper .navbar li a {
 
 .shop-pagination-bnt-previous,
 .shop-pagination-bnt-next {
-  background-color: var(--bluelite);
-  color: var(--gray);
+  background-color: var(--red);
+  color: var(--black-default);
 }
 
 .shop-pagination-bnt-previous:hover,
 .shop-pagination-bnt-next:hover {
-  color: var(--bgcontent);
-  background-color: var(--bluedeep);
+  color: var(--white-default);
+  background-color: var(--red);
 }
 
 .shop-pagination-bnt-number {
@@ -1014,37 +1060,43 @@ header .wrapper .navbar li a {
 }
 
 .shop-pagination-bnt-number:hover {
-  color: var(--gray);
-  background-color: var(--bluedeep);
+  color: var(--white-default);
+  background-color: var(--bluelite);
 }
 
 .shop-pagination-bnt-number-act {
   color: var(--bgcontent);
-  background-color: var(--bluelite);
+  background-color: var(--red);
 }
 
 .shop-pagination-bnt-number:disabled {
-  color: var(--bgcolo);
-  background-color: var(--bluelite);
+  color: var(--texclact);
+  background-color: var(--red);
   opacity: 0.5;
 }
 
 .items-per-page {
-  width: 42px;
-  height: 30px;
+  width: 38px;
+  height: 32px;
   cursor: pointer;
-  margin-bottom: 0px;
   margin-right: 2px;
+  color: var(--white-default);
+  background-color: var(--bluelite);
+  border: solid 1px var(--red);
+  border-radius: 4px;
+  border-color: var(--gray);
+  font-size: var(--fontsize14);
+  text-align: center;
 }
 
 .items-per-page:hover {
-  color: var(--white);
-  background-color: var(--bluelite);
-  font-size: var(--fontsize14);
+  color: var(--white-default);
+  background-color: var(--red);
+
 }
 
-/* ------------------------------------- End Shop - Shop  ------------------------------------- */
-/* ------------------------------------- Start Shop - SearchCard ------------------------------------- */
+/* -------------------------------------- pagination */
+/* ------------------------------------- Start SearchCard ------------------------------------- */
 
 .search-card-head {
   padding: 4px;
@@ -1105,48 +1157,7 @@ header .wrapper .navbar li a {
   font-size: var(--fontsize13);
 }
 
-/* ------------------------------------- End Shop - SearchCard ------------------------------------- */
-/* ------------------------------------- Start Shop - ProductCard ------------------------------------- */
-.shop-product-card {
-  border-width: 1px;
-  border-radius: 6px;
-  border: 1px solid var(--bgcolo);
-  box-shadow: var(--box-shadow-mid);
-  padding: 8px;
-  width: 200px;
-  background-color: var(--white);
-}
-
-.shop-product-card:hover {
-  border: 1px solid var(--bluelite);
-}
-
-.shop-product-card-box {
-  cursor: pointer;
-  position: relative;
-}
-
-.shop-product-card-img {
-  border-radius: 6px;
-  width: 100%;
-  height: 210px;
-  /* object-fit: contain; */
-}
-
-.shop-product-card-img:hover {
-  transition-duration: 300ms;
-  transform: scale(1.06);
-}
-
-.shop-product-card-no-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(rgb(255, 255, 255, 10%), rgb(0 0 0 / 50%));
-  color: var(--texclact);
-}
-
-/* ------------------------------------- End Shop - ProductCard ------------------------------------- */
+/* ------------------------------------- End SearchCard ------------------------------------- */
 /* ------------------------------------- End Shop  ------------------------------------- */
 
 /* ------------------------------------- Start Cart ------------------------------------- */
@@ -1710,11 +1721,11 @@ footer .wrapper ul li a {
 }
 
 footer .wrapper ul li a:hover {
-  color: var(--bluelite);
+  color: var(--redfull);
 }
 
 footer .wrapper ul li .textact {
-  color: var(--bluelite);
+  color: var(--red);
 }
 
 /* ------------------------------------- End FOOTER ------------------------------------- */

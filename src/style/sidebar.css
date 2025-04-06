@@ -137,8 +137,8 @@
 }
 
 .icon-menu-sidebar:hover {
-  stroke: var(--bluelite);
-  border: 1px solid var(--bluedeep);
+  stroke: var(--red);
+  border: 1px solid var(--redfull);
 }
 
 .icon-menu-arrow {
@@ -152,9 +152,10 @@
 }
 
 .icon-menu-arrow:hover {
-   border: 1px solid var(--bluedeep);
-   fill: var(--bluelite);
+  border: 1px solid var(--redfull);
+  fill: var(--red);
 }
+
 /* ------------------------------------- End Icon SVG ------------------------------------- */
 
 .sidebar.collapsed .sidebar-header .sidebar-toggler {
@@ -216,8 +217,8 @@
 }
 
 .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) {
-  color: var(--white);
-  background: var(--bluelite);
+  color: var(--white-default);
+  background: var(--red);
   cursor: pointer;
 }
 
