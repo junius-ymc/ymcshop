@@ -1,12 +1,12 @@
 :root {
   /* ส่วนของ Color */
   --windowwide: 1200px;
-  --redfull: #ff0000;
-  --red: #ec0b0b;
+  --redfull: #3b82f6;
+  --red: #1e90ff;
   --orangfull: #ffa600;
   --greenfull: #00ff00;
-  --bluelite: #1e90ff;
-  --bluedeep: #3b82f6;
+  --bluelite: #ec0b0b;
+  --bluedeep: #ff0000;
   /* --bluedeep: #003cff; */
   --white: #333333;
   --bgcontent: #393837;
