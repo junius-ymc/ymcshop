@@ -28,9 +28,9 @@
   font-weight: 600;
   color: var(--red);
   text-wrap: nowrap;
-  display: flex;
-  justify-content: center;
+  display: block;
   align-items: center;
+  /* justify-content: center; */
 }
 
 @keyframes pulse {
