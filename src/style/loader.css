@@ -29,7 +29,6 @@
   color: var(--red);
   display: contents;
   align-items: center;
-  text-wrap: nowrap;
 }
 
 @keyframes pulse {
