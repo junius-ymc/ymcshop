@@ -59,7 +59,7 @@
   left: 0;
   width: 15px;
   height: 15px;
-  background: var(--red);
+  background: var(--bluelite);
   border-radius: 50%;
   animation: animate 1s linear infinite;
   animation-delay: calc(0.1s * var(--i));
