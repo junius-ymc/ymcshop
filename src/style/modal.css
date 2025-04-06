@@ -255,6 +255,7 @@
   font-size: var(--fontsize18);
   box-shadow: var(--box-shadow-mid);
   padding: 1px 0;
+  font-weight: 600;
 }
 
 .modal-cartcard-total-count-price-btn:hover {

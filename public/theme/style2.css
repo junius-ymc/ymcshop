@@ -708,14 +708,13 @@ header .wrapper .navbar li a {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 210px 210px;
-  /* gap: 1px; */
+  gap: 4px;
 }
 
 .first-box-content {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  margin: 2px;
   border-radius: 6px;
   display: flex;
   justify-content: center;

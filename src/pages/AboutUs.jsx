@@ -10,29 +10,28 @@ const AboutUs = () => {
   return (
     <div>
       <div className="div-wrap">
-      <Helmet>
-        <title>{t("mAboutUs")} | {t("shopName")}</title>
-      </Helmet>
+        <Helmet>
+          <title>{t("mAboutUs")} | {t("shopName")}</title>
+        </Helmet>
 
-      <div className="div-head">{t("mAboutUs")} - ยังทำไม่เสร็จจ้า😅</div>
+        <div className="div-head">{t("mAboutUs")} - ยังทำไม่เสร็จจ้า😅</div>
         <div className="div-content">
           <div className="div-content-box">
 
-            <div className="text-center text-xl">
-              <br></br>
-              <p className="text-4xl">หน้าตาเว็บ YMC SHOP ฉบับปรับปรุงใหม่</p>
+            <div className="text-center">
+              <p className="text-2xl">{t("shopName")}</p>
               <br />
               <div className="setgrid-1">
-                <div className="text-2xl">หัวข้อเนื้อหา - 1</div>
-                <div className="text-2xl">หัวข้อเนื้อหา - 2</div>
+                <div className="text-xl">เนื้อหาที่ - 1</div>
+                <div className="text-xl">เนื้อหาที่ - 2</div>
+              </div>
+              <br />
+              <div className="flex justify-center items-center">
+                <img className="w-auto" src="/public/img/Logo-for-test.png" />
               </div>
               <br />
               <div className=" flex justify-center items-center">
                 <IconShopping className="icon-shopping" />
-              </div>
-              <br />
-              <div className="flex justify-center items-center">
-              <img className="w-auto" src="/img/Logo-for-test.png" />
               </div>
               <br />
               <br />
