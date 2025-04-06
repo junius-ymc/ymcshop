@@ -19,7 +19,9 @@ const AboutUs = () => {
           <div className="div-content-box">
 
             <div className="text-center">
-              <p className="text-2xl">{t("shopName")}</p>
+              <p className="text-3xl">{t("shopName")}</p>
+              <br />
+              <p className="text-2xl">{t("ttInProgress")}</p>
               <br />
               <div className="setgrid-1">
                 <div className="text-xl">เนื้อหาที่ - 1</div>
