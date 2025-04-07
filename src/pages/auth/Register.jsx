@@ -161,7 +161,7 @@ const Register = () => {
                   </div>
 
                   <div>
-                    <button className="btn-mod regist-bttn">
+                    <button className="bttn btn-mod">
                       {t("rgtRegister")}
                     </button>
                   </div>

@@ -36,16 +36,16 @@ const CartModal = ({ isOpen, onClose }) => {
 
           <div>
             <CartCard />
-            <Link to="/shop" onClick={onClose}>
-              <button className="modal-cartcard-total-count-price-btn">
-                {t("ccContinueShopping")}
-              </button>
-            </Link>
-            <Link to="/cart" onClick={onClose}>
-              <button className="modal-cartcard-total-count-price-btn">
-                {t("ccPayment")}
-              </button>
-            </Link>
+              <Link to="/shop" onClick={onClose} className="bttn btn-mod btn-mod-1 modal-cartcard-total-count-price-btn">
+                <button>
+                  {t("ccContinueShopping")}
+                </button>
+              </Link>
+              <Link to="/cart" onClick={onClose} className="bttn btn-mod modal-cartcard-total-count-price-btn">
+                <button>
+                  {t("ccPayment")}
+                </button>
+              </Link>
           </div>
 
         </motion.div>

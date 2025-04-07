@@ -18,7 +18,7 @@
   border-radius: 8px;
   width: 92%;
   max-width: 420px;
-  border: 1px solid var(--red);
+  border: 1px solid var(--bluelite);
 }
 
 .modal-bnt-close {
@@ -92,7 +92,7 @@
   border-top-left-radius: 0px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--red);
+  border: 1px solid var(--bluelite);
 }
 
 .modal-cartcard {
@@ -110,7 +110,7 @@
   top: -33px;
   left: -1px;
   gap: 4px;
-  background-color: var(--red);
+  background-color: var(--bluelite);
 }
 
 .modal-cartcard-content {
@@ -232,7 +232,7 @@
   padding: 0 8px;
   background-color: var(--white);
   border-radius: 5px;
-  border: 1px solid var(--bgcolo);
+  border: 1px solid var(--btbgact);
 }
 
 .modal-cartcard-total-count {
@@ -247,20 +247,8 @@
 }
 
 .modal-cartcard-total-count-price-btn {
-  margin-top: 10px;
-  width: 100%;
-  border-radius: 6px;
-  background-color: var(--bluelite);
-  color: var(--gray);
-  font-size: var(--fontsize16);
-  box-shadow: var(--box-shadow-mid);
-  padding: 1px 0;
-  font-weight: 600;
-}
-
-.modal-cartcard-total-count-price-btn:hover {
-  background-color: var(--bluedeep);
-  color: var(--bgcontent);
+  width: auto;
+  margin: 10px 18px 4px;
 }
 
 /* ------------------------------------------- End CartCard - Cart Modal */

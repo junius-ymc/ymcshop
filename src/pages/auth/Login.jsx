@@ -114,7 +114,7 @@ const Login = () => {
                   </div>
 
                   <div>
-                    <button className="btn-mod login-bttn">
+                    <button className="bttn btn-mod">
                       {t("mLogin")}
                     </button>
                   </div>
