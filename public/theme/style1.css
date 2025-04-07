@@ -24,6 +24,7 @@
   --white-default: #ffffff;
   --black-default: #000000;
   --orangfull: #ffa600;
+  --yellowfull: #ffe600;
   --greenfull: #00ff00;
 
   /* ส่วนของ Shadow */
@@ -31,4 +32,3 @@
   --box-shadow-sml: 0px 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
 
 }
-

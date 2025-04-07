@@ -294,7 +294,7 @@ i {
   width: 22px;
   height: 22px;
   padding: 1px 2px;
-  color: var(--black);
+  color: var(--red);
   background-color: var(--bgcontent);
   border-radius: 3px;
   align-items: center;
@@ -397,18 +397,19 @@ img {
 .form-input {
   border: solid 1px;
   border-radius: 4px;
-  border-color: var(--bluelite);
   width: 100%;
   margin-bottom: 12px;
   padding: 0 4px;
   font-size: var(--fontsize13);
   font-weight: 600;
-  color: var(--bluedeep);
-  background-color: var(--white);
   height: 30px;
+  background-color: var(--white);
+  color: var(--black);
+  border-color: var(--bluelite);
 }
 
 .form-input:hover {
+  color: var(--white);
   border-color: var(--bluedeep);
   background-color: var(--bluelite);
 }
@@ -424,14 +425,20 @@ img {
   background-color: var(--btbgact);
 }
 
+.form-input:invalid {
+  border-color: var(--red);
+  /* color: var(--red); */
+}
+
 .form-input-checkout {
   border-radius: 4px;
   width: 100%;
   padding-left: 2px;
   font-size: var(--fontsize14);
-  color: var(--bluedeep);
+  color: var(--black);
   background-color: var(--white);
   height: 22px;
+  font-weight: 600;
 }
 
 .form-input-checkout:hover {
@@ -448,14 +455,9 @@ img {
   border-color: transparent;
   opacity: 1;
   outline: none;
-  box-shadow: 0 0 0 2px var(--bluedeep);
-  color: var(--red);
+  box-shadow: 0 0 0 1px var(--bluedeep);
+  color: var(--bluelite);
   background-color: var(--btbgact);
-}
-
-.form-input:invalid {
-  color: rgb(255, 0, 0);
-  border-color: rgb(255, 0, 0);
 }
 
 /* ------------------------------------- End Input ------------------------------------- */
@@ -1032,17 +1034,13 @@ header .wrapper .navbar li a {
   background-color: var(--red);
 }
 
-.shop-pagination-bnt-number {
-  font-size: var(--fontsize14);
-}
-
 .shop-pagination-bnt-number:hover {
   color: var(--white-default);
   background-color: var(--bluelite);
 }
 
 .shop-pagination-bnt-number-act {
-  color: var(--bgcontent);
+  color: var(--white-default);
   background-color: var(--red);
 }
 
@@ -1322,7 +1320,7 @@ header .wrapper .navbar li a {
 
 .summary-card-right-list-price {
   font-size: var(--fontsize12);
-  color: var(--red);
+  color: var(--bluelite);
   font-weight: 600;
 }
 
@@ -1337,7 +1335,7 @@ header .wrapper .navbar li a {
 }
 
 .summary-card-right-list-discount {
-  color: var(--red);
+  color: var(--bluelite);
   font-size: var(--fontsize14);
 }
 
@@ -1350,12 +1348,12 @@ header .wrapper .navbar li a {
 .summary-card-right-list-total-price {
   font-size: var(--fontsize16);
   font-weight: 600;
-  color: var(--red);
   line-height: 30px;
+  color: var(--bluedeep);
 }
 
 .summary-card-right-list-total-price-unit {
-  color: var(--gray);
+  color: var(--texclact);
   font-size: var(--fontsize12);
   font-weight: 600;
 }
@@ -1365,17 +1363,6 @@ header .wrapper .navbar li a {
   align-items: center;
   justify-content: center;
   margin-top: 12px;
-}
-
-.summary-card-btn {
-  font-size: var(--fontsize15);
-  font-weight: 600;
-  color: var(--white);
-}
-
-.summary-card-btn:hover {
-  color: var(--red);
-  background-color: var(--btbgact);
 }
 
 /* ------------------------------------- End SummaryCard ------------------------------------- */
@@ -1410,14 +1397,13 @@ header .wrapper .navbar li a {
 }
 
 .regist-input {
-  /* width: 350px; */
   margin-bottom: 1px;
+  /* width: 300px; */
 }
 
 /* ข้อความข้อผิดพลาด */
 .error-message {
   color: var(--redfull);
-  /* สีแดง */
   font-size: var(--fontsize14);
   border-color: var(--redfull);
   background-color: var(--btbgact);
@@ -1444,11 +1430,11 @@ header .wrapper .navbar li a {
 }
 
 .passscore-bg-red {
-  background-color: var(--redfull);
+  background-color: var(--orangfull);
 }
 
 .passscore-bg-ora {
-  background-color: var(--orangfull);
+  background-color: var(--yellowfull);
 }
 
 .passscore-bg-gre {

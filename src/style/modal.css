@@ -199,11 +199,11 @@
   border-radius: 3px;
   display: flex;
   align-items: center;
-  margin: 0 4px;
+  margin: 0 2px;
   padding: 0 2px;
   background-color: var(--btbgact);
-  border: 1px solid var(--bgcolo);
   font-size: var(--fontsize12);
+  /* border: 1px solid var(--bgcolo); */
 }
 
 .modal-cartcard-content-box-row-2-quantity-count {
@@ -211,7 +211,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: var(--black);
+  color: var(--bluelite);
   font-size: var(--fontsize13);
 }
 
@@ -236,13 +236,13 @@
 }
 
 .modal-cartcard-total-count {
-  font-size: var(--fontsize17);
-  font-weight: 700;
+  font-size: var(--fontsize16);
+  font-weight: 600;
 }
 
 .modal-cartcard-total-count-price {
   font-size: var(--fontsize17);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--bluedeep);
 }
 
