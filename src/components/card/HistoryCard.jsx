@@ -91,7 +91,7 @@ const HistoryCard = () => {
                         <span className={`${getStatusColor(orderStatusData.status || item.orderStatus)} historycard-order-status`}>
                           {statusMsg || "ไม่ระบุ"}
                         </span>
-                        {orderStatusData?.status === "Completed" ? <div className="historycard-order-parcel-number">{t("htrParcelNumber")} {orderStatusData.parcelNumber || "???"} </div> : ""}
+                        {orderStatusData?.status === "Completed" ? <div className="historycard-order-status historycard-order-parcel-number">{t("htrParcelNumber")} {orderStatusData.parcelNumber || "???"} </div> : ""}
                       </div>
                     </div>
                     <div className="historycard-product-table-wrap">

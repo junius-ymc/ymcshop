@@ -1477,19 +1477,17 @@ header .wrapper .navbar li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--texclact);
   padding: 6px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 10px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  color: var(--white);
+  background-color: var(--texclact);
+  color: var(--bgcontent);
   font-size: var(--fontsize13);
   line-height: 10px;
 }
 
 .historycard-font-date {
-  font-weight: 600;
   padding-top: 6px;
   font-size: var(--fontsize12);
 }
@@ -1502,6 +1500,9 @@ header .wrapper .navbar li a {
   border-radius: 9999px;
   font-size: var(--fontsize12);
   color: var(--texclact);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .historycard-order-status-not {
@@ -1509,27 +1510,26 @@ header .wrapper .navbar li a {
 }
 
 .historycard-order-status-processing {
-  background-color: var(--bgcolo);
-  color: var(--bluedeep);
+  background-color: var(--yellowfull);
+  color: var(--black-default);
 }
 
 .historycard-order-status-Completed {
-  background-color: var(--white);
-  color: var(--greenfull);
+  background-color: var(--greenfull);
+  color: var(--white);
   align-self: flex-end;
 }
 
 .historycard-order-status-Cancelled {
-  background-color: var(--bgcolo);
+  background-color: var(--orangfull);
   color: var(--redfull);
 }
 
 .historycard-order-parcel-number {
-  width: 100%;
-  text-align: end;
-  margin-top: 12px;
-  color: var(--greenfull);
-  font-size: var(--fontsize12);
+  margin-top: 4px;
+  color: var(--white);
+  font-size: var(--fontsize13);
+  background-color: var(--gray);
 }
 
 .historycard-product-table {
