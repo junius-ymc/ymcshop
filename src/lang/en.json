@@ -111,7 +111,7 @@
     "htrNotProcess": "Not yet implemented",
     "htrProcessing": "In process of delivery 📦",
     "htrCompleted": "Has been delivered.✅",
-    "htrParcelNumber": "Parcel📦",
+    "htrParcelNumber": "📦",
     "htrCancelled": "Cancelled ❌",
     "pmPayment": "Payment",
     "pmPaymentSuccess": "Payment Successful ✅",

@@ -40,7 +40,7 @@ function MainNav() {
                 <i>
                   {/* <a href="/" target="_self"> */}
                     <NavLink to="/">
-                      <img className="logo" src="/public/img/logo.png" />
+                      <img className="logo" src="/img/logo.png" />
                     </NavLink>
                   {/* </a> */}
                 </i>
