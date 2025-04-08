@@ -1516,7 +1516,7 @@ header .wrapper .navbar li a {
 
 .historycard-order-status-Completed {
   background-color: var(--greenfull);
-  color: var(--white);
+  color: var(--black-default);
   align-self: flex-end;
 }
 
