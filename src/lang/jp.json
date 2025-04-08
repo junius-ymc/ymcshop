@@ -111,7 +111,7 @@
     "htrNotProcess": "まだ実装されていません",
     "htrProcessing": "商品の発送中 📦",
     "htrCompleted": "商品が配送されました。✅",
-    "htrParcelNumber": "区画番号📦 ",
+    "htrParcelNumber": "小包📦",
     "htrCancelled": "キャンセル ❌",
     "pmPayment": "支払い",
     "pmPaymentSuccess": "お支払いが完了しました ✅",
