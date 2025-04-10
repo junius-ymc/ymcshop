@@ -52,18 +52,18 @@ const TableUsers = () => {
 
   // console.log(users);
   return (
-    <div className="container mx-auto bg-white shadow-lg rounded-lg text-sm">
-      <table className="w-full border-collapse border border-gray-200">
-        <thead className="bg-gray-100">
-          <tr className="text-left">
-            <th className="p-3 border-b">ลำดับ</th>
-            <th className="p-3 border-b">Name</th>
-            <th className="p-3 border-b">Address</th>
-            <th className="p-3 border-b">Email</th>
-            <th className="p-3 border-b">รูป</th>
-            <th className="p-3 border-b">สิทธิ์</th>
-            <th className="p-3 border-b">สถานะ</th>
-            <th className="p-3 border-b">จัดการ</th>
+    <div className="div-table-user">
+      <table className="admin-table-user">
+        <thead className="admin-table-thead-user">
+          <tr>
+            <th className="admin-table-th-user">ลำดับ</th>
+            <th className="admin-table-th-user">Name</th>
+            <th className="admin-table-th-user">Address</th>
+            <th className="admin-table-th-user">Email</th>
+            {/* <th className="admin-table-th-user">รูป</th> */}
+            <th className="admin-table-th-user">สิทธิ์</th>
+            <th className="admin-table-th-user">สถานะ</th>
+            <th className="admin-table-th-user">จัดการ</th>
           </tr>
         </thead>
         <tbody>
@@ -78,32 +78,32 @@ const TableUsers = () => {
             }
 
             return (
-              <tr key={el.id} className="hover:bg-gray-50 border-b">
-                <td className="p-3">{i + 1}:({el.id})</td>
-                <td className="p-3">{`${nameData.fullName || "N/A"} ${nameData.phone || "N/A"}`}</td>
-                <td className="p-3">
+              <tr key={el.id} className="admin-table-tr-user">
+                <td className="admin-table-td-user">{i + 1}:({el.id})</td>
+                <td className="admin-table-td-user">{`${nameData.fullName || "N/A"} ${nameData.phone || "N/A"}`}</td>
+                <td className="admin-table-td-user">
                   {`${addressData.houseNo || ""} ${addressData.district || ""} ${addressData.city || ""} ${addressData.province || ""} ${addressData.zipCode || ""}`.trim() || "N/A"}
                 </td>
-                <td className="p-3">{el.email}</td>
-                <td className="p-3 text-center">
+                <td className="admin-table-td-user">{el.email}</td>
+                {/* <td className="admin-table-td-user">
                   {el.picture ? <img src={el.picture} alt="User" className="w-10 h-10 rounded-full" /> : "N/A"}
-                </td>
-                <td className="p-3">
+                </td> */}
+                <td className="admin-table-td-user">
                   <select
                     onChange={(e) => handleChangeUserRole(el.id, e.target.value)}
                     value={el.role}
-                    className="border rounded p-1"
+                    className="admin-table-td-user border rounded p-1"
                   >
                     <option>user</option>
                     <option>admin</option>
                   </select>
                 </td>
-                <td className="p-3 font-semibold">
+                <td className="admin-table-td-user font-semibold">
                   {el.enabled ? <span className="text-green-600">Active</span> : <span className="text-red-600">Inactive</span>}
                 </td>
-                <td className="p-3">
+                <td className="admin-table-td-user">
                   <button
-                    className={`p-2 rounded-md text-white shadow-md ${el.enabled ? "bg-red-500" : "bg-green-500"}`}
+                    className={`bttn btn-mod admin-table-td-user ${el.enabled ? "bg-red-500" : "bg-green-500"}`}
                     onClick={() => handleChangeUserStatus(el.id, el.enabled)}
                   >
                     {el.enabled ? "Disable" : "Enable"}

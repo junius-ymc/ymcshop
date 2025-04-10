@@ -1,0 +1,135 @@
+#root {
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.layout-admin {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+}
+
+.main-admin {
+  overflow: auto;
+  scrollbar-width: thin;
+  margin-right: 0;
+  width: 100%;
+}
+
+/* ------------------------------------- Start HeaderAdmin */
+.header-admin {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  width: auto;
+}
+
+.header-admin-bar {
+  width: 100%;
+  height: auto;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: var(--fontsize18);
+  background-color: var(--black);
+  color: var(--bluelite);
+  padding-left: 12px;
+  /* font-weight: 600; */
+  /* border-top-left-radius: 0; */
+  /* width: auto; */
+  /* justify-content: center; */
+}
+/* ------------------------------------- End HeaderAdmin */
+/* ------------------------------------- Start SidebarAdmin */
+.wrap-sidebar-admin {
+  height: 100%;
+}
+
+.sidebar-admin {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  flex-direction: column;
+  background-color: var(--gray);
+}
+
+.sidebar-admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  font-size: var(--fontsize18);
+  font-weight: 600;
+  background-color: var(--black);
+  color: var(--bluelite);
+}
+
+.sidebar-admin-wrap-menu {
+  flex: 1 1 0%;
+  padding-top: 6px;
+}
+
+.sidebar-admin-menu {
+  margin: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: var(--fontsize13);
+}
+/* ------------------------------------- End SidebarAdmin */
+/* ------------------------------------- Start TableUsers */
+.div-table-user,
+.div-table-orders {
+  box-shadow: var(--box-shadow-lg);
+  border-radius: 8px;
+  font-size: var(--fontsize13);
+  overflow-y: auto;
+  margin: 4px;
+}
+
+.admin-table-user,
+.admin-table-orders {
+  width: 100%;
+  border-collapse: collapse;
+  border-width: 1px;
+}
+
+.admin-table-thead-user,
+.admin-table-thead-orders {
+  background-color: var(--texclact);
+  color: var(--white);
+}
+
+.admin-table-th-user,
+.admin-table-th-orders {
+  padding: 6px 12px;
+  border-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.admin-table-tr-user,
+.admin-table-tr-orders {
+  background-color: var(--bgcontent);
+  border-bottom-width: 1px;
+}
+
+.admin-table-tr-user:hover,
+.admin-table-tr-orders:hover {
+  background-color: var(--bghead);
+}
+
+.admin-table-td-user,
+.admin-table-td-orders {
+  padding: 4px 6px;
+  border-bottom-width: 1px;
+  text-align: center;
+}
+/* ------------------------------------- End TableUsers */
+/* ------------------------------------- End FormCategory */
+.admin-div-category {
+  background-color: var(--bgcontent);
+  padding: 12px;
+}
+/* ------------------------------------- End FormCategory */

@@ -6,29 +6,28 @@ import {
   SquareChartGantt,
   ShoppingBasket,
   ListOrdered,
-  LogOut 
+  LogOut
 } from "lucide-react";
+// import IconLogout from "../icon/IconLogout";
+
 const SidebarAdmin = () => {
+  
   return (
-    <div
-      className="bg-gray-800 w-64 text-gray-100 
-    flex flex-col h-screen"
-    >
+    <div className="sidebar-admin">
       <div
-        className="h-24 bg-gray-900 flex items-center
-      justify-center text-2xl font-bold"
+        className="sidebar-admin-header"
       >
         Admin Panel
       </div>
 
-      <nav className="flex-1 px-4 py-4 space-y-2">
+      <nav className="sidebar-admin-wrap-menu">
         <NavLink
           to={"/admin"}
           end
           className={({ isActive }) =>
             isActive
-              ? "bg-gray-900 rounded-md text-white px-4 py-2 flex items-center"
-              : "text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded flex items-center"
+              ? "bttn bttnact sidebar-admin-menu"
+              : "bttn sidebar-admin-menu"
           }
         >
           <LayoutDashboard className="mr-2" />
@@ -38,8 +37,8 @@ const SidebarAdmin = () => {
           to={"manage"}
           className={({ isActive }) =>
             isActive
-              ? "bg-gray-900 rounded-md text-white px-4 py-2 flex items-center"
-              : "text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded flex items-center"
+              ? "bttn bttnact sidebar-admin-menu"
+              : "bttn sidebar-admin-menu"
           }
         >
           <UserCog className="mr-2" />
@@ -50,8 +49,8 @@ const SidebarAdmin = () => {
           to={"category"}
           className={({ isActive }) =>
             isActive
-              ? "bg-gray-900 rounded-md text-white px-4 py-2 flex items-center"
-              : "text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded flex items-center"
+              ? "bttn bttnact sidebar-admin-menu"
+              : "bttn sidebar-admin-menu"
           }
         >
           <SquareChartGantt className="mr-2" />
@@ -62,8 +61,8 @@ const SidebarAdmin = () => {
           to={"product"}
           className={({ isActive }) =>
             isActive
-              ? "bg-gray-900 rounded-md text-white px-4 py-2 flex items-center"
-              : "text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded flex items-center"
+              ? "bttn bttnact sidebar-admin-menu"
+              : "bttn sidebar-admin-menu"
           }
         >
           <ShoppingBasket className="mr-2" />
@@ -74,8 +73,8 @@ const SidebarAdmin = () => {
           to={"orders"}
           className={({ isActive }) =>
             isActive
-              ? "bg-gray-900 rounded-md text-white px-4 py-2 flex items-center"
-              : "text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded flex items-center"
+              ? "bttn bttnact sidebar-admin-menu"
+              : "bttn sidebar-admin-menu"
           }
         >
           <ListOrdered className="mr-2" />
@@ -84,14 +83,9 @@ const SidebarAdmin = () => {
       </nav>
 
       <div>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "bg-gray-900 rounded-md text-white px-4 py-2 flex items-center"
-              : "text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded flex items-center"
-          }
-        >
-          <LogOut  className="mr-2" />
+        <NavLink className="bttn sidebar-admin-menu">
+          {/* <div><IconLogout className="icon-menu-s icon-menu-stroke" /></div> */}
+          <LogOut className="mr-2" />
           Logout
         </NavLink>
       </div>

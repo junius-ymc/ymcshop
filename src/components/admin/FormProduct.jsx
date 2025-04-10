@@ -84,14 +84,14 @@ const FormProduct = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="div-table-user admin-div-category">
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">เพิ่มข้อมูลสินค้า</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <input
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="form-input"
             value={form.title}
             onChange={handleOnChange}
             placeholder="Title"
@@ -106,8 +106,7 @@ const FormProduct = () => {
             rows="4"
           />
           <input
-            type="number"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="form-input"
             value={form.price}
             onChange={handleOnChange}
             placeholder="Price"
@@ -115,7 +114,7 @@ const FormProduct = () => {
           />
           <input
             type="number"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="form-input"
             value={form.quantity}
             onChange={handleOnChange}
             placeholder="Quantity"
@@ -123,7 +122,7 @@ const FormProduct = () => {
             name="quantity"
           />
           <select
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="form-input"
             name="categoryId"
             onChange={handleOnChange}
             required
@@ -143,7 +142,7 @@ const FormProduct = () => {
         <Uploadfile form={form} setForm={setForm} />
 
         <button
-          className="w-full md:w-auto bg-blue-500 text-white p-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-200"
+          className="bttn btn-mod"
           type="submit"
         >
           เพิ่มสินค้า
@@ -158,10 +157,11 @@ const FormProduct = () => {
           <button
             key={i + 1}
             onClick={() => paginate(i + 1)}
-            className={`mx-1 px-2 py-1 rounded-sm ${currentPage === i + 1
+            className={`mx-1 px-2 py-1 rounded-sm ${
+              currentPage === i + 1
                 ? "bg-blue-500 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
+            }`}
           >
             {i + 1}
           </button>
@@ -185,10 +185,11 @@ const FormProduct = () => {
           <button
             key={i + 1}
             onClick={() => paginate(i + 1)}
-            className={`mx-1 px-2 py-1 rounded-sm ${currentPage === i + 1
+            className={`mx-1 px-2 py-1 rounded-sm ${
+              currentPage === i + 1
                 ? "bg-blue-500 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
+            }`}
           >
             {i + 1}
           </button>

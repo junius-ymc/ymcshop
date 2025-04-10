@@ -75,19 +75,19 @@ const TableOrders = () => {
   };
 
   return (
-    <div className="container mx-auto bg-white shadow-lg rounded-lg">
-      <div>
-        <table className="w-full border-collapse border border-gray-300">
-          <thead className="bg-gray-100 text-gray-700">
+    <div>
+      <div className="div-table-orders">
+        <table className="admin-table-orders">
+          <thead className="admin-table-thead-orders">
             <tr>
-              <th className="p-3 border">ลำดับ</th>
-              <th className="p-3 border">ผู้ใช้งาน</th>
-              <th className="p-3 border">วันที่</th>
-              <th className="p-3 border">สินค้า</th>
-              <th className="p-3 border">รวม</th>
-              <th className="p-3 border">สถานะ</th>
-              <th className="p-3 border">หมายเลขพัสดุ</th>
-              <th className="p-3 border">จัดการ</th>
+              <th className="admin-table-th-orders">ลำดับ</th>
+              <th className="admin-table-th-orders">ผู้ใช้งาน</th>
+              <th className="admin-table-th-orders">วันที่</th>
+              <th className="admin-table-th-orders">สินค้า</th>
+              <th className="admin-table-th-orders">รวม</th>
+              <th className="admin-table-th-orders">สถานะ</th>
+              <th className="admin-table-th-orders">หมายเลขพัสดุ</th>
+              <th className="admin-table-th-orders">จัดการ</th>
             </tr>
           </thead>
           <tbody>
@@ -104,9 +104,9 @@ const TableOrders = () => {
               }
 
               return (
-                <tr key={item.id} className="hover:bg-gray-50 border-b">
-                  <td className="p-3 text-center">{item.id}-({index + 1})</td>
-                  <td className="p-3">
+                <tr key={item.id} className="admin-table-tr-orders">
+                  <td className="admin-table-td-orders">{item.id}-({index + 1})</td>
+                  <td className="admin-table-td-orders">
                     <p className="font-semibold">{`${nameData.fullName || "N/A"}`}</p>
                     <p className="text-sm text-gray-600">
                       {`${addressData.houseNo || ""} ${addressData.district || ""} ${addressData.city || ""} ${addressData.province || ""} ${addressData.zipCode || ""}`.trim() || "N/A"}
@@ -114,8 +114,8 @@ const TableOrders = () => {
                     <p className="font-semibold">{nameData.phone || "N/A"}</p>
                     <p className="text-xs text-gray-500">{item.orderedBy.email}</p>
                   </td>
-                  <td className="p-3">{dateFormat(item.createdAt)}</td>
-                  <td className="p-3">
+                  <td className="admin-table-td-orders">{dateFormat(item.createdAt)}</td>
+                  <td className="admin-table-td-orders">
                     <ul>
                       {item.products?.map((product, index) => (
                         <li key={index} className="text-sm">
@@ -124,10 +124,10 @@ const TableOrders = () => {
                       ))}
                     </ul>
                   </td>
-                  <td className="p-3 font-semibold">{numberFormat(item.cartTotal)}</td>
-                  <td className="p-3">
+                  <td className="admin-table-td-orders font-semibold">{numberFormat(item.cartTotal)}</td>
+                  <td className="admin-table-td-orders">
                     <select
-                      className="border rounded p-2 text-gray-700"
+                      className="admin-table-td-orders border rounded text-gray-700"
                       value={orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
                       onChange={(e) => handleInputChange(item.id, "status", e.target.value)}
                     >
@@ -136,23 +136,23 @@ const TableOrders = () => {
                       <option>Completed</option>
                       <option>Cancelled</option>
                     </select>
-                    <span className={`px-3 py-1 rounded-full text-nowrap ${getStatusColor(orderData[item.id]?.status || orderStatusData.status || item.orderStatus)}`}>
+                    <span className={`admin-table-td-orders py-1 rounded-full text-nowrap ${getStatusColor(orderData[item.id]?.status || orderStatusData.status || item.orderStatus)}`}>
                     {orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
                     </span>
                   </td>
-                  <td className="p-3">
+                  <td className="admin-table-td-orders">
                     <input
                       name="parcelNumber"
                       placeholder="หมายเลขพัสดุ"
                       value={orderData[item.id]?.parcelNumber || orderStatusData.parcelNumber || ""}
                       onChange={(e) => handleInputChange(item.id, "parcelNumber", e.target.value)}
-                      className="border p-2 rounded w-full"
+                      className="border rounded w-full"
                     />
                   </td>
-                  <td className="p-3">
+                  <td className="admin-table-td-orders">
                     <button
                       onClick={() => handleUpdateOrder(item.id)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded shadow-md hover:bg-blue-600"
+                      className="admin-table-td-orders bttn btn-mod-1"
                     >
                       Update
                     </button>

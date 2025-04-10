@@ -27,8 +27,4 @@
   --yellowfull: #ffe600;
   --greenfull: #00ff00;
 
-  /* ส่วนของ Shadow */
-  --box-shadow-mid: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --box-shadow-sml: 0px 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
-
 }

@@ -4,15 +4,13 @@ import { createCategory, listCategory, removeCategory } from '../../api/Category
 import useEcomStore from '../../store/ecom-store'
 import { toast } from 'react-toastify'
 
-
-
 const FormCategory = () => {
     // Javascript
     const token = useEcomStore((state) => state.token)
     const [name, setName] = useState('')
     // const [categories, setCategories] = useState([])
-    const categories = useEcomStore((state)=>state.categories)
-    const getCategory = useEcomStore((state)=>state.getCategory)
+    const categories = useEcomStore((state) => state.categories)
+    const getCategory = useEcomStore((state) => state.getCategory)
     useEffect(() => {
         getCategory(token)
     }, [])
@@ -32,57 +30,54 @@ const FormCategory = () => {
             console.log(err)
         }
     }
-    const handleRemove = async(id)=>{
+
+    const handleRemove = async (id) => {
         console.log(id)
-        try{
-            const res = await removeCategory(token,id)
+        try {
+            const res = await removeCategory(token, id)
             console.log(res)
             toast.success(`Deleted ${res.data.name} success`)
             getCategory(token)
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
-
     return (
-        <div className='container mx-auto p-4 bg-white shadow-md'>
-            <h1>Category Management</h1>
-            <form className='my-4' onSubmit={handleSubmit}>
+        <div className='div-table-user admin-div-category'>
+
+            <h1 className='text-base'>Category Management</h1>
+            <form className='admin-div-category' onSubmit={handleSubmit}>
                 <input
                     onChange={(e) => setName(e.target.value)}
-                    className='border'
+                    className='form-input'
                     type='text'
                 />
-                <button className='bg-blue-500'>Add Category</button>
+                <button className='bttn btn-mod'>Add Category</button>
             </form>
 
             <hr />
 
-            <ul className='list-none'>
-
+            <ul>
                 {
                     categories.map((item, index) =>
                         <li
                             className='flex justify-between my-2'
                             key={index}>
-                            <span>
+                            <span className='admin-table-td-user text-base'>
                                 {item.name}
                             </span>
 
                             <button
-                            className='bg-red-500'
-                            onClick={()=>handleRemove(item.id)}
-                            >Delete</button>
+                                className='admin-table-td-user bttn btn-mod-1'
+                                onClick={() => handleRemove(item.id)}
+                            >
+                                Delete
+                            </button>
                         </li>
                     )
                 }
-
-
-
             </ul>
-
-
 
         </div>
     )
