@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import SidebarAdmin from '../components/admin/SidebarAdmin'
 import HeaderAdmin from '../components/admin/HeaderAdmin'
-import '../../theme/adminstyle.css'
+import '../../../theme/adminstyle.css'
 
 const LayoutAdmin = () => {
     return (
