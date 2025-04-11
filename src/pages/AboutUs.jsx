@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
-import LoaderDiv from "../components/LoaderDiv";
+// import LoaderDiv from "../components/LoaderDiv";
 import IconShopping from "../components/icon/IconShopping";
 import { Helmet } from "react-helmet-async";
 
@@ -39,7 +39,7 @@ const AboutUs = () => {
               <br />
               <br />
               <br />
-              <LoaderDiv />
+              {/* <LoaderDiv /> */}
               <br />
               <br />
               <br />

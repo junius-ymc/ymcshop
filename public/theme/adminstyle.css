@@ -107,38 +107,44 @@
 /* ------------------------------------- Start TableUsers */
 
 .admin-table-user,
-.admin-table-orders {
+.admin-table-orders,
+.admin-table-product {
   width: 100%;
   border-collapse: collapse;
   border-width: 1px;
 }
 
 .admin-table-thead-user,
-.admin-table-thead-orders {
+.admin-table-thead-orders, 
+.admin-table-thead-product {
   background-color: var(--texclact);
   color: var(--white);
 }
 
 .admin-table-th-user,
-.admin-table-th-orders {
+.admin-table-th-orders,
+.admin-table-th-product {
   padding: 6px 12px;
   border-width: 1px;
   border-bottom-width: 1px;
 }
 
 .admin-table-tr-user,
-.admin-table-tr-orders {
+.admin-table-tr-orders,
+.admin-table-tr-product {
   background-color: var(--bgcontent);
   border-bottom-width: 1px;
 }
 
 .admin-table-tr-user:hover,
-.admin-table-tr-orders:hover {
+.admin-table-tr-orders:hover,
+.admin-table-tr-product:hover {
   background-color: var(--bghead);
 }
 
 .admin-table-td-user,
-.admin-table-td-orders {
+.admin-table-td-orders,
+.admin-table-td-product {
   padding: 4px 6px;
   border-bottom-width: 1px;
   text-align: center;
@@ -177,6 +183,5 @@
   height: 100%;
   margin-left: 6px;
 }
-
 
 /* ------------------------------------- End FormProduct */
