@@ -14,9 +14,7 @@ const SidebarAdmin = () => {
   
   return (
     <div className="sidebar-admin">
-      <div
-        className="sidebar-admin-header"
-      >
+      <div className="sidebar-admin-header">
         Admin Panel
       </div>
 
@@ -42,7 +40,7 @@ const SidebarAdmin = () => {
           }
         >
           <UserCog className="mr-2" />
-          Manage
+          User
         </NavLink>
 
         <NavLink

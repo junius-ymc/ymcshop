@@ -1,6 +1,7 @@
 #root {
   overflow: auto;
   scrollbar-width: thin;
+  /* scrollbar-color: transparent transparent; */
 }
 
 .layout-admin {
@@ -11,10 +12,10 @@
 }
 
 .main-admin {
-  overflow: auto;
-  scrollbar-width: thin;
   margin-right: 0;
   width: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 /* ------------------------------------- Start HeaderAdmin */
@@ -28,17 +29,23 @@
 .header-admin-bar {
   width: 100%;
   height: auto;
-  min-height: 40px;
+  min-height: 46px;
   display: flex;
   align-items: center;
-  font-size: var(--fontsize18);
+  justify-content: center;
   background-color: var(--black);
-  color: var(--bluelite);
-  padding-left: 12px;
-  /* font-weight: 600; */
-  /* border-top-left-radius: 0; */
-  /* width: auto; */
-  /* justify-content: center; */
+  color: var(--white);
+}
+
+.header-admin-menu {
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: var(--fontsize11);
+  border-radius: 4px;
+  padding: 2px 4px;
+  border: 1px solid var(--bluelite);
 }
 /* ------------------------------------- End HeaderAdmin */
 /* ------------------------------------- Start SidebarAdmin */
@@ -58,7 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: 46px;
   width: 100%;
   font-size: var(--fontsize18);
   font-weight: 600;
@@ -85,7 +92,6 @@
   box-shadow: var(--box-shadow-lg);
   border-radius: 8px;
   font-size: var(--fontsize13);
-  overflow-y: auto;
   margin: 4px;
 }
 
@@ -131,5 +137,10 @@
 .admin-div-category {
   background-color: var(--bgcontent);
   padding: 12px;
+}
+
+.admin-div-category li:hover {
+  background-color: var(--bghead);
+  border-radius: 4px;
 }
 /* ------------------------------------- End FormCategory */
