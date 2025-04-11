@@ -44,32 +44,31 @@ const FormCategory = () => {
     }
 
     return (
-        <div className='div-table-user admin-div-category'>
-
-            <h1 className='text-base'>Category Management</h1>
+        <div className='admin-div-category'>
+            <hr />
+            <h1 className='text-lg'>Category Management</h1>
             <form className='admin-div-category' onSubmit={handleSubmit}>
                 <input
                     onChange={(e) => setName(e.target.value)}
-                    className='form-input'
+                    className='form-input form-input-admin-style'
                     type='text'
+                    placeholder="หมวดหมู่สินค้า"
                 />
-                <button className='bttn btn-mod'>Add Category</button>
+                <button className='bttn btn-mod btn-admin-style'>Add Category</button>
             </form>
-
             <hr />
-
             <ul>
                 {
                     categories.map((item, index) =>
                         <li
-                            className='flex justify-between my-2'
+                            className='flex items-center justify-between my-2'
                             key={index}>
-                            <span className='admin-table-td-user text-base'>
+                            <span className='px-1'>
                                 {item.name}
                             </span>
 
                             <button
-                                className='admin-table-td-user bttn btn-mod-1'
+                                className='bttn btn-mod-1 btn-admin-style'
                                 onClick={() => handleRemove(item.id)}
                             >
                                 Delete
@@ -78,7 +77,7 @@ const FormCategory = () => {
                     )
                 }
             </ul>
-
+            <hr />
         </div>
     )
 }

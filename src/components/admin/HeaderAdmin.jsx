@@ -11,7 +11,7 @@ const HeaderAdmin = () => {
 
                     <div className="setdiv-3">
                         <NavLink
-                            to={"/admin"}
+                            to={"/admin/"}
                             end
                             className={({ isActive }) =>
                                 isActive

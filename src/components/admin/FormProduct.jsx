@@ -84,7 +84,7 @@ const FormProduct = () => {
   };
 
   return (
-    <div className="div-table-user admin-div-category">
+    <div className="div-main-admin-content admin-div-category">
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">เพิ่มข้อมูลสินค้า</h1>

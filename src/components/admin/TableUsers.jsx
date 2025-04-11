@@ -52,7 +52,7 @@ const TableUsers = () => {
 
   // console.log(users);
   return (
-    <div className="div-table-user">
+    <div className="div-main-admin-content">
       <table className="admin-table-user">
         <thead className="admin-table-thead-user">
           <tr>
@@ -92,7 +92,7 @@ const TableUsers = () => {
                   <select
                     onChange={(e) => handleChangeUserRole(el.id, e.target.value)}
                     value={el.role}
-                    className="admin-table-td-user border rounded p-1"
+                    className="border rounded form-input-admin-style"
                   >
                     <option>user</option>
                     <option>admin</option>
@@ -103,7 +103,7 @@ const TableUsers = () => {
                 </td>
                 <td className="admin-table-td-user">
                   <button
-                    className={`bttn btn-mod admin-table-td-user ${el.enabled ? "bg-red-500" : "bg-green-500"}`}
+                    className={`bttn btn-mod btn-admin-style ${el.enabled ? "bg-red-500" : "bg-green-500"}`}
                     onClick={() => handleChangeUserStatus(el.id, el.enabled)}
                   >
                     {el.enabled ? "Disable" : "Enable"}

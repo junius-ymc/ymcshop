@@ -1,6 +1,7 @@
 #root {
   overflow: auto;
   scrollbar-width: thin;
+  font-size: var(--fontsize13);
   /* scrollbar-color: transparent transparent; */
 }
 
@@ -18,6 +19,21 @@
   scrollbar-width: thin;
 }
 
+.div-main-admin-content {
+  box-shadow: var(--box-shadow-lg);
+  border-radius: 8px;
+  /* margin: 4px; */
+}
+
+.btn-admin-style {
+  font-size: var(--fontsize13);
+  padding: 2px 4px;
+}
+
+.form-input-admin-style {
+width: auto;
+margin-bottom: 4px;
+}
 /* ------------------------------------- Start HeaderAdmin */
 .header-admin {
   display: flex;
@@ -87,13 +103,6 @@
 }
 /* ------------------------------------- End SidebarAdmin */
 /* ------------------------------------- Start TableUsers */
-.div-table-user,
-.div-table-orders {
-  box-shadow: var(--box-shadow-lg);
-  border-radius: 8px;
-  font-size: var(--fontsize13);
-  margin: 4px;
-}
 
 .admin-table-user,
 .admin-table-orders {

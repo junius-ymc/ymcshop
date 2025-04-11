@@ -20,7 +20,7 @@ const SidebarAdmin = () => {
 
       <nav className="sidebar-admin-wrap-menu">
         <NavLink
-          to={"/admin"}
+          to={"/admin/"}
           end
           className={({ isActive }) =>
             isActive
