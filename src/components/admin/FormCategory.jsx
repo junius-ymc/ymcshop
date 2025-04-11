@@ -44,40 +44,43 @@ const FormCategory = () => {
     }
 
     return (
-        <div className='admin-div-category'>
-            <hr />
-            <h1 className='text-lg'>Category Management</h1>
-            <form className='admin-div-category' onSubmit={handleSubmit}>
-                <input
-                    onChange={(e) => setName(e.target.value)}
-                    className='form-input form-input-admin-style'
-                    type='text'
-                    placeholder="หมวดหมู่สินค้า"
-                />
-                <button className='bttn btn-mod btn-admin-style'>Add Category</button>
-            </form>
-            <hr />
-            <ul>
-                {
-                    categories.map((item, index) =>
-                        <li
-                            className='flex items-center justify-between my-2'
-                            key={index}>
-                            <span className='px-1'>
-                                {item.name}
-                            </span>
+        <div className="div-main-admin-content">
+            <div className='admin-div-category'>
+                <hr />
+                <h1 className='text-lg'>Category Management</h1>
+                <form className='admin-div-category' onSubmit={handleSubmit}>
+                    <input
+                        onChange={(e) => setName(e.target.value)}
+                        className='form-input form-input-admin-style'
+                        type='text'
+                        placeholder="หมวดหมู่สินค้า"
+                        required
+                    />
+                    <button className='bttn btn-mod btn-admin-style'>Add Category</button>
+                </form>
+                <hr />
+                <ul>
+                    {
+                        categories.map((item, index) =>
+                            <li
+                                className='flex items-center justify-between my-2'
+                                key={index}>
+                                <span className='px-1'>
+                                    {item.name}
+                                </span>
 
-                            <button
-                                className='bttn btn-mod-1 btn-admin-style'
-                                onClick={() => handleRemove(item.id)}
-                            >
-                                Delete
-                            </button>
-                        </li>
-                    )
-                }
-            </ul>
-            <hr />
+                                <button
+                                    className='bttn btn-mod-1 btn-admin-style'
+                                    onClick={() => handleRemove(item.id)}
+                                >
+                                    Delete
+                                </button>
+                            </li>
+                        )
+                    }
+                </ul>
+                <hr />
+            </div>
         </div>
     )
 }

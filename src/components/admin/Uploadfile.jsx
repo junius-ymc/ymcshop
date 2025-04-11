@@ -79,6 +79,7 @@ const Uploadfile = ({ form, setForm }) => {
                 console.log(err)
             })
     }
+
     return (
         <div className='my-4'>
             <div className='flex mx-4 gap-4 my-4'>
@@ -98,11 +99,10 @@ const Uploadfile = ({ form, setForm }) => {
                     )
                 }
             </div>
-
+            <span className='my-4 font-bold'>เลือกรูปภาพ</span>
             <div>
-            <input onChange={handleOnChange} type='file' name='images' multiple />
+                <input onChange={handleOnChange} type='file' name='images' multiple />
             </div>
-
         </div>
     )
 }

@@ -21,7 +21,6 @@
 
 .div-main-admin-content {
   box-shadow: var(--box-shadow-lg);
-  border-radius: 8px;
   /* margin: 4px; */
 }
 
@@ -31,9 +30,10 @@
 }
 
 .form-input-admin-style {
-width: auto;
-margin-bottom: 4px;
+  width: auto;
+  margin-bottom: 4px;
 }
+
 /* ------------------------------------- Start HeaderAdmin */
 .header-admin {
   display: flex;
@@ -63,6 +63,7 @@ margin-bottom: 4px;
   padding: 2px 4px;
   border: 1px solid var(--bluelite);
 }
+
 /* ------------------------------------- End HeaderAdmin */
 /* ------------------------------------- Start SidebarAdmin */
 .wrap-sidebar-admin {
@@ -101,6 +102,7 @@ margin-bottom: 4px;
   justify-content: start;
   font-size: var(--fontsize13);
 }
+
 /* ------------------------------------- End SidebarAdmin */
 /* ------------------------------------- Start TableUsers */
 
@@ -141,9 +143,11 @@ margin-bottom: 4px;
   border-bottom-width: 1px;
   text-align: center;
 }
+
 /* ------------------------------------- End TableUsers */
-/* ------------------------------------- End FormCategory */
-.admin-div-category {
+/* ------------------------------------- Start FormCategory */
+.admin-div-category,
+.admin-div-product {
   background-color: var(--bgcontent);
   padding: 12px;
 }
@@ -152,4 +156,27 @@ margin-bottom: 4px;
   background-color: var(--bghead);
   border-radius: 4px;
 }
+
 /* ------------------------------------- End FormCategory */
+/* ------------------------------------- Start FormProduct */
+.admin-div-product-1 {
+  width: 35%;
+}
+
+.admin-div-product-2 {
+  width: 65%;
+}
+
+.form-input-product-admin-style {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.form-textarea-product-admin-style {
+  width: 100%;
+  height: 100%;
+  margin-left: 6px;
+}
+
+
+/* ------------------------------------- End FormProduct */
