@@ -349,7 +349,7 @@
   color: var(--gray);
   border: 1px solid var(--red);
   width: auto;
-  z-index: 999;
+  z-index: 19;
   top: 1px;
   right: 87px;
   padding: 2px 4px;
