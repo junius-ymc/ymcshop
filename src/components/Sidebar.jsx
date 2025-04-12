@@ -134,6 +134,41 @@ const Sidebar = () => {
         </span>
       </button>
 
+      {
+        user
+          ?
+          <div className="menu-dropdown">
+            <div>
+              <button className="sidebar-menu-user-button">
+                <span>
+                  <IconUser className="icon-menu-sidebar icon-menu" />
+                </span>
+              </button>
+            </div>
+            <div className="menu-sub">
+              <div className="setdiv-3 menu-sub-wrap">
+                <div className="setdiv-1">
+                  <li>
+                    <NavLink to="/user/history/">
+                      {/* <span><IconHistory className="icon-menu-s icon-menu-stroke" /></span> */}
+                      <span>{t("mHistory")}</span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <Link onClick={() => handleLogout()}>
+                      {/* <span><IconLogout className="icon-menu-s icon-menu-stroke" /></span> */}
+                      <span>{t("mLogout")}</span>
+                    </Link>
+                  </li>
+                </div>
+                ◀
+              </div>
+            </div>
+          </div>
+          :
+          <span></span>
+      }
+
       <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
         <header className="sidebar-header">
 
