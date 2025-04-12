@@ -330,65 +330,12 @@
   display: none;
 }
 
-/* ---------------------- Start Dropdown Menu */
-
-.menu-dropdown {
-  float: right;
-}
-
-.menu-sub-wrap {
-  margin: 0 2px ;
-  /* padding: 0px 2px; */
-}
-
-.menu-sub {
-  /* display: block; */
-  display: none;
-  position: absolute;
-  background: var(--bgcontent);
-  color: var(--gray);
-  border: 1px solid var(--red);
-  width: auto;
-  z-index: 19;
-  top: 1px;
-  right: 87px;
-  padding: 2px 4px;
-  border-radius: 4px;
-  justify-items: end;
-  font-size: var(--fontsize13);
-  font-weight: 600;
-}
-
-.menu-sub li {
-  padding: 1px 2px;
-}
-
-.menu-sub li:hover {
-  background: var(--black);
-  color: var(--white);
-  border-radius: 4px;
-  padding: 1px 2px;
-}
-
-.menu-dropdown:hover .menu-sub {
-  display: block;
-}
-
-/* ---------------------- End Dropdown Menu */
-
 /* ---------------------- Responsive media query code for small screens ---------------------- */
 /* ------------------------------------- ตำแหน่ง เมนูบาร์ตัวเล็ก ------------------------------------- */
 @media (max-width: 768px) {
   .sidebar-menu-button {
     position: fixed;
     right: 12px;
-    top: 9px;
-    display: flex;
-  }
-
-  .sidebar-menu-user-button {
-    position: fixed;
-    right: 54px;
     top: 9px;
     display: flex;
   }
