@@ -94,14 +94,14 @@ const Sidebar = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
-      document.getElementById("theme-style").href = `/theme/${savedTheme}.css`;
+      document.getElementById("theme-style").href = `/public/theme/${savedTheme}.css`;
     }
   }, []);
 
   // ✅ ฟังก์ชันเปลี่ยนธีม
   const changeTheme = (selectedTheme) => {
     setTheme(selectedTheme);
-    document.getElementById("theme-style").href = `/theme/${selectedTheme}.css`;
+    document.getElementById("theme-style").href = `/public/theme/${selectedTheme}.css`;
     localStorage.setItem("theme", selectedTheme); // บันทึกค่าธีม
   };
 
@@ -133,6 +133,42 @@ const Sidebar = () => {
           {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
         </span>
       </button>
+      {
+        user
+          ?
+          <div className="">
+            <div className="menu-dropdown">
+              <div>
+                <button className="sidebar-menu-user-button">
+                  <span>
+                    <IconUser className="icon-menu-sidebar icon-menu" />
+                  </span>
+                </button>
+              </div>
+              <div className="menu-sub">
+                <div className="setdiv-3 menu-sub-wrap">
+                  <div className="setdiv-1">
+                    <li>
+                      <NavLink to="/user/history/">
+                        {/* <span><IconHistory className="icon-menu-s icon-menu-stroke" /></span> */}
+                        <span>{t("mHistory")}</span>
+                      </NavLink>
+                    </li>
+                    <li>
+                      <Link onClick={() => handleLogout()}>
+                        {/* <span><IconLogout className="icon-menu-s icon-menu-stroke" /></span> */}
+                        <span>{t("mLogout")}</span>
+                      </Link>
+                    </li>
+                  </div>
+                  ◀
+                </div>
+              </div>
+            </div>
+          </div>
+          :
+          <span></span>
+      }
 
       <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
         <header className="sidebar-header">
@@ -198,17 +234,17 @@ const Sidebar = () => {
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mLang")}</a></li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("th")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/img/icon/ic-th.png" /> {t("mShowLang1")}
+                    <img className="icon-menu-s" src="/public/img/icon/ic-th.png" /> {t("mShowLang1")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("en")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/img/icon/ic-en.png" /> {t("mShowLang2")}
+                    <img className="icon-menu-s" src="/public/img/icon/ic-en.png" /> {t("mShowLang2")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("jp")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/img/icon/ic-jp.png" /> {t("mShowLang3")}
+                    <img className="icon-menu-s" src="/public/img/icon/ic-jp.png" /> {t("mShowLang3")}
                   </a>
                 </li>
               </ul>
