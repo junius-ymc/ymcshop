@@ -137,7 +137,7 @@ const Sidebar = () => {
       {
         user
           ?
-          <div className="menu-dropdown">
+          <div className="sidebar-menu-button menu-dropdown">
             <div>
               <button className="sidebar-menu-user-button">
                 <span>
@@ -161,7 +161,7 @@ const Sidebar = () => {
                     </Link>
                   </li>
                 </div>
-                ◀
+                <div className="menu-sub-arrow">◀</div>
               </div>
             </div>
           </div>
@@ -171,13 +171,11 @@ const Sidebar = () => {
 
       <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
         <header className="sidebar-header">
-
           <button className="sidebar-toggler" onClick={toggleSidebar}>
             <span>
               <IconArrow className="icon-menu-arrow" />
             </span>
           </button>
-
         </header>
 
         <nav className="sidebar-nav">

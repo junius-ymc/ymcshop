@@ -156,11 +156,11 @@ const ListCart = () => {
                     {t("lcGotoShop")}
                   </button>
                 </Link>
-                <Link to={"/howtopay"} className="bttn btn-mod-1">
+                {/* <Link to={"/howtopay"} className="bttn btn-mod-1">
                   <button>
                     {t("mHowToPay")}
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
