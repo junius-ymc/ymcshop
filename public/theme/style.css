@@ -1719,9 +1719,9 @@ header .wrapper .navbar li a {
 }
 
 .about-link:hover {
-  color: var(--bgcontent);
-  background-color: var(--bluelite);
+  color: var(--red);
   text-decoration: underline;
+  /* background-color: var(--bluelite); */
 }
 
 .highlight {

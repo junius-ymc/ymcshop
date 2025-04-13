@@ -44,7 +44,7 @@ const AboutUs = () => {
               <p>ยามู ยะหริ่ง ปัตตานี, ประเทศไทย (จำหน่ายเฉพาะออนไลน์เท่านั้น)</p>
 
               <h2 className="about-subtitle">📲 ติดต่อเรา</h2>
-              <p>📧 อีเมล: <a href="mailto:support@ymcshop.com" className="about-link">ymccorp2016@gmail.com</a></p>
+              <p>📧 อีเมล: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a></p>
               {/* <p>📷 Instagram: <a href="https://instagram.com/ymcshop" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop</a></p> */}
               <p>📷 Instagram: <a href="#" className="about-link" rel="noopener noreferrer">@ymcshop</a></p>
 
