@@ -1662,7 +1662,82 @@ header .wrapper .navbar li a {
 }
 
 /* ------------------------------------- End HowToPay ------------------------------------- */
+/* ------------------------------------- Start AboutUs ------------------------------------- */
 
+.about-container {
+  padding: 12px;
+  color: var(--gray);
+  background-color: var(--white);
+  line-height: 1.7;
+  /* font-family: 'Segoe UI', sans-serif; */
+}
+
+.about-logo {
+  width: 120px;
+  margin: 0 auto 20px;
+  border-radius: 4px;
+}
+
+.about-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--bluelite);
+  margin-bottom: 12px;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-subtitle {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  color: var(--red);
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.about-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+.about-list li {
+  margin-bottom: 12px;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.about-link:hover {
+  color: var(--bgcontent);
+  background-color: var(--bluelite);
+  text-decoration: underline;
+}
+
+.highlight {
+  font-weight: 600;
+  /* color: var(--bluelite); */
+}
+
+.about-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ------------------------------------- End AboutUs ------------------------------------- */
 /* ------------------------------------- Start FOOTER ------------------------------------- */
 
 footer {
