@@ -433,7 +433,7 @@ outline: none;
 
 .input-group input:focus+label,
 /* .input-group input:valid+label, */
-.input-group input:not(:placeholder-shown) + label:valid+label {
+.input-group input:not(:placeholder-shown) + label {
 top: -14px;
 left: 5px;
 background: var(--bluelite);
