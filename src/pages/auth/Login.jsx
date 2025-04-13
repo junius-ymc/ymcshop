@@ -92,10 +92,11 @@ const Login = () => {
               <form onSubmit={handleSubmit}>
                 <div className="title-text-form">{t("liSignin")}</div>
                 <div className="login-form-input">
-                  <div className="input-group-wrap">
+                  <div className="mt-5">
                     <div className="input-group">
                       <input
-                        autoComplete="off"
+                        // autoComplete="off"
+                        autoComplete="new-email"
                         // placeholder={t("liEmail")}
                         placeholder=""
                         className="form-input login-input"
@@ -120,7 +121,7 @@ const Login = () => {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="mt-3">
                     <button className="bttn btn-mod">
                       {t("mLogin")}
                     </button>

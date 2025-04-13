@@ -135,31 +135,57 @@ const SummaryCard = () => {
             <div className="div-head">{t("scShippingAddress")}</div>
             <div className="div-content">
               <div className="div-content-box">
-                <input
-                  name="fullName"
-                  value={nameData.fullName}
-                  onChange={handleNameChange}
-                  placeholder={t("scFullName")}
-                  title={t("scFullName")}
-                  className="form-input-checkout"
-                />
-                <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder={t("scHouseNo")} title={t("scHouseNo")} className="form-input-checkout" />
-                <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder={t("scDistrict")} title={t("scDistrict")} className="form-input-checkout" />
-                <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder={t("scCity")} title={t("scCity")} className="form-input-checkout" />
-                <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder={t("scProvince")} title={t("scProvince")} className="form-input-checkout" />
-                <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder={t("scZipCode")} title={t("scZipCode")} className="form-input-checkout" />
-                <input
-                  name="phone"
-                  value={nameData.phone}
-                  onChange={handleNameChange}
-                  placeholder={t("scPhone")}
-                  title={t("scPhone")}
-                  className="form-input-checkout"
-                />
-                <hr />
-                <div className="summary-card-div-btn">
-                  <button onClick={hdlSaveAddress} className="bttn btn-mod">1. {t("scSaveAddress")}</button>
+
+                <div>
+                  <div className="input-group">
+                    <input
+                      name="fullName"
+                      value={nameData.fullName}
+                      onChange={handleNameChange}
+                      // placeholder={t("scFullName")}
+                      placeholder=""
+                      title={t("scFullName")}
+                      className="form-input checkout-input"
+                    />
+                    <label for="">{t("scFullName")}</label>
+                  </div>
+                  <div className="input-group">
+                    <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder="" title={t("scHouseNo")} className="form-input checkout-input" />
+                    <label for="">{t("scHouseNo")}</label>
+                  </div>
+                  <div className="input-group">
+                    <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder="" title={t("scDistrict")} className="form-input checkout-input" />
+                    <label for="">{t("scDistrict")}</label>
+                  </div>
+                  <div className="input-group">
+                    <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder="" title={t("scCity")} className="form-input checkout-input" />
+                    <label for="">{t("scCity")}</label>
+                  </div>
+                  <div className="input-group">
+                    <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder="" title={t("scProvince")} className="form-input checkout-input" />
+                    <label for="">{t("scProvince")}</label>
+                  </div>
+                  <div className="input-group">
+                    <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder="" title={t("scZipCode")} className="form-input checkout-input" />
+                    <label for="">{t("scZipCode")}</label>
+                  </div>
+                  <div className="input-group">
+                    <input
+                      name="phone"
+                      value={nameData.phone}
+                      onChange={handleNameChange}
+                      placeholder=""
+                      title={t("scPhone")}
+                      className="form-input checkout-input"
+                    />
+                    <label for="">{t("scPhone")}</label>
+                  </div>
+                  <hr />
+                  <div className="summary-card-div-btn">
+                    <button onClick={hdlSaveAddress} className="bttn btn-mod">1. {t("scSaveAddress")}</button>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>

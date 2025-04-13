@@ -152,7 +152,6 @@ i {
 
 /* ------------------------------------- Start Check-box ------------------------------------- */
 .check-box-mod {
-  font-size: var(--fontsize15);
   margin-left: 1px;
   padding: 2px;
   padding-right: 6px;
@@ -401,16 +400,16 @@ img {
 /* ------------------------------------- Start Input ------------------------------------- */
 
 .input-group-wrap {
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-/* background: var(--black); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background: var(--black); */
 }
 
 .input-group {
   position: relative;
-  margin: 4px 0;
+  margin: 12px 0;
 }
 
 .input-group label {
@@ -427,19 +426,19 @@ flex-direction: column;
 }
 
 .input-group input {
-background: transparent;
-outline: none;
+  background: transparent;
+  outline: none;
 }
 
 .input-group input:focus+label,
 /* .input-group input:valid+label, */
-.input-group input:not(:placeholder-shown) + label {
-top: -14px;
-left: 5px;
-background: var(--bluelite);
-color: var(--bgcontent);
-border-radius: 3px;
-padding: 0 4px;
+.input-group input:not(:placeholder-shown)+label {
+  top: -14px;
+  left: 5px;
+  background: var(--bluelite);
+  color: var(--bgcontent);
+  border-radius: 3px;
+  padding: 0 4px;
 }
 
 .form-input {
@@ -475,7 +474,6 @@ padding: 0 4px;
 
 .form-input:invalid {
   border-color: var(--red);
-  /* color: var(--red); */
 }
 
 .form-input-checkout {
@@ -506,6 +504,18 @@ padding: 0 4px;
   box-shadow: 0 0 0 1px var(--bluedeep);
   color: var(--bluelite);
   background-color: var(--btbgact);
+}
+
+.login-input {
+  margin-bottom: 8px;
+}
+
+.regist-input {
+  margin-bottom: 1px;
+}
+
+.checkout-input {
+  margin-bottom: 10px;
 }
 
 /* ------------------------------------- End Input ------------------------------------- */
@@ -1154,8 +1164,16 @@ header .wrapper .navbar li a {
   padding-bottom: 10px;
 }
 
+
 .search-card-by-category-text {
+  width: auto;
+  background-color: var(--bgcontent);
   font-size: var(--fontsize14);
+}
+
+.search-card-by-category-text-1 {
+  font-size: var(--fontsize13);
+  font-weight: 100;
 }
 
 .search-card-by-category-check-status input[type='checkbox']:checked+span {
@@ -1163,12 +1181,12 @@ header .wrapper .navbar li a {
   background-color: var(--bluelite);
   border: 0;
   border-radius: 5px;
-  font-size: var(--fontsize13);
 }
 
 .search-card-by-category-input {
   display: flex;
   align-items: center;
+  padding-top: 1px;
 }
 
 .search-card-by-price-value {
@@ -1340,8 +1358,7 @@ header .wrapper .navbar li a {
 /* ------------------------------------- Start SummaryCard ------------------------------------- */
 
 .summary-card {
-  display: flex;
-  justify-content: center;
+  width: 100%;
 }
 
 .summary-card-left,
@@ -1424,8 +1441,7 @@ header .wrapper .navbar li a {
 }
 
 .regist-form,
-.login-form,
-.login-form-input {
+.login-form {
   justify-items: center;
 }
 
@@ -1490,22 +1506,10 @@ header .wrapper .navbar li a {
   margin-top: 12px;
   padding-left: 6px;
   text-align: center;
-}
-
-.regist-input {
-  margin-bottom: 1px;
-  /* width: 300px; */
+  font-size: var(--fontsize14);
 }
 
 /* ------------------------------------- End Register ------------------------------------- */
-
-/* ------------------------------------- Start Login ------------------------------------- */
-
-.login-input {
-  margin-bottom: 12px;
-}
-
-/* ------------------------------------- End Login ------------------------------------- */
 
 /* ------------------------------------- Start HistoryCard ------------------------------------- */
 

@@ -108,7 +108,9 @@ const SearchCard = ({ resetPage }) => {
           <hr />
           {/* Search by Category */}
           <div className="search-card-by-category-box">
-            <div className="search-card-by-category">{t("sbCategory")}</div>
+            <div className="search-card-by-category">{t("sbCategory")}
+              <span className="search-card-by-category-text-1">{t("sbCategorySelect")}</span>
+            </div>
             <div className="search-card-by-category-check-status">
 
               {categories.map((item, index) => (
