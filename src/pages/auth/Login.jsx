@@ -40,7 +40,7 @@ const Login = () => {
       roleRedirect(role);
       toast.success(`${t("liWelcomeBack")}`, {
         bodyClassName: "toastify-toast-modify",
-        // icon: <img src="/img/icon/ic-cart.png"/>,
+        // icon: <img src="/public/img/icon/ic-cart.png"/>,
         // icon: false,
       });
     } catch (err) {
@@ -92,25 +92,32 @@ const Login = () => {
               <form onSubmit={handleSubmit}>
                 <div className="title-text-form">{t("liSignin")}</div>
                 <div className="login-form-input">
-                  <div>
-                    <input
-                      autoComplete="off"
-                      placeholder={t("liEmail")}
-                      className="form-input login-input"
-                      onChange={handleOnChange}
-                      name="email"
-                      type="email"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      autoComplete="new-password"
-                      placeholder={t("liPassword")}
-                      className="form-input login-input"
-                      onChange={handleOnChange}
-                      name="password"
-                      type="password"
-                    />
+                  <div className="input-group-wrap">
+                    <div className="input-group">
+                      <input
+                        autoComplete="off"
+                        // placeholder={t("liEmail")}
+                        placeholder=""
+                        className="form-input login-input"
+                        onChange={handleOnChange}
+                        name="email"
+                        type="email"
+                      />
+                      <label for="">{t("liEmail")}</label>
+                    </div>
+
+                    <div className="input-group">
+                      <input
+                        autoComplete="new-password"
+                        // placeholder={t("liPassword")}
+                        placeholder=""
+                        className="form-input login-input"
+                        onChange={handleOnChange}
+                        name="password"
+                        type="password"
+                      />
+                      <label for="">{t("liPassword")}</label>
+                    </div>
                   </div>
 
                   <div>

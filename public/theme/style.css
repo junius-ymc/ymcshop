@@ -400,6 +400,48 @@ img {
 
 /* ------------------------------------- Start Input ------------------------------------- */
 
+.input-group-wrap {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+/* background: var(--black); */
+}
+
+.input-group {
+  position: relative;
+  margin: 4px 0;
+}
+
+.input-group label {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  pointer-events: none;
+  color: var(--texclact);
+  border-radius: 3px;
+  transition: .5s;
+  /* transform: translateY(-50%); */
+  /* font-size: var(--fontsize14); */
+  /* font-weight: 600; */
+}
+
+.input-group input {
+background: transparent;
+outline: none;
+}
+
+.input-group input:focus+label,
+/* .input-group input:valid+label, */
+.input-group input:not(:placeholder-shown) + label:valid+label {
+top: -14px;
+left: 5px;
+background: var(--bluelite);
+color: var(--bgcontent);
+border-radius: 3px;
+padding: 0 4px;
+}
+
 .form-input {
   border: solid 1px;
   border-radius: 4px;
@@ -1390,6 +1432,7 @@ header .wrapper .navbar li a {
 .title-text-form {
   text-align: center;
   margin-bottom: 12px;
+  font-size: var(--fontsize16);
   font-weight: 600;
 }
 
@@ -1402,11 +1445,6 @@ header .wrapper .navbar li a {
   margin-top: 16px;
 }
 
-.regist-input {
-  margin-bottom: 1px;
-  /* width: 300px; */
-}
-
 /* ข้อความข้อผิดพลาด */
 .error-message {
   color: var(--redfull);
@@ -1417,6 +1455,7 @@ header .wrapper .navbar li a {
 
 .error-message-text {
   color: var(--red);
+  font-size: var(--fontsize13);
 }
 
 .div-pass-score {
@@ -1451,6 +1490,11 @@ header .wrapper .navbar li a {
   margin-top: 12px;
   padding-left: 6px;
   text-align: center;
+}
+
+.regist-input {
+  margin-bottom: 1px;
+  /* width: 300px; */
 }
 
 /* ------------------------------------- End Register ------------------------------------- */
