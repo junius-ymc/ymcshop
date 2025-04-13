@@ -91,7 +91,7 @@ const Login = () => {
 
               <form onSubmit={handleSubmit}>
                 <div className="title-text-form">{t("liSignin")}</div>
-                <div className="login-form-input">
+                <div className="login-form">
                   <div className="mt-5">
                     <div className="input-group">
                       <input
