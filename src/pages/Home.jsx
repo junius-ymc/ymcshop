@@ -1,5 +1,5 @@
 // rafce
-import React from "react";
+import React, { useEffect } from "react";
 import ContentShowNewProduct from "../components/home/ContentShowNewProduct";
 import NewProduct from "../components/home/NewProduct";
 import BestSeller from "../components/home/BestSeller";
@@ -9,7 +9,12 @@ import TextAnimation from "../components/home/TextAnimation";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
+
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="div-wrap">

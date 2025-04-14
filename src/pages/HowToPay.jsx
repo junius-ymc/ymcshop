@@ -1,9 +1,14 @@
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import { Helmet } from "react-helmet-async";
 
 const HowToPay = () => {
 
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div>
