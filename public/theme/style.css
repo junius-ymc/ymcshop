@@ -430,9 +430,11 @@ img {
   outline: none;
 }
 
-.input-group input:focus+label,
 /* .input-group input:valid+label, */
-.input-group input:not(:placeholder-shown)+label {
+.input-group input:focus+label,
+.input-group textarea:focus+label,
+.input-group input:not(:placeholder-shown)+label,
+.input-group textarea:not(:placeholder-shown)+label {
   top: -14px;
   left: 5px;
   background: var(--bluelite);
@@ -441,6 +443,7 @@ img {
   padding: 0 4px;
 }
 
+.form-textarea,
 .form-input {
   border: solid 1px;
   border-radius: 4px;
@@ -455,12 +458,14 @@ img {
   border-color: var(--bluelite);
 }
 
+.form-textarea:hover,
 .form-input:hover {
   color: var(--white);
   border-color: var(--bluedeep);
   background-color: var(--bluelite);
 }
 
+.form-textarea:focus,
 .form-input:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -472,6 +477,7 @@ img {
   background-color: var(--btbgact);
 }
 
+.form-textarea:invalid,
 .form-input:invalid {
   border-color: var(--red);
 }
@@ -1664,7 +1670,8 @@ header .wrapper .navbar li a {
 /* ------------------------------------- End HowToPay ------------------------------------- */
 /* ------------------------------------- Start AboutUs ------------------------------------- */
 
-.about-container {
+.about-container,
+.contact-container {
   padding: 12px;
   color: var(--gray);
   background-color: var(--white);
@@ -1678,29 +1685,24 @@ header .wrapper .navbar li a {
   border-radius: 4px;
 }
 
-.about-title {
-  font-size: 1.8rem;
+.about-title,
+.contact-title {
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   color: var(--bluelite);
   margin-bottom: 12px;
 }
 
-.about-image {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 12px;
-  margin: 20px 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
+.contact-subtitle,
 .about-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-top: 30px;
   color: var(--red);
 }
 
-.about-intro {
+.about-intro,
+.contact-intro {
   font-size: 1.1rem;
   margin-bottom: 25px;
   text-align: center;
@@ -1726,7 +1728,7 @@ header .wrapper .navbar li a {
 
 .highlight {
   font-weight: 600;
-  /* color: var(--bluelite); */
+  color: var(--gray);
 }
 
 .about-buttons {
@@ -1738,6 +1740,43 @@ header .wrapper .navbar li a {
 }
 
 /* ------------------------------------- End AboutUs ------------------------------------- */
+/* ------------------------------------- Start ContactUs ------------------------------------- */
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.contact-info {
+  flex: 1 1 300px;
+  background-color: var(--btbgact);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-lg);
+}
+
+.contact-info h2 {
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.contact-form {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form textarea {
+  height: 100%;
+}
+
+/* ------------------------------------- End ContactUs ------------------------------------- */
 /* ------------------------------------- Start FOOTER ------------------------------------- */
 
 footer {
@@ -1847,6 +1886,10 @@ footer .wrapper ul li .textact {
 
   footer .wrapper .footer-right {
     padding-right: 0px;
+  }
+
+  .contact-grid {
+    flex-direction: column;
   }
 
 }
