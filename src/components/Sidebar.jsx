@@ -20,6 +20,9 @@ import IconMenuSideBar from "./icon/IconMenuSideBar";
 import IconHowToPay from "./icon/IconHowToPay";
 import IconAboutUs from "./icon/IconAboutUs";
 import IconContactUs from "./icon/IconContactUs";
+import flagth from '../assets/icon/flagth.png'; // (ไว้ในโฟลเดอร์ assets)
+import flagen from '../assets/icon/flagen.png';
+import flagjp from '../assets/icon/flagjp.png';
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(window.innerWidth <= 1425);
@@ -231,17 +234,26 @@ const Sidebar = () => {
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mLang")}</a></li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("th")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/img/icon/ic-th.png" /> {t("mShowLang1")}
+                    <div className="icon-menu-s">
+                      <img src={flagth} alt="flagth" className="icon-menu-s" />
+                    </div>
+                    {t("mShowLang1")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("en")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/img/icon/ic-en.png" /> {t("mShowLang2")}
+                    <div className="icon-menu-s">
+                      <img src={flagen} alt="flagen" className="icon-menu-s" />
+                    </div>
+                    {t("mShowLang2")}
                   </a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => changeLanguage("jp")} className="nav-link dropdown-link">
-                    <img className="icon-menu-s" src="/img/icon/ic-jp.png" /> {t("mShowLang3")}
+                    <div className="icon-menu-s">
+                      <img src={flagjp} alt="flagjp" className="icon-menu-s" />
+                    </div>
+                    {t("mShowLang3")}
                   </a>
                 </li>
               </ul>

@@ -4,6 +4,7 @@ import useEcomStore from "../store/ecom-store";
 import Sidebar from "./Sidebar";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
+import logo from '../assets/logo.png'; // (ไว้ในโฟลเดอร์ assets)
 
 function MainNav() {
   // Javascript
@@ -37,12 +38,10 @@ function MainNav() {
 
               {/* Start ส่วนของโลโก้ ด้านซ้าย */}
               <div className="setdiv-3">
-                <i>
-                  {/* <a href="/" target="_self"> */}
-                    <NavLink to="/">
-                      <img className="logo" src="/img/logo.png" />
-                    </NavLink>
-                  {/* </a> */}
+              <i>
+                  <NavLink to="/">
+                    <img src={logo} alt="Logo" className="logo" />
+                  </NavLink>
                 </i>
                 {/* End ส่วนของโลโก้ ด้านซ้าย */}
 

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัว�
 import { Helmet } from "react-helmet-async";
 import IconAboutUs from "../components/icon/IconAboutUs";
 import IconContactUs from "../components/icon/IconContactUs";
-import logo from '../assets/logo.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
+import logobig from '../assets/logobig.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
 
 const AboutUs = () => {
 
@@ -31,7 +31,7 @@ const AboutUs = () => {
           <div className="div-content-box">
 
             <div className="about-container">
-              <img src={logo} alt="YMC Shop Logo" className="about-logo" />
+              <img src={logobig} alt="YMC Shop Logo" className="about-logo" />
               <p className="about-title">{t("shopName")}</p>
               <p className="about-intro">
                 <strong>YMC Shop</strong> คือร้านค้าออนไลน์สำหรับสาย <span className="highlight">Streetwear</span> และ <span className="highlight">Vintage </span>
@@ -61,7 +61,7 @@ const AboutUs = () => {
               </div>
 
               <div className="flex justify-center items-center pt-5">
-                <img src={logo} alt="YMC Shop Logo" className="w-auto rounded-lg" />
+                <img src={logobig} alt="YMC Shop Logo" className="w-auto rounded-lg" />
               </div>
             </div>
 

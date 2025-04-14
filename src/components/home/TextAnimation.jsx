@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import cursor from '../../assets/icon/cursor.gif'; // (ไว้ในโฟลเดอร์ assets)
 
 const TextAnimation = () => {
   // กำหนด Array ของข้อความที่ต้องการแสดง
@@ -61,7 +62,7 @@ const TextAnimation = () => {
         <div className="typewriter-text">
           <div className="mini-link-box-info">
             {displayText}
-            <img src="/img/icon/cursor.gif" />
+            <img src={cursor} alt="cursor" className="" />
           </div>
         </div>
       </div>

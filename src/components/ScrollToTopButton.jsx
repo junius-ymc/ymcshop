@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import arrowup from '../assets/icon/arrowup.png'; // (ไว้ในโฟลเดอร์ assets)
 
 const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -51,7 +52,7 @@ const ScrollToTopButton = () => {
           }}
           className="back-to-top"
         >
-          <img src="/img/icon/ic-arrow-up.png" alt="Back to top" />
+          <img src={arrowup} alt="arrowup" className="" />
         </div>
       )}
     </div>
