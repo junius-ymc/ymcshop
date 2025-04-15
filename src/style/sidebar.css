@@ -128,12 +128,14 @@
 .icon-menu-sidebar {
   width: 36px;
   height: 36px;
-  stroke: var(--white);
-  stroke-width: 1.5px;
   padding: 0px 4px;
   border-radius: 6px;
-  border: 1px solid var(--red);
-  /* fill: var(--white); */
+  fill: var(--white);
+  border: 1px solid var(--texclact);
+  /* background-color: var(--white); */
+  /* stroke: var(--red); */
+  /* stroke-width: 1px; */
+  /* border: 1px solid var(--red); */
 }
 
 .icon-menu-sidebar:hover {
