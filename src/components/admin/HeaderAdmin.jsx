@@ -61,6 +61,16 @@ const HeaderAdmin = () => {
                         >
                             Orders
                         </NavLink>
+                        <NavLink
+                            to={"contactlist"}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "bttn bttnact header-admin-menu"
+                                    : "bttn header-admin-menu"
+                            }
+                        >
+                            Contact List
+                        </NavLink>
                     </div>
                     <div className="setdiv-3">
                         <a className="bttn header-admin-menu" href='/' target='_YMCshop'>

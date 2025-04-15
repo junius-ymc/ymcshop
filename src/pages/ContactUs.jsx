@@ -1,31 +1,51 @@
 import React, { useState, useEffect } from "react";
+// import axios from "axios";
+import useEcomStore from "../store/ecom-store";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import { Helmet } from "react-helmet-async";
 import IconAboutUs from "../components/icon/IconAboutUs";
 import IconContactUs from "../components/icon/IconContactUs";
 import { Link } from "react-router-dom";
+import { createContact } from "../api/contact";
+import { toast } from "react-toastify";
+import LoaderDiv from "../components/LoaderDiv";
 
 const ContactUs = () => {
 
-  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
-
-  const [formData, setFormData] = useState({
+  const initialState = {
     name: "",
     email: "",
+    subject: "",
     message: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
   };
 
-  const handleSubmit = (e) => {
+  const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const token = useEcomStore((state) => state.token);
+  const [formData, setFormData] = useState(initialState);
+  const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    setLoading(true); // เริ่มโหลด
     e.preventDefault();
-    alert("ขอบคุณสำหรับข้อความ! (ฟอร์มนี้เป็นตัวอย่างยังไม่เชื่อม Backend)");
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      // const res = await axios.post("http://localhost:5001/api/contact", formData);
+      const res = await createContact(token, formData);
+      setFormData(initialState);
+      toast.success("ส่งข้อความเรียบร้อยแล้ว!");
+      console.log("✅ ส่งข้อมูลสำเร็จ", res.data);
+    } catch (error) {
+      toast.error("เกิดข้อผิดพลาดในการส่งข้อมูล");
+      console.error("❌ เกิดข้อผิดพลาด", error);
+    } finally {
+      setLoading(false); // โหลดเสร็จ
+    }
   };
 
   useEffect(() => {
@@ -37,6 +57,9 @@ const ContactUs = () => {
       <Helmet>
         <title>{t("mContactUs")} | {t("shopName")}</title>
       </Helmet>
+      {/* ✅ เริ่ม แสดง Loader */}
+      {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
+      {/* ✅ จบ แสดง Loader */}
       <div className="div-wrap">
         <div className="div-head">
           <span className="setdiv-3">
@@ -77,7 +100,7 @@ const ContactUs = () => {
                       className="form-input"
                       required
                     />
-                    <label for="">ชื่อของคุณ</label>
+                    <label>ชื่อของคุณ</label>
                   </div>
                   <div className="input-group">
                     <input
@@ -89,7 +112,19 @@ const ContactUs = () => {
                       className="form-input"
                       required
                     />
-                    <label for="">{t("liEmail")}</label>
+                    <label>{t("liEmail")}</label>
+                  </div>
+                  <div className="input-group">
+                    <input
+                      type="text"
+                      name="subject"
+                      placeholder=""
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="form-input"
+                      required
+                    />
+                    <label>หัวข้อเรื่อง</label>
                   </div>
                   <div className="input-group">
                     <textarea
@@ -101,7 +136,7 @@ const ContactUs = () => {
                       className="form-textarea"
                       required
                     ></textarea>
-                    <label for="">ข้อความของคุณ</label>
+                    <label>ข้อความของคุณ</label>
                   </div>
                   <button className="bttn btn-mod mt-4" type="submit">ส่งข้อความ ✉</button>
                 </form>

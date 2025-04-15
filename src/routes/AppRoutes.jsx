@@ -26,6 +26,7 @@ import ManageOrders from '../pages/admin/ManageOrders'
 import AboutUs from '../pages/AboutUs'
 import ContactUs from '../pages/ContactUs'
 import HowToPay from '../pages/HowToPay'
+import ContactList from '../pages/admin/ContactList'
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
             { path: 'product/:id', element: <EditProduct /> },
             { path: 'manage', element: <Manage /> },
             { path: 'orders', element: <ManageOrders /> },
+            { path: 'contactlist', element: <ContactList /> },
         ]
     },
     {

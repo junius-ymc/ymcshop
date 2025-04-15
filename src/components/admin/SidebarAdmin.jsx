@@ -78,6 +78,18 @@ const SidebarAdmin = () => {
           <ListOrdered className="mr-2" />
           Orders
         </NavLink>
+        
+        <NavLink
+          to={"contactlist"}
+          className={({ isActive }) =>
+            isActive
+              ? "bttn bttnact sidebar-admin-menu"
+              : "bttn sidebar-admin-menu"
+          }
+        >
+          {/* <ListOrdered className="mr-2" /> */}
+          📩 Contact List
+        </NavLink>
       </nav>
 
       <div>
