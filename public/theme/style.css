@@ -630,6 +630,7 @@ header .wrapper .navbar li a {
   justify-content: center;
   border-radius: 4px;
   background-color: var(--red);
+  border: 1px solid var(--texclact);
 }
 
 .logo:hover {
