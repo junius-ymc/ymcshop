@@ -7,12 +7,14 @@ import LoaderDiv from "../LoaderDiv";
 
 const TableContact = () => {
     const [contacts, setContacts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const token = useEcomStore((state) => state.token);
 
     const handleRemove = async (id) => {
         const isConfirmed = window.confirm("คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลนี้?");
         if (!isConfirmed) return; // ❌ ยกเลิกถ้าไม่กดยืนยัน
+        setLoading(true); // เริ่มโหลด
         try {
             const res = await removeContact(token, id);
             console.log(res);
@@ -22,6 +24,8 @@ const TableContact = () => {
         } catch (err) {
             console.log(err);
             toast.error(`${err}`, { bodyClassName: "toastify-toast-modify" });
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -33,7 +37,7 @@ const TableContact = () => {
         } catch (err) {
             console.error("❌ Error fetching contacts:", err);
         } finally {
-            setLoading(false);
+            setIsLoading(false);
         }
     };
 
@@ -41,7 +45,7 @@ const TableContact = () => {
         fetchContacts();
     }, []);
 
-    if (loading) return <p>Loading contacts...</p>;
+    if (isLoading) return <p className="text-center"><br /><strong>... Loading ...</strong></p>;
 
     return (
         <div className="div-main-admin-content">
