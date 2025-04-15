@@ -9,12 +9,14 @@ const TableOrders = () => {
   const token = useEcomStore((state) => state.token);
   const [orders, setOrders] = useState([]);
   const [orderData, setOrderData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
   const sortedProducts = [...orders].sort((a, b) => b.id - a.id);
 
   useEffect(() => {
     handleGetOrder(token);
+    setIsLoading(false);
   }, []);
 
   const handleGetOrder = (token) => {
@@ -73,6 +75,8 @@ const TableOrders = () => {
         return "bg-gray-200";
     }
   };
+
+  if (isLoading) return <p className="text-center"><br /><strong>... Loading ...</strong></p>;
 
   return (
     <div>
@@ -137,7 +141,7 @@ const TableOrders = () => {
                       <option>Cancelled</option>
                     </select>
                     <span className={`text-xs admin-table-td-orders py-1 rounded-full text-nowrap ${getStatusColor(orderData[item.id]?.status || orderStatusData.status || item.orderStatus)}`}>
-                    {orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
+                      {orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
                     </span>
                   </td>
                   <td className="admin-table-td-orders">
