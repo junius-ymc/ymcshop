@@ -16,7 +16,6 @@ const TableOrders = () => {
 
   useEffect(() => {
     handleGetOrder(token);
-    setIsLoading(false);
   }, []);
 
   const handleGetOrder = (token) => {
@@ -26,6 +25,9 @@ const TableOrders = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
