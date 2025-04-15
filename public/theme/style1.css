@@ -20,11 +20,4 @@
   /* สีที่คลุมหน้าจอ */
   --bgoverlay: #fcfcfc80;
 
-  /* ส่วนของ Color ที่ใช้ร่วมกัน */
-  --white-default: #ffffff;
-  --black-default: #000000;
-  --orangfull: #ffa600;
-  --yellowfull: #ffe600;
-  --greenfull: #00ff00;
-
 }

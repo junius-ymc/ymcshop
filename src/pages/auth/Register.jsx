@@ -116,10 +116,10 @@ const Register = () => {
 
                   <div>
                     <input
-                      autoComplete="new-password"
+                      autoComplete="off"
                       {...register("password")}
                       placeholder={t("rgtPassword")}
-                      type="password"
+                      type="text"
                       className={`form-input regist-input
                   ${errors.password && "error-message"}
                   `}
@@ -148,6 +148,7 @@ const Register = () => {
 
                   <div>
                     <input
+                      autoComplete="new-password"
                       {...register("confirmPassword")}
                       placeholder={t("rgtConPass")}
                       type="password"

@@ -15,6 +15,13 @@
   --fontsize10: clamp(0.563rem, calc(7vw + 0.625rem), 0.688rem);
   /* --fontsize10: clamp(0.563rem, 10vw, 0.625rem); */
 
+  /* ส่วนของ Color ที่ใช้ร่วมกัน */
+  --white-default: #ffffff;
+  --black-default: #000000;
+  --orangfull: #ffa600;
+  --yellowfull: #ffe600;
+  --greenfull: #00ff00;
+
   /* ส่วนของ Shadow */
   --box-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --box-shadow-mid: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -185,7 +192,7 @@ i {
   font-size: var(--fontsize17);
   font-weight: 600;
   text-align: center;
-  color: var(--gray);
+  color: var(--white-default);
   background-color: var(--red);
   display: inline-block;
   padding: 3px 6px;
@@ -1130,6 +1137,12 @@ header .wrapper .navbar li a {
   color: var(--white-default);
   background-color: var(--bluelite);
   border: solid 1px var(--redfull);
+}
+
+.shop-search-text {
+  font-size: var(--fontsize15);
+  text-align: center;
+  color: var(--black);
 }
 
 /* -------------------------------------- pagination */

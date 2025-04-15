@@ -190,6 +190,7 @@ const Shop = () => {
           <span>
             <IconSearch className="icon-search-btn" />
           </span>
+          <div className="shop-search-text"><strong>{t("sbSearch")}</strong></div>
         </button>
 
         {/* ✅ Modal ค้นหา */}
