@@ -104,7 +104,7 @@ const Login = () => {
                         name="email"
                         type="email"
                       />
-                      <label for="">{t("liEmail")}</label>
+                      <label>{t("liEmail")}</label>
                     </div>
 
                     <div className="input-group">
@@ -117,7 +117,7 @@ const Login = () => {
                         name="password"
                         type="password"
                       />
-                      <label for="">{t("liPassword")}</label>
+                      <label>{t("liPassword")}</label>
                     </div>
                   </div>
 

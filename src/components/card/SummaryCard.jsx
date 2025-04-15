@@ -147,27 +147,27 @@ const SummaryCard = () => {
                       title={t("scFullName")}
                       className="form-input checkout-input"
                     />
-                    <label for="">{t("scFullName")}</label>
+                    <label>{t("scFullName")}</label>
                   </div>
                   <div className="input-group">
                     <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder="" title={t("scHouseNo")} className="form-input checkout-input" />
-                    <label for="">{t("scHouseNo")}</label>
+                    <label>{t("scHouseNo")}</label>
                   </div>
                   <div className="input-group">
                     <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder="" title={t("scDistrict")} className="form-input checkout-input" />
-                    <label for="">{t("scDistrict")}</label>
+                    <label>{t("scDistrict")}</label>
                   </div>
                   <div className="input-group">
                     <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder="" title={t("scCity")} className="form-input checkout-input" />
-                    <label for="">{t("scCity")}</label>
+                    <label>{t("scCity")}</label>
                   </div>
                   <div className="input-group">
                     <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder="" title={t("scProvince")} className="form-input checkout-input" />
-                    <label for="">{t("scProvince")}</label>
+                    <label>{t("scProvince")}</label>
                   </div>
                   <div className="input-group">
                     <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder="" title={t("scZipCode")} className="form-input checkout-input" />
-                    <label for="">{t("scZipCode")}</label>
+                    <label>{t("scZipCode")}</label>
                   </div>
                   <div className="input-group">
                     <input
@@ -178,7 +178,7 @@ const SummaryCard = () => {
                       title={t("scPhone")}
                       className="form-input checkout-input"
                     />
-                    <label for="">{t("scPhone")}</label>
+                    <label>{t("scPhone")}</label>
                   </div>
                   <hr />
                   <div className="summary-card-div-btn">

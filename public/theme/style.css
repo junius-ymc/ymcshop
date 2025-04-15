@@ -1772,6 +1772,11 @@ header .wrapper .navbar li a {
   flex-direction: column;
 }
 
+.form-textarea {
+  padding-top: 4px;
+}
+
+.contact-form input,
 .contact-form textarea {
   height: 100%;
 }
