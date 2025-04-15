@@ -5,15 +5,18 @@ import Resize from 'react-image-file-resizer'
 import { removeFiles, uploadFiles } from '../../api/product'
 import useEcomStore from '../../store/ecom-store'
 import { Loader } from 'lucide-react';
+import LoaderDiv from "../LoaderDiv";
 
 const Uploadfile = ({ form, setForm }) => {
     // Javascript
     const token = useEcomStore((state) => state.token)
     const [isLoading, setIsLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const handleOnChange = (e) => {
         // code
         setIsLoading(true);
+        setLoading(true); // เริ่มโหลด
         const files = e.target.files;
         if (files) {
             setIsLoading(true);
@@ -50,6 +53,9 @@ const Uploadfile = ({ form, setForm }) => {
                                 console.log(err);
                                 setIsLoading(false);
                             })
+                            .finally(() => {
+                                setLoading(false) // โหลดเสร็จ
+                            })
                     },
                     "base64"
                 )
@@ -61,6 +67,7 @@ const Uploadfile = ({ form, setForm }) => {
 
     const handleDelete = (public_id) => {
         const images = form.images
+        setLoading(true);
         removeFiles(token, public_id)
             .then((res) => {
                 const filterImages = images.filter((item) => {
@@ -78,14 +85,16 @@ const Uploadfile = ({ form, setForm }) => {
             .catch((err) => {
                 console.log(err)
             })
+            .finally(() => {
+                setLoading(false) // โหลดเสร็จ
+            })
     }
 
     return (
         <div className='my-4'>
             <div className='flex mx-4 gap-4 my-4'>
-                {
-                    isLoading && <Loader className='w-16 h-16 animate-spin' />
-                }
+                {isLoading && <Loader className='w-16 h-16 animate-spin' />}
+                {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
 
                 {/* ✅ ใช้ form.images ตรง ๆ */}
                 {
