@@ -44,7 +44,7 @@ const LazyProductTable = ({ currentItems, indexOfFirstItem, toggleSortOrder, sor
                 )}
               </td>
               <td className="admin-table-td-product text-xs">{item.title}</td>
-              <td className="admin-table-td-product text-xs">{item.description}</td>
+              <td className="admin-table-td-product text-xs text-white-space">{item.description}</td>
               <td className="admin-table-td-product text-xs font-semibold">{numberFormat(item.price)}</td>
               <td className="admin-table-td-product text-xs">{item.quantity}</td>
               <td className="admin-table-td-product text-xs">{item.sold}</td>

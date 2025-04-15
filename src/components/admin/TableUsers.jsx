@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const TableUsers = () => {
   const token = useEcomStore((state) => state.token);
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
   const sortedProducts = [...users].sort((a, b) => b.id - a.id);
@@ -20,7 +21,12 @@ const TableUsers = () => {
       .then((res) => {
         setUsers(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleChangeUserStatus = (userId, userStatus) => {
@@ -49,6 +55,8 @@ const TableUsers = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  if (isLoading) return <p className="text-center"><br /><strong>... Loading ...</strong></p>;
 
   // console.log(users);
   return (
