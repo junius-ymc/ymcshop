@@ -86,7 +86,7 @@ const TableUsers = () => {
             }
 
             return (
-              <tr key={el.id} className="admin-table-tr-user">
+              <tr key={el.id} className="admin-table-tr-user text-xs">
                 <td className="admin-table-td-user">{i + 1}:({el.id})</td>
                 <td className="admin-table-td-user">{`${nameData.fullName || "N/A"} ${nameData.phone || "N/A"}`}</td>
                 <td className="admin-table-td-user">
@@ -111,7 +111,7 @@ const TableUsers = () => {
                 </td>
                 <td className="admin-table-td-user">
                   <button
-                    className={`bttn btn-mod btn-admin-style ${el.enabled ? "bg-red-500" : "bg-green-500"}`}
+                    className={`bttn btn-mod btn-admin-style text-xs ${el.enabled ? "bg-red-500" : "bg-green-500"}`}
                     onClick={() => handleChangeUserStatus(el.id, el.enabled)}
                   >
                     {el.enabled ? "Disable" : "Enable"}

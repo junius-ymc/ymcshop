@@ -125,7 +125,7 @@ const TableOrders = () => {
                     <ul>
                       {item.products?.map((product, index) => (
                         <li key={index} className="text-sm">
-                          {product.product.title} <span className="text-gray-600">{product.count} x {numberFormat(product.product.price)}</span>
+                          {product.product.title} <span className="text-gray-600 text-xs">{product.count} x {numberFormat(product.product.price)}</span>
                         </li>
                       ))}
                     </ul>
@@ -158,7 +158,7 @@ const TableOrders = () => {
                   <td className="admin-table-td-orders">
                     <button
                       onClick={() => handleUpdateOrder(item.id)}
-                      className="bttn btn-mod-1 btn-admin-style"
+                      className="bttn btn-mod-1 btn-admin-style text-xs"
                     >
                       Update
                     </button>

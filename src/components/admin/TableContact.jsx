@@ -63,8 +63,8 @@ const TableContact = () => {
                 </thead>
                 <tbody>
                     {contacts.map((c, index) => (
-                        <tr key={c.id} className="admin-table-tr-orders">
-                            <td className="admin-table-td-orders text-xs">{index + 1}</td>
+                        <tr key={c.id} className="admin-table-tr-orders text-xs">
+                            <td className="admin-table-td-orders">{index + 1}</td>
                             <td className="admin-table-td-orders">{c.name}</td>
                             <td className="admin-table-td-orders">{c.email}</td>
                             <td className="admin-table-td-orders">{c.subject}</td>
@@ -72,7 +72,7 @@ const TableContact = () => {
                             <td className="admin-table-td-orders">{new Date(c.createdAt).toLocaleString()}</td>
                             <td className="admin-table-td-orders">
                                 <button
-                                    className='bttn btn-mod-1 btn-admin-style'
+                                    className='bttn btn-mod-1 btn-admin-style text-xs'
                                     onClick={() => handleRemove(c.id)}
                                 >
                                     Delete
