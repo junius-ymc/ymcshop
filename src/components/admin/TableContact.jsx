@@ -68,7 +68,7 @@ const TableContact = () => {
                             <td className="admin-table-td-orders">{c.name}</td>
                             <td className="admin-table-td-orders">{c.email}</td>
                             <td className="admin-table-td-orders">{c.subject}</td>
-                            <td className="admin-table-td-orders">{c.message}</td>
+                            <td className="admin-table-td-orders text-white-space">{c.message}</td>
                             <td className="admin-table-td-orders">{new Date(c.createdAt).toLocaleString()}</td>
                             <td className="admin-table-td-orders">
                                 <button

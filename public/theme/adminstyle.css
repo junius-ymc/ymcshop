@@ -34,6 +34,11 @@
   margin-bottom: 4px;
 }
 
+.text-white-space {
+  white-space: pre-wrap;
+  text-wrap: wrap;
+}
+
 /* ------------------------------------- Start HeaderAdmin */
 .header-admin {
   display: flex;
