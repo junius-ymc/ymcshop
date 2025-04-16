@@ -112,16 +112,19 @@ i {
 
 .btn-mod {
   background-color: var(--red);
-  align-self: center;
+  color: var(--white-default);
   padding: 5px 24px;
-  width: auto;
+  text-wrap: nowrap;
+  /* align-self: center; */
 }
 
 .btn-mod-1 {
-  background-color: var(--white);
+  background-color: var(--bgcontent);
   color: var(--red);
+  padding: 5px 24px;
 }
 
+.btn-mod-1:hover,
 .btn-mod:hover {
   background-color: var(--btbgact);
   color: var(--bluedeep);
@@ -343,14 +346,14 @@ i {
 }
 
 .icon-cart {
-  fill: var(--white);
-  stroke: var(--white);
+  fill: var(--white-default);
+  stroke: var(--white-default);
   width: 24px;
   height: 24px;
 }
 
 .icon-shopping {
-  fill: var(--white);
+  fill: var(--white-default);
   width: 21px;
   height: 19px;
   margin-right: 4px;
@@ -358,7 +361,7 @@ i {
 
 .icon-register {
   fill: none;
-  stroke: var(--white);
+  stroke: var(--white-default);
   stroke-width: 2px;
   width: 21px;
   height: 19px;
@@ -367,7 +370,7 @@ i {
 
 .icon-cart-list-modal {
   fill: none;
-  stroke: var(--white);
+  stroke: var(--white-default);
   stroke-width: 2px;
   width: 24px;
   height: 24px;
@@ -445,7 +448,7 @@ img {
   top: -14px;
   left: 5px;
   background: var(--bluelite);
-  color: var(--bgcontent);
+  color: var(--white-default);
   border-radius: 3px;
   padding: 0 4px;
 }
@@ -480,8 +483,8 @@ img {
   opacity: 1;
   outline: none;
   box-shadow: 0 0 0 2px var(--bluedeep);
-  color: var(--bluelite);
-  background-color: var(--btbgact);
+  color: var(--bgcontent);
+  background-color: var(--gray);
 }
 
 .form-textarea:invalid,
@@ -1968,8 +1971,8 @@ footer .wrapper ul li .textact {
   }
 
   .cart-list-left-data-1 img {
-    width: 70px;
-    height: 100px;
+    width: 100px;
+    height: 130px;
   }
 
   .shop-pagination-bnt {
