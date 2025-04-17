@@ -29,6 +29,8 @@ const Uploadfile = ({ form, setForm }) => {
                 const file = files[i];
                 if (!file.type.startsWith('image/')) {
                     toast.error(`File ${file.name} บ่แม่นรูป`);
+                    setIsLoading(false);
+                    setLoading(false);
                     continue;
                 }
                 // Image Resize 
