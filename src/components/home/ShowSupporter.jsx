@@ -1,10 +1,10 @@
 // rafce
 // rfce
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const ShowSupporter = () => {
 
-// -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
 
   // สร้าง component Swiper
   useEffect(() => {
@@ -38,59 +38,69 @@ const ShowSupporter = () => {
     };
   }, []);
 
-// -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
 
   // ไฟล์ข้อมูลและรูป
   const itemsdata = [
     {
       id: "101",
-      author: "Ben Adam",
-      url: "/img/carouselslider/01.jpg",
+      userName: "Ben Adam",
+      reviewProduct: "สินค้าดี มีคุณภาพ",
+      url: "./public/img/carouselslider/01.jpg",
     },
     {
       id: "102",
-      author: "Ismad",
-      url: "/img/carouselslider/02.jpg",
+      userName: "Ismad",
+      reviewProduct: "สินค้าดี มีคุณภาพ จัดส่งเร็วทันใจ สินค้าดี มีคุณภาพ จัดส่งเร็วทันใจ",
+      url: "./public/img/carouselslider/02.jpg",
     },
     {
       id: "103",
-      author: "SuZuKi",
-      url: "/img/carouselslider/03.jpg",
+      userName: "SuZuKi",
+      reviewProduct: "review Product ทดสอบ",
+      url: "./public/img/carouselslider/03.jpg",
     },
     {
       id: "104",
-      author: "ฟฟฟฟฟ",
-      url: "/img/carouselslider/04.jpg",
+      userName: "ฟฟฟฟฟ",
+      reviewProduct: "จัดส่งเร็วทันใจ สินค้าดี มีคุณภาพ",
+      url: "./public/img/carouselslider/04.jpg",
     },
     {
       id: "105",
-      author: "Dyaa",
-      url: "/img/carouselslider/05.jpg",
+      userName: "Dyaa",
+      reviewProduct: "ทดสอบ review Product ทดสอบ",
+      url: "./public/img/carouselslider/05.jpg",
     },
     {
       id: "106",
-      author: "ททททท Eldin",
-      url: "/img/carouselslider/06.jpg",
+      userName: "ททททท Eldin",
+      reviewProduct: "จัดส่งเร็วทันใจ สินค้าดี มีคุณภาพ review Product",
+      url: "./public/img/carouselslider/06.jpg",
     },
     {
       id: "107",
-      author: "Dy xxx",
-      url: "/img/carouselslider/07.jpg",
+      userName: "Dy xxx",
+      reviewProduct: "review Product สินค้าดี มีคุณภาพ review Product",
+      url: "./public/img/carouselslider/07.jpg",
     },
     {
       id: "108",
-      author: "Adam Ben",
-      url: "/img/carouselslider/08.jpg",
+      userName: "Adam Ben",
+      reviewProduct: "สินค้าดี มีคุณภาพ review Product review Product",
+      url: "./public/img/carouselslider/08.jpg",
     },
     {
       id: "109",
-      author: "yyy xxx",
-      url: "/img/carouselslider/09.jpg",
+      userName: "yyy xxx",
+      reviewProduct: "สินค้าดี มีคุณภาพ review Product review Product",
+      url: "./public/img/carouselslider/09.jpg",
     },
     {
       id: "110",
-      author: "dddd",
-      url: "/img/carouselslider/10.jpg",
+      userName: "dddd",
+      reviewProduct: "review Product สินค้าดี มีคุณภาพ review Product",
+      url: "./public/img/carouselslider/10.jpg",
     }
   ];
 
@@ -100,15 +110,20 @@ const ShowSupporter = () => {
         <div className="swiper mySwiper">
           <div className="swiper-wrapper">
 
-            {itemsdata?.map((itemdata, index) => (
-              <div className="swiper-slide content-crsl" key={index}>
-                <img src={itemdata.url} alt={itemdata.author} />
-                <div className="text-content-crsl">
-                  <h4>Supporter:</h4> &nbsp; <p>{itemdata.author}</p>
+            {itemsdata?.map((itemdata) => (
+              <div className="swiper-slide content-crsl" key={itemdata.id}>
+                <img src={itemdata.url} alt={itemdata.userName} />
+                <div className="content-crsl-userName">
+                  <h4>Supporter:</h4> &nbsp; <p>{itemdata.userName}</p>
+                </div>
+                <div className="content-crsl-reviewProduct-box">
+                  <div className="content-crsl-reviewProduct">
+                    <p>" {itemdata.reviewProduct} "</p>
+                  </div>
                 </div>
               </div>
             ))}
-            
+
           </div>
         </div>
       </section>
