@@ -684,20 +684,20 @@ header .wrapper .navbar li a {
   /* border-bottom-right-radius: .6rem; */
 }
 
-.text-content-crsl {
+.content-crsl-userName {
   display: flex;
   justify-content: center;
   align-items: center;
   /* flex-direction: column; */
 }
 
-.text-content-crsl h4 {
+.content-crsl-userName h4 {
   color: var(--red);
   font-size: var(--fontsize13);
   font-weight: 600;
 }
 
-.text-content-crsl p {
+.content-crsl-userName p {
   color: var(--white);
   font-size: var(--fontsize14);
   font-weight: 600;
