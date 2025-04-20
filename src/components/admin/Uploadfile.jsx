@@ -45,7 +45,7 @@ const Uploadfile = ({ form, setForm }) => {
                         // endpoint Backend
                         uploadFiles(token, data)
                             .then((res) => {
-                                console.log(res);
+                                // console.log(res);
                                 allFiles.push(res.data);
                                 setForm({ ...form, images: allFiles }); // ✅ อัปเดต state อย่างถูกต้อง
                                 setIsLoading(false);
@@ -65,7 +65,8 @@ const Uploadfile = ({ form, setForm }) => {
             }
         }
     }
-    console.log(form)
+
+    // console.log(form)
 
     const handleDelete = (public_id) => {
         const images = form.images
@@ -73,7 +74,7 @@ const Uploadfile = ({ form, setForm }) => {
         removeFiles(token, public_id)
             .then((res) => {
                 const filterImages = images.filter((item) => {
-                    console.log(item)
+                    // console.log(item)
                     return item.public_id !== public_id
                 })
 
@@ -97,8 +98,6 @@ const Uploadfile = ({ form, setForm }) => {
             <div className='flex mx-4 gap-4 my-4'>
                 {isLoading && <Loader className='w-16 h-16 animate-spin' />}
                 {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
-
-                {/* ✅ ใช้ form.images ตรง ๆ */}
                 {
                     form.images.map((item, index) =>
                         <div className='relative' key={index}>
