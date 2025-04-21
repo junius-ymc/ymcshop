@@ -53,3 +53,12 @@ export const changeUserRole = async (token,value) => {
     },
   });
 };
+
+export const getDashboardStats = async (token) => {
+  // code body
+  return axios.get("https://ymc-shop-api.vercel.app/api/admin/dashboard-stats", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

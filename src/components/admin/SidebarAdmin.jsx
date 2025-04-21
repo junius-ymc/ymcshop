@@ -11,14 +11,14 @@ import {
 // import IconLogout from "../icon/IconLogout";
 
 const SidebarAdmin = () => {
-  
+
   return (
     <div className="sidebar-admin">
       <div className="sidebar-admin-header">
         Admin Panel
       </div>
-
       <nav className="sidebar-admin-wrap-menu">
+
         <NavLink
           to={"/admin/"}
           end
@@ -31,6 +31,7 @@ const SidebarAdmin = () => {
           <LayoutDashboard className="mr-2" />
           Dashboard
         </NavLink>
+
         <NavLink
           to={"manage"}
           className={({ isActive }) =>
@@ -78,7 +79,7 @@ const SidebarAdmin = () => {
           <ListOrdered className="mr-2" />
           Orders
         </NavLink>
-        
+
         <NavLink
           to={"contactlist"}
           className={({ isActive }) =>
@@ -90,8 +91,20 @@ const SidebarAdmin = () => {
           {/* <ListOrdered className="mr-2" /> */}
           📩 Contact List
         </NavLink>
-      </nav>
 
+        <NavLink
+          to={"allreviews"}
+          className={({ isActive }) =>
+            isActive
+              ? "bttn bttnact sidebar-admin-menu"
+              : "bttn sidebar-admin-menu"
+          }
+        >
+          {/* <ListOrdered className="mr-2" /> */}
+          🧾 All Reviews
+        </NavLink>
+
+      </nav>
       <div>
         <NavLink className="bttn sidebar-admin-menu">
           {/* <div><IconLogout className="icon-menu-s icon-menu-stroke" /></div> */}

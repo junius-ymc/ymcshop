@@ -8,8 +8,8 @@ const HeaderAdmin = () => {
         <div className='header-admin-bar'>
             <div className="setdiv-1">
                 <div className="setdiv-2">
-
                     <div className="setdiv-3">
+
                         <NavLink
                             to={"/admin/"}
                             end
@@ -69,8 +69,19 @@ const HeaderAdmin = () => {
                                     : "bttn header-admin-menu"
                             }
                         >
-                            Contact List
+                            ContactList
                         </NavLink>
+                        <NavLink
+                            to={"allreviews"}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "bttn bttnact header-admin-menu"
+                                    : "bttn header-admin-menu"
+                            }
+                        >
+                            AllReviews
+                        </NavLink>
+
                     </div>
                     <div className="setdiv-3">
                         <a className="bttn header-admin-menu" href='/' target='_YMCshop'>
@@ -79,8 +90,8 @@ const HeaderAdmin = () => {
                         <NavLink className="bttn header-admin-menu">
                             Logout
                         </NavLink>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>

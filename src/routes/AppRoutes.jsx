@@ -27,6 +27,9 @@ import AboutUs from '../pages/AboutUs'
 import ContactUs from '../pages/ContactUs'
 import HowToPay from '../pages/HowToPay'
 import ContactList from '../pages/admin/ContactList'
+import Review from '../pages/user/Review'
+import EditReview from '../pages/user/EditReview'
+import AllReviews from '../pages/admin/AllReviews'
 
 
 const router = createBrowserRouter([
@@ -56,7 +59,9 @@ const router = createBrowserRouter([
             { path: 'product/:id', element: <EditProduct /> },
             { path: 'manage', element: <Manage /> },
             { path: 'orders', element: <ManageOrders /> },
+            // จากตรงนี้เสริมเองทั้งหมด
             { path: 'contactlist', element: <ContactList /> },
+            { path: 'allreviews', element: <AllReviews /> },
         ]
     },
     {
@@ -67,6 +72,9 @@ const router = createBrowserRouter([
             { index: true, element: <HomeUser /> },
             { path: 'payment', element: <Payment /> },
             { path: 'history', element: <History /> },
+            // จากตรงนี้เสริมเองทั้งหมด
+            { path: 'review', element: <Review /> },
+            { path: 'review/:id', element: <EditReview /> },
         ]
     }
 
