@@ -7,13 +7,13 @@ const DashboardStatCards = ({ stats }) => {
     <div className="admin-dashboard-stats-grid">
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-blue-500">
-          <ShoppingCart />
-        </div>
         {stats.ordersToday > 0 && (
-          <div className="absolute">
-            <div className="absolute admin-notifycart-1">{stats.ordersToday}</div>
+          <div className="relative">
+            <div className="admin-notifycart-1">{stats.ordersToday}</div>
           </div>
         )}
+          <ShoppingCart />
+        </div>
         <div className="stat-text">
           <h4>Orders</h4>
           <p>{stats.totalOrders}</p>
@@ -21,13 +21,13 @@ const DashboardStatCards = ({ stats }) => {
       </div>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-green-500">
-          <Users />
-        </div>
         {stats.usersToday > 0 && (
-          <div className="absolute">
-            <div className="absolute admin-notifycart-1">{stats.usersToday}</div>
+          <div className="relative">
+            <div className="admin-notifycart-1">{stats.usersToday}</div>
           </div>
         )}
+          <Users />
+        </div>
         <div className="stat-text">
           <h4>Users</h4>
           <p>{stats.totalUsers}</p>
@@ -44,13 +44,13 @@ const DashboardStatCards = ({ stats }) => {
       </div>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-red-500">
-          <Mail />
-        </div>
         {stats.contactsToday > 0 && (
-          <div className="absolute">
-            <div className="absolute admin-notifycart-1">{stats.contactsToday}</div>
+          <div className="relative">
+            <div className="admin-notifycart-1">{stats.contactsToday}</div>
           </div>
         )}
+          <Mail />
+        </div>
         <div className="stat-text">
           <h4>Contacts</h4>
           <p>{stats.totalContacts}</p>
@@ -58,13 +58,13 @@ const DashboardStatCards = ({ stats }) => {
       </div>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-sky-500">
-          <MessageSquareDiff />
-        </div>
         {stats.reviewsToday > 0 && (
-          <div className="absolute">
-            <div className="absolute admin-notifycart-1">{stats.reviewsToday}</div>
+          <div className="relative">
+            <div className="admin-notifycart-1">{stats.reviewsToday}</div>
           </div>
         )}
+          <MessageSquareDiff />
+        </div>
         <div className="stat-text">
           <h4>Reviews</h4>
           <p>{stats.totalReviews}</p>
