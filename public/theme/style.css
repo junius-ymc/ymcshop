@@ -987,9 +987,6 @@ header .wrapper .navbar li a {
 /* ------------------------------------- Start Shop - Shop  ------------------------------------- */
 
 .show-sold-out-box {
-  color: var(--white);
-  background-color: var(--gray);
-  /* content: ""; */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -999,29 +996,32 @@ header .wrapper .navbar li a {
   border-radius: 6px;
   z-index: 0;
   overflow: hidden;
+  /* color: var(--white); */
+  /* background-color: var(--gray); */
+  /* content: ""; */
 }
 
 .show-sold-out-text {
   position: relative;
-  top: 47%;
-  right: 50px;
-  color: var(--redfull);
+  top: 50%;
+  /* right: 0px; */
+  color: var(--white-default);
   text-align: center;
   font-size: var(--fontsize18);
   font-weight: 600;
   z-index: 1;
-  background-color: var(--bluedeep);
+  background-color: var(--red);
   opacity: 60%;
   border-radius: 2px;
   transform: rotate(20deg);
-  width: 150%;
+  width: 100%;
   padding: 1px;
 }
 
 .show-sold-out-text:hover {
   background-color: var(--texclact);
-  opacity: 70%;
   transform: rotate(15deg) scale(1.2);
+  /* opacity: 70%; */
 }
 
 .wrap-shop {
