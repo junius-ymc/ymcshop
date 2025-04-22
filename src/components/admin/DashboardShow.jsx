@@ -3,6 +3,7 @@ import DashboardStatCards from "./DashboardStatCards";
 import { getDashboardStats } from "../../api/admin"; // API ดึงสถิติหลังบ้าน
 import useEcomStore from '../../store/ecom-store';
 import LoaderDiv from "../LoaderDiv";
+import RecentOrders from "./RecentOrders";
 
 const DashboardShow = () => {
   const token = useEcomStore((state) => state.token);
@@ -35,8 +36,10 @@ const DashboardShow = () => {
       {loading ? (
         <div><LoaderDiv /></div>
       ) : (
-        <DashboardStatCards stats={stats} />
-        /* เพิ่มอย่างอื่นต่อได้ เช่น Chart, Table, Notification */
+        <>
+          <DashboardStatCards stats={stats} />
+          <RecentOrders />
+        </>
       )}
     </div>
   );

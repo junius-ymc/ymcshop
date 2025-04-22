@@ -62,3 +62,12 @@ export const getDashboardStats = async (token) => {
     },
   });
 };
+
+export const getRecentOrders = async (token) => {
+  // code body
+  return axios.get("https://ymc-shop-api.vercel.app/api/admin/recent-orders", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
