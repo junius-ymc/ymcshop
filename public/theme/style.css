@@ -594,7 +594,7 @@ img {
   position: absolute;
   /* ขยับ tooltip ขึ้น/ลงเหนือ element */
   /* top: -20px;  */
-  bottom: -20px;
+  bottom: -25px;
   left: 50%;
   /* จัดให้อยู่กึ่งกลาง */
   /* transform: translateX(-50%); */
@@ -615,6 +615,19 @@ img {
 
 .tooltip-wrapper:hover .tooltip-1 {
   opacity: 1;
+}
+
+.tooltip-1::after {
+  content: "";
+  position: absolute;
+  /* top: 100%; */
+  bottom: 100%;
+  left: 25%;
+  transform: translateX(50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--bgcolo) transparent transparent transparent;
+  transform: rotate(180deg);
 }
 
 /* ------------------------------------- End Tooltip ------------------------------------- */

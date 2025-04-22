@@ -55,7 +55,7 @@ const DashboardStatCards = ({ stats }) => {
               <div className="relative">
                 <div className="admin-notifycart-1">{stats.contactsToday}</div>
               </div>
-              <div className="tooltip-1">ติดต่อเข้ามาใหม่วันนี้กดเกดเกดเกด</div>
+              <div className="tooltip-1">ติดต่อเข้ามาใหม่วันนี้</div>
             </div>
           )}
           <Mail />
