@@ -583,6 +583,41 @@ img {
 }
 
 /* ------------------------------------- End Notify ------------------------------------- */
+/* ------------------------------------- Start Tooltip ------------------------------------- */
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-1 {
+  position: absolute;
+  /* ขยับ tooltip ขึ้น/ลงเหนือ element */
+  /* top: -20px;  */
+  bottom: -20px;
+  left: 50%;
+  /* จัดให้อยู่กึ่งกลาง */
+  /* transform: translateX(-50%); */
+  background-color: var(--bgcolo);
+  color: var(--gray);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: var(--fontsize14);
+  /* ✅ บังคับให้ขึ้นบรรทัดเดียว */
+  white-space: nowrap;
+  box-shadow: var(--box-shadow-mid);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  /* ไม่ให้ tooltip ขวาง mouse */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tooltip-wrapper:hover .tooltip-1 {
+  opacity: 1;
+}
+
+/* ------------------------------------- End Tooltip ------------------------------------- */
 
 /* ------------------------------------- Start NAVIGATION BAR ------------------------------------- */
 
