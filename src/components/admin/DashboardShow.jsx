@@ -38,9 +38,9 @@ const DashboardShow = () => {
       ) : (
         <>
           <DashboardStatCards stats={stats} />
-          <RecentOrders />
         </>
       )}
+      <RecentOrders />
     </div>
   );
 };
