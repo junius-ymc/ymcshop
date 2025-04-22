@@ -32,9 +32,12 @@ const DashboardShow = () => {
   return (
     <div className="div-main-admin-content">
       <h2 className="admin-title">📊 Dashboard</h2>
-      {loading && (<div><LoaderDiv /></div>)}
-      <DashboardStatCards stats={stats} />
-      {/* เพิ่มอย่างอื่นต่อได้ เช่น Chart, Table, Notification */}
+      {loading ? (
+        <div><LoaderDiv /></div>
+      ) : (
+        <DashboardStatCards stats={stats} />
+        /* เพิ่มอย่างอื่นต่อได้ เช่น Chart, Table, Notification */
+      )}
     </div>
   );
 };
