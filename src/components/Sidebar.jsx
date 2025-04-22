@@ -36,6 +36,7 @@ const Sidebar = () => {
 
   // console.log(Boolean(user))
   // console.log(carts)
+  // console.log(user.email)
 
   const { t, i18n } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const changeLanguage = (lang) => {
@@ -108,6 +109,21 @@ const Sidebar = () => {
     localStorage.setItem("theme", selectedTheme); // บันทึกค่าธีม
   };
 
+  // ✅ แบบที่ 1: เอาเฉพาะชื่อด้านหน้า หลังตัว @ ให้ตัดออก
+  function EmailUsername({ email }) {
+    const username = email.split('@')[0];
+    return <div>{username}</div>;
+  }
+
+  // ✅ แบบที่ 2: ตัดให้แสดงตัวอักษรตามที่กำหนด
+  function TruncatedEmail({ email, maxLength = 11 }) {
+    const truncated = email.length > maxLength
+      ? `${email.slice(0, maxLength)}...`
+      : email;
+
+    return <div>{truncated}</div>;
+  }
+
   return (
     <>
 
@@ -174,10 +190,14 @@ const Sidebar = () => {
 
       <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
         <header className="sidebar-header">
+          {/* <span className="sidebar-header-text-username">
+            <EmailUsername email={user.email} />
+          </span> */}
+          <span className="sidebar-header-text-username">
+            <TruncatedEmail email={user.email} />
+          </span>
           <button className="sidebar-toggler" onClick={toggleSidebar}>
-            <span>
-              <IconArrow className="icon-menu-arrow" />
-            </span>
+            <span><IconArrow className="icon-menu-arrow" /></span>
           </button>
         </header>
 
