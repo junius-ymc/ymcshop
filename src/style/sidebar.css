@@ -37,9 +37,10 @@
 
 .sidebar-header-text-username {
   display: block;
-  margin-left: 45px;
+  margin-left: 43px;
   object-fit: contain;
   color: var(--white);
+  font-size: var(--fontsize12);
 }
 
 /* ------------------------------------- ปุ่มลูกศร ซ้าย/ขวา ซ้อนโชว์แถบ ------------------------------------- */

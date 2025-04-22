@@ -116,7 +116,7 @@ const Sidebar = () => {
   }
 
   // ✅ แบบที่ 2: ตัดให้แสดงตัวอักษรตามที่กำหนด
-  function TruncatedEmail({ email, maxLength = 11 }) {
+  function TruncatedEmail({ email, maxLength = 12 }) {
     const truncated = email.length > maxLength
       ? `${email.slice(0, maxLength)}...`
       : email;
