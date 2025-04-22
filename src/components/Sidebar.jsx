@@ -193,9 +193,11 @@ const Sidebar = () => {
           {/* <span className="sidebar-header-text-username">
             <EmailUsername email={user.email} />
           </span> */}
-          <span className="sidebar-header-text-username" onClick={toggleSidebar}>
-            <TruncatedEmail email={user.email} />
-          </span>
+          {user?.email && (
+            <span className="sidebar-header-text-username" onClick={toggleSidebar}>
+              <TruncatedEmail email={user.email} />
+            </span>
+          )}
           <button className="sidebar-toggler" onClick={toggleSidebar}>
             <span><IconArrow className="icon-menu-arrow" /></span>
           </button>
