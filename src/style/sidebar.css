@@ -39,7 +39,7 @@
   display: block;
   margin-left: 43px;
   object-fit: contain;
-  color: var(--white);
+  color: var(--texclact);
   font-size: var(--fontsize12);
 }
 
