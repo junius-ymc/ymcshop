@@ -89,3 +89,9 @@ export const getDailySales = async (token) => {
     },
   });
 };
+
+export const getMonthlySales = async (token) => {
+  return axios.get("https://ymc-shop-api.vercel.app/api/admin/chart-monthly-sales", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};

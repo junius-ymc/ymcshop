@@ -6,6 +6,7 @@ import LoaderDiv from "../LoaderDiv";
 import RecentOrders from "./RecentOrders";
 import DashboardChart from "./DashboardChart";
 import SalesChartToggle from "./SalesChartToggle";
+import MonthlySalesChart from "./MonthlySalesChart";
 
 const DashboardShow = () => {
   const token = useEcomStore((state) => state.token);
@@ -43,6 +44,7 @@ const DashboardShow = () => {
         <div className="mb-8"><RecentOrders /></div>  
         <div className="mb-8"><DashboardChart /></div>  
         <div className="mb-8"><SalesChartToggle /></div>  
+        <div className="mb-8"><MonthlySalesChart /></div>
     </div>
   );
 };

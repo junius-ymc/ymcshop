@@ -43,7 +43,7 @@ const SalesChartToggle = () => {
     <div className="div-main-admin-content">
       <div className="flex justify-between items-center">
         <h3 className="text-xl font-bold">📈 Daily Sales (This Month)</h3>
-        <button onClick={handleToggle} className="bttn btn-mod-1">
+        <button onClick={handleToggle} className="bttn btn-mod-1 btn-admin-style">
           เปลี่ยนเป็น {chartType === "line" ? "กราฟแท่ง" : "กราฟเส้น"}
         </button>
       </div>
