@@ -4,6 +4,8 @@ import { getDashboardStats } from "../../api/admin"; // API ดึงสถิ�
 import useEcomStore from '../../store/ecom-store';
 import LoaderDiv from "../LoaderDiv";
 import RecentOrders from "./RecentOrders";
+import DashboardChart from "./DashboardChart";
+import SalesChartToggle from "./SalesChartToggle";
 
 const DashboardShow = () => {
   const token = useEcomStore((state) => state.token);
@@ -32,15 +34,15 @@ const DashboardShow = () => {
 
   return (
     <div className="div-main-admin-content">
-      <h2 className="admin-title">📊 Dashboard</h2>
+      <h2 className="admin-title text-xl font-bold">📊 Dashboard</h2>
       {loading ? (
         <div><LoaderDiv /></div>
       ) : (
-        <>
           <DashboardStatCards stats={stats} />
-        </>
       )}
-      <RecentOrders />
+        <div className="mb-8"><RecentOrders /></div>  
+        <div className="mb-8"><DashboardChart /></div>  
+        <div className="mb-8"><SalesChartToggle /></div>  
     </div>
   );
 };

@@ -59,7 +59,7 @@ const RecentOrders = () => {
 
   return (
     <div className="div-main-admin-content">
-      <h3 className="admin-title">🧾 รายการสั่งซื้อ 5 รายการล่าสุด</h3>
+      <h3 className="admin-title text-xl font-bold">🧾 รายการสั่งซื้อ 5 รายการล่าสุด</h3>
       {loading ? (
         <LoaderDiv />
       ) : (

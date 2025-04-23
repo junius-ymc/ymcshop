@@ -71,3 +71,21 @@ export const getRecentOrders = async (token) => {
     },
   });
 };
+
+export const getDailySalesChart = async (token) => {
+  // code body
+  return axios.get("https://ymc-shop-api.vercel.app/api/admin/chart-daily-sales", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getDailySales = async (token) => {
+  // code body
+  return axios.get("https://ymc-shop-api.vercel.app/api/admin/daily-sales", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
