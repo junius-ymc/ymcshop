@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BarChart, Bar, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { getDailySalesChart } from "../../api/admin";
 import useEcomStore from "../../store/ecom-store";
-import LoaderDiv from "../LoaderDiv";
+import { Loader } from 'lucide-react';
 
 const DashboardChart = () => {
   const [data, setData] = useState([]);
@@ -27,7 +27,9 @@ const DashboardChart = () => {
     <div className="div-main-admin-content">
       <h3 className="admin-title text-xl font-bold">📈 รายงานยอดขายรายวัน (เดือนนี้)</h3>
       {loading ? (
-        <LoaderDiv />
+        <div className="flex justify-center items-center p-4">
+          <Loader className='w-24 h-24 animate-spin' />
+        </div>
       ) : (
         // ปรับแต่งกราฟ
         <ResponsiveContainer width="100%" height={300}>

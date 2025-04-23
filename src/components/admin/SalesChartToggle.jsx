@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import { getDailySales } from "../../api/admin";
 import useEcomStore from "../../store/ecom-store";
-import LoaderDiv from "../LoaderDiv";
+import { Loader } from 'lucide-react';
 
 const SalesChartToggle = () => {
   const [chartType, setChartType] = useState("line");
@@ -50,7 +50,9 @@ const SalesChartToggle = () => {
 
       <div className="div-content-box">
         {loading ? (
-          <LoaderDiv />
+          <div className="flex justify-center items-center p-4">
+            <Loader className='w-24 h-24 animate-spin' />
+          </div>
         ) : (
           <ResponsiveContainer width="100%" height={300}>
             {chartType === "line" ? (

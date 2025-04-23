@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { getMonthlySales } from "../../api/admin";
 import useEcomStore from "../../store/ecom-store";
-import LoaderDiv from "../LoaderDiv";
+import { Loader } from 'lucide-react';
 
 const MonthlySalesChart = () => {
   const token = useEcomStore((state) => state.token);
@@ -82,7 +82,11 @@ const MonthlySalesChart = () => {
           เปลี่ยนเป็น {chartType === "bar" ? "กราฟเส้น" : "กราฟแท่ง"}
         </button>
       </div>
-      {loading ? <LoaderDiv /> : renderChart()}
+      {loading ?
+        <div className="flex justify-center items-center p-4">
+          <Loader className='w-24 h-24 animate-spin' />
+        </div>
+        : renderChart()}
     </div>
   );
 };

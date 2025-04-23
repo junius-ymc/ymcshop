@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getRecentOrders } from "../../api/admin";
 import useEcomStore from "../../store/ecom-store";
-import LoaderDiv from "../LoaderDiv";
+import { Loader } from 'lucide-react';
 
 const RecentOrders = () => {
   const token = useEcomStore((state) => state.token);
@@ -61,7 +61,9 @@ const RecentOrders = () => {
     <div className="div-main-admin-content">
       <h3 className="admin-title text-xl font-bold">🧾 รายการสั่งซื้อ 5 รายการล่าสุด</h3>
       {loading ? (
-        <LoaderDiv />
+        <div className="flex justify-center items-center p-4">
+          <Loader className='w-24 h-24 animate-spin' />
+        </div>
       ) : (
         <div className="table-responsive">
           <table className="admin-table-orders">
