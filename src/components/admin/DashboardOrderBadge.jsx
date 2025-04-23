@@ -41,7 +41,9 @@ const DashboardOrderBadge = () => {
     <div className="order-badge-box">
       <h4 className="order-badge-title">คำสั่งซื้อใหม่ 📦</h4>
       {loading ? (
-        <div><Loader /></div>
+        <div className="flex justify-center items-center p-4">
+          <Loader className='w-24 h-24 animate-spin' />
+        </div>
       ) : (
         <div className="order-badge-content">
           {pendingCount > 0 ? (

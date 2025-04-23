@@ -38,7 +38,9 @@ const DashboardShow = () => {
     <div className="div-main-admin-content">
       <h2 className="admin-title text-xl font-bold">📊 Dashboard</h2>
       {loading ? (
-        <div><Loader /></div>
+        <div className="flex justify-center items-center p-4">
+          <Loader className='w-24 h-24 animate-spin' />
+        </div>
       ) : (
         <DashboardStatCards stats={stats} />
       )}
