@@ -66,7 +66,7 @@ const HistoryCard = () => {
 
         {!loading && orders.length === 0 && (
           <div className="text-center py-8">
-            <p className="text-gray-500">{t("htrNoOrders")}</p>
+            <p className="text-gray-500 text-xl">{t("htrNoOrders")}</p>
           </div>
         )}
 
