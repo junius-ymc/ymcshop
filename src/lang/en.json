@@ -103,6 +103,7 @@
     "liServerError": "Server Error !!!",
     "liLogout": "Logout Successful.",
     "htrHistory": "Order History",
+    "htrNoOrders": "You have no orders yet",
     "htrOrderDate": "Order Date",
     "htrProducts": "Products",
     "htrPrice": "Price",

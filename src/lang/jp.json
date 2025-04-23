@@ -103,6 +103,7 @@
     "liServerError": "サーバーエラー !!!",
     "liLogout": "ログアウトに成功しました。",
     "htrHistory": "注文履歴",
+    "htrNoOrders": "まだ注文はありません",
     "htrOrderDate": "注文日",
     "htrProducts": "製品",
     "htrPrice": "価格",

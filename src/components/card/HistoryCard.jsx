@@ -12,7 +12,7 @@ const HistoryCard = () => {
   const token = useEcomStore((state) => state.token);
   const [orders, setOrders] = useState([]);
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
-  const [loading, setLoading] = useState(true); // เพิ่มตัวแปร Loading
+  const [loading, setLoading] = useState(false); // เพิ่มตัวแปร Loading
   const sortedProducts = [...orders].sort((a, b) => b.id - a.id);   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
 
   useEffect(() => {
@@ -63,10 +63,15 @@ const HistoryCard = () => {
         </span>
       </div>
       <div className="div-content">
+
+        {!loading && orders.length === 0 && (
+          <div className="text-center py-8">
+            <p className="text-gray-500">{t("htrNoOrders")}</p>
+          </div>
+        )}
+
         {loading ? (
-          // ✅ เริ่ม แสดง Loader
           <LoaderDiv />
-          // ✅ จบ แสดง Loader
         ) : (
           <div className="historycard">
             {sortedProducts?.map((item, index) => {
@@ -87,7 +92,6 @@ const HistoryCard = () => {
                         <div className="historycard-font-date">{dateFormat(item.createdAt)}</div>
                       </div>
                       <div>
-                        {/* <span className="">หมายเลขพัสดุ: {orderStatusData.parcelNumber || "ยังไม่มีหมายเลขพัสดุ"} </span>  */}
                         <span className={`${getStatusColor(orderStatusData.status || item.orderStatus)} historycard-order-status`}>
                           {statusMsg || "ไม่ระบุ"}
                         </span>
