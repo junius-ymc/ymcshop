@@ -70,16 +70,13 @@ const Footer = () => {
                       </NavLink>
                     </li>
                   </div>
-                  {user
-                    ?
+                  {user && (
                     <li>
                       <NavLink onClick={() => handleLogout()}>
                         <IconLogout className="icon-logout" />
                       </NavLink>
                     </li>
-                    :
-                    ""
-                  }
+                  )}
                 </ul>
               </div>
 
