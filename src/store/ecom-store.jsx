@@ -23,7 +23,7 @@ const ecomStore = (set, get) => ({
     });
   },
   loading: false, // ✅ เพิ่มตัวแปร Loading
-  
+
   actionAddtoCart: (product) => {
     const carts = get().carts;
     const updateCart = [...carts, { ...product, count: 1 }];
@@ -49,7 +49,7 @@ const ecomStore = (set, get) => ({
       carts: state.carts.filter((item) => item.id !== productId),
     }));
   },
-  
+
   getTotalPrice: () => {
     return get().carts.reduce((total, item) => {
       return total + item.price * item.count;
@@ -89,14 +89,11 @@ const ecomStore = (set, get) => ({
   },
 
   actionSearchFilters: async (arg) => {
-    set({ loading: true }); // ✅ เริ่มโหลด
     try {
       const res = await searchFilters(arg);
       set({ products: res.data });
     } catch (err) {
       console.log(err);
-    } finally {
-      set({ loading: false }); // ✅ โหลดเสร็จ
     }
   },
   clearCart: () => set({ carts: [] }),

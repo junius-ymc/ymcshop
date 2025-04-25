@@ -1,4 +1,4 @@
-// import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import useEcomStore from "../store/ecom-store";
 import Sidebar from "./Sidebar";
@@ -10,6 +10,7 @@ import { jwtDecode } from "jwt-decode"; // ✅ import jwtDecode
 function MainNav() {
   // Javascript
   const carts = useEcomStore((s) => s.carts);
+  const user = useEcomStore((s) => s.user);
   const logout = useEcomStore((s) => s.logout);
   const navigate = useNavigate();
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
@@ -21,9 +22,6 @@ function MainNav() {
       return null;
     }
   };
-  const token = useEcomStore((state) => state.token);
-  const decoded = safeDecodeToken(token);
-  const now = Date.now() / 1000;
 
   // ฟังก์ชัน Logout เพื่อลบ Token
   const handleLogout = () => {
@@ -38,6 +36,18 @@ function MainNav() {
     navigate("/"); // กลับไปหน้า Home
   };
 
+  useEffect(() => {
+    const token = useEcomStore.getState().token;
+    const decoded = safeDecodeToken(token);
+  
+    if (token && decoded?.exp) {
+      const now = Date.now() / 1000;
+      if (decoded.exp < now) {
+        handleLogout(); // ⏰ Token หมดอายุ → ล็อกเอาท์ทันที
+      }
+    }
+  }, []);
+
   return (
 
     <nav className="navbox">
@@ -48,7 +58,7 @@ function MainNav() {
 
               {/* Start ส่วนของโลโก้ ด้านซ้าย */}
               <div className="setdiv-3">
-                <i>
+              <i>
                   <NavLink to="/">
                     <img src={logo} alt="Logo" className="logo" />
                   </NavLink>
@@ -102,7 +112,7 @@ function MainNav() {
                       {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
                     </NavLink>
                   </li>
-                  {token && decoded?.exp > now && (
+                  {user && (
                     <li>
                       <NavLink onClick={() => handleLogout()} className="bttn">
                         {t("mLogout")}
