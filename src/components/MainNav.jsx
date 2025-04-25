@@ -5,15 +5,25 @@ import Sidebar from "./Sidebar";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import logo from '../assets/logo.png'; // (ไว้ในโฟลเดอร์ assets)
+import { jwtDecode } from "jwt-decode"; // ✅ import jwtDecode
 
 function MainNav() {
   // Javascript
   const carts = useEcomStore((s) => s.carts);
-  // console.log(carts)
-  const user = useEcomStore((s) => s.user);
   const logout = useEcomStore((s) => s.logout);
   const navigate = useNavigate();
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+
+  const safeDecodeToken = (token) => {
+    try {
+      return jwtDecode(token);
+    } catch (err) {
+      return null;
+    }
+  };
+  const token = useEcomStore((state) => state.token);
+  const decoded = safeDecodeToken(token);
+  const now = Date.now() / 1000;
 
   // ฟังก์ชัน Logout เพื่อลบ Token
   const handleLogout = () => {
@@ -38,7 +48,7 @@ function MainNav() {
 
               {/* Start ส่วนของโลโก้ ด้านซ้าย */}
               <div className="setdiv-3">
-              <i>
+                <i>
                   <NavLink to="/">
                     <img src={logo} alt="Logo" className="logo" />
                   </NavLink>
@@ -92,16 +102,13 @@ function MainNav() {
                       {/* จบ ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
                     </NavLink>
                   </li>
-                  {user
-                    ?
+                  {token && decoded?.exp > now && (
                     <li>
                       <NavLink onClick={() => handleLogout()} className="bttn">
                         {t("mLogout")}
                       </NavLink>
                     </li>
-                    :
-                    ""
-                  }
+                  )}
                 </ul>
               </div>
               {/* End ส่วนของเมนู */}

@@ -14,6 +14,8 @@ import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   // Javascript
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const registerSchema = z
 
@@ -51,8 +53,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     setLoading(true); // เริ่มโหลด
     try {
-      // const res = await axios.post("http://localhost:5001/api/register", data);
-      const res = await axios.post("https://ymc-shop-api.vercel.app/api/register", data);
+      const res = await axios.post(`${BASE_URL}/api/register`, data);
       //console.log(res.data);
       toast.success(`${t("rgtRegisterSuccess")}`, {
         bodyClassName: "toastify-toast-modify",

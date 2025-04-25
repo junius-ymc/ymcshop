@@ -17,7 +17,7 @@ const ProtectRouteUser = ({ element }) => {
                 const now = Date.now() / 1000; // ปัจจุบันเป็นวินาที
                 if (decoded.exp < now) {
                     console.log("❌ Token หมดอายุใน ProtectRouteUser");
-                    logout(); // เคลียร์ token + user
+                    logout(true); // เคลียร์ token + user
                     setOk(false);
                 } else {
                     // ✅ Token ยังไม่หมดอายุ → ไปยิง currentUser
@@ -27,7 +27,7 @@ const ProtectRouteUser = ({ element }) => {
                 }
             } catch (err) {
                 console.log("❌ Token Invalid", err);
-                logout();
+                logout(true);
                 setOk(false);
             }
         } else {

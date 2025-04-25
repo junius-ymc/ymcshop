@@ -5,6 +5,8 @@ import { listCategory } from "../api/Category";
 import { listProduct, searchFilters } from "../api/product";
 import _ from "lodash";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const ecomStore = (set, get) => ({
   user: null,
   token: null,
@@ -47,6 +49,7 @@ const ecomStore = (set, get) => ({
       carts: state.carts.filter((item) => item.id !== productId),
     }));
   },
+  
   getTotalPrice: () => {
     return get().carts.reduce((total, item) => {
       return total + item.price * item.count;
@@ -54,8 +57,7 @@ const ecomStore = (set, get) => ({
   },
 
   actionLogin: async (form) => {
-    // const res = await axios.post("http://localhost:5001/api/login", form);
-    const res = await axios.post("https://ymc-shop-api.vercel.app/api/login", form);
+    const res = await axios.post(`${BASE_URL}/api/login`, form);
     set({
       user: res.data.payload,
       token: res.data.token,
