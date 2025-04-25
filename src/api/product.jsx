@@ -1,8 +1,9 @@
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const createProduct = async (token, form) => {
   // code body
-  return axios.post("https://ymc-shop-api.vercel.app/api/product", form, {
+  return axios.post(`${BASE_URL}/api/product`, form, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -10,18 +11,14 @@ export const createProduct = async (token, form) => {
 };
 
 // ตัวแปร count = จำนวนที่ดึงจากฐานข้อมูล
-// export const listProduct = async (count = 100) => {
-// ให้แสดงสินค้ากี่ชิ้นต่อ 1หน้า เช่น จะแสดงสินค้าทีละ 8 ชิ้น
 export const listProduct = async (count = 200) => {
   // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/products/" + count);
-  // return axios.get(`https://ymc-shop-api.vercel.app/api/products/${count}?page=${page}`);
-  // return axios.get(`https://ymc-shop-api.vercel.app/api/products?count=${count}&page=${page}`);
+  return axios.get(`${BASE_URL}/api/products/` + count);
 };
 
 export const readProduct = async (token, id) => {
   // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/product/" + id, {
+  return axios.get(`${BASE_URL}/api/product/` + id, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -29,7 +26,7 @@ export const readProduct = async (token, id) => {
 };
 export const deleteProduct = async (token, id) => {
   // code body
-  return axios.delete("https://ymc-shop-api.vercel.app/api/product/" + id, {
+  return axios.delete(`${BASE_URL}/api/product/` + id, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -37,7 +34,7 @@ export const deleteProduct = async (token, id) => {
 };
 export const updateProduct = async (token, id, form) => {
   // code body
-  return axios.put("https://ymc-shop-api.vercel.app/api/product/" + id, form, {
+  return axios.put(`${BASE_URL}/api/product/` + id, form, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -48,7 +45,7 @@ export const uploadFiles = async (token, form) => {
   // code
   // console.log('form api frontent', form)
   return axios.post(
-    "https://ymc-shop-api.vercel.app/api/images",
+    `${BASE_URL}/api/images`,
     {
       image: form,
     },
@@ -62,9 +59,8 @@ export const uploadFiles = async (token, form) => {
 
 export const removeFiles = async (token, public_id) => {
   // code
-  // console.log('form api frontent', form)
   return axios.post(
-    "https://ymc-shop-api.vercel.app/api/removeimages",
+    `${BASE_URL}/api/removeimages`,
     {
       public_id,
     },
@@ -78,12 +74,12 @@ export const removeFiles = async (token, public_id) => {
 
 export const searchFilters = async (arg) => {
   // code body
-  return axios.post("https://ymc-shop-api.vercel.app/api/search/filters", arg);
+  return axios.post(`${BASE_URL}/api/search/filters`, arg);
 };
 
 export const listProductBy = async (sort, order, limit) => {
   // code body
-  return axios.post("https://ymc-shop-api.vercel.app/api/productby", {
+  return axios.post(`${BASE_URL}/api/productby`, {
     sort,
     order,
     limit,

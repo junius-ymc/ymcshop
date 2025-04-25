@@ -1,19 +1,17 @@
 import axios from "axios";
-
-// https://ymc-shop-api.vercel.app/api/admin/orders
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const getOrdersAdmin = async (token) => {
-  // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/admin/orders", {
+  return axios.get(`${BASE_URL}/api/admin/orders`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
+
 export const changeOrderStatus = async (token, orderId, orderStatus) => {
-  // code body
   return axios.put(
-    "https://ymc-shop-api.vercel.app/api/admin/order-status",
+    `${BASE_URL}/api/admin/order-status`,
     {
       orderId,
       orderStatus,
@@ -28,8 +26,7 @@ export const changeOrderStatus = async (token, orderId, orderStatus) => {
 
 
 export const getListAllUsers = async (token) => {
-  // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/users", {
+  return axios.get(`${BASE_URL}/api/users`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -37,8 +34,7 @@ export const getListAllUsers = async (token) => {
 };
 
 export const changeUserStatus = async (token,value) => {
-  // code body
-  return axios.post("https://ymc-shop-api.vercel.app/api/change-status",value, {
+  return axios.post(`${BASE_URL}/api/change-status`,value, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -46,8 +42,7 @@ export const changeUserStatus = async (token,value) => {
 };
 
 export const changeUserRole = async (token,value) => {
-  // code body
-  return axios.post("https://ymc-shop-api.vercel.app/api/change-role",value, {
+  return axios.post(`${BASE_URL}/api/change-role`,value, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -55,8 +50,7 @@ export const changeUserRole = async (token,value) => {
 };
 
 export const getDashboardStats = async (token) => {
-  // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/admin/dashboard-stats", {
+  return axios.get(`${BASE_URL}/api/admin/dashboard-stats`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -64,8 +58,7 @@ export const getDashboardStats = async (token) => {
 };
 
 export const getRecentOrders = async (token) => {
-  // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/admin/recent-orders", {
+  return axios.get(`${BASE_URL}/api/admin/recent-orders`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -73,8 +66,7 @@ export const getRecentOrders = async (token) => {
 };
 
 export const getDailySalesChart = async (token) => {
-  // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/admin/chart-daily-sales", {
+  return axios.get(`${BASE_URL}/api/admin/chart-daily-sales`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -82,8 +74,7 @@ export const getDailySalesChart = async (token) => {
 };
 
 export const getDailySales = async (token) => {
-  // code body
-  return axios.get("https://ymc-shop-api.vercel.app/api/admin/daily-sales", {
+  return axios.get(`${BASE_URL}/api/admin/daily-sales`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -91,7 +82,7 @@ export const getDailySales = async (token) => {
 };
 
 export const getMonthlySales = async (token) => {
-  return axios.get("https://ymc-shop-api.vercel.app/api/admin/chart-monthly-sales", {
+  return axios.get(`${BASE_URL}/api/admin/chart-monthly-sales`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };

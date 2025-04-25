@@ -1,7 +1,8 @@
-import axios from 'axios'
+import axios from "axios";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 // export const createContact = async (token, formData) => 
-//     await axios.post('http://localhost:5001/api/contact', formData, {
+//     await axios.post('https://ymc-shop-api.vercel.app/api/contact', formData, {
 //     headers: {
 //         Authorization: `Bearer ${token}`
 //     }
@@ -9,8 +10,8 @@ import axios from 'axios'
 
 export const createContact = async (token, formData) => {
     // code body
-    return axios.post('https://ymc-shop-api.vercel.app/api/contact', formData, {
-        headers: {
+    return axios.post(`${BASE_URL}/api/contact`, formData, {
+      headers: {
             Authorization: `Bearer ${token}`
         }
     })
@@ -18,7 +19,7 @@ export const createContact = async (token, formData) => {
 
 export const getContact = async (token) => {
     // code body
-    return axios.get("https://ymc-shop-api.vercel.app/api/contact", {
+    return axios.get(`${BASE_URL}/api/contact`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -27,8 +28,8 @@ export const getContact = async (token) => {
 
   export const removeContact = async (token, id) => {
     // code body
-    return axios.delete('https://ymc-shop-api.vercel.app/api/contact/'+id, {
-        headers: {
+    return axios.delete(`${BASE_URL}/api/contact/`+id, {
+      headers: {
             Authorization: `Bearer ${token}`
         }
     })
