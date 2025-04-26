@@ -111,7 +111,7 @@ const TableOrders = () => {
 
               return (
                 <tr key={item.id} className="admin-table-tr-orders">
-                  <td className="admin-table-td-orders text-xs">{item.id}-({index + 1})</td>
+                  <td className="admin-table-td-orders text-center text-xs">{item.id}-({index + 1})</td>
                   <td className="admin-table-td-orders">
                     <p className="font-semibold">{`${nameData.fullName || "N/A"}`}</p>
                     <p className="text-sm text-gray-600">
@@ -120,7 +120,7 @@ const TableOrders = () => {
                     <p className="font-semibold">{nameData.phone || "N/A"}</p>
                     <p className="text-xs text-gray-500">{item.orderedBy.email}</p>
                   </td>
-                  <td className="admin-table-td-orders text-xs">{dateFormat(item.createdAt)}</td>
+                  <td className="admin-table-td-orders text-center text-xs">{dateFormat(item.createdAt)}</td>
                   <td className="admin-table-td-orders">
                     <ul>
                       {item.products?.map((product, index) => (
@@ -130,10 +130,10 @@ const TableOrders = () => {
                       ))}
                     </ul>
                   </td>
-                  <td className="admin-table-td-orders text-xs font-semibold">{numberFormat(item.cartTotal)}</td>
-                  <td className="admin-table-td-orders">
+                  <td className="admin-table-td-orders text-center text-xs font-semibold">{numberFormat(item.cartTotal)}</td>
+                  <td className="admin-table-td-orders text-center">
                     <select
-                      className="form-input my-1 text-xs"
+                      className="form-input my-1 text-xs text-center"
                       value={orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
                       onChange={(e) => handleInputChange(item.id, "status", e.target.value)}
                     >
@@ -143,10 +143,10 @@ const TableOrders = () => {
                       <option>Cancelled</option>
                     </select>
                     <span className={`text-xs admin-table-td-orders py-1 rounded-full text-nowrap ${getStatusColor(orderData[item.id]?.status || orderStatusData.status || item.orderStatus)}`}>
-                      {orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
+                    {orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
                     </span>
                   </td>
-                  <td className="admin-table-td-orders">
+                  <td className="admin-table-td-orders text-center justify-items-center">
                     <input
                       name="parcelNumber"
                       placeholder="หมายเลขพัสดุ"
@@ -155,7 +155,7 @@ const TableOrders = () => {
                       className="form-input text-xs"
                     />
                   </td>
-                  <td className="admin-table-td-orders">
+                  <td className="admin-table-td-orders justify-items-center">
                     <button
                       onClick={() => handleUpdateOrder(item.id)}
                       className="bttn btn-mod-1 btn-admin-style text-xs"

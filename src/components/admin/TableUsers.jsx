@@ -114,7 +114,7 @@ const TableUsers = () => {
 
             return (
               <tr key={el.id} className="admin-table-tr-user text-xs">
-                <td className="admin-table-td-user">{i + 1}:({el.id})</td>
+                <td className="admin-table-td-user text-center">{i + 1}:({el.id})</td>
                 <td className="admin-table-td-user">{`${nameData.fullName || "N/A"} ${nameData.phone || "N/A"}`}</td>
                 <td className="admin-table-td-user">
                   {`${addressData.houseNo || ""} ${addressData.district || ""} ${addressData.city || ""} ${addressData.province || ""} ${addressData.zipCode || ""}`.trim() || "N/A"}
@@ -123,7 +123,7 @@ const TableUsers = () => {
                 {/* <td className="admin-table-td-user">
                   {el.picture ? <img src={el.picture} alt="User" className="w-10 h-10 rounded-full" /> : "N/A"}
                 </td> */}
-                <td className="admin-table-td-user">
+                <td className="admin-table-td-user text-center">
                   {user?.role === "admin" && el.role !== "admin" ? (
                     <select
                       onChange={(e) => handleChangeUserRole(el.id, e.target.value)}
@@ -138,10 +138,10 @@ const TableUsers = () => {
                     <span>{el.role}</span> // แค่แสดงว่าเป็น admin ห้ามแก้
                   )}
                 </td>
-                <td className="admin-table-td-user font-semibold">
+                <td className="admin-table-td-user text-center font-semibold">
                   {el.enabled ? <span className="text-green-600">Active</span> : <span className="text-red-600">Inactive</span>}
                 </td>
-                <td className="admin-table-td-user">
+                <td className="admin-table-td-user text-center flex items-center justify-center">
                   {el.role !== "admin" ? (
                     <button
                       className={`bttn btn-mod btn-admin-style text-xs ${el.enabled ? "bg-red-500" : "bg-green-500"}`}

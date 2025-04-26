@@ -84,16 +84,16 @@ const RecentOrders = () => {
 
                 return (
                   <tr key={order.id} className="admin-table-tr-orders">
-                    <td className="admin-table-td-orders text-xs">{index + 1}</td>
+                    <td className="admin-table-td-orders text-center text-xs">{index + 1}</td>
                     <td className="admin-table-td-orders">{fullName}<br /><span className="text-xs text-gray-500">{phone}</span></td>
                     {/* <td className="admin-table-td-orders text-xs">{order.orderedBy?.email}</td> */}
-                    <td className="admin-table-td-orders">{order.cartTotal} ฿.</td>
-                    <td className="admin-table-td-orders">
+                    <td className="admin-table-td-orders text-center">{order.cartTotal} ฿.</td>
+                    <td className="admin-table-td-orders text-center">
                       <span className={`order-status-tag ${getStatusClass(status)}`}>
                         {status}
                       </span>
                     </td>
-                    <td className="admin-table-td-orders text-xs">{new Date(order.createdAt).toLocaleString()}</td>
+                    <td className="admin-table-td-orders text-center text-xs">{new Date(order.createdAt).toLocaleString()}</td>
                   </tr>
                 );
               })}

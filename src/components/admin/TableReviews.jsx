@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 const TableReviews = () => {
     const token = useEcomStore((state) => state.token);
+    const user = useEcomStore((s) => s.user);
     const [reviews, setReviews] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [sortNewest, setSortNewest] = useState(true);
@@ -167,7 +168,9 @@ const TableReviews = () => {
                             <th className="border px-3 py-2">รูป</th>
                             <th className="border px-3 py-2">วันที่</th>
                             <th className="border px-3 py-2">สถานะ</th>
-                            <th className="border px-3 py-2">การจัดการ</th>
+                            {user?.role === "admin" && (
+                                <th className="border px-3 py-2">การจัดการ</th>
+                            )}
                         </tr>
                     </thead>
                     <tbody>
@@ -175,11 +178,11 @@ const TableReviews = () => {
                             <tr key={r.id}>
                                 <td className="border px-3 py-2">{r.userName}</td>
                                 <td className="border px-3 py-2">{r.reviewProduct}</td>
-                                <td className="border px-3 py-2">{r.orderedId}</td>
+                                <td className="border px-3 py-2  text-center">{r.orderedId}</td>
                                 <td className="border px-3 py-2 text-center">
                                     <img src={r.url} alt="" className="w-16 h-16 object-cover inline-block" />
                                 </td>
-                                <td className="border px-3 py-2">{new Date(r.createdAt).toLocaleDateString()}</td>
+                                <td className="border px-3 py-2 text-center">{new Date(r.createdAt).toLocaleDateString()}</td>
                                 <td className="border px-3 py-2 text-center">
                                     <input
                                         type="checkbox"
@@ -188,14 +191,16 @@ const TableReviews = () => {
                                         className="w-5 h-5"
                                     />
                                 </td>
-                                <td className="border px-3 py-2">
-                                    <button
-                                        onClick={() => handleDelete(r.id)}
-                                        className="text-red-600 hover:text-red-800 font-bold"
-                                    >
-                                        ลบ
-                                    </button>
-                                </td>
+                                {user?.role === "admin" && (
+                                    <td className="border px-3 py-2 text-center text-xl font-bold">
+                                        <button
+                                            onClick={() => handleDelete(r.id)}
+                                            className="text-red-600 hover:text-red-800 font-bold"
+                                        >
+                                            🗑 ลบ
+                                        </button>
+                                    </td>
+                                )}
                             </tr>
                         ))}
                     </tbody>
