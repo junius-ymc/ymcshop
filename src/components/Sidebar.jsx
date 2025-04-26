@@ -167,18 +167,22 @@ const Sidebar = () => {
               <div className="setdiv-1">
                 <li>
                   <NavLink to="/user/history/">
-                    {/* <span><IconHistory className="icon-menu-s icon-menu-stroke" /></span> */}
-                    <span>{t("mHistory")}</span>
+                    <div className="flex justify-center items-center">
+                      <span className="mr-1"><IconHistory className="icon-menu-s icon-menu-stroke" /></span>
+                      <span>{t("mHistory")}</span>
+                    </div>
                   </NavLink>
                 </li>
                 <li>
                   <Link onClick={() => handleLogout()}>
-                    {/* <span><IconLogout className="icon-menu-s icon-menu-stroke" /></span> */}
-                    <span>{t("mLogout")}</span>
+                    <div className="flex justify-center items-center">
+                      <span className="mr-1"><IconLogout className="icon-menu-s icon-menu-stroke" /></span>
+                      <span>{t("mLogout")}</span>
+                    </div>
                   </Link>
                 </li>
               </div>
-              <div className="menu-sub-arrow">◀</div>
+              {/* <div className="menu-sub-arrow">◀</div> */}
             </div>
           </div>
         </div>
