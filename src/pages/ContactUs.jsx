@@ -53,6 +53,13 @@ const ContactUs = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  let nameData;
+  try {
+    nameData = JSON.parse(user?.name || "{}");
+  } catch (error) {
+    nameData = {};
+  }
+
   return (
     <div>
       <Helmet>
@@ -101,7 +108,7 @@ const ContactUs = () => {
                         type="text"
                         name="name"
                         placeholder=""
-                        value={formData.name || user?.name}
+                        value={formData.name || nameData?.fullName}
                         onChange={handleChange}
                         className="form-input"
                         required
