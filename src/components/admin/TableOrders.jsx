@@ -37,29 +37,33 @@ const TableOrders = () => {
     const { status, parcelNumber } = orderData[orderId] || {};
     const order = orders.find((o) => o.id === orderId);
     if (!order) return;
-    setLoading(true);
+
     let updatedOrderStatus;
     try {
       updatedOrderStatus = order.orderStatus ? JSON.parse(order.orderStatus) : {};
     } catch (error) {
-      console.log(error);
       updatedOrderStatus = {};
-      toast.error(`${error}`, { bodyClassName: "toastify-toast-modify" });
-    } finally {
-      setLoading(false);
     }
 
-
+    setLoading(true);
     updatedOrderStatus.status = status || order.orderStatus;
     updatedOrderStatus.parcelNumber = parcelNumber || "";
 
     changeOrderStatus(token, orderId, JSON.stringify(updatedOrderStatus))
       .then(() => {
-        toast.success("Order Updated!");
+        toast.success("Order Updated!", {
+          bodyClassName: "toastify-toast-modify",
+        });
         handleGetOrder(token);
       })
       .catch((err) => {
         console.log(err);
+        toast.error(`error: ${err}`, {
+          bodyClassName: "toastify-toast-modify",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -89,6 +93,7 @@ const TableOrders = () => {
 
   return (
     <div>
+      {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
       <div className="div-main-admin-content">
         <table className="admin-table-orders">
           <thead className="admin-table-thead-orders">
