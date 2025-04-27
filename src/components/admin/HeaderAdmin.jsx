@@ -84,8 +84,8 @@ const HeaderAdmin = () => {
 
                     </div>
                     <div className="setdiv-3">
-                        <a className="bttn header-admin-menu" href='/' target='_YMCshop'>
-                            Homepage
+                    <a className="bttn header-admin-menu" href='/' target='_YMCshop-Home'>
+                    Homepage
                         </a>
                         <NavLink className="bttn header-admin-menu">
                             Logout

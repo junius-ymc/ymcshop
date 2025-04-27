@@ -167,7 +167,7 @@ const Sidebar = () => {
               <div className="setdiv-1">
                 <li>
                   <NavLink to="/user/history/">
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-start items-center">
                       <span className="mr-1"><IconHistory className="icon-menu-s icon-menu-stroke" /></span>
                       <span>{t("mHistory")}</span>
                     </div>
@@ -175,12 +175,22 @@ const Sidebar = () => {
                 </li>
                 <li>
                   <Link onClick={() => handleLogout()}>
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-start items-center">
                       <span className="mr-1"><IconLogout className="icon-menu-s icon-menu-stroke" /></span>
                       <span>{t("mLogout")}</span>
                     </div>
                   </Link>
                 </li>
+                {(user?.role === "staff" || user?.role === "admin") && (
+                  <li>
+                    <a href="/admin/" target="_YMCshop-Admin">
+                    <div className="flex justify-start items-center">
+                        <span className="mr-1">For: </span>
+                        <span>{user?.role}</span>
+                      </div>
+                    </a>
+                  </li>
+                )}
               </div>
               {/* <div className="menu-sub-arrow">◀</div> */}
             </div>

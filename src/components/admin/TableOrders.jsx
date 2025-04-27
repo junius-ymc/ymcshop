@@ -92,7 +92,6 @@ const TableOrders = () => {
               <th className="admin-table-th-orders">สินค้า</th>
               <th className="admin-table-th-orders">รวม</th>
               <th className="admin-table-th-orders">สถานะ</th>
-              <th className="admin-table-th-orders">หมายเลขพัสดุ</th>
               <th className="admin-table-th-orders">จัดการ</th>
             </tr>
           </thead>
@@ -125,7 +124,8 @@ const TableOrders = () => {
                     <ul>
                       {item.products?.map((product, index) => (
                         <li key={index} className="text-sm">
-                          {product.product.title} <span className="text-gray-600 text-xs">{product.count} x {numberFormat(product.product.price)}</span>
+                          {product.product.title}
+                          <p className="text-gray-600 text-xs">{product.count} x {numberFormat(product.product.price)}</p>
                         </li>
                       ))}
                     </ul>
@@ -142,18 +142,20 @@ const TableOrders = () => {
                       <option>Completed</option>
                       <option>Cancelled</option>
                     </select>
-                    <span className={`text-xs admin-table-td-orders py-1 rounded-full text-nowrap ${getStatusColor(orderData[item.id]?.status || orderStatusData.status || item.orderStatus)}`}>
-                    {orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
-                    </span>
-                  </td>
-                  <td className="admin-table-td-orders text-center justify-items-center">
-                    <input
-                      name="parcelNumber"
-                      placeholder="หมายเลขพัสดุ"
-                      value={orderData[item.id]?.parcelNumber || orderStatusData.parcelNumber || ""}
-                      onChange={(e) => handleInputChange(item.id, "parcelNumber", e.target.value)}
-                      className="form-input text-xs"
-                    />
+                    <div className={`text-xs admin-table-td-orders py-1 rounded-full text-nowrap ${getStatusColor(orderData[item.id]?.status || orderStatusData.status || item.orderStatus)}`}>
+                      {orderData[item.id]?.status || orderStatusData.status || item.orderStatus}
+                    </div>
+                    {orderStatusData.status === "Completed" && (
+                      <div className="mt-1 text-xs text-center">
+                        <input
+                          name="parcelNumber"
+                          placeholder="หมายเลขพัสดุ"
+                          value={orderData[item.id]?.parcelNumber || orderStatusData.parcelNumber || ""}
+                          onChange={(e) => handleInputChange(item.id, "parcelNumber", e.target.value)}
+                          className="form-input text-xs"
+                        />
+                      </div>
+                    )}
                   </td>
                   <td className="admin-table-td-orders justify-items-center">
                     <button
