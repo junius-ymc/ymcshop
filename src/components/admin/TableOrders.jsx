@@ -4,12 +4,14 @@ import useEcomStore from "../../store/ecom-store";
 import { toast } from "react-toastify";
 import { numberFormat } from "../../utils/number";
 import { dateFormat } from "../../utils/dateformat";
+import LoaderDiv from "../LoaderDiv";
 
 const TableOrders = () => {
   const token = useEcomStore((state) => state.token);
   const [orders, setOrders] = useState([]);
   const [orderData, setOrderData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // เรียงลำดับผลลัพท์จากใหม่ไปเก่า
   const sortedProducts = [...orders].sort((a, b) => b.id - a.id);
@@ -35,13 +37,18 @@ const TableOrders = () => {
     const { status, parcelNumber } = orderData[orderId] || {};
     const order = orders.find((o) => o.id === orderId);
     if (!order) return;
-
+    setLoading(true);
     let updatedOrderStatus;
     try {
       updatedOrderStatus = order.orderStatus ? JSON.parse(order.orderStatus) : {};
     } catch (error) {
+      console.log(error);
       updatedOrderStatus = {};
+      toast.error(`${error}`, { bodyClassName: "toastify-toast-modify" });
+    } finally {
+      setLoading(false);
     }
+
 
     updatedOrderStatus.status = status || order.orderStatus;
     updatedOrderStatus.parcelNumber = parcelNumber || "";
