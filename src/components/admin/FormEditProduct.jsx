@@ -80,39 +80,42 @@ const FormEditProduct = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <input
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="form-input form-input-product-admin-style"
                         value={form.title}
                         onChange={handleOnChange}
                         placeholder='Title'
                         name='title'
+                        required
                     />
                     <textarea
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="form-input form-textarea-product-admin-style"
                         value={form.description}
                         onChange={handleOnChange}
                         placeholder='Description'
                         name='description'
                         rows="4"
-                    // cols="30"
+                        required
                     />
                     <input
                         type='number'
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="form-input form-input-product-admin-style"
                         value={form.price}
                         onChange={handleOnChange}
                         placeholder='price'
                         name='price'
+                        required
                     />
                     <input
                         type='number'
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="form-input form-input-product-admin-style"
                         value={form.quantity}
                         onChange={handleOnChange}
                         placeholder='quantity'
                         name='quantity'
+                        required
                     />
                     <select
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="form-input form-input-product-admin-style"
                         name='categoryId'
                         onChange={handleOnChange}
                         required
