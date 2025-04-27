@@ -36,13 +36,17 @@ const FormEditProduct = () => {
     }, [])
 
     const fetchProduct = async (token, id, form) => {
+        setLoading(true);
         try {
             // code
             const res = await readProduct(token, id, form)
             console.log('res from backend', res)
             setForm(res.data)
         } catch (err) {
-            console.log('Err fetch data', err)
+            console.log(err);
+            toast.error(`${err}`, { bodyClassName: "toastify-toast-modify" });
+        } finally {
+            setLoading(false);
         }
     }
     // console.log(form)
