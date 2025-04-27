@@ -101,7 +101,11 @@ const ContactUs = () => {
 
                 {/* ฟอร์ม */}
                 <div className="contact-form contact-form-box">
-                  <span className="contact-subtitle">{t("cuTextSentMsg7")}</span>
+                  <span className="contact-subtitle">
+                    {t("cuTextSentMsg7")}
+                    <br />
+                    {t("cuTextSentMsg8")}
+                  </span>
                   <form className="contact-form" onSubmit={handleSubmit}>
                     <div className="input-group">
                       <input
