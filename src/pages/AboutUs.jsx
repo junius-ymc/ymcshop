@@ -31,28 +31,32 @@ const AboutUs = () => {
           <div className="div-content-box">
 
             <div className="about-container">
-              <img src={logobig} alt="YMC Shop Logo" className="about-logo" />
+              <div className="about-logo">
+              <img src={logobig} alt="YMC Shop Logo" />
+              </div>
               <p className="about-title">{t("shopName")}</p>
               <p className="about-intro">
-                <strong>YMC Shop</strong> คือร้านค้าออนไลน์สำหรับสาย <span className="highlight">Streetwear</span> และ <span className="highlight">Vintage </span>
-                <br />แหล่งรวมแฟชั่นเสื้อผ้าและเครื่องแต่งกายสุดคูล สำหรับคนรักสไตล์การแต่งตัวเฉพาะตัว
+                <strong>YMC Shop</strong> {t("auTextTt1")}
+                <br />{t("auTextTt2")}
               </p>
 
-              <h2 className="about-subtitle">📌 จุดเด่นของเรา</h2>
+              <h2 className="about-subtitle">📌 {t("auTextHL1")}</h2>
               <ul className="about-list">
-                <li>🎽 เสื้อผ้าแนวสตรีทเท่ห์ๆ หลากหลายสไตล์</li>
-                <li>🧥 เสื้อผ้าวินเทจคัดสรรมาอย่างพิเศษ</li>
-                <li>💯 สินค้าคุณภาพ ราคาจับต้องได้</li>
-                <li>🚀 ส่งเร็วทันใจ พร้อมบริการลูกค้า 24 ชม.</li>
+                <li>🎽 {t("auTextHL2")}</li>
+                <li>🧥 {t("auTextHL3")}</li>
+                <li>💯 {t("auTextHL4")}</li>
+                <li>🚀 {t("auTextHL5")}</li>
               </ul>
 
-              <h2 className="about-subtitle">📍 สถานที่ตั้ง</h2>
-              <p>ยามู ยะหริ่ง ปัตตานี, ประเทศไทย (จำหน่ายเฉพาะออนไลน์เท่านั้น)</p>
+              <h2 className="about-subtitle">📍 {t("auTextLo1")}</h2>
+              {/* <p>{t("auTextLo2")} (จำหน่ายเฉพาะออนไลน์เท่านั้น)</p> */}
+              <p>{t("auTextLo2")}</p>
 
-              <h2 className="about-subtitle">📲 ติดต่อเรา</h2>
-              <p>📧 อีเมล: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a></p>
+              <h2 className="about-subtitle">📲 {t("cuTextTt1")}</h2>
+              <p>📧 <strong>{t("cuTextSo1")}</strong>: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a></p>
+              <p>📲 <strong>{t("cuTextSo5")}</strong>: 0622680706</p>
               {/* <p>📷 Instagram: <a href="https://instagram.com/ymcshop" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop</a></p> */}
-              <p>📷 Instagram: <a href="#" className="about-link" rel="noopener noreferrer">@ymcshop</a></p>
+              {/* <p>📷 Instagram: <a href="#" className="about-link" rel="noopener noreferrer">@ymcshop</a></p> */}
 
               <div className="about-buttons">
                 <Link to="/contactus" className="bttn btn-mod">
@@ -61,7 +65,7 @@ const AboutUs = () => {
               </div>
 
               <div className="flex justify-center items-center pt-5">
-                <img src={logobig} alt="YMC Shop Logo" className="w-auto rounded-lg" />
+              <img src={logobig} alt="YMC Shop Logo" className="w-auto rounded-lg" />
               </div>
             </div>
 

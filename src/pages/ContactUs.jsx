@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
 import useEcomStore from "../store/ecom-store";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import { Helmet } from "react-helmet-async";
 import IconAboutUs from "../components/icon/IconAboutUs";
 import IconContactUs from "../components/icon/IconContactUs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createContact } from "../api/contact";
 import { toast } from "react-toastify";
 import LoaderDiv from "../components/LoaderDiv";
@@ -23,6 +22,8 @@ const ContactUs = () => {
   const token = useEcomStore((state) => state.token);
   const [formData, setFormData] = useState(initialState);
   const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
+  const navigate = useNavigate();
+  const user = useEcomStore((state) => state.user);
 
   const handleChange = (e) => {
     setFormData({
@@ -35,11 +36,11 @@ const ContactUs = () => {
     setLoading(true); // เริ่มโหลด
     e.preventDefault();
     try {
-      // const res = await axios.post("http://localhost:5001/api/contact", formData);
       const res = await createContact(token, formData);
       setFormData(initialState);
-      toast.success("ส่งข้อความเรียบร้อยแล้ว!");
-      console.log("✅ ส่งข้อมูลสำเร็จ", res.data);
+      toast.success(t("cuTextSentMsg5") + t("_blank") + t("cuTextSentMsg6"));
+      navigate("/");
+      // console.log("✅ ส่งข้อมูลสำเร็จ", res.data);
     } catch (error) {
       toast.error("เกิดข้อผิดพลาดในการส่งข้อมูล");
       console.error("❌ เกิดข้อผิดพลาด", error);
@@ -71,80 +72,86 @@ const ContactUs = () => {
           <div className="div-content-box">
 
             <div className="contact-container">
-              <h1 className="contact-title">📩 ติดต่อเรา</h1>
+
               <p className="about-title">{t("shopName")}</p>
               <p className="contact-intro">
-                หากคุณมีคำถาม ข้อเสนอแนะ หรือต้องการสั่งซื้อ สามารถส่งข้อความถึงเราได้ที่นี่!
+                <h1 className="contact-title">📩 {t("cuTextTt1")}</h1>
+                {t("cuTextTt2")}
               </p>
 
               <div className="contact-grid">
                 {/* ข้อมูลการติดต่อ */}
                 <div className="contact-info">
-                  <h2 className="contact-subtitle">📱 ติดต่อเรา</h2>
-                  <p>📧 <strong>อีเมล</strong>: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a></p>
+                  <h2 className="contact-subtitle">📱 {t("cuTextTt1")}</h2>
                   {/* <p>📷 Instagram: <a href="https://instagram.com/ymcshop" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop</a></p> */}
-                  <p>📷 <strong>Instagram:</strong> <a href="#" className="about-link" rel="noopener noreferrer">@ymcshop</a></p>
-                  <p>📲 <strong>โทร:</strong> 099-999-9999</p>
-                  <p><strong>เวลาทำการ:</strong> จันทร์ - ศุกร์ 10.00 - 18.00 น.</p>
+                  <p>📷 <strong>{t("cuTextSo3")}</strong>: <a href="#" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop.com</a></p>
+                  <p>📲 <strong>{t("cuTextSo2")}</strong>: -</p>
+                  <p>📲 <strong>{t("cuTextSo4")}</strong>: -</p>
+                  <p>📧 <strong>{t("cuTextSo1")}</strong>: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a></p>
+                  <p>📲 <strong>{t("cuTextSo5")}</strong>: 0622680706</p>
+                  {/* <p><strong>เวลาทำการ:</strong> จันทร์ - ศุกร์ 10.00 - 18.00 น.</p> */}
                 </div>
 
                 {/* ฟอร์ม */}
-                <form className="contact-form" onSubmit={handleSubmit}>
-                  <div className="input-group">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder=""
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="form-input"
-                      required
-                    />
-                    <label>ชื่อของคุณ</label>
-                  </div>
-                  <div className="input-group">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder=""
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="form-input"
-                      required
-                    />
-                    <label>{t("liEmail")}</label>
-                  </div>
-                  <div className="input-group">
-                    <input
-                      type="text"
-                      name="subject"
-                      placeholder=""
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="form-input"
-                      required
-                    />
-                    <label>หัวข้อเรื่อง</label>
-                  </div>
-                  <div className="input-group">
-                    <textarea
-                      name="message"
-                      placeholder=""
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows="5"
-                      className="form-textarea"
-                      required
-                    ></textarea>
-                    <label>ข้อความของคุณ</label>
-                  </div>
-                  <button className="bttn btn-mod mt-4" type="submit">ส่งข้อความ ✉</button>
-                </form>
+                <div className="contact-form contact-form-box">
+                  <span className="contact-subtitle">{t("cuTextSentMsg7")}</span>
+                  <form className="contact-form" onSubmit={handleSubmit}>
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder=""
+                        value={formData.name || user?.name}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                      />
+                      <label>{t("cuTextSentMsg1")}</label>
+                    </div>
+                    <div className="input-group">
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder=""
+                        value={formData.email || user?.email}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                      />
+                      <label>{t("cuTextSo1")}</label>
+                    </div>
+                    <div className="input-group">
+                      <input
+                        type="text"
+                        name="subject"
+                        placeholder=""
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="form-input"
+                        required
+                      />
+                      <label>{t("cuTextSentMsg2")}</label>
+                    </div>
+                    <div className="input-group">
+                      <textarea
+                        name="message"
+                        placeholder=""
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows="5"
+                        className="form-textarea"
+                        required
+                      ></textarea>
+                      <label>{t("cuTextSentMsg3")}</label>
+                    </div>
+                    <button className="bttn btn-mod mt-4" type="submit">{t("cuTextSentMsg4")} ✉</button>
+                  </form>
+                </div>
               </div>
 
               {/* ✅ แสดง Google Map */}
-              <h2 className="about-subtitle mt-10">📍 สถานที่ตั้ง</h2>
-              <p>ยามู ยะหริ่ง ปัตตานี, ประเทศไทย</p>
+              <h2 className="about-subtitle mt-10">📍 {t("auTextLo1")}</h2>
+              <p>{t("auTextLo2")}</p>
               <iframe
                 title="YMC Shop Location"
                 // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d795.5930272128094!2d101.36788102627287!3d6.866352407095104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b3a98b750a2f6b%3A0x3723281715201d!2zMTEg4LiW4LiZ4LiZIOC4o-C4suC4oeC5guC4geC4oeC4uOC4lyDguIvguK3guKIgMTEg4LiV4Liz4Lia4LilIOC4ouC4suC4oeC4uSDguK3guLPguYDguKDguK0g4Lii4Liw4Lir4Lij4Li04LmI4LiHIOC4m-C4seC4leC4leC4suC4meC4tSA5NDE1MA!5e1!3m2!1sth!2sth!4v1737636221935!5m2!1sth!2sth"

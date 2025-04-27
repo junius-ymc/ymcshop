@@ -1774,9 +1774,16 @@ header .wrapper .navbar li a {
 }
 
 .about-logo {
-  width: 120px;
+  max-width: 300px;
   margin: 0 auto 20px;
+}
+
+.about-logo img {
+  max-width: 100%;
+  height: 100px;
   border-radius: 4px;
+  box-shadow: var(--box-shadow-sml);
+  object-fit: fill;
 }
 
 .about-title,
@@ -1788,7 +1795,6 @@ header .wrapper .navbar li a {
   margin-bottom: 12px;
 }
 
-.contact-subtitle,
 .about-subtitle {
   font-size: 1.3rem;
   margin-top: 30px;
@@ -1818,11 +1824,6 @@ header .wrapper .navbar li a {
   color: var(--red);
   text-decoration: underline;
   /* background-color: var(--bluelite); */
-}
-
-.highlight {
-  font-weight: 600;
-  color: var(--gray);
 }
 
 .about-buttons {
@@ -1864,6 +1865,18 @@ header .wrapper .navbar li a {
   flex: 1 1 300px;
   display: flex;
   flex-direction: column;
+}
+
+.contact-form-box {
+  border: 1px solid var(--bghead);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.contact-subtitle {
+  font-size: 1.3rem;
+  color: var(--red);
 }
 
 .form-textarea {

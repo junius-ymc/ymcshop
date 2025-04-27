@@ -2,7 +2,7 @@
 import React from 'react'
 import useEcomStore from "../../store/ecom-store";
 import { numberFormat } from "../../utils/number";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import IconCart from '../icon/IconCart';
@@ -39,21 +39,21 @@ const NewProdCard = ({ item }) => {
             </div>
           )}
         </div>
-        </div>
+      </div>
 
-        {/* ส่วนข้อมูลสินค้า */}
-        <div className="new-products-data">
-          <p className="new-products-data-id">ID: {item.id}</p>
-          <p className="new-products-data-text-cut new-products-data-title">{item.title}</p>
-          <p className="new-products-data-text-cut new-products-data-description">{item.description}</p>
-        </div>
+      {/* ส่วนข้อมูลสินค้า */}
+      <div className="new-products-data">
+        <p className="new-products-data-id">ID: {item.id}</p>
+        <p className="new-products-data-text-cut new-products-data-title">{item.title}</p>
+        <p className="new-products-data-text-cut new-products-data-description">{item.description}</p>
+      </div>
 
       {/* ส่วนปุ่มและราคา */}
       <div className="new-products-data-end">
         <span className="new-products-data-price">{numberFormat(item.price)} {t("moneyUnit")}</span>
         <button
           // onClick={() => actionAddtoCart(item) + toast.success(`เพิ่ม ${item.title} ในตะกร้าแล้วจ้า 😊`, {
-          onClick={() => actionAddtoCart(item) + toast.success(`${t("npcAddedToCart1")} ${item.title} ${t("npcAddedToCart2")}`, {
+          onClick={() => actionAddtoCart(item) + toast.success(`${item.title} ${t("npcAddedToCart")}`, {
             bodyClassName: "toastify-toast-modify",
             // icon: <img src="/img/icon/ic-cart.png"/>,
             // icon: false,
