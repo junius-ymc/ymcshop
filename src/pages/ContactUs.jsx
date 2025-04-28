@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { createContact } from "../api/contact";
 import { toast } from "react-toastify";
 import LoaderDiv from "../components/LoaderDiv";
+import { MessageCircleMore, MapPin, LocateFixed, Mail, Phone, Headset, Instagram, Facebook, MoveDown } from 'lucide-react';
+
 
 const ContactUs = () => {
 
@@ -79,35 +81,67 @@ const ContactUs = () => {
         </div>
         <div className="div-content">
           <div className="div-content-box">
-
             <div className="contact-container">
 
-              <p className="about-title">{t("shopName")}</p>
+              <p className="contact-title flex justify-center items-center">
+                <span className="mr-1"><Headset /></span>
+                <span>{t("cuTextTt1")} {t("shopName")}</span>
+              </p>
               <p className="contact-intro">
-                <h1 className="contact-title">📩 {t("cuTextTt1")}</h1>
                 {t("cuTextTt2")}
               </p>
 
               <div className="contact-grid">
                 {/* ข้อมูลการติดต่อ */}
                 <div className="contact-info">
-                  <h2 className="contact-subtitle">📱 {t("cuTextTt1")}</h2>
-                  {/* <p>📷 Instagram: <a href="https://instagram.com/ymcshop" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop</a></p> */}
-                  <p>📷 <strong>{t("cuTextSo3")}</strong>: <a href="#" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop.com</a></p>
-                  <p>📲 <strong>{t("cuTextSo2")}</strong>: -</p>
-                  <p>📲 <strong>{t("cuTextSo4")}</strong>: -</p>
-                  <p>📧 <strong>{t("cuTextSo1")}</strong>: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a></p>
-                  <p>📲 <strong>{t("cuTextSo5")}</strong>: 0622680706</p>
-                  {/* <p><strong>เวลาทำการ:</strong> จันทร์ - ศุกร์ 10.00 - 18.00 น.</p> */}
+                  <h2 className="contact-subtitle flex items-center">
+                    <span className="mr-1"><Headset /></span>
+                    <span>{t("cuTextTt1")}</span>
+                  </h2>
+                  <ul className="about-list">
+                    <li className="flex items-center">
+                      <span className="mr-6"><Instagram /></span>
+                      <span className="mr-6">
+                        <strong>{t("cuTextSo3")}</strong>: <a href="https://instagram.com/ymcshop.com" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop.com</a>
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-6"><Facebook /></span>
+                      <span className="mr-6">
+                        <strong>{t("cuTextSo2")}</strong>: {t("cuTextSo2")}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-6"><MessageCircleMore /></span>
+                      <span className="mr-6">
+                        <strong>{t("cuTextSo4")}</strong>: {t("cuTextSo4")}
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-6"><Mail /></span>
+                      <span className="mr-6">
+                        <strong>{t("cuTextSo1")}</strong>: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a>
+                      </span>
+                    </li>
+                    <li className="flex items-center">
+                      <span className="mr-6"><Phone /></span>
+                      <span className="mr-6">
+                        <strong>{t("cuTextSo5")}</strong>: 0622680706
+                      </span>
+                    </li>
+                  </ul>
                 </div>
 
                 {/* ฟอร์ม */}
                 <div className="contact-form contact-form-box">
-                  <span className="contact-subtitle">
+                  <span className="contact-subtitle text-center">
                     {t("cuTextSentMsg7")}
                     <br />
                     {t("cuTextSentMsg8")}
+                    <MoveDown className="justify-self-center" />
+                    {/* <br /> */}
                   </span>
+                  <br />
                   <form className="contact-form" onSubmit={handleSubmit}>
                     <div className="input-group">
                       <input
@@ -163,8 +197,17 @@ const ContactUs = () => {
               </div>
 
               {/* ✅ แสดง Google Map */}
-              <h2 className="about-subtitle mt-10">📍 {t("auTextLo1")}</h2>
-              <p>{t("auTextLo2")}</p>
+              <h2 className="about-subtitle flex items-center mt-10">
+                <span className="mr-1"><MapPin /></span>
+                <span>{t("auTextLo1")}</span>
+              </h2>
+              <ul className="about-list">
+                <li className="flex items-center">
+                  <span className="mr-6"><LocateFixed /></span>
+                  {/* <p>{t("auTextLo2")} (จำหน่ายเฉพาะออนไลน์เท่านั้น)</p> */}
+                  {t("auTextLo2")}
+                </li>
+              </ul>
               <iframe
                 title="YMC Shop Location"
                 // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d795.5930272128094!2d101.36788102627287!3d6.866352407095104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b3a98b750a2f6b%3A0x3723281715201d!2zMTEg4LiW4LiZ4LiZIOC4o-C4suC4oeC5guC4geC4oeC4uOC4lyDguIvguK3guKIgMTEg4LiV4Liz4Lia4LilIOC4ouC4suC4oeC4uSDguK3guLPguYDguKDguK0g4Lii4Liw4Lir4Lij4Li04LmI4LiHIOC4m-C4seC4leC4leC4suC4meC4tSA5NDE1MA!5e1!3m2!1sth!2sth!4v1737636221935!5m2!1sth!2sth"
@@ -182,8 +225,8 @@ const ContactUs = () => {
                   <IconAboutUs className="icon-shopping" /> {t("mAboutUs")}
                 </Link>
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </div>
