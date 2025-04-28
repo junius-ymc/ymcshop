@@ -1,4 +1,4 @@
-const IconHowToPay = ({ className = className }) => (
+const IconHowTo = ({ className = className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={className}
@@ -12,4 +12,4 @@ const IconHowToPay = ({ className = className }) => (
   </svg>
 );
 
-export default IconHowToPay;
+export default IconHowTo;

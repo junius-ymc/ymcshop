@@ -17,7 +17,7 @@ import IconHistory from "./icon/IconHistory";
 import IconLogout from "./icon/IconLogout";
 import IconArrow from "./icon/IconArrow";
 import IconMenuSideBar from "./icon/IconMenuSideBar";
-import IconHowToPay from "./icon/IconHowToPay";
+import IconHowTo from "./icon/IconHowTo";
 import IconAboutUs from "./icon/IconAboutUs";
 import IconContactUs from "./icon/IconContactUs";
 import flagth from '../assets/icon/flagth.png'; // (ไว้ในโฟลเดอร์ assets)
@@ -249,7 +249,7 @@ const Sidebar = () => {
 
             <li className="nav-item">
               <NavLink className="nav-link" to="/howtopay" title={t("mHowToPay")}>
-                <div className="icon-menu"><IconHowToPay className="icon-menu" /></div>
+                <div className="icon-menu"><IconHowTo className="icon-menu" /></div>
                 <span className="nav-label">{t("mHowToPay")}</span>
               </NavLink>
             </li>
