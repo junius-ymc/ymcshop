@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 import LoaderDiv from "../components/LoaderDiv";
 import { MessageCircleMore, MapPin, LocateFixed, Mail, Phone, Headset, Instagram, Facebook, MoveDown } from 'lucide-react';
 
-
 const ContactUs = () => {
 
   const initialState = {
@@ -64,6 +63,12 @@ const ContactUs = () => {
     nameData = {};
   }
 
+  const emailSoc = "ymccorp2016@gmail.com";
+  const instagramSoc = "ymcshop.com";
+  const facebookSoc = "Facebook";
+  const lineSoc = "LINE";
+  const phoneSoc = "0622680706";
+
   return (
     <div>
       <Helmet>
@@ -102,31 +107,31 @@ const ContactUs = () => {
                     <li className="flex items-center">
                       <span className="mr-6"><Instagram /></span>
                       <span className="mr-6">
-                        <strong>{t("cuTextSo3")}</strong>: <a href="https://instagram.com/ymcshop.com" className="about-link" target="_blank" rel="noopener noreferrer">@ymcshop.com</a>
+                        <strong>{t("cuTextSo3")}</strong>: <a href={`https://instagram.com/${instagramSoc}`} className="about-link" target="_blank" rel="noopener noreferrer">@{instagramSoc}</a>
                       </span>
                     </li>
                     <li className="flex items-center">
                       <span className="mr-6"><Facebook /></span>
                       <span className="mr-6">
-                        <strong>{t("cuTextSo2")}</strong>: {t("cuTextSo2")}
+                        <strong>{t("cuTextSo2")}</strong>: {facebookSoc}
                       </span>
                     </li>
                     <li className="flex items-center">
                       <span className="mr-6"><MessageCircleMore /></span>
                       <span className="mr-6">
-                        <strong>{t("cuTextSo4")}</strong>: {t("cuTextSo4")}
+                        <strong>{t("cuTextSo4")}</strong>: {lineSoc}
                       </span>
                     </li>
                     <li className="flex items-center">
                       <span className="mr-6"><Mail /></span>
                       <span className="mr-6">
-                        <strong>{t("cuTextSo1")}</strong>: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a>
+                        <strong>{t("cuTextSo1")}</strong>: <a href={`mailto:${emailSoc}`} className="about-link">{emailSoc}</a>
                       </span>
                     </li>
                     <li className="flex items-center">
                       <span className="mr-6"><Phone /></span>
                       <span className="mr-6">
-                        <strong>{t("cuTextSo5")}</strong>: 0622680706
+                        <strong>{t("cuTextSo5")}</strong>: {phoneSoc}
                       </span>
                     </li>
                   </ul>

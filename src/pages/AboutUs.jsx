@@ -15,6 +15,9 @@ const AboutUs = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const emailSoc = "ymccorp2016@gmail.com";
+  const phoneSoc = "0622680706";
+
   return (
     <div>
       <div className="div-wrap">
@@ -71,7 +74,7 @@ const AboutUs = () => {
               <ul className="about-list">
                 <li className="flex items-center">
                   <span className="mr-6"><LocateFixed /></span>
-              {/* <p>{t("auTextLo2")} (จำหน่ายเฉพาะออนไลน์เท่านั้น)</p> */}
+                  {/* <p>{t("auTextLo2")} (จำหน่ายเฉพาะออนไลน์เท่านั้น)</p> */}
                   {t("auTextLo2")}
                 </li>
               </ul>
@@ -84,13 +87,13 @@ const AboutUs = () => {
                 <li className="flex items-center">
                   <span className="mr-6"><Mail /></span>
                   <span className="mr-6">
-                  <strong>{t("cuTextSo1")}</strong>: <a href="mailto:ymccorp2016@gmail.com" className="about-link">ymccorp2016@gmail.com</a>
+                    <strong>{t("cuTextSo1")}</strong>: <a href={`mailto:${emailSoc}`} className="about-link">{emailSoc}</a>
                   </span>
                 </li>
                 <li className="flex items-center">
                   <span className="mr-6"><Phone /></span>
                   <span className="mr-6">
-                  <strong>{t("cuTextSo5")}</strong>: 0622680706
+                    <strong>{t("cuTextSo5")}</strong>: {phoneSoc}
                   </span>
                 </li>
               </ul>
