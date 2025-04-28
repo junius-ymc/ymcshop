@@ -99,7 +99,7 @@ const Login = () => {
                         autoComplete="new-email"
                         // placeholder={t("liEmail")}
                         placeholder=""
-                        className="form-input login-input"
+                        className="form-input"
                         onChange={handleOnChange}
                         name="email"
                         type="email"
@@ -112,7 +112,7 @@ const Login = () => {
                         autoComplete="new-password"
                         // placeholder={t("liPassword")}
                         placeholder=""
-                        className="form-input login-input"
+                        className="form-input"
                         onChange={handleOnChange}
                         name="password"
                         type="password"
