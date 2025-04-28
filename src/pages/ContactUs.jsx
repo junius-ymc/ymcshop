@@ -12,9 +12,17 @@ import { MessageCircleMore, MapPin, LocateFixed, Mail, Phone, Headset, Instagram
 
 const ContactUs = () => {
 
+  const user = useEcomStore((state) => state.user);
+  let nameData;
+  try {
+    nameData = JSON.parse(user?.name || "{}");
+  } catch (error) {
+    nameData = {};
+  }
+
   const initialState = {
-    name: "",
-    email: "",
+    name: "" || nameData?.fullName,
+    email: "" || user?.email,
     subject: "",
     message: "",
   };
@@ -24,7 +32,6 @@ const ContactUs = () => {
   const [formData, setFormData] = useState(initialState);
   const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
   const navigate = useNavigate();
-  const user = useEcomStore((state) => state.user);
 
   const handleChange = (e) => {
     setFormData({
@@ -55,13 +62,6 @@ const ContactUs = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  let nameData;
-  try {
-    nameData = JSON.parse(user?.name || "{}");
-  } catch (error) {
-    nameData = {};
-  }
 
   const emailSoc = "ymccorp2016@gmail.com";
   const instagramSoc = "ymcshop.com";
@@ -96,6 +96,7 @@ const ContactUs = () => {
                 {t("cuTextTt2")}
               </p>
 
+              {/* ✅ แสดง contact-grid */}
               <div className="contact-grid">
                 {/* ข้อมูลการติดต่อ */}
                 <div className="contact-info">
@@ -153,7 +154,7 @@ const ContactUs = () => {
                         type="text"
                         name="name"
                         placeholder=""
-                        value={formData.name || nameData?.fullName}
+                        value={formData.name}
                         onChange={handleChange}
                         className="form-input"
                         required
@@ -165,7 +166,7 @@ const ContactUs = () => {
                         type="email"
                         name="email"
                         placeholder=""
-                        value={formData.email || user?.email}
+                        value={formData.email}
                         onChange={handleChange}
                         className="form-input"
                         required
