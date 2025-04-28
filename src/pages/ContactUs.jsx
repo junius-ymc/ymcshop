@@ -38,7 +38,9 @@ const ContactUs = () => {
     try {
       const res = await createContact(token, formData);
       setFormData(initialState);
-      toast.success(t("cuTextSentMsg5") + t("_blank") + t("cuTextSentMsg6"));
+      toast.success(t("cuTextSentMsg5") + t("_blank") + t("cuTextSentMsg6"), {
+        bodyClassName: "toastify-toast-modify",
+      });
       navigate("/");
       // console.log("✅ ส่งข้อมูลสำเร็จ", res.data);
     } catch (error) {
