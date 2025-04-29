@@ -21,8 +21,8 @@ const ContactUs = () => {
   }
 
   const initialState = {
-    name: "" || nameData?.fullName,
-    email: "" || user?.email,
+    name: nameData?.fullName || "",
+    email: user?.email || "",
     subject: "",
     message: "",
   };
