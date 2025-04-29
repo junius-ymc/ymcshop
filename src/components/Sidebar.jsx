@@ -281,7 +281,7 @@ const Sidebar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a onClick={() => changeLanguage("jp")} className="nav-link dropdown-link">
+                  <a onClick={() => changeLanguage("ja")} className="nav-link dropdown-link">
                     <div className="icon-menu-s">
                       <img src={flagjp} alt="flagjp" className="icon-menu-s" />
                     </div>
