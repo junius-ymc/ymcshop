@@ -74,7 +74,7 @@ const MonthlySalesChart = () => {
   return (
     <div className="div-main-admin-content">
       <div className="flex justify-between items-center">
-        <h3 className="text-xl font-semibold">ยอดขายรายเดือน (Monthly Sales)</h3>
+        <h3 className="text-xl font-semibold">📈 ยอดขายรายเดือน (Monthly Sales)</h3>
         <button
           className="bttn btn-mod-1 btn-admin-style"
           onClick={() => setChartType(chartType === "bar" ? "line" : "bar")}
