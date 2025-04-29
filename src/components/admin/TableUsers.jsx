@@ -4,6 +4,7 @@ import useEcomStore from "../../store/ecom-store";
 import { changeUserStatus, changeUserRole } from "../../api/admin";
 import { toast } from "react-toastify";
 import LoaderDiv from "../LoaderDiv";
+import { dateFormat } from "../../utils/dateformat";
 
 const TableUsers = () => {
   const token = useEcomStore((state) => state.token);
@@ -114,12 +115,20 @@ const TableUsers = () => {
 
             return (
               <tr key={el.id} className="admin-table-tr-user text-xs">
-                <td className="admin-table-td-user text-center">{i + 1}:({el.id})</td>
+                <td className="admin-table-td-user text-center">
+                  ({i + 1})
+                  <br />
+                  {dateFormat(el.createdAt)}
+                </td>
                 <td className="admin-table-td-user">{`${nameData.fullName || "N/A"} ${nameData.phone || "N/A"}`}</td>
                 <td className="admin-table-td-user">
                   {`${addressData.houseNo || ""} ${addressData.district || ""} ${addressData.city || ""} ${addressData.province || ""} ${addressData.zipCode || ""}`.trim() || "N/A"}
                 </td>
-                <td className="admin-table-td-user">{el.email}</td>
+                <td className="admin-table-td-user">
+                  {el.email}
+                  <br />
+                  {new Date(el.updatedAt).toLocaleString()}
+                </td>
                 {/* <td className="admin-table-td-user">
                   {el.picture ? <img src={el.picture} alt="User" className="w-10 h-10 rounded-full" /> : "N/A"}
                 </td> */}
