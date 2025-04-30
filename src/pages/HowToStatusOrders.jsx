@@ -110,8 +110,8 @@ const HowToStatusOrders = () => {
                 <div className="howtopay-text-b">{t("htrProcessing")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus4.png" title={t("htrNotProcess")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus4.png" alt={t("htrNotProcess")} />
+                <a href="/img/ordersstatus/ordersstatus4.png" title={t("htrProcessing")} target="_howtopay">
+                  <img src="/img/ordersstatus/ordersstatus4.png" alt={t("htrProcessing")} />
                 </a>
               </div>
             </div>
@@ -124,8 +124,8 @@ const HowToStatusOrders = () => {
                 <div className="howtopay-text-b">{t("htrCompleted")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus5.png" title={t("htrNotProcess")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus5.png" alt={t("htrNotProcess")} />
+                <a href="/img/ordersstatus/ordersstatus5.png" title={t("htrCompleted")} target="_howtopay">
+                  <img src="/img/ordersstatus/ordersstatus5.png" alt={t("htrCompleted")} />
                 </a>
               </div>
             </div>

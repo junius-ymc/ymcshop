@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import { Helmet } from "react-helmet-async";
+import { NavLink } from "react-router-dom";
+import IconHowTo from "../components/icon/IconHowTo";
 
 const HowToPay = () => {
 
@@ -17,9 +19,42 @@ const HowToPay = () => {
           <title>{t("mHowToPay")} | {t("shopName")}</title>
         </Helmet>
 
-        <div className="div-head">{t("mHowToPay")}</div>
+        <div className="div-head">
+          <span className="setdiv-3">
+            <IconHowTo className="icon-shopping" />
+            {t("mHowToPay")}
+          </span>
+        </div>
         <div className="div-content">
           <div className="div-content-box">
+
+            {/* ปุ่มด้านบน */}
+            <div className="flex items-center justify-between mb-2">
+              <div className="">
+                <NavLink to="/howtopay"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bttn bttnact"
+                      : "bttn btn-mod"
+                  }
+                >
+                  <IconHowTo className="icon-shopping" />
+                  {t("mHowToPay")}
+                </NavLink>
+              </div>
+              <div className="">
+                <NavLink to="/howtostatusorders"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bttn bttnact"
+                      : "bttn btn-mod"
+                  }
+                >
+                  <IconHowTo className="icon-shopping" />
+                  {t("mHowToStatus")}
+                </NavLink>
+              </div>
+            </div>
 
             <hr /><br />
             <div className="howtopay">
@@ -105,6 +140,34 @@ const HowToPay = () => {
               </div>
             </div>
             <br /><hr />
+
+            {/* ปุ่มด้านล่าง */}
+            <div className="flex items-center justify-between mt-2">
+              <div className="">
+                <NavLink to="/howtopay"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bttn bttnact"
+                      : "bttn btn-mod"
+                  }
+                >
+                  <IconHowTo className="icon-shopping" />
+                  {t("mHowToPay")}
+                </NavLink>
+              </div>
+              <div className="">
+                <NavLink to="/howtostatusorders"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bttn bttnact"
+                      : "bttn btn-mod"
+                  }
+                >
+                  <IconHowTo className="icon-shopping" />
+                  {t("mHowToStatus")}
+                </NavLink>
+              </div>
+            </div>
 
           </div>
         </div>
