@@ -29,31 +29,15 @@ const HowToPay = () => {
           <div className="div-content-box">
 
             {/* ปุ่มด้านบน */}
-            <div className="flex items-center justify-between mb-2">
-              <div className="">
-                <NavLink to="/howtopay"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bttn bttnact"
-                      : "bttn btn-mod"
-                  }
-                >
-                  <IconHowTo className="icon-shopping" />
-                  {t("mHowToPay")}
-                </NavLink>
-              </div>
-              <div className="">
-                <NavLink to="/howtostatusorders"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bttn bttnact"
-                      : "bttn btn-mod"
-                  }
-                >
-                  <IconHowTo className="icon-shopping" />
-                  {t("mHowToStatus")}
-                </NavLink>
-              </div>
+            <div className="flex items-center justify-end mb-2">
+              <NavLink
+                to="/howtostatusorders"
+                className="bttn btn-mod"
+              >
+                {t("mClickHowTo")}
+                <IconHowTo className="icon-shopping" />
+                {t("mHowToStatus")}
+              </NavLink>
             </div>
 
             <hr /><br />
@@ -142,31 +126,15 @@ const HowToPay = () => {
             <br /><hr />
 
             {/* ปุ่มด้านล่าง */}
-            <div className="flex items-center justify-between mt-2">
-              <div className="">
-                <NavLink to="/howtopay"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bttn bttnact"
-                      : "bttn btn-mod"
-                  }
-                >
-                  <IconHowTo className="icon-shopping" />
-                  {t("mHowToPay")}
-                </NavLink>
-              </div>
-              <div className="">
-                <NavLink to="/howtostatusorders"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bttn bttnact"
-                      : "bttn btn-mod"
-                  }
-                >
-                  <IconHowTo className="icon-shopping" />
-                  {t("mHowToStatus")}
-                </NavLink>
-              </div>
+            <div className="flex items-center justify-end mt-2">
+              <NavLink
+                to="/howtostatusorders"
+                className="bttn btn-mod"
+              >
+                {t("mClickHowTo")}
+                <IconHowTo className="icon-shopping" />
+                {t("mHowToStatus")}
+              </NavLink>
             </div>
 
           </div>
