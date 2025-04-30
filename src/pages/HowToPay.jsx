@@ -47,7 +47,7 @@ const HowToPay = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/howtopay/01.png" title={t("mHowToPay")} target="_howtopay">
-                  <img src="/img/howtopay/01.png" alt={t("mHowToPay")} />
+                  <img src="/img/howtopay/01.png" alt={t("mHowToPay")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -59,7 +59,7 @@ const HowToPay = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/howtopay/02.png" title={t("lcOrderProducts")} target="_howtopay">
-                  <img src="/img/howtopay/02.png" alt={t("lcOrderProducts")} />
+                  <img src="/img/howtopay/02.png" alt={t("lcOrderProducts")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -72,7 +72,7 @@ const HowToPay = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/howtopay/03.png" title={t("scShippingAddress")} target="_howtopay">
-                  <img src="/img/howtopay/03.png" alt={t("scShippingAddress")} />
+                  <img src="/img/howtopay/03.png" alt={t("scShippingAddress")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -87,7 +87,7 @@ const HowToPay = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/howtopay/04.png" title={t("htpText8") + t("htpText9")} target="_howtopay">
-                  <img src="/img/howtopay/04.png" alt={t("pmPayment")} />
+                  <img src="/img/howtopay/04.png" alt={t("pmPayment")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -102,7 +102,7 @@ const HowToPay = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/howtopay/05.png" title={t("htpText11") + t("htpText12")} target="_howtopay">
-                  <img src="/img/howtopay/05.png" alt={t("pmPayment")} />
+                  <img src="/img/howtopay/05.png" alt={t("pmPayment")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -119,7 +119,7 @@ const HowToPay = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/howtopay/06.png" title={t("htpText13") + t("htpText12") + t("htpText14") + t("htpText16")} target="_howtopay">
-                  <img src="/img/howtopay/06.png" alt={t("pmPayment")} />
+                  <img src="/img/howtopay/06.png" alt={t("pmPayment")} loading="lazy" />
                 </a>
               </div>
             </div>

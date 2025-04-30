@@ -112,7 +112,7 @@ const ShowSupporter = () => {
 
             {itemsdata?.map((itemdata) => (
               <div className="swiper-slide content-crsl" key={itemdata.id}>
-                <img src={itemdata.url} alt={itemdata.userName} />
+                <img src={itemdata.url} alt={itemdata.userName} loading="lazy" />
                 <div className="content-crsl-userName">
                   <h4>Supporter:</h4> &nbsp; <p>{itemdata.userName}</p>
                 </div>

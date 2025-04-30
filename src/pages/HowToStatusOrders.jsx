@@ -49,7 +49,7 @@ const HowToStatusOrders = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/ordersstatus/ordersstatus0.png" title={t("mHowToStatus")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus0.png" alt={t("mHowToStatus")} />
+                  <img src="/img/ordersstatus/ordersstatus0.png" alt={t("mHowToStatus")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -61,13 +61,13 @@ const HowToStatusOrders = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/ordersstatus/ordersstatus1.png" title={t("mHistory")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus1.png" alt={t("mHistory")} />
+                  <img src="/img/ordersstatus/ordersstatus1.png" alt={t("mHistory")} loading="lazy" />
                 </a>
               </div>
               {t("mOdersStatusOr")}
               <div className="howtopay-div-img">
                 <a href="/img/ordersstatus/ordersstatus2.png" title={t("mHistory")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus2.png" alt={t("mHistory")} />
+                  <img src="/img/ordersstatus/ordersstatus2.png" alt={t("mHistory")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -81,7 +81,7 @@ const HowToStatusOrders = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/ordersstatus/ordersstatus3.png" title={t("htrNotProcess")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus3.png" alt={t("htrNotProcess")} />
+                  <img src="/img/ordersstatus/ordersstatus3.png" alt={t("htrNotProcess")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -95,7 +95,7 @@ const HowToStatusOrders = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/ordersstatus/ordersstatus4.png" title={t("htrProcessing")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus4.png" alt={t("htrProcessing")} />
+                  <img src="/img/ordersstatus/ordersstatus4.png" alt={t("htrProcessing")} loading="lazy" />
                 </a>
               </div>
             </div>
@@ -109,7 +109,7 @@ const HowToStatusOrders = () => {
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/ordersstatus/ordersstatus5.png" title={t("htrCompleted")} target="_howtopay">
-                  <img src="/img/ordersstatus/ordersstatus5.png" alt={t("htrCompleted")} />
+                  <img src="/img/ordersstatus/ordersstatus5.png" alt={t("htrCompleted")} loading="lazy" />
                 </a>
               </div>
             </div>

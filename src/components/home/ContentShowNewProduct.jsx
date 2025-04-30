@@ -62,6 +62,7 @@ const ContentShowNewProduct = () => {
                       <img
                         src={item.images[0].url}
                         alt={item.title}
+                        loading="lazy"
                       />
                     </div>
                   ) : (
