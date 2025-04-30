@@ -247,11 +247,29 @@ const Sidebar = () => {
               </NavLink>
             </li>
 
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/howtopay" title={t("mHowToPay")}>
+            <li className={`nav-item dropdown-container ${openDropdown === 3 ? "open" : ""}`}>
+              <a className="nav-link dropdown-toggle" onClick={() => toggleDropdown(3)} title={t("mHowTo")}>
                 <div className="icon-menu"><IconHowTo className="icon-menu" /></div>
-                <span className="nav-label">{t("mHowToPay")}</span>
-              </NavLink>
+                <span className="nav-label">{t("mHowTo")}</span>
+                <span className="dropdown-icon">
+                  <IconArrow className="icon-menu-s" />
+                </span>
+              </a>
+              <ul className="dropdown-menu" style={{ height: openDropdown === 3 ? "auto" : 3 }}>
+                <li className="nav-item"><a className="nav-link dropdown-title">{t("mHowTo")}</a></li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/howtopay" title={t("mHowToPay")}>
+                    <div className="icon-menu-s"><IconHowTo className="icon-menu-s" /></div>
+                    {t("mHowToPay")}
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/howtostatusorders" title={t("mHowToStatus")}>
+                    <div className="icon-menu-s"><IconHowTo className="icon-menu-s" /></div>
+                    {t("mHowToStatus")}
+                  </NavLink>
+                </li>
+              </ul>
             </li>
 
             <li className={`nav-item dropdown-container ${openDropdown === 0 ? "open" : ""}`}>

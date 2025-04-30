@@ -26,6 +26,7 @@ import ManageOrders from '../pages/admin/ManageOrders'
 import AboutUs from '../pages/AboutUs'
 import ContactUs from '../pages/ContactUs'
 import HowToPay from '../pages/HowToPay'
+import HowToStatusOrders from '../pages/HowToStatusOrders'
 import ContactList from '../pages/admin/ContactList'
 import Review from '../pages/user/Review'
 import EditReview from '../pages/user/EditReview'
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
             { path: 'aboutus', element: <AboutUs /> },
             { path: 'contactus', element: <ContactUs /> },
             { path: 'howtopay', element: <HowToPay /> },
+            { path: 'howtostatusorders', element: <HowToStatusOrders /> },
         ]
     },
     {
