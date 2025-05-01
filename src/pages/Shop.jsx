@@ -8,8 +8,10 @@ import LoaderDiv from "../components/LoaderDiv";
 import IconSearch from "../components/icon/IconSearch";
 import IconShopping from "../components/icon/IconShopping";
 import { Helmet } from "react-helmet-async";
+import logobig from '../assets/logobig.png';
 
 const Shop = () => {
+  const FRONTEND_URL = import.meta.env.VITE_BASE_URL;
   const getProduct = useEcomStore((state) => state.getProduct);
   const products = useEcomStore((state) => state.products);
   const loading = useEcomStore((state) => state.loading);
@@ -182,6 +184,16 @@ const Shop = () => {
       <div className="wrap-shop">
         <Helmet>
           <title>{t("mShop")} | {t("shopName")}</title>
+          <meta name="description" content={t("auTextHL2") + t("_blank") + t("auTextHL3") + t("_blank") + t("auTextHL4")} />
+          <meta name="robots" content="follow, index" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content={t("shopName")} />
+          <meta property="og:title" content={t("mShop") + t("_blank") + "|" + t("_blank") + t("shopName")} />
+          <meta property="og:description" content={t("auTextHL2") + t("_blank") + t("auTextHL3") + t("_blank") + t("auTextHL4")} />
+          <meta property="og:image" content={FRONTEND_URL + logobig} />
+          <meta property="thumbnail" content={FRONTEND_URL + logobig} />
+          <meta property="og:url" content={`${FRONTEND_URL}/shop`} />
+          <link rel="canonical" href={`${FRONTEND_URL}/shop`} />
         </Helmet>
 
         {/* เริ่ม ส่วนของการแสดงค้นหาสินค้า */}

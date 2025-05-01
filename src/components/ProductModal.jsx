@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 
 const ProductModal = ({ isOpen, onClose, product }) => {
 
+  const FRONTEND_URL = import.meta.env.VITE_BASE_URL;
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
 
   if (!isOpen || !product) return null;
@@ -58,7 +59,12 @@ const ProductModal = ({ isOpen, onClose, product }) => {
               {product.images?.map((img, index) => (
                 <SwiperSlide key={index}>
                   <div className="swiper-zoom-container modal-swiper-slide">
-                    <img src={img.url} alt={product.title} title={t("ttTileClickToZoom")} />
+                    <img
+                      src={img.url}
+                      alt={product.title}
+                      title={t("ttTileClickToZoom")}
+                      loading="lazy"
+                    />
                   </div>
                 </SwiperSlide>
               ))}
@@ -66,6 +72,19 @@ const ProductModal = ({ isOpen, onClose, product }) => {
             <p className="modal-title">{product.title}: {numberFormat(product.price)} {t("moneyUnit")}</p>
             <p className="modal-description">{product.description}</p>
           </div>
+          <Helmet>
+            <title>{product.title} | {t("shopName")}</title>
+            <meta name="description" content={product.description} />
+            <meta name="robots" content="follow, index" />
+            <meta property="og:type" content="website" />
+            <meta property="og:site_name" content={t("shopName")} />
+            <meta property="og:title" content={product.title} />
+            <meta property="og:description" content={product.description} />
+            <meta property="og:image" content={product.images[0].url} />
+            <meta property="thumbnail" content={product.images[0].url} />
+            <meta property="og:url" content={`${FRONTEND_URL}/shop?productId=${product.id}`} />
+            <link rel="canonical" href={`${FRONTEND_URL}/shop?productId=${product.id}`} />
+          </Helmet>
         </motion.div>
       </motion.div>
     </AnimatePresence>

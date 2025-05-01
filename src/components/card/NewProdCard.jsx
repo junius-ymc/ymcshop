@@ -32,7 +32,12 @@ const NewProdCard = ({ item }) => {
         {/* ส่วนรูปภาพ */}
         <div>
           {item.images && item.images.length > 0 ? (
-            <img src={item.images[0].url} className="new-products-card-img" loading="lazy" />
+            <img
+              src={item.images[0].url}
+              alt={item.title}
+              className="new-products-card-img"
+              loading="lazy"
+            />
           ) : (
             <div className="new-products-card-img new-products-card-no-img">
               No Image

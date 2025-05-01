@@ -54,8 +54,9 @@ const ProductCard = ({ item }) => {
             {item.images && item.images.length > 0 ? (
               <img
                 src={item.images[0].url}
+                alt={item.title}
                 className="shop-product-card-img"
-                loading="lazy" // เพิ่มบรรทัดนี้
+                loading="lazy" // เพิ่มบรรทัดนี้ โหลดแบบ lazy
               />
             ) : (
               <div
@@ -80,7 +81,7 @@ const ProductCard = ({ item }) => {
 
             {(item?.quantity === 0)
               ?
-                <div className="flex items-center">
+              <div className="flex items-center">
                 <IconCart className="icon-shopping-cart" />
               </div>
               :
@@ -88,7 +89,7 @@ const ProductCard = ({ item }) => {
                 onClick={() => actionAddtoCart(item) + handleCartClick()}
               >
                 <div className="flex items-center">
-                <IconCart className="icon-shopping-cart" />
+                  <IconCart className="icon-shopping-cart" />
                 </div>
               </button>
             }
