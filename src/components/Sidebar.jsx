@@ -283,7 +283,7 @@ const Sidebar = () => {
               <ul className="dropdown-menu" style={{ height: openDropdown === 0 ? "auto" : 0 }}>
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mLang")}</a></li>
                 <li className="nav-item">
-                  <a onClick={() => changeLanguage("th")} className="nav-link dropdown-link">
+                  <a onClick={() => changeLanguage("th")} href="?" target="_self" className="nav-link dropdown-link">
                     <div className="icon-menu-s">
                       <img src={flagth} alt="flagth" className="icon-menu-s" />
                     </div>
@@ -291,7 +291,7 @@ const Sidebar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a onClick={() => changeLanguage("en")} className="nav-link dropdown-link">
+                  <a onClick={() => changeLanguage("en")} href="?" target="_self" className="nav-link dropdown-link">
                     <div className="icon-menu-s">
                       <img src={flagen} alt="flagen" className="icon-menu-s" />
                     </div>
@@ -299,7 +299,7 @@ const Sidebar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a onClick={() => changeLanguage("ja")} className="nav-link dropdown-link">
+                  <a onClick={() => changeLanguage("ja")} href="?" target="_self" className="nav-link dropdown-link">
                     <div className="icon-menu-s">
                       <img src={flagjp} alt="flagjp" className="icon-menu-s" />
                     </div>

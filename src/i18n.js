@@ -7,6 +7,7 @@ import ja from "./lang/ja.json";
 
 // โหลดค่าภาษาจาก Local Storage ถ้ามี
 const savedLanguage = localStorage.getItem("language") || "th"; // ค่าเริ่มต้น (เปลี่ยนเป็น 'th' ได้)
+document.documentElement.lang = savedLanguage; // ✅ เปลี่ยนค่าแท็ค <html lang="xx">
 
 i18n
   .use(initReactI18next)
@@ -17,7 +18,7 @@ i18n
       ja: { translation: ja },
     },
     lng: savedLanguage, // ใช้ค่าภาษาจาก localStorage ถ้ามี
-    fallbackLng: "en", // ถ้าหาภาษาไม่เจอให้ใช้ภาษาอังกฤษ
+    fallbackLng: "th", // ถ้าหาภาษาไม่เจอให้ใช้ภาษาอังกฤษ
     interpolation: { escapeValue: false },
   });
 
