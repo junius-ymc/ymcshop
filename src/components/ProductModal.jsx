@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Zoom } from "swiper/modules";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import IconClose from "./icon/IconClose";
+import { Helmet } from "react-helmet-async";
 
 import "swiper/css";
 import 'swiper/css/zoom';
