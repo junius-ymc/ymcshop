@@ -26,14 +26,17 @@ const Home = () => {
         <meta name="description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
         <meta name="robots" content="follow, index" />
         {/* Open Graph สำหรับแชร์ใน Social Media */}
-        {/* <meta property="og:locale" content="en_US" /> */}
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content={savedLanguageSeo} />
         <meta property="og:site_name" content={t("shopName")} />
         <meta property="og:title" content={t("mHome") + " | " + t("shopName")} />
         <meta property="og:description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
-        <meta property="og:url" content={FRONTEND_URL} />
         <meta property="og:image" content={FRONTEND_URL + logobig} />
-        <meta property="thumbnail" content={FRONTEND_URL + logobig} />
+        <meta property="og:url" content={FRONTEND_URL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t("mHome") + " | " + t("shopName")} />
+        <meta name="twitter:description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
+        <meta name="twitter:image" content={FRONTEND_URL + logobig} />
         {/* Link SEO */}
         <link rel="canonical" href={FRONTEND_URL} />
       </Helmet>

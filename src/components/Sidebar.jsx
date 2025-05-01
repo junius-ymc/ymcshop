@@ -39,9 +39,10 @@ const Sidebar = () => {
   // console.log(user.email)
 
   const { t, i18n } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
-  const changeLanguage = (lang) => {
+  const changeLanguage = (lang, langSeo) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang); // ✅ บันทึกค่าภาษาไว้
+    localStorage.setItem("languageSeo", langSeo); // ✅ บันทึกค่าภาษาไว้
   };
 
   useEffect(() => {
@@ -184,7 +185,7 @@ const Sidebar = () => {
                 {(user?.role === "staff" || user?.role === "admin") && (
                   <li>
                     <a href="/admin/" target="_YMCshop-Admin">
-                    <div className="flex justify-start items-center">
+                      <div className="flex justify-start items-center">
                         <span className="mr-1">For: </span>
                         <span>{user?.role}</span>
                       </div>
@@ -283,7 +284,7 @@ const Sidebar = () => {
               <ul className="dropdown-menu" style={{ height: openDropdown === 0 ? "auto" : 0 }}>
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mLang")}</a></li>
                 <li className="nav-item">
-                  <a onClick={() => changeLanguage("th")} href="?" target="_self" className="nav-link dropdown-link">
+                  <a onClick={() => changeLanguage("th", "th_TH")} href="?" target="_self" className="nav-link dropdown-link">
                     <div className="icon-menu-s">
                       <img src={flagth} alt="flagth" className="icon-menu-s" />
                     </div>
@@ -291,7 +292,7 @@ const Sidebar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a onClick={() => changeLanguage("en")} href="?" target="_self" className="nav-link dropdown-link">
+                  <a onClick={() => changeLanguage("en", "en_US")} href="?" target="_self" className="nav-link dropdown-link">
                     <div className="icon-menu-s">
                       <img src={flagen} alt="flagen" className="icon-menu-s" />
                     </div>
@@ -299,7 +300,7 @@ const Sidebar = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a onClick={() => changeLanguage("ja")} href="?" target="_self" className="nav-link dropdown-link">
+                  <a onClick={() => changeLanguage("ja", "ja_JA")} href="?" target="_self" className="nav-link dropdown-link">
                     <div className="icon-menu-s">
                       <img src={flagjp} alt="flagjp" className="icon-menu-s" />
                     </div>
