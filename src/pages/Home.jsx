@@ -32,8 +32,7 @@ const Home = () => {
         <meta property="og:site_name" content={t("shopName")} />
         <meta property="og:title" content={t("mHome") + " | " + t("shopName")} />
         <meta property="og:description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
-        {/* <meta property="og:image" content={FRONTEND_URL + logobig || `https://ymcshop.vercel.app/assets/logobig-LR0xQffH.png`} /> */}
-        <meta property="og:image" content="https://ymcshop.vercel.app/assets/logobig.png" />
+        <meta property="og:image" content={FRONTEND_URL + logobig} />
         <meta property="og:url" content={FRONTEND_URL} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t("mHome") + " | " + t("shopName")} />
