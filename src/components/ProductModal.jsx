@@ -81,8 +81,8 @@ const ProductModal = ({ isOpen, onClose, product }) => {
             <meta property="og:site_name" content={t("shopName")} />
             <meta property="og:title" content={product.title} />
             <meta property="og:description" content={product.description} />
-            <meta property="og:image" content={product.images[0].url} />
-            <meta property="thumbnail" content={product.images[0].url} />
+            <meta property="og:image" content={product.images[0]?.url} />
+            <meta property="thumbnail" content={product.images[0]?.url} />
             <meta property="og:url" content={`${FRONTEND_URL}/shop?productId=${product.id}`} />
             <link rel="canonical" href={`${FRONTEND_URL}/shop?productId=${product.id}`} />
           </Helmet>
