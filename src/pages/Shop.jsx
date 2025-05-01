@@ -16,6 +16,7 @@ const Shop = () => {
   const products = useEcomStore((state) => state.products);
   const loading = useEcomStore((state) => state.loading);
   const { t } = useTranslation();
+  const savedLanguageSeo = localStorage.getItem("languageSeo") || "th_TH"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);

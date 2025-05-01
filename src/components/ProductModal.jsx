@@ -16,6 +16,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
 
   const FRONTEND_URL = import.meta.env.VITE_BASE_URL;
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const savedLanguageSeo = localStorage.getItem("languageSeo") || "th_TH"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
 
   if (!isOpen || !product) return null;
 
