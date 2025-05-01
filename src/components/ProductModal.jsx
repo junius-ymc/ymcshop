@@ -75,12 +75,12 @@ const ProductModal = ({ isOpen, onClose, product }) => {
           </div>
           <Helmet>
             <title>{product.title} | {t("shopName")}</title>
-            <meta name="description" content={product.description} />
+            <meta name="description" content={product.description?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
             <meta name="robots" content="follow, index" />
             <meta property="og:type" content="website" />
             <meta property="og:site_name" content={t("shopName")} />
             <meta property="og:title" content={product.title} />
-            <meta property="og:description" content={product.description} />
+            <meta property="og:description" content={product.description?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
             <meta property="og:image" content={product.images[0]?.url} />
             <meta property="thumbnail" content={product.images[0]?.url} />
             <meta property="og:url" content={`${FRONTEND_URL}/shop?productId=${product.id}`} />
