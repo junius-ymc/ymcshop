@@ -458,12 +458,11 @@ img {
   border: solid 1px;
   border-radius: 4px;
   width: 100%;
-  height: fit-content;
+  height: 32px;
   margin-bottom: 12px;
   padding: 0 4px;
   font-size: var(--fontsize13);
   font-weight: 600;
-  height: 30px;
   background-color: var(--white);
   color: var(--black);
   border-color: var(--bluelite);
