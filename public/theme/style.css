@@ -2014,6 +2014,11 @@ footer .wrapper ul li .textact {
     flex-direction: column;
   }
 
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+
 }
 
 /* ------------------------------------- End RESPONSIVE 768px ------------------------------------- */
