@@ -447,8 +447,8 @@ img {
 .input-group textarea:not(:placeholder-shown)+label {
   top: -18px;
   left: 5px;
-  background: var(--bluelite);
-  color: var(--white-default);
+  background: var(--gray);
+  color: var(--bgcontent);
   border-radius: 3px;
   padding: 0 4px;
 }
@@ -465,14 +465,14 @@ img {
   font-weight: 600;
   background-color: var(--white);
   color: var(--black);
-  border-color: var(--bluelite);
+  border-color: var(--gray);
 }
 
 .form-textarea:hover,
 .form-input:hover {
   color: var(--white);
-  border-color: var(--bluedeep);
-  background-color: var(--bluelite);
+  border-color: var(--bghead);
+  background-color: var(--black);
 }
 
 .form-textarea:focus,
@@ -482,14 +482,14 @@ img {
   border-color: transparent;
   opacity: 1;
   outline: none;
-  box-shadow: 0 0 0 2px var(--bluedeep);
+  box-shadow: 0 0 0 2px var(--black);
   color: var(--bgcontent);
   background-color: var(--gray);
 }
 
 .form-textarea:invalid,
 .form-input:invalid {
-  border-color: var(--red);
+  border-color: var(--gray);
 }
 
 .form-input-checkout {
