@@ -1893,7 +1893,7 @@ header .wrapper .navbar li a {
   padding-top: 4px;
 }
 
-.contact-form input,
+/* .contact-form input, */
 .contact-form textarea {
   height: 100%;
 }
