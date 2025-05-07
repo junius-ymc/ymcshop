@@ -14,6 +14,8 @@ const Home = () => {
   const FRONTEND_URL = import.meta.env.VITE_BASE_URL;
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const savedLanguageSeo = localStorage.getItem("languageSeo") || "th_TH"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
+  const metaTitle = t("mHome") + " | " + t("shopName");
+  const metaDescription = (t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? "";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -23,20 +25,20 @@ const Home = () => {
     <div className="div-wrap">
       <Helmet>
         {/* SEO */}
-        <title>{t("mHome")} | {t("shopName")}</title>
-        <meta name="description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
         <meta name="robots" content="follow, index" />
         {/* Open Graph สำหรับแชร์ใน Social Media */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={savedLanguageSeo} />
         <meta property="og:site_name" content={t("shopName")} />
-        <meta property="og:title" content={t("mHome") + " | " + t("shopName")} />
-        <meta property="og:description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content={FRONTEND_URL + logobig} />
         <meta property="og:url" content={FRONTEND_URL} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t("mHome") + " | " + t("shopName")} />
-        <meta name="twitter:description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={FRONTEND_URL + logobig} />
         {/* Link SEO */}
         <link rel="canonical" href={FRONTEND_URL} />

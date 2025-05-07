@@ -17,6 +17,8 @@ const Shop = () => {
   const loading = useEcomStore((state) => state.loading);
   const { t } = useTranslation();
   const savedLanguageSeo = localStorage.getItem("languageSeo") || "th_TH"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
+  const metaTitle = t("mShop") + " | " + t("shopName");
+  const metaDescription = (t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? "";
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -183,20 +185,20 @@ const Shop = () => {
   return (
     <div className="div-wrap">
       <div className="wrap-shop">
-        <Helmet>
-          <title>{t("mShop")} | {t("shopName")}</title>
-          <meta name="description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
+      <Helmet>
+          <title>{metaTitle}</title>
+          <meta name="description" content={metaDescription} />
           <meta name="robots" content="follow, index" />
           <meta property="og:type" content="website" />
           <meta property="og:locale" content={savedLanguageSeo} />
           <meta property="og:site_name" content={t("shopName")} />
-          <meta property="og:title" content={t("mShop") + " | " + t("shopName")} />
-          <meta property="og:description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
+          <meta property="og:title" content={metaTitle} />
+          <meta property="og:description" content={metaDescription} />
           <meta property="og:image" content={FRONTEND_URL + logobig} />
           <meta property="og:url" content={`${FRONTEND_URL}/shop`} />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={t("mShop") + " | " + t("shopName")} />
-          <meta name="twitter:description" content={(t("auTextHL2") + " " + t("auTextHL3") + " " + t("auTextHL4"))?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />
+          <meta name="twitter:title" content={metaTitle} />
+          <meta name="twitter:description" content={metaDescription} />
           <meta name="twitter:image" content={FRONTEND_URL + logobig} />
           <link rel="canonical" href={`${FRONTEND_URL}/shop`} />
         </Helmet>
