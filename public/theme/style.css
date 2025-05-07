@@ -767,7 +767,21 @@ header .wrapper .navbar li a {
   opacity: .7;
   width: 100%;
   padding: 1px;
-  /* transform: rotate(0deg); */
+  border-radius: 12px;
+  transform: rotate(0deg);
+}
+
+.content-crsl-reviewProduct::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  /* bottom: 100%; */
+  left: 45%;
+  transform: translateX(50%);
+  border-width: 15px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+  transform: rotate(0deg);
 }
 
 .content-crsl-reviewProduct p {
