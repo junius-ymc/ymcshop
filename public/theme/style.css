@@ -838,7 +838,7 @@ header .wrapper .navbar li a {
 
 /* TextAnimation -------------*/
 .typewriter-container {
-  font-family: monospace;
+  /* font-family: monospace; */
   font-size: var(--fontsize15);
   width: 100%;
   overflow: hidden;
