@@ -458,6 +458,7 @@ img {
   border: solid 1px;
   border-radius: 4px;
   width: 100%;
+  height: fit-content;
   margin-bottom: 12px;
   padding: 0 4px;
   font-size: var(--fontsize13);
