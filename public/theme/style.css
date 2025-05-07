@@ -424,7 +424,7 @@ img {
 
 .input-group label {
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 10px;
   pointer-events: none;
   color: var(--texclact);
