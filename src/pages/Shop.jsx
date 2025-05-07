@@ -8,7 +8,7 @@ import LoaderDiv from "../components/LoaderDiv";
 import IconSearch from "../components/icon/IconSearch";
 import IconShopping from "../components/icon/IconShopping";
 import { Helmet } from "react-helmet-async";
-import logobig from '../assets/logo-big.png';
+import logobig from '../assets/Logo-big.png';
 
 const Shop = () => {
   const FRONTEND_URL = import.meta.env.VITE_BASE_URL;

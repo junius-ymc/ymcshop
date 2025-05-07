@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัว�
 import ShowSupporter from "../components/home/ShowSupporter";
 import TextAnimation from "../components/home/TextAnimation";
 import { Helmet } from "react-helmet-async";
-import logobig from '../assets/logo-big.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
+import logobig from '../assets/Logo-big.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
 
 const Home = () => {
 
