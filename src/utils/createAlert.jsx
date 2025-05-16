@@ -6,6 +6,10 @@ export const createAlert = (icon, text, confirmButtonText, timer) => {
     text: text || "Something Wrong!!",
     confirmButtonText: confirmButtonText || "OK",
     timer: timer || 3000,
+    customClass: {
+      confirmButton: "swal-confirmButton-custom",
+      popup: "swal-popup-custom",
+    },
   });
 };
 

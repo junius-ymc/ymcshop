@@ -592,6 +592,7 @@ img {
   background-color: var(--bgcontent);
   color: var(--black);
   border: 1px solid var(--bluelite);
+  font-size: var(--fontsize15);
 }
 
 /* ------------------------------------- End Notify ------------------------------------- */
