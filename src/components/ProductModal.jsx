@@ -73,6 +73,21 @@ const ProductModal = ({ isOpen, onClose, product }) => {
             </Swiper>
             <p className="modal-title">{product.title}: {numberFormat(product.price)} {t("moneyUnit")}</p>
             <p className="modal-description">{product.description}</p>
+            <div className="flex items-center justify-center">
+              {(product?.quantity === 0)
+                ?
+                <div className="flex items-center">
+                  <button className="bttn btn-mod-1" disabled>{t("sSoldOut")}</button>
+                </div>
+                :
+                <button className="bttn btn-mod-1"
+                  onClick={() => actionAddtoCart(product) + toast.success(`${product.title} ${t("npcAddedToCart")}`, {
+                    bodyClassName: "toastify-toast-modify",
+                  })}
+                >{t("ccAddToCart")}
+                </button>
+              }
+            </div>
           </div>
           <Helmet>
             <title>{product.title} | {t("shopName")}</title>

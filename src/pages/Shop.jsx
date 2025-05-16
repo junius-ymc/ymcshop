@@ -239,12 +239,12 @@ const Shop = () => {
           </div>
           <div className="div-content">
             <div className="shop-head-title-top-box">
-              <div className="shop-head-title-top">
+              <div className="shop-head-title-top flex flex-col items-center justify-center">
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}
                 {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
                 {getSearching === "on" && (
-                  <span onClick={resetSearching} className="btn-mod-1 w-[50%] flex items-center justify-center cursor-pointer text-sm rounded-md">
-                    ล้างการค้นหา
+                  <span onClick={resetSearching} className="btn-mod-1 w-[50%] cursor-pointer text-sm rounded-md">
+                    {t("sbResetSearch")}
                   </span>
                 )}
               </div>
@@ -256,7 +256,12 @@ const Shop = () => {
                   <ProductCard key={index} item={item} />
                 ))}
               </div>
-              <div className="shop-head-title-top shop-head-title-bottom">
+              <div className="shop-head-title-top shop-head-title-bottom flex flex-col items-center justify-center">
+                {getSearching === "on" && (
+                  <span onClick={resetSearching} className="btn-mod-1 w-[50%] cursor-pointer text-sm rounded-md">
+                    {t("sbResetSearch")}
+                  </span>
+                )}
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}
                 {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
               </div>
