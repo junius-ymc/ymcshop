@@ -6,8 +6,8 @@ import { Navigation, Pagination, Autoplay, Zoom } from "swiper/modules";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import IconClose from "./icon/IconClose";
 import { Helmet } from "react-helmet-async";
-import { toast } from 'react-toastify';
 import useEcomStore from "../store/ecom-store";
+import { createNofity } from "../utils/createAlert";
 
 import "swiper/css";
 import 'swiper/css/zoom';
@@ -83,12 +83,22 @@ const ProductModal = ({ isOpen, onClose, product }) => {
                   <button className="bttn btn-mod-1 mt-2" disabled>{t("sSoldOut")}</button>
                 </div>
                 :
-                <button className="bttn btn-mod mt-2"
-                  onClick={() => actionAddtoCart(product) + toast.success(`${product.title} ${t("npcAddedToCart")}`, {
-                    bodyClassName: "toastify-toast-modify",
-                  })}
-                >{t("ccAddToCart")}
-                </button>
+                <span onClick={onClose}>
+                  <button className="bttn btn-mod mt-2"
+                    onClick={() =>
+                      actionAddtoCart(product)
+                      +
+                      createNofity("success",
+                        `<p>${product.title}</p>`,
+                        `${t("npcAddedToCart")}`,
+                        `${t("ttClose")}`,
+                        '5000')
+                    }
+                  >
+                    {/* <span onClick={onClose}>{t("ccAddToCart")}</span> */}
+                    {t("ccAddToCart")}
+                  </button>
+                </span>
               }
             </div>
           </div>
