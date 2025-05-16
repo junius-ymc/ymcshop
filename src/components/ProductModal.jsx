@@ -83,7 +83,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
                   <button className="bttn btn-mod-1" disabled>{t("sSoldOut")}</button>
                 </div>
                 :
-                <button className="bttn btn-mod-1"
+                <button className="bttn btn-mod"
                   onClick={() => actionAddtoCart(product) + toast.success(`${product.title} ${t("npcAddedToCart")}`, {
                     bodyClassName: "toastify-toast-modify",
                   })}
