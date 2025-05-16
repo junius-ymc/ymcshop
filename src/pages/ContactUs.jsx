@@ -47,7 +47,7 @@ const ContactUs = () => {
       const res = await createContact(token, formData);
       setFormData(initialState);
       createNofity("success",
-        `<p>${t("cuTextSentMsg5")}</p>`,
+        `${t("cuTextSentMsg5")}`,
         `${t("cuTextSentMsg6")}`,
         `${t("ttClose")}`,
         5000)

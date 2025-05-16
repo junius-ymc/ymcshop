@@ -578,6 +578,22 @@ img {
   --toastify-toast-width: 450px;
 }
 
+.swal-title-custom {
+  font-size: var(--fontsize16);
+}
+
+.swal-confirmButton-custom {
+  color: var(--white-default);
+  background-color: var(--red);
+  font-size: var(--fontsize15);
+}
+
+.swal-popup-custom {
+  background-color: var(--bgcontent);
+  color: var(--black);
+  border: 1px solid var(--bluelite);
+}
+
 /* ------------------------------------- End Notify ------------------------------------- */
 /* ------------------------------------- Start Tooltip ------------------------------------- */
 

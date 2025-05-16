@@ -17,6 +17,13 @@ export const createNofity = (icon, title, text, confirmButtonText, timer) => {
     text: text,
     confirmButtonText: confirmButtonText || "OK",
     // showConfirmButton: false,
+    // showCancelButton: true,
+    // cancelButtonColor: "#d33",
     timer: timer || 3000,
+    customClass: {
+      title: "swal-title-custom",
+      confirmButton: "swal-confirmButton-custom",
+      popup: "swal-popup-custom",
+    },
   });
 };

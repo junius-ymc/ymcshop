@@ -61,7 +61,7 @@ const NewProdCard = ({ item }) => {
             actionAddtoCart(item)
             +
             createNofity("success",
-              `<p>${item.title}</p>`,
+              `${item.title}`,
               `${t("npcAddedToCart")}`,
               `${t("ttClose")}`)
           }

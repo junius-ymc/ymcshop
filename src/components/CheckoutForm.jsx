@@ -48,7 +48,7 @@ export default function CheckoutForm() {
           // console.log(res);
           clearCart()
           createNofity("success",
-            `<p>${t("pmPaymentSuccess")}</p>`,
+            `${t("pmPaymentSuccess")}`,
             `${t("pmPaymentThkMsg")}`,
             `${t("ttClose")}`)
           navigate("/user/history");
