@@ -63,8 +63,7 @@ const NewProdCard = ({ item }) => {
             createNofity("success",
               `<p>${item.title}</p>`,
               `${t("npcAddedToCart")}`,
-              `${t("ttClose")}`,
-              '5000')
+              `${t("ttClose")}`)
           }
         >
           <IconCart className="icon-shopping-cart" />

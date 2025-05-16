@@ -91,8 +91,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
                       createNofity("success",
                         `<p>${product.title}</p>`,
                         `${t("npcAddedToCart")}`,
-                        `${t("ttClose")}`,
-                        '5000')
+                        `${t("ttClose")}`)
                     }
                   >
                     {/* <span onClick={onClose}>{t("ccAddToCart")}</span> */}
