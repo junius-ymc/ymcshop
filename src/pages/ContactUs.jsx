@@ -6,9 +6,9 @@ import IconAboutUs from "../components/icon/IconAboutUs";
 import IconContactUs from "../components/icon/IconContactUs";
 import { Link, useNavigate } from "react-router-dom";
 import { createContact } from "../api/contact";
-import { toast } from "react-toastify";
 import LoaderDiv from "../components/LoaderDiv";
 import { MessageCircleMore, MapPin, LocateFixed, Mail, Phone, Headset, Instagram, Facebook, MoveDown } from 'lucide-react';
+import { createAlert, createNofity } from "../utils/createAlert";
 
 const ContactUs = () => {
 
@@ -46,13 +46,17 @@ const ContactUs = () => {
     try {
       const res = await createContact(token, formData);
       setFormData(initialState);
-      toast.success(t("cuTextSentMsg5") + t("_blank") + t("cuTextSentMsg6"), {
-        bodyClassName: "toastify-toast-modify",
-      });
+      createNofity("success",
+        `<p>${t("cuTextSentMsg5")}</p>`,
+        `${t("cuTextSentMsg6")}`,
+        `${t("ttClose")}`,
+        5000)
       navigate("/");
       // console.log("✅ ส่งข้อมูลสำเร็จ", res.data);
     } catch (error) {
-      toast.error("เกิดข้อผิดพลาดในการส่งข้อมูล");
+      createAlert("error",
+        `${t("liServerError")}`,
+        `${t("ttClose")}`);
       console.error("❌ เกิดข้อผิดพลาด", error);
     } finally {
       setLoading(false); // โหลดเสร็จ
