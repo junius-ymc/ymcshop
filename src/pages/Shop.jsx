@@ -41,9 +41,18 @@ const Shop = () => {
     setIsModalOpenSearchCard(true);
   };
 
+  // รีเซ็ตการค้นหา
+  const getSearching = localStorage.getItem("searching") || "off"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
+  const resetSearching = () => {
+    localStorage.setItem("searching", "off");
+    getProduct();
+    setCurrentPage(1);
+  };
+
   // ✅ เพิ่มฟังก์ชันให้เปลี่ยนหน้าเป็นหน้าแรก
   const resetToFirstPage = () => {
     setCurrentPage(1);
+    localStorage.setItem("searching", "on");
   };
 
   // ฟังก์ชันสำหรับเปลี่ยนหน้า
@@ -185,7 +194,7 @@ const Shop = () => {
   return (
     <div className="div-wrap">
       <div className="wrap-shop">
-      <Helmet>
+        <Helmet>
           <title>{metaTitle}</title>
           <meta name="description" content={metaDescription} />
           <meta name="robots" content="follow, index" />
@@ -233,6 +242,11 @@ const Shop = () => {
               <div className="shop-head-title-top">
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}
                 {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
+                {getSearching === "on" && (
+                  <span onClick={resetSearching} className="btn-mod-1 w-[50%] flex items-center justify-center cursor-pointer text-sm rounded-md">
+                    ล้างการค้นหา
+                  </span>
+                )}
               </div>
               <div className="shop-product-cart">
                 {/* ✅ เริ่ม แสดง Loader */}
