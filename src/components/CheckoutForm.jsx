@@ -40,12 +40,12 @@ export default function CheckoutForm() {
         `${payload.error.message}`,
         `${t("ttClose")}`);
     } else if (payload.paymentIntent.status === "succeeded") {
-      console.log("Ready or Saveorder");
+      // console.log("Ready or Saveorder");
       setLoading(true); // เริ่มโหลด
       // Create Order
       saveOrder(token, payload)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           clearCart()
           createNofity("success",
             `<p>${t("pmPaymentSuccess")}</p>`,
