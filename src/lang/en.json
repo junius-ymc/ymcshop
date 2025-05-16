@@ -123,6 +123,7 @@
     "htrCancelled": "Order Cancelled ❌",
     "pmPayment": "Payment Methods",
     "pmPaymentSuccess": "Payment Successful ✅",
+    "pmPaymentThkMsg": "💗Thank you for supporting our store.",
     "pmPaymentFailed": "Payment Failed !!! ❌",
     "pmPayNow": "Pay Now",
     "htpText1": "You must sign in first",

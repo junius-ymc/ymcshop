@@ -3,10 +3,10 @@ import { PaymentElement, useStripe, useElements, } from "@stripe/react-stripe-js
 import "../stripe.css";
 import { saveOrder } from "../api/user";
 import useEcomStore from "../store/ecom-store";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "./LoaderDiv";
+import { createAlert, createNofity } from "../utils/createAlert";
 
 export default function CheckoutForm() {
   const token = useEcomStore((state) => state.token);
@@ -36,7 +36,9 @@ export default function CheckoutForm() {
     if (payload.error) {
       setMessage(payload.error.message);
       console.log("error");
-      toast.error(payload.error.message);
+      createAlert("error",
+        `${payload.error.message}`,
+        `${t("ttClose")}`);
     } else if (payload.paymentIntent.status === "succeeded") {
       console.log("Ready or Saveorder");
       setLoading(true); // เริ่มโหลด
@@ -45,10 +47,10 @@ export default function CheckoutForm() {
         .then((res) => {
           console.log(res);
           clearCart()
-          // toast.success("Payment Success!!!");
-          toast.success(`${t("pmPaymentSuccess")}`, {
-            bodyClassName: "toastify-toast-modify",
-          });
+          createNofity("success",
+            `<p>${t("pmPaymentSuccess")}</p>`,
+            `${t("pmPaymentThkMsg")}`,
+            `${t("ttClose")}`)
           navigate("/user/history");
         })
         .catch((err) => {
@@ -60,9 +62,9 @@ export default function CheckoutForm() {
     } else {
       console.log("Something wrong!!!");
       // toast.warning("ชำระเงินไม่สำเร็จ");
-      toast.error(`${t("pmPaymentFailed")}`, {
-        bodyClassName: "toastify-toast-modify",
-      });
+      createAlert("warning",
+        `${t("pmPaymentFailed")}`,
+        `${t("ttClose")}`);
     }
     setIsLoading(false);
     setLoading(false); // โหลดเสร็จ
