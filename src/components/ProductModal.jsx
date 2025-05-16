@@ -6,6 +6,8 @@ import { Navigation, Pagination, Autoplay, Zoom } from "swiper/modules";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import IconClose from "./icon/IconClose";
 import { Helmet } from "react-helmet-async";
+import { toast } from 'react-toastify';
+import useEcomStore from "../store/ecom-store";
 
 import "swiper/css";
 import 'swiper/css/zoom';
@@ -17,6 +19,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
   const FRONTEND_URL = import.meta.env.VITE_BASE_URL;
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const savedLanguageSeo = localStorage.getItem("languageSeo") || "th_TH"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
+  const actionAddtoCart = useEcomStore((state) => state.actionAddtoCart);
 
   if (!isOpen || !product) return null;
 
