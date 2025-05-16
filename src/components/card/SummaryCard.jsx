@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { listUserCart, saveAddress } from "../../api/user";
 import useEcomStore from "../../store/ecom-store";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { numberFormat } from "../../utils/number";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "../LoaderDiv";
 import { Helmet } from "react-helmet-async";
+import { createAlert } from "../../utils/createAlert";
 
 const SummaryCard = () => {
   const token = useEcomStore((state) => state.token);
@@ -65,9 +65,9 @@ const SummaryCard = () => {
 
   const hdlSaveAddress = () => {
     if (Object.values(addressData).some(val => !val) || Object.values(nameData).some(val => !val)) {
-      return toast.warning(t("scVerifyFill"), {
-        bodyClassName: "toastify-toast-modify",
-      });
+      return createAlert("warning",
+        `${t("scVerifyFill")}`,
+        `${t("ttClose")}`);
     }
     setLoading(true); // เริ่มโหลด
     saveAddress(token, JSON.stringify(addressData), JSON.stringify(nameData))
@@ -75,18 +75,16 @@ const SummaryCard = () => {
         const msgNotif = res.data?.msgfromapi;
         let chgLngMsg = msgNotif === "1" ? t("scSaveAddressSus")
           : t("rgtServerError");
-        toast.success(`${chgLngMsg}`, {
-          bodyClassName: "toastify-toast-modify",
-        });
-        // toast.success(res.data.message);
+        createAlert("success",
+          `${chgLngMsg}`,
+          `${t("ttClose")}`);
         setAddressSaved(true);
-        // setLoading(false); // โหลดเสร็จ
       })
       .catch((err) => {
         console.log(err);
-        toast.error(`${t("rgtServerError")}`, {
-          bodyClassName: "toastify-toast-modify",
-        });
+        createAlert("error",
+          `${t("rgtServerError")}`,
+          `${t("ttClose")}`);
       })
       .finally(() => {
         setLoading(false); // โหลดเสร็จ
@@ -95,9 +93,10 @@ const SummaryCard = () => {
 
   const hdlGoToPayment = () => {
     if (!addressSaved) {
-      return toast.warning(t("scVerifyPay"), {
-        bodyClassName: "toastify-toast-modify",
-      });
+      return createAlert("warning",
+        `${t("scVerifyPay")}`,
+        `OK`,
+        5000);
     }
     setLoading(true); // เริ่มโหลด
     navigate("/user/payment");

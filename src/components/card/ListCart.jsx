@@ -136,14 +136,13 @@ const ListCart = () => {
               <hr />
               <div className="cart-list-right-end">
                 {user ? (
-                  <Link className="bttn btn-mod">
-                    <button
-                      disabled={cart.length < 1}
-                      onClick={handleSaveCart}
-                    >
-                      {t("lcOrderProducts")}
-                    </button>
-                  </Link>
+                  <button
+                    disabled={cart.length < 1}
+                    onClick={handleSaveCart}
+                    className="bttn btn-mod"
+                  >
+                    {t("lcOrderProducts")}
+                  </button>
                 ) : (
                   <Link to={"/login"} className="bttn btn-mod">
                     <button>
