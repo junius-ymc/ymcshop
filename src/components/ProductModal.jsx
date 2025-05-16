@@ -80,10 +80,10 @@ const ProductModal = ({ isOpen, onClose, product }) => {
               {(product?.quantity === 0)
                 ?
                 <div className="flex items-center">
-                  <button className="bttn btn-mod-1" disabled>{t("sSoldOut")}</button>
+                  <button className="bttn btn-mod-1 mt-2" disabled>{t("sSoldOut")}</button>
                 </div>
                 :
-                <button className="bttn btn-mod"
+                <button className="bttn btn-mod mt-2"
                   onClick={() => actionAddtoCart(product) + toast.success(`${product.title} ${t("npcAddedToCart")}`, {
                     bodyClassName: "toastify-toast-modify",
                   })}
