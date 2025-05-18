@@ -5,8 +5,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./i18n"; // นำเข้าไฟล์ตั้งค่า i18n ตัวช่วยแปลภาษา
 import { HelmetProvider } from "react-helmet-async";
+import { registerSW } from 'virtual:pwa-register';
 
 const App = () => {
+
+  registerSW({ immediate: true });
 
   // ปิด Pull-to-Refresh
   // ป้องกันไม่ให้เว็บรีเฟรชเองตอน "ลากลง" จากด้านบนสุด
