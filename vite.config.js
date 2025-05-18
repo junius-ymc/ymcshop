@@ -14,7 +14,7 @@ export default defineConfig({
       },
       manifest: {
         short_name: 'YMC Shop',
-        name: 'Welcome to YMC Shop',
+        name: 'Welcome to YMC Shop.',
         start_url: '.',
         display: 'standalone',
         background_color: '#a8a2a2',
