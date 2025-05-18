@@ -6,6 +6,7 @@ import IconAboutUs from "../components/icon/IconAboutUs";
 import IconContactUs from "../components/icon/IconContactUs";
 import logobig from '../assets/logobig.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
 import { Highlighter, Pin, Shirt, Handshake, Truck, MapPin, LocateFixed, Mail, Phone, Headset } from 'lucide-react';
+import InstallPWAButton from "../components/InstallPWAButton";
 
 const AboutUs = () => {
 
@@ -24,6 +25,8 @@ const AboutUs = () => {
         <Helmet>
           <title>{t("mAboutUs")} | {t("shopName")}</title>
         </Helmet>
+
+        <InstallPWAButton />
 
         <div className="div-head">
           <span className="setdiv-3">
