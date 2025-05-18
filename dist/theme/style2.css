@@ -20,4 +20,8 @@
   /* สีที่คลุมหน้าจอ */
   --bgoverlay: #fcfcfc80;
 
+  body {
+    font-family: serif, sans-serif;
+  }
+
 }

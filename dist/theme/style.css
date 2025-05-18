@@ -43,13 +43,13 @@
 body {
   height: 100%;
   background-color: var(--bgcolo);
-  font-family: serif, sans-serif;
+  /* font-family: serif, sans-serif; */
   font-weight: 400;
   font-style: normal;
   font-size: var(--fontsize15);
   color: var(--gray);
   /* เปลี่ยนฟอนท์เป็น มาะลิ ลิงค์มาจากกูเกิ้ล */
-  /* font-family: "Mali", serif, sans-serif; */
+  font-family: "Mali", serif, sans-serif;
 
   /* overflow-y: auto;
   scrollbar-width: thin;
@@ -424,7 +424,7 @@ img {
 
 .input-group label {
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 10px;
   pointer-events: none;
   color: var(--texclact);
@@ -447,8 +447,8 @@ img {
 .input-group textarea:not(:placeholder-shown)+label {
   top: -18px;
   left: 5px;
-  background: var(--bluelite);
-  color: var(--white-default);
+  background: var(--gray);
+  color: var(--bgcontent);
   border-radius: 3px;
   padding: 0 4px;
 }
@@ -458,21 +458,21 @@ img {
   border: solid 1px;
   border-radius: 4px;
   width: 100%;
+  height: 32px;
   margin-bottom: 12px;
   padding: 0 4px;
   font-size: var(--fontsize13);
   font-weight: 600;
-  height: 30px;
   background-color: var(--white);
   color: var(--black);
-  border-color: var(--bluelite);
+  border-color: var(--gray);
 }
 
 .form-textarea:hover,
 .form-input:hover {
   color: var(--white);
-  border-color: var(--bluedeep);
-  background-color: var(--bluelite);
+  border-color: var(--bghead);
+  background-color: var(--black);
 }
 
 .form-textarea:focus,
@@ -482,14 +482,14 @@ img {
   border-color: transparent;
   opacity: 1;
   outline: none;
-  box-shadow: 0 0 0 2px var(--bluedeep);
+  box-shadow: 0 0 0 2px var(--black);
   color: var(--bgcontent);
   background-color: var(--gray);
 }
 
 .form-textarea:invalid,
 .form-input:invalid {
-  border-color: var(--red);
+  border-color: var(--gray);
 }
 
 .form-input-checkout {
@@ -576,6 +576,23 @@ img {
 
 .Toastify__toast-container {
   --toastify-toast-width: 450px;
+}
+
+.swal-title-custom {
+  font-size: var(--fontsize16);
+}
+
+.swal-confirmButton-custom {
+  color: var(--white-default);
+  background-color: var(--red);
+  font-size: var(--fontsize15);
+}
+
+.swal-popup-custom {
+  background-color: var(--bgcontent);
+  color: var(--black);
+  border: 1px solid var(--bluelite);
+  font-size: var(--fontsize15);
 }
 
 /* ------------------------------------- End Notify ------------------------------------- */
@@ -760,14 +777,28 @@ header .wrapper .navbar li a {
 
 .content-crsl-reviewProduct {
   position: relative;
-  top: 75%;
+  top: 78%;
   text-align: center;
   z-index: 1;
   background-color: var(--white);
   opacity: .7;
   width: 100%;
   padding: 1px;
-  /* transform: rotate(0deg); */
+  border-radius: 12px;
+  transform: rotate(0deg);
+}
+
+.content-crsl-reviewProduct::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  /* bottom: 100%; */
+  left: 45%;
+  transform: translateX(50%);
+  border-width: 15px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+  transform: rotate(0deg);
 }
 
 .content-crsl-reviewProduct p {
@@ -824,7 +855,7 @@ header .wrapper .navbar li a {
 
 /* TextAnimation -------------*/
 .typewriter-container {
-  font-family: monospace;
+  /* font-family: monospace; */
   font-size: var(--fontsize15);
   width: 100%;
   overflow: hidden;
@@ -1879,7 +1910,7 @@ header .wrapper .navbar li a {
   padding-top: 4px;
 }
 
-.contact-form input,
+/* .contact-form input, */
 .contact-form textarea {
   height: 100%;
 }
@@ -1998,6 +2029,11 @@ footer .wrapper ul li .textact {
 
   .contact-grid {
     flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
   }
 
 }
