@@ -21,8 +21,7 @@ const App = () => {
     }
   });
 
-  // ปิด Pull-to-Refresh
-  // ป้องกันไม่ให้เว็บรีเฟรชเองตอน "ลากลง" จากด้านบนสุด
+  // ปิด Pull-to-Refresh ป้องกันไม่ให้เว็บรีเฟรชเองตอน "ลากลง" จากด้านบนสุด
   useEffect(() => {
     let touchStartY = 0;
 
@@ -57,16 +56,16 @@ const App = () => {
       />
       <HelmetProvider>
         <AppRoutes />
-        {/* ปุ่มแจ้งเตือน */}
-        {showUpdate && (
-          <div className="fixed bottom-4 right-4 bg-yellow-500 text-white px-4 py-2 rounded shadow-lg z-50">
-            <p>มีเวอร์ชันใหม่! 🎉 พร้อมอัปเดต</p>
-            <button onClick={() => updateSW(true)} className="mt-2 bg-white text-black px-3 py-1 rounded">
-              โหลดเวอร์ชันใหม่
-            </button>
-          </div>
-        )}
       </HelmetProvider>
+      {/* ปุ่มแจ้งเตือน */}
+      {showUpdate && (
+        <div className="fixed bottom-4 right-4 bg-yellow-500 text-white px-4 py-2 rounded shadow-lg z-50">
+          <p>มีเวอร์ชันใหม่! 🎉 พร้อมอัปเดต</p>
+          <button onClick={() => updateSW(true)} className="mt-2 bg-white text-black px-3 py-1 rounded">
+            โหลดเวอร์ชันใหม่
+          </button>
+        </div>
+      )}
     </>
   )
 }
