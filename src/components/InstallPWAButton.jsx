@@ -28,10 +28,6 @@ export default function InstallPWAButton() {
     }
   };
 
-    useEffect(() => {
-    setShowButton();
-  }, []);
-
   return (
     <>
       {showButton && (

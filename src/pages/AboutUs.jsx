@@ -6,11 +6,13 @@ import IconAboutUs from "../components/icon/IconAboutUs";
 import IconContactUs from "../components/icon/IconContactUs";
 import logobig from '../assets/logobig.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
 import { Highlighter, Pin, Shirt, Handshake, Truck, MapPin, LocateFixed, Mail, Phone, Headset } from 'lucide-react';
-import InstallPWAButton from "../components/InstallPWAButton";
+import { usePWAInstall } from "../components/usePWAInstall";
+// import InstallPWAButton from "../components/InstallPWAButton";
 
 const AboutUs = () => {
 
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
+  const { canInstall, triggerInstall } = usePWAInstall();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -26,7 +28,14 @@ const AboutUs = () => {
           <title>{t("mAboutUs")} | {t("shopName")}</title>
         </Helmet>
 
-        <InstallPWAButton />
+        {canInstall && (
+          <button
+            onClick={triggerInstall}
+            className="fixed bottom-6 left-4 bg-blue-600 text-white px-4 py-2 rounded shadow z-50"
+          >
+            📲 ติดตั้ง YMC Shop เป็นแอป
+          </button>
+        )}
 
         <div className="div-head">
           <span className="setdiv-3">
