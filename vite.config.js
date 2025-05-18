@@ -17,7 +17,7 @@ export default defineConfig({
         name: 'Welcome to YMC Shop',
         start_url: '.',
         display: 'standalone',
-        background_color: '#ffffff',
+        background_color: '#d6d6d6',
         theme_color: '#ffffff',
         icons: [
           {
