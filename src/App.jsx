@@ -13,7 +13,7 @@ const App = () => {
   const [showUpdate, setShowUpdate] = useState(false);
   const updateSW = registerSW({
     onNeedRefresh() {
-      console.log("🔥 เวอร์ชันใหม่พร้อมอัปเดต!");
+      console.log("🔥 เวอร์ชันใหม่พร้อมอัปเดต !");
       setShowUpdate(true); // แสดงปุ่มแจ้งเตือน
     },
     onOfflineReady() {
