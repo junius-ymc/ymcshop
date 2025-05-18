@@ -1,43 +1,47 @@
 import { useEffect, useState } from "react";
+import usePwaStore from "../store/pwa-store";
 
-export default function InstallPWAButton() {
-  const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showButton, setShowButton] = useState(false);
+const InstallPWAButton = () => {
+
+  const prompt = usePwaStore((s) => s.deferredPrompt);
+  const [showBtn, setShowBtn] = useState(false);
 
   useEffect(() => {
-    const handler = (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-      setShowButton(true);
-    };
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+    if (!isStandalone && prompt) {
+      setShowBtn(true);
+    }
+  }, [prompt]);
 
-    window.addEventListener("beforeinstallprompt", handler);
-
-    return () => {
-      window.removeEventListener("beforeinstallprompt", handler);
-    };
-  }, []);
-
-  const handleInstallClick = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt(); // 🔔 เปิด popup ของเบราว์เซอร์
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User response to the install prompt: ${outcome}`);
-      setDeferredPrompt(null);
-      setShowButton(false); // ซ่อนปุ่มหลังติดตั้งหรือยกเลิก
+  const handleClick = async () => {
+    if (prompt) {
+      prompt.prompt();
+      const result = await prompt.userChoice;
+      if (result.outcome === "accepted") {
+        console.log("ติดตั้งแล้ว 🎉");
+      }
     }
   };
 
   return (
     <>
-      {showButton && (
+      {showBtn && (
         <button
-          onClick={handleInstallClick}
-          className="fixed bottom-6 left-4 bg-blue-600 text-white px-4 py-2 rounded shadow-lg z-50"
+          onClick={handleClick}
+          className="fixed bottom-6 left-4 bg-blue-600 text-white px-4 py-2 rounded shadow z-50"
         >
           📲 ติดตั้งแอป YMC Shop
         </button>
       )}
+      {/* <button onClick={handleClick}> */}
+      {/* <button
+        onClick={handleClick}
+        className="fixed bottom-6 left-4 bg-blue-600 text-white px-4 py-2 rounded shadow z-50"
+      >
+        📲 ติดตั้งแอป YMC Shop
+      </button> */}
     </>
   );
 }
+
+export default InstallPWAButton
