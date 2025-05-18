@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-const InstallPWAButton = () => {
-
+export default function InstallPWAButton() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [showButton, setShowButton] = useState(false);
 
@@ -39,12 +38,6 @@ const InstallPWAButton = () => {
           📲 ติดตั้งแอป YMC Shop
         </button>
       )}
-      {/* <button
-        onClick={handleInstallClick}
-        className="fixed bottom-4 left-4 bg-blue-600 text-white px-4 py-2 rounded shadow-lg z-50"
-      >ติดตั้งแอป YMC Shop จ้า..
-      </button> */}
     </>
-  )
+  );
 }
-export default InstallPWAButton
