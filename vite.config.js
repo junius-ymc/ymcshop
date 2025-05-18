@@ -9,6 +9,9 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024 // 👉 อนุญาต cache ไฟล์ขนาดถึง 5MB
+      },
       manifest: {
         name: 'YMC E-Commerce',
         short_name: 'YMC Shop',
