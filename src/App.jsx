@@ -6,11 +6,23 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./i18n"; // นำเข้าไฟล์ตั้งค่า i18n ตัวช่วยแปลภาษา
 import { HelmetProvider } from "react-helmet-async";
 import { registerSW } from 'virtual:pwa-register';
+import usePwaStore from './store/pwa-store';
 
 const App = () => {
 
   // เพิ่ม VitePWA
   registerSW({ immediate: true });
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      usePwaStore.getState().setDeferredPrompt(e);
+    };
+    window.addEventListener("beforeinstallprompt", handler);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+    };
+  }, []);
 
   // ปิด Pull-to-Refresh ป้องกันไม่ให้เว็บรีเฟรชเองตอน "ลากลง" จากด้านบนสุด
   useEffect(() => {
