@@ -13,8 +13,8 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024 // 👉 อนุญาต cache ไฟล์ขนาดถึง 5MB
       },
       manifest: {
-        name: 'YMC E-Commerce',
         short_name: 'YMC Shop',
+        name: 'Welcome to YMC Shop',
         start_url: '.',
         display: 'standalone',
         background_color: '#ffffff',
