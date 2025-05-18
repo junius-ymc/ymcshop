@@ -99,7 +99,7 @@ const Sidebar = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
-      document.getElementById("theme-style").href = `/theme/${savedTheme}.css`;
+      document.getElementById("theme-style").href = `/public/theme/${savedTheme}.css`;
     }
   }, []);
 
@@ -219,21 +219,21 @@ const Sidebar = () => {
           <ul className="nav-list primary-nav">
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/" title={t("mHome")}>
+              <NavLink className="nav-link" to="/" title={t("mHome")} onClick={toggleSidebar}>
                 <div className="icon-menu"><IconHome className="icon-menu" /></div>
                 <span className="nav-label">{t("mHome")}</span>
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/shop" title={t("mShop")}>
+              <NavLink className="nav-link" to="/shop" title={t("mShop")} onClick={toggleSidebar}>
                 <div className="icon-menu"><IconShopping className="icon-menu" /></div>
                 <span className="nav-label">{t("mShop")}</span>
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/cart" title={t("mCart")}>
+              <NavLink className="nav-link" to="/cart" title={t("mCart")} onClick={toggleSidebar}>
                 <div className="icon-menu"><IconCart className="icon-menu" /></div>
                 <span className="nav-label">{t("mCart")}</span>
                 {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
@@ -259,13 +259,13 @@ const Sidebar = () => {
               <ul className="dropdown-menu" style={{ height: openDropdown === 3 ? "auto" : 3 }}>
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mHowTo")}</a></li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/howtopay" title={t("mHowToPay")}>
+                  <NavLink className="nav-link" to="/howtopay" title={t("mHowToPay")} onClick={toggleSidebar}>
                     <div className="icon-menu-s"><IconHowTo className="icon-menu-s" /></div>
                     {t("mHowToPay")}
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/howtostatusorders" title={t("mHowToStatus")}>
+                  <NavLink className="nav-link" to="/howtostatusorders" title={t("mHowToStatus")} onClick={toggleSidebar}>
                     <div className="icon-menu-s"><IconHowTo className="icon-menu-s" /></div>
                     {t("mHowToStatus")}
                   </NavLink>
@@ -321,13 +321,13 @@ const Sidebar = () => {
               <ul className="dropdown-menu" style={{ height: openDropdown === 1 ? "auto" : 1 }}>
                 <li className="nav-item"><a className="nav-link dropdown-title">{t("mTheme")}</a></li>
                 <li className="nav-item">
-                  <a className="nav-link dropdown-link" onClick={() => changeTheme("style1")}>
+                  <a className="nav-link dropdown-link" onClick={() => changeTheme("style1") + toggleSidebar()}>
                     <div className="icon-menu-s"><IconTheme className="icon-menu-s" /></div>
                     {t("mTheme1")}
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link dropdown-link" onClick={() => changeTheme("style2")}>
+                  <a className="nav-link dropdown-link" onClick={() => changeTheme("style2") + toggleSidebar()}>
                     <div className="icon-menu-s"><IconTheme className="icon-menu-s" /></div>
                     {t("mTheme2")}
                   </a>
@@ -336,14 +336,14 @@ const Sidebar = () => {
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/aboutus" title={t("mAboutUs")}>
+              <NavLink className="nav-link" to="/aboutus" title={t("mAboutUs")} onClick={toggleSidebar}>
                 <div className="icon-menu"><IconAboutUs className="icon-menu" /></div>
                 <span className="nav-label">{t("mAboutUs")}</span>
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contactus" title={t("mContactUs")}>
+              <NavLink className="nav-link" to="/contactus" title={t("mContactUs")} onClick={toggleSidebar}>
                 <div className="icon-menu"><IconContactUs className="icon-menu" /></div>
                 <span className="nav-label">{t("mContactUs")}</span>
               </NavLink>
@@ -368,7 +368,7 @@ const Sidebar = () => {
                   ?
                   <ul className="dropdown-menu" style={{ height: openDropdown === 2 ? "auto" : 2 }}>
                     <li className="nav-item">
-                      <NavLink className="nav-link dropdown-link" to="/user/history/">
+                      <NavLink className="nav-link dropdown-link" to="/user/history/" onClick={toggleSidebar}>
                         <div><IconHistory className="icon-menu-s icon-menu-stroke" /></div>
                         <span className="nav-item">{t("mHistory")}</span>
                       </NavLink>
@@ -383,13 +383,13 @@ const Sidebar = () => {
                   :
                   <ul className="dropdown-menu" style={{ height: openDropdown === 2 ? "auto" : 2 }}>
                     <li className="nav-item">
-                      <NavLink className="nav-link dropdown-link" to="/register/">
+                      <NavLink className="nav-link dropdown-link" to="/register/" onClick={toggleSidebar}>
                         <div><IconRegister className="icon-menu-s" /></div>
                         <span className="nav-item">{t("mRegister")}</span>
                       </NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link dropdown-link" to="/login/">
+                      <NavLink className="nav-link dropdown-link" to="/login/" onClick={toggleSidebar}>
                         <div><IconLogin className="icon-menu-s icon-menu-stroke" /></div>
                         <span className="nav-item">{t("mLogin")}</span>
                       </NavLink>
@@ -399,7 +399,7 @@ const Sidebar = () => {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="#" onClick={() => handleCartClick()} title={t("ccShoppingCart")}>
+              <Link className="nav-link" to="#" onClick={() => handleCartClick() + toggleSidebar()} title={t("ccShoppingCart")}>
                 <div className="icon-menu"><IconCartList className="icon-menu icon-cart-list" /></div>
                 <span className="nav-label">{t("ccShoppingCart")}</span>
                 {/* เริ่ม ส่วนแสดงจำนวนสินค้าที่อยู่ในตะกร้า */}
