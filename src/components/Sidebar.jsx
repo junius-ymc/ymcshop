@@ -106,7 +106,7 @@ const Sidebar = () => {
   // ✅ ฟังก์ชันเปลี่ยนธีม
   const changeTheme = (selectedTheme) => {
     setTheme(selectedTheme);
-    document.getElementById("theme-style").href = `/theme/${selectedTheme}.css`;
+    document.getElementById("theme-style").href = `/public/theme/${selectedTheme}.css`;
     localStorage.setItem("theme", selectedTheme); // บันทึกค่าธีม
   };
 
