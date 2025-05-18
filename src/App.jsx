@@ -10,7 +10,7 @@ import usePwaStore from './store/pwa-store';
 
 const App = () => {
 
-  // เพิ่ม VitePWA
+  // เพิ่มปุ่มติดตั้ง VitePWA
   registerSW({ immediate: true });
   useEffect(() => {
     const handler = (e) => {
@@ -23,6 +23,18 @@ const App = () => {
       window.removeEventListener("beforeinstallprompt", handler);
     };
   }, []);
+
+  // ปุ่มแจ้งเตือน VitePWA อัปเดต
+  const [showUpdate, setShowUpdate] = useState(false);
+  const updateSW = registerSW({
+    onNeedRefresh() {
+      console.log("🔥 เวอร์ชันใหม่พร้อมอัปเดต!");
+      setShowUpdate(true); // แสดงปุ่มแจ้งเตือน
+    },
+    onOfflineReady() {
+      console.log("พร้อมใช้งานแบบออฟไลน์แล้ว 🎉");
+    }
+  });
 
   // ปิด Pull-to-Refresh ป้องกันไม่ให้เว็บรีเฟรชเองตอน "ลากลง" จากด้านบนสุด
   useEffect(() => {
@@ -60,6 +72,15 @@ const App = () => {
       <HelmetProvider>
         <AppRoutes />
       </HelmetProvider>
+      {/* ปุ่มแจ้งเตือน VitePWA */}
+      {showUpdate && (
+        <div className="fixed bottom-6 right-4 bg-yellow-500 text-white px-4 py-2 rounded shadow-lg z-50">
+          <p>มีเวอร์ชันใหม่! 🎉</p>
+          <button onClick={() => updateSW(true)} className="mt-2 bg-white text-black px-3 py-1 rounded">
+            โหลดเวอร์ชันใหม่
+          </button>
+        </div>
+      )}
     </>
   )
 }
