@@ -6,8 +6,7 @@ import IconAboutUs from "../components/icon/IconAboutUs";
 import IconContactUs from "../components/icon/IconContactUs";
 import logobig from '../assets/logobig.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
 import { Highlighter, Pin, Shirt, Handshake, Truck, MapPin, LocateFixed, Mail, Phone, Headset } from 'lucide-react';
-import { usePWAInstall } from "../components/usePWAInstall";
-// import InstallPWAButton from "../components/InstallPWAButton";
+import { usePWAInstall } from "../hooks/usePWAInstall";
 
 const AboutUs = () => {
 
