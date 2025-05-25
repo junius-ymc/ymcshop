@@ -777,7 +777,7 @@ header .wrapper .navbar li a {
 
 .content-crsl-reviewProduct {
   position: relative;
-  top: 78%;
+  top: 81%;
   text-align: center;
   z-index: 1;
   background-color: var(--white);
@@ -2129,6 +2129,14 @@ footer .wrapper ul li .textact {
   .modal-swiper-slide img {
     width: 100%;
     height: auto;
+  }
+
+  .content-crsl-reviewProduct {
+    top: 76%;
+  }
+
+  .content-crsl-reviewProduct p {
+    font-size: var(--fontsize12);
   }
 
   footer .wrapper ul,
