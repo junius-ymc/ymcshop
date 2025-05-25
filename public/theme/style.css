@@ -2122,6 +2122,15 @@ footer .wrapper ul li .textact {
 /* ------------------------------------- Start RESPONSIVE 480px ------------------------------------- */
 @media(max-width: 480px) {
 
+  .collection-crsl .content-crsl {
+    max-width: 220px;
+  }
+
+  .modal-swiper-slide img {
+    width: 100%;
+    height: auto;
+  }
+
   footer .wrapper ul,
   .text-link-right {
     gap: 8px;
@@ -2154,7 +2163,7 @@ footer .wrapper ul li .textact {
 
   .modal-swiper-slide img {
     /* width: 50vh; */
-    width: 46%;
+    width: 100%;
     height: auto;
   }
 
