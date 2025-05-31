@@ -96,7 +96,7 @@ const Sidebar = () => {
 
   // ✅ โหลดค่าธีมจาก localStorage ทันทีที่หน้าโหลดขึ้นมา
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("style");
     if (savedTheme) {
       setTheme(savedTheme);
       document.getElementById("theme-style").href = `/theme/${savedTheme}.css`;
@@ -107,7 +107,7 @@ const Sidebar = () => {
   const changeTheme = (selectedTheme) => {
     setTheme(selectedTheme);
     document.getElementById("theme-style").href = `/theme/${selectedTheme}.css`;
-    localStorage.setItem("theme", selectedTheme); // บันทึกค่าธีม
+    localStorage.setItem("style", selectedTheme); // บันทึกค่าธีม
   };
 
   // ✅ แบบที่ 1: เอาเฉพาะชื่อด้านหน้า หลังตัว @ ให้ตัดออก
