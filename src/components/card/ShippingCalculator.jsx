@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useEcomStore from "../../store/ecom-store";
+import { useTranslation } from "react-i18next";
 import {
   getZoneFromCountryCode,
   shippingRatesByZone,
@@ -12,7 +13,7 @@ export default function ShippingCalculator({ itemCount = 1, onShippingChange }) 
   const [countryCode, setCountryCode] = useState("");
   const [shippingFee, setShippingFee] = useState(0);
   const [zone, setZone] = useState("A");
-
+  const { t } = useTranslation();
   const countryName = countryList.find((c) => c.code === countryCode)?.name || "Unknown";
 
   // preload countryCode จาก store
@@ -39,15 +40,15 @@ export default function ShippingCalculator({ itemCount = 1, onShippingChange }) 
   }, [countryCode, itemCount, onShippingChange]);
 
   return (
-    <div className="p-4 border rounded-lg bg-white w-[95%] shadow">
-      <label className="block mb-2 font-medium text-gray-700">
-        กรุณาเลือกประเทศปลายทางในการจัดส่ง:
+    <div className="p-4 border rounded-lg w-[95%] shadow">
+      <label className="cart-list-left-data-1-text-3 block mb-2">
+        {t("lcSelectCountry")}
       </label>
 
       <select
         value={countryCode}
         onChange={(e) => setCountryCode(e.target.value)}
-        className="w-full p-2 border rounded bg-gray-50"
+        className="form-input"
       >
         {countryList.map((c) => (
           <option key={c.code} value={c.code}>
@@ -56,9 +57,9 @@ export default function ShippingCalculator({ itemCount = 1, onShippingChange }) 
         ))}
       </select>
 
-      <div className="mt-2 text-sm text-gray-600">
-        🌍 ประเทศ ({countryList.find((c) => c.code === countryCode)?.emoji}) :
-        <span className="ml-2">
+      <div className="cart-list-left-data-1-text-3 block mb-2">
+        {t("lcSelectedCountry")}<span className="cart-list-left-data-1-text-2">({countryList.find((c) => c.code === countryCode)?.emoji})</span> :
+        <span className="cart-list-left-data-1-text-1 ml-2">
           {countryName}
         </span>
         <span>
@@ -77,10 +78,16 @@ export default function ShippingCalculator({ itemCount = 1, onShippingChange }) 
         </span>
       </div>
 
-      <div className="mt-2">
-        💸 ค่าจัดส่ง:
-        <strong className="ml-2">
-          {shippingFee === 0 ? "ฟรี" : `${shippingFee.toLocaleString()} บาท`}
+      <div className="cart-list-left-data-1-text-3 mt-2">
+        {t("scShippingCosts")}:
+        <strong className="cart-list-left-data-2 ml-2">
+          {shippingFee === 0 ? (
+            t("scFreeOnlyInThailand")
+          ) : (
+            <>
+              {shippingFee.toLocaleString()} {t("moneyUnit")}
+            </>
+          )}
         </strong>
       </div>
     </div>
