@@ -140,9 +140,12 @@ const TableOrders = () => {
                           <p className="text-gray-600 text-xs">{product.count} x {numberFormat(product.product.price)}</p>
                         </li>
                       ))}
+                      <li className="text-xs pt-2">
+                        ค่าจัดส่ง+ {(item?.amount - item?.cartTotal)}
+                      </li>
                     </ul>
                   </td>
-                  <td className="admin-table-td-orders text-center text-xs font-semibold">{numberFormat(item.cartTotal)}</td>
+                  <td className="admin-table-td-orders text-center text-xs font-semibold">{numberFormat(item.amount)}</td>
                   <td className="admin-table-td-orders text-center">
                     <select
                       className="form-input my-1 text-xs text-center"
