@@ -1,5 +1,4 @@
 // rafce
-// import React from "react";
 import React, { useState } from "react";
 import useEcomStore from "../../store/ecom-store";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +11,7 @@ import LoaderDiv from "../LoaderDiv";
 import IconTrash from "../icon/IconTrash";
 import IconCart from "../icon/IconCart";
 import { Helmet } from "react-helmet-async";
+import ShippingCalculator from "./ShippingCalculator";
 
 const ListCart = () => {
   const cart = useEcomStore((state) => state.carts);
@@ -21,27 +21,41 @@ const ListCart = () => {
   const navigate = useNavigate();
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
+  const [shippingFee, setShippingFee] = useState(0);
 
   const handleSaveCart = async () => {
     setLoading(true); // เริ่มโหลด
-    await createUserCart(token, { cart })
-      .then((res) => {
-        // console.log(res);
-        toast.success(t("lcOrderSuccess"), {
-          bodyClassName: "toastify-toast-modify",
-        });
-        navigate("/checkout");
-      })
-      .catch((err) => {
-        console.log("err", err);
-        // toast.warning(err.response.data.message);
-        toast.error(`${t("liServerError")}`, {
-          bodyClassName: "toastify-toast-modify",
-        });
-      })
-      .finally(() => {
-        setLoading(false); // โหลดเสร็จ
+
+    try {
+      const cartData = cart.map((item) => ({
+        id: item.id,
+        count: item.count,
+        price: item.price,
+      }));
+
+      const totalPrice = getTotalPrice();
+      const grandTotal = totalPrice + shippingFee;
+      // console.log("grandTotal:", grandTotal);
+
+      await createUserCart(token, {
+        cart: cartData,
+        shippingFee: shippingFee,
+        grandTotal,
       });
+
+      toast.success(t("lcOrderSuccess"), {
+        bodyClassName: "toastify-toast-modify",
+      });
+      navigate("/checkout");
+
+    } catch (err) {
+      console.log("err", err);
+      toast.error(`${t("liServerError")}`, {
+        bodyClassName: "toastify-toast-modify",
+      });
+    } finally {
+      setLoading(false); // โหลดเสร็จ
+    }
   };
 
   const actionRemoveProduct = useEcomStore(
@@ -127,10 +141,20 @@ const ListCart = () => {
             <div className="cart-list-right-box">
               <div className="cart-list-right-title">{t("lcTotal")}</div>
               <hr />
+              {cart.length >= 1 && (
+                <div className="flex justify-center items-center mt-2 mb-2">
+                  <ShippingCalculator
+                    itemCount={cart.length} // หรือจำนวนสินค้าทั้งหมด
+                    onShippingChange={({ country, fee }) => {
+                      setShippingFee(fee); // บันทึกค่าจัดส่งลง state
+                    }}
+                  />
+                </div>
+              )}
               <div className="cart-list-right-text-1">
                 <span>{t("lcNetTotal")}</span>
                 <span className="cart-list-right-text-2">
-                  {numberFormat(getTotalPrice())} {t("moneyUnit")}
+                  {numberFormat(getTotalPrice() + shippingFee)} {t("moneyUnit")}
                 </span>
               </div>
               <hr />

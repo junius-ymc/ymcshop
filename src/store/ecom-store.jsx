@@ -3,6 +3,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { listCategory } from "../api/Category";
 import { listProduct, searchFilters } from "../api/product";
+import { userLocation } from "../api/user";
 import _ from "lodash";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -13,6 +14,7 @@ const ecomStore = (set, get) => ({
   categories: [],
   products: [],
   carts: [],
+  userLocationData: [],
   logout: () => {
     set({
       user: null,
@@ -20,6 +22,7 @@ const ecomStore = (set, get) => ({
       categories: [],
       products: [],
       carts: [],
+      userLocationData: [],
     });
   },
   loading: false, // ✅ เพิ่มตัวแปร Loading
@@ -100,6 +103,28 @@ const ecomStore = (set, get) => ({
     }
   },
   clearCart: () => set({ carts: [] }),
+
+  getUserLocation: async (countryCode, countryName) => {
+    const current = get().userLocationData;
+
+    if (countryCode) {
+      // console.log("ประเทศผู้ใช้จากหน้าบ้านคือ:", countryCode);
+      set({ userLocationData: {countryCode:countryCode, country:countryName, ip:current?.ip} });
+      return;
+      }
+
+    // ✅ ป้องกันโหลดซ้ำ ถ้าเคยโหลดแล้วไม่โหลดซ้ำ
+    if (current?.countryCode && current.countryCode !== "xx") return;
+
+    try {
+      const res = await userLocation();
+      set({ userLocationData: res.data });
+      console.log("ประเทศผู้ใช้จากหลังบ้านคือ:", res.data);
+    } catch (err) {
+      console.error("ไม่สามารถดึงประเทศได้:", err);
+    }
+  },
+
 });
 
 const usePersist = {

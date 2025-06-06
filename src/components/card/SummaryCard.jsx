@@ -7,12 +7,16 @@ import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัว�
 import LoaderDiv from "../LoaderDiv";
 import { Helmet } from "react-helmet-async";
 import { createAlert } from "../../utils/createAlert";
+import { countryList } from "../../utils/ShippingZones";
 
 const SummaryCard = () => {
   const token = useEcomStore((state) => state.token);
   const [products, setProducts] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const user = useEcomStore((state) => state.user);
+  const userLocationData = useEcomStore((state) => state.userLocationData);
+  const [grandTotal, setGrandTotal] = useState(0);
+  const [shippingFee, setShippingFee] = useState(0);
 
   let initialAddress, initialName;
   try {
@@ -57,6 +61,8 @@ const SummaryCard = () => {
         // console.log(res)
         setProducts(res.data.products);
         setCartTotal(res.data.cartTotal);
+        setGrandTotal(res.data.grandTotal);
+        setShippingFee(res.data.shippingFee);
       })
       .catch((err) => {
         console.log(err);
@@ -149,23 +155,58 @@ const SummaryCard = () => {
                     <label>{t("scFullName")}</label>
                   </div>
                   <div className="input-group">
-                    <input name="houseNo" value={addressData.houseNo} onChange={handleAddressChange} placeholder="" title={t("scHouseNo")} className="form-input checkout-input" />
+                    <input
+                      name="houseNo"
+                      value={addressData.houseNo}
+                      onChange={handleAddressChange}
+                      placeholder=""
+                      title={t("scHouseNo")}
+                      className="form-input checkout-input"
+                    />
                     <label>{t("scHouseNo")}</label>
                   </div>
                   <div className="input-group">
-                    <input name="district" value={addressData.district} onChange={handleAddressChange} placeholder="" title={t("scDistrict")} className="form-input checkout-input" />
+                    <input
+                      name="district"
+                      value={addressData.district}
+                      onChange={handleAddressChange}
+                      placeholder=""
+                      title={t("scDistrict")}
+                      className="form-input checkout-input"
+                    />
                     <label>{t("scDistrict")}</label>
                   </div>
                   <div className="input-group">
-                    <input name="city" value={addressData.city} onChange={handleAddressChange} placeholder="" title={t("scCity")} className="form-input checkout-input" />
+                    <input
+                      name="city"
+                      value={addressData.city}
+                      onChange={handleAddressChange}
+                      placeholder=""
+                      title={t("scCity")}
+                      className="form-input checkout-input"
+                    />
                     <label>{t("scCity")}</label>
                   </div>
                   <div className="input-group">
-                    <input name="province" value={addressData.province} onChange={handleAddressChange} placeholder="" title={t("scProvince")} className="form-input checkout-input" />
+                    <input
+                      name="province"
+                      value={addressData.province}
+                      onChange={handleAddressChange}
+                      placeholder=""
+                      title={t("scProvince")}
+                      className="form-input checkout-input"
+                    />
                     <label>{t("scProvince")}</label>
                   </div>
                   <div className="input-group">
-                    <input name="zipCode" value={addressData.zipCode} onChange={handleAddressChange} placeholder="" title={t("scZipCode")} className="form-input checkout-input" />
+                    <input
+                      name="zipCode"
+                      value={addressData.zipCode}
+                      onChange={handleAddressChange}
+                      placeholder=""
+                      title={t("scZipCode")}
+                      className="form-input checkout-input"
+                    />
                     <label>{t("scZipCode")}</label>
                   </div>
                   <div className="input-group">
@@ -178,6 +219,24 @@ const SummaryCard = () => {
                       className="form-input checkout-input"
                     />
                     <label>{t("scPhone")}</label>
+                  </div>
+                  <div className="form-input flex items-center mb-4">
+                    🌍 ประเทศ: {userLocationData.country}
+                    <span>
+                      <img
+                        src={`https://flagcdn.com/24x18/${userLocationData.countryCode}.png`}
+                        alt={userLocationData.countryCode}
+                        style={{
+                          display: "inline-block",
+                          marginLeft: "10px",
+                          marginRight: "10px",
+                          verticalAlign: "middle",
+                          width: "24px",
+                          height: "18px",
+                        }}
+                      />
+                    </span>
+                    ({countryList.find((c) => c.code === userLocationData.countryCode)?.emoji})
                   </div>
                   <hr />
                   <div className="summary-card-div-btn">
@@ -215,7 +274,15 @@ const SummaryCard = () => {
                 <div>
                   <div className="summary-card-right-list-other">
                     <p>{t("scShippingCosts")}:</p>
-                    <span className="summary-card-right-list-discount">{t("scFreeOnlyInThailand")}</span>
+                    <span className="summary-card-right-list-discount">
+                      {shippingFee === 0 ? (
+                        t("scFreeOnlyInThailand")
+                      ) : (
+                        <>
+                          {shippingFee.toLocaleString()} <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
+                        </>
+                      )}
+                    </span>
                   </div>
                   <div className="summary-card-right-list-other">
                     <p>{t("scDiscount")}:</p>
@@ -227,7 +294,7 @@ const SummaryCard = () => {
                   <hr />
                   <div className="summary-card-right-list-other">
                     <p className="summary-card-right-list-total">{t("scNetTotal")}:</p>
-                    <p className="summary-card-right-list-total-price">{numberFormat(cartTotal) + ' '}
+                    <p className="summary-card-right-list-total-price">{numberFormat(grandTotal) + ' '}
                       <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
                     </p>
                   </div>

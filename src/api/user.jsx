@@ -50,3 +50,7 @@ export const getOrders = async (token) => {
     },
   });
 };
+
+export const userLocation = async () => {
+  return axios.get(`${BASE_URL}/api/user/ip`);
+};
