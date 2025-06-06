@@ -122,8 +122,15 @@ const HistoryCard = () => {
                     </div>
                     <div>
                       <div className="historycard-product-table-total">
+                        <div className="flex items-center pr-4">
+                          {t("scShippingCosts")}:
+                          <span>
+                            <div className="text-sm">{(item?.amount - item?.cartTotal)}</div>
+                          </span>
+                          {t("moneyUnit")}
+                        </div>
                         <span>{t("htrNetTotal")}</span>
-                        <span>{numberFormat(item.cartTotal)} {t("moneyUnit")}</span>
+                        <span>{numberFormat(item.amount)} {t("moneyUnit")}</span>
                       </div>
                     </div>
                   </div>
