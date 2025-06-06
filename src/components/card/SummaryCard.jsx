@@ -221,7 +221,7 @@ const SummaryCard = () => {
                     <label>{t("scPhone")}</label>
                   </div>
                   <div className="form-input flex items-center mb-4">
-                    🌍 ประเทศ: {userLocationData.country}
+                    {t("lcSelectedCountry")} ({countryList.find((c) => c.code === userLocationData.countryCode)?.emoji}) : {userLocationData.country}
                     <span>
                       <img
                         src={`https://flagcdn.com/24x18/${userLocationData.countryCode}.png`}
@@ -236,7 +236,6 @@ const SummaryCard = () => {
                         }}
                       />
                     </span>
-                    ({countryList.find((c) => c.code === userLocationData.countryCode)?.emoji})
                   </div>
                   <hr />
                   <div className="summary-card-div-btn">
