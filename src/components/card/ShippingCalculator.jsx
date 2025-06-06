@@ -57,7 +57,7 @@ export default function ShippingCalculator({ itemCount = 1, onShippingChange }) 
       </select>
 
       <div className="mt-2 text-sm text-gray-600">
-        🌍 ประเทศ:
+        🌍 ประเทศ ({countryList.find((c) => c.code === countryCode)?.emoji}) :
         <span className="ml-2">
           {countryName}
         </span>
@@ -75,7 +75,6 @@ export default function ShippingCalculator({ itemCount = 1, onShippingChange }) 
             }}
           />
         </span>
-        ({countryList.find((c) => c.code === countryCode)?.emoji})
       </div>
 
       <div className="mt-2">
