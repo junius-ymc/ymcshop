@@ -201,7 +201,7 @@ const Shop = () => {
         resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
         window.scrollTo({ top: 0, behavior: "smooth" });
         navigate("/shop", { replace: true });
-      }, 1000);
+      }, 550);
       // console.log([categoryId]);
     }
   }, [categoryId]);
