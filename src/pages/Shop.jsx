@@ -201,7 +201,7 @@ const Shop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
       setTimeout(() => {
         navigate("/shop", { replace: true });
-      }, 300);
+      }, 1000);
       // console.log([categoryId]);
     }
   }, [categoryId]);
