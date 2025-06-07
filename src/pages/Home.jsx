@@ -8,6 +8,7 @@ import ShowSupporter from "../components/home/ShowSupporter";
 import TextAnimation from "../components/home/TextAnimation";
 import { Helmet } from "react-helmet-async";
 import logobig from '../assets/Logo-big.png'; // โลโก้เว็บ (อัปโหลดไว้ในโฟลเดอร์ assets)
+import CategoryMenu from "../components/card/CategoryMenu";
 
 const Home = () => {
 
@@ -43,6 +44,12 @@ const Home = () => {
         {/* Link SEO */}
         <link rel="canonical" href={FRONTEND_URL} />
       </Helmet>
+
+      {/* ---------------------------- Start CategoryMune ---------------------------- */}
+        <div className="">
+          <CategoryMenu />
+        </div>
+      {/* ---------------------------- End CategoryMune ---------------------------- */}
 
       {/* ---------------------------- Start ShowSupporter ---------------------------- */}
       <div className="wrapper">
