@@ -9,6 +9,7 @@ import IconSearch from "../components/icon/IconSearch";
 import IconShopping from "../components/icon/IconShopping";
 import { Helmet } from "react-helmet-async";
 import logobig from '../assets/Logo-big.png';
+import CategoryMenu from "../components/card/CategoryMenu";
 
 const Shop = () => {
   const FRONTEND_URL = import.meta.env.VITE_BASE_URL;
@@ -23,6 +24,8 @@ const Shop = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
+  const categoryId = queryParams.get("categoryId");
+  const actionSearchFilters = useEcomStore((state) => state.actionSearchFilters);
 
   // State สำหรับ Pagination
   const totalPages = useEcomStore((state) => state.totalPages);
@@ -191,6 +194,18 @@ const Shop = () => {
 
   // console.log(products);
 
+  useEffect(() => {
+    if (categoryId) {
+      actionSearchFilters({ category: [categoryId] });
+      resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+        navigate("/shop", { replace: true });
+      }, 300);
+      // console.log([categoryId]);
+    }
+  }, [categoryId]);
+
   return (
     <div className="div-wrap">
       <div className="wrap-shop">
@@ -238,6 +253,9 @@ const Shop = () => {
             </span>
           </div>
           <div className="div-content">
+            <div className="">
+              <CategoryMenu resetSearching={resetSearching} />
+            </div>
             <div className="shop-head-title-top-box">
               <div className="shop-head-title-top flex flex-col items-center justify-center">
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}

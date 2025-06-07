@@ -1059,6 +1059,67 @@ header .wrapper .navbar li a {
 /* ------------------------------------- End Home ------------------------------------- */
 
 /* ------------------------------------- Start Shop  ------------------------------------- */
+/* ------------------------------------- Start Shop - CategoryMenu  ------------------------------------- */
+
+.shop-head-category-menu-box {
+  border: 1px solid var(--bghead);
+  border-radius: 14px;
+}
+
+.icon-category {
+  width: 100%;
+  height: auto;
+  stroke: var(--gray);
+}
+
+.icon-category-1 {
+  max-width: 32px;
+}
+
+.icon-category-2 {
+  max-width: 40px;
+}
+
+.icon-category-vintage,
+.icon-category-jeans,
+.icon-category-tshirt {
+  stroke: var(--gray);
+  stroke-width: 2px;
+  fill: transparent;
+}
+
+.icon-category-jackets,
+.icon-category-sneaker,
+.icon-category-hat,
+.icon-category-screen-printed {
+  fill: var(--gray);
+}
+
+.icon-category-shopping {
+  stroke: var(--gray);
+  fill: transparent;
+}
+
+.icon-category-shopping:hover,
+.icon-category-jackets:hover,
+.icon-category-sneaker:hover,
+.icon-category-vintage:hover,
+.icon-category-jeans:hover,
+.icon-category-tshirt:hover {
+  stroke: var(--white);
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.icon-category-jackets:hover,
+.icon-category-hat:hover,
+.icon-category-screen-printed:hover {
+  fill: var(--white);
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+/* ------------------------------------- End Shop - CategoryMenu  ------------------------------------- */
 /* ------------------------------------- Start Shop - Shop  ------------------------------------- */
 
 .show-sold-out-box {
