@@ -196,10 +196,10 @@ const Shop = () => {
 
   useEffect(() => {
     if (categoryId) {
-      setTimeout(() => {
       actionSearchFilters({ category: [categoryId] });
-      resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+        resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
+        window.scrollTo({ top: 0, behavior: "smooth" });
         navigate("/shop", { replace: true });
       }, 1000);
       // console.log([categoryId]);
