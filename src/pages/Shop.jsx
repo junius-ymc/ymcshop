@@ -288,22 +288,23 @@ const Shop = () => {
             </div>
             {/* ✅ แสดง Pagination */}
             <div className="shop-pagination">
-              <div>
-                <select
-                  value={itemsPerPage} // ✅ ค่าปัจจุบัน
-                  onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
-                  title={t("sListProductPerPage")}
-                  className="items-per-page"
-                >
-                  {[...Array(10)].map((_, i) => (
-                    <option key={i + 1} value={i + 1}>
-                      {i + 1}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              {/* **** Pagination อันใหม่ **** */}
               {renderPageNumbers()}
+            </div>
+            <div className="shop-pagination">
+              <span className="pr-1"> {t("sShowProd")}{t("_blank")} </span>
+              <select
+                value={itemsPerPage} // ✅ ค่าปัจจุบัน
+                onChange={handleItemsPerPageChange} // ✅ ฟังก์ชันเปลี่ยนค่า
+                title={t("sListProductPerPage")}
+                className="items-per-page"
+              >
+                {[...Array(10)].map((_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                ))}
+              </select>
+              <span className="pl-1"> {t("sItem")}</span>
             </div>
           </div>
         </div>
