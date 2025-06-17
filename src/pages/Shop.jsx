@@ -42,6 +42,7 @@ const Shop = () => {
   const [isModalOpenSearchCard, setIsModalOpenSearchCard] = useState(false);
   const handleSearchCardClick = () => {
     setIsModalOpenSearchCard(true);
+    resetSearching();
   };
 
   // รีเซ็ตการค้นหา
