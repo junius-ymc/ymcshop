@@ -24,7 +24,6 @@ const CategoryMenu = ({ resetSearching }) => {
     <>
       <section className="shop-head-category-menu-box mb-3 py-2">
         <div className="">
-          {/* <ul className="flex items-center justify-center"> */}
           <ul className="flex items-center justify-between px-2">
             {/* {categories.map((item, index) => (
               sbCategoryId = item.id === 1 ? <IconCategoryVintage className="w-10"/>
@@ -47,37 +46,58 @@ const CategoryMenu = ({ resetSearching }) => {
             <li className="pr-2">
               <Link to={`/shop?categoryId=1`}>
                 {/* <IconCategoryVintage className="max-w-8 w-[100%] h-auto" /> */}
-                <IconCategoryVintage className="icon-category icon-category-1 icon-category-vintage py-1" />
+                <IconCategoryVintage className={`
+                  icon-category icon-category-1 icon-category-vintage py-1
+                  ${localStorage?.getItem("categId") === '1' && "bg-[--gray] rounded-md stroke-[--red]"}
+                `} />
               </Link>
             </li>
             <li className="pr-2">
               <Link to={`/shop?categoryId=2`}>
-                <IconCategoryTShirt className="icon-category icon-category-2 icon-category-tshirt" />
+                <IconCategoryTShirt className={`
+                icon-category icon-category-2 icon-category-tshirt
+                ${localStorage?.getItem("categId") === '2' && "bg-[--gray] rounded-md stroke-[--red]"}
+                 `} />
               </Link>
             </li>
             <li className="pr-2">
               <Link to={`/shop?categoryId=3`}>
-                <IconCategoryScreenPrinted className="icon-category icon-category-2 icon-category-screen-printed" />
+                <IconCategoryScreenPrinted className={`
+                icon-category icon-category-2 icon-category-screen-printed
+                ${localStorage?.getItem("categId") === '3' && "bg-[--gray] rounded-md fill-[--red]"}
+                `} />
               </Link>
             </li>
             <li className="pr-2">
               <Link to={`/shop?categoryId=4`}>
-                <IconCategoryHat className="icon-category icon-category-2 icon-category-hat" />
+                <IconCategoryHat className={`
+                icon-category icon-category-2 icon-category-hat
+                ${localStorage?.getItem("categId") === '4' && "bg-[--gray] rounded-md fill-[--red]"}
+                `} />
               </Link>
             </li>
             <li className="pr-2">
               <Link to={`/shop?categoryId=5`}>
-                <IconCategorySneaker className="icon-category icon-category-2 icon-category-sneaker" />
+                <IconCategorySneaker className={`
+                icon-category icon-category-2 icon-category-sneaker
+                ${localStorage?.getItem("categId") === '5' && "bg-[--gray] rounded-md stroke-[--red]"}
+                `} />
               </Link>
             </li>
             <li className="pr-2">
               <Link to={`/shop?categoryId=7`}>
-                <IconCategoryJeans className="icon-category icon-category-2 icon-category-jeans" />
+                <IconCategoryJeans className={`
+                icon-category icon-category-2 icon-category-jeans
+                ${localStorage?.getItem("categId") === '7' && "bg-[--gray] rounded-md stroke-[--red]"}
+                `} />
               </Link>
             </li>
             <li className="pr-2">
               <Link to={`/shop?categoryId=8`}>
-                <IconCategoryJackets className="icon-category icon-category-1 icon-category-jackets py-1" />
+                <IconCategoryJackets className={`
+                icon-category icon-category-1 icon-category-jackets py-1
+                ${localStorage?.getItem("categId") === '8' && "bg-[--gray] rounded-md stroke-[--red]"}
+                `} />
               </Link>
             </li>
             <li className="pl-2 pr-1">

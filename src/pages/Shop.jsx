@@ -48,6 +48,7 @@ const Shop = () => {
   const getSearching = localStorage.getItem("searching") || "off"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
   const resetSearching = () => {
     localStorage.setItem("searching", "off");
+    localStorage.setItem("categId", "");
     getProduct();
     setCurrentPage(1);
   };
@@ -197,6 +198,7 @@ const Shop = () => {
   useEffect(() => {
     if (categoryId) {
       actionSearchFilters({ category: [categoryId] });
+      localStorage.setItem("categId", categoryId);
       setTimeout(() => {
         resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
         window.scrollTo({ top: 0, behavior: "smooth" });
