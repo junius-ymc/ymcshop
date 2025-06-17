@@ -205,8 +205,6 @@ const Shop = () => {
         navigate("/shop", { replace: true });
       }, 550);
       // console.log([categoryId]);
-    } else {
-      localStorage.setItem("categId", "");
     }
   }, [categoryId]);
 
