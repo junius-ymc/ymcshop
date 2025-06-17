@@ -52,6 +52,7 @@ const Shop = () => {
     localStorage.setItem("categId", "");
     getProduct();
     setCurrentPage(1);
+    navigate("/shop", { replace: true });
   };
 
   // ✅ เพิ่มฟังก์ชันให้เปลี่ยนหน้าเป็นหน้าแรก
