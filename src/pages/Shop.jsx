@@ -77,7 +77,7 @@ const Shop = () => {
   // ✅ ฟังก์ชันสร้างเลขหน้า
   const renderPageNumbers = () => {
     const pages = [];
-    const maxPagesToShow = 3; // ✅ แสดงเลขหน้าตรงกลาง 3 ตัว
+    const maxPagesToShow = 4; // ✅ แสดงเลขหน้าตรงกลาง 3 ตัว
     const totalPagesToShow = Math.ceil(products.length / itemsPerPage); // คำนวณจำนวนหน้าทั้งหมด
 
     let startPage = Math.max(1, currentPage - 1);
