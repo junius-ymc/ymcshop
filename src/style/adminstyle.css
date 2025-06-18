@@ -1,0 +1,308 @@
+#root {
+  overflow: auto;
+  scrollbar-width: thin;
+  font-size: var(--fontsize13);
+  /* scrollbar-color: transparent transparent; */
+}
+
+.layout-admin {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+}
+
+.main-admin {
+  margin-right: 0;
+  width: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.div-main-admin-content {
+  box-shadow: var(--box-shadow-lg);
+  /* margin: 4px; */
+}
+
+.btn-admin-style {
+  font-size: var(--fontsize13);
+  padding: 2px 4px;
+}
+
+.form-input-admin-style {
+  width: auto;
+  margin-bottom: 4px;
+}
+
+.text-white-space {
+  white-space: pre-wrap;
+  text-wrap: wrap;
+}
+
+.admin-notifycart-1 {
+  position: absolute;
+  top: -34px;
+  left: 24px;
+  padding: 0px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: var(--fontsize14);
+  font-weight: 600;
+  background-color: var(--greenfull);
+  color: var(--black-default);
+}
+
+.order-status-tag {
+  padding: 4px 8px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: var(--fontsize10);
+  display: inline-block;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.status-not-process {
+  background-color: #6c757d; /* เทา */
+}
+
+.status-processing {
+  background-color: #ffc107; /* เหลือง */
+}
+
+.status-completed {
+  background-color: #28a745; /* เขียว */
+}
+
+.status-cancelled {
+  background-color: #dc3545; /* แดง */
+}
+
+/* ------------------------------------- Start HeaderAdmin */
+.header-admin {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  width: auto;
+}
+
+.header-admin-bar {
+  width: 100%;
+  height: auto;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.header-admin-menu {
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: var(--fontsize11);
+  border-radius: 4px;
+  padding: 2px 4px;
+  border: 1px solid var(--bluelite);
+}
+
+/* ------------------------------------- End HeaderAdmin */
+/* ------------------------------------- Start SidebarAdmin */
+.wrap-sidebar-admin {
+  height: 100%;
+}
+
+.sidebar-admin {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  flex-direction: column;
+  background-color: var(--gray);
+}
+
+.sidebar-admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 100%;
+  font-size: var(--fontsize18);
+  font-weight: 600;
+  background-color: var(--black);
+  color: var(--bluelite);
+}
+
+.sidebar-admin-wrap-menu {
+  flex: 1 1 0%;
+  padding-top: 6px;
+}
+
+.sidebar-admin-menu {
+  margin: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: var(--fontsize13);
+}
+
+/* ------------------------------------- End SidebarAdmin */
+/* ------------------------------------- Start TableUsers */
+
+.admin-table-user,
+.admin-table-orders,
+.admin-table-product {
+  width: 100%;
+  border-collapse: collapse;
+  border-width: 1px;
+}
+
+.admin-table-thead-user,
+.admin-table-thead-orders, 
+.admin-table-thead-product {
+  background-color: var(--texclact);
+  color: var(--white);
+}
+
+.admin-table-th-user,
+.admin-table-th-orders,
+.admin-table-th-product {
+  padding: 6px 12px;
+  border-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.admin-table-tr-user,
+.admin-table-tr-orders,
+.admin-table-tr-product {
+  background-color: var(--bgcontent);
+  border-bottom-width: 1px;
+}
+
+.admin-table-tr-user:hover,
+.admin-table-tr-orders:hover,
+.admin-table-tr-product:hover {
+  background-color: var(--bghead);
+}
+
+.admin-table-td-user,
+.admin-table-td-orders,
+.admin-table-td-product {
+  padding: 4px 6px;
+  border-bottom-width: 1px;
+  /* text-align: center; */
+}
+
+/* ------------------------------------- End TableUsers */
+/* ------------------------------------- Start FormCategory */
+.admin-div-category,
+.admin-div-product {
+  background-color: var(--bgcontent);
+  padding: 12px;
+}
+
+.admin-div-category li:hover {
+  background-color: var(--bghead);
+  border-radius: 4px;
+}
+
+/* ------------------------------------- End FormCategory */
+/* ------------------------------------- Start FormProduct */
+.admin-div-product-1 {
+  width: 35%;
+}
+
+.admin-div-product-2 {
+  width: 65%;
+}
+
+.form-input-product-admin-style {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.form-textarea-product-admin-style {
+  width: 100%;
+  height: 100%;
+  margin-left: 6px;
+}
+
+/* ------------------------------------- End FormProduct */
+
+/* ------------------------------------- Start DashboardStatCards */
+.admin-dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-dashboard-stat-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.stat-text h4 {
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-text p {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+  color: #111;
+}
+
+/* ------------------------------------- End DashboardStatCards */
+/* ------------------------------------- End DashboardOrderBadge */
+
+.order-badge-box {
+  margin-top: 20px;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: var(--box-shadow-mid);
+}
+
+.order-badge-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.order-badge-content .badge-active {
+  color: #fff;
+  background-color: #ec0b0b;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.order-badge-content .badge-none {
+  color: #555;
+  background-color: #eee;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+/* ------------------------------------- End DashboardOrderBadge */
