@@ -6,6 +6,7 @@ import "rc-slider/assets/index.css";
 import { numberFormat } from "../../utils/number";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import IconSearchTitle from "../icon/IconSearchTitle";
+import '../../style/checkbox.css'
 
 const SearchCard = ({ resetPage }) => {
   const products = useEcomStore((state) => state.products);
@@ -125,12 +126,23 @@ const SearchCard = ({ resetPage }) => {
                               : item.id === 8 ? t("sbCategoryId8")
                                 : item.name,
 
-                <div key={index} className="search-card-by-category-input">
-                  <label>
-                    <input onChange={handleCheck} value={item.id} type="checkbox" />
-                    <span className="check-box-mod search-card-by-category-text"> {sbCategoryId}</span>
+                // <div key={index} className="search-card-by-category-input">
+                //   <label>
+                //     <input onChange={handleCheck} value={item.id} type="checkbox" />
+                //     <span className="check-box-mod search-card-by-category-text"> {sbCategoryId}</span>
+                //   </label>
+                // </div>
+
+                <div key={index} className="checkbox-wrapper-19 search-card-by-category-input">
+                  <input type="checkbox" onChange={handleCheck} value={item.id} id={item.id} />
+                  <label for={item.id} className="check-box" />
+                  <label for={item.id} className="check-box-mod search-card-by-category-text">
+                    <span>
+                      {sbCategoryId}
+                    </span>
                   </label>
                 </div>
+
               ))}
             </div>
           </div>
@@ -141,8 +153,8 @@ const SearchCard = ({ resetPage }) => {
             <h1 className="search-card-by-price">{t("sbPrice")}</h1>
             <div>
               <div className="search-card-by-price-value ">
-                <span>{t("sbPriceMin")}{numberFormat(price[0])}{t("moneyUnit")}</span>
-                <span>{t("sbPriceMax")}{numberFormat(price[1])}{t("moneyUnit")}</span>
+                <span>{t("sbPriceMin")}<strong>{numberFormat(price[0])}</strong> {t("moneyUnit")}</span>
+                <span>{t("sbPriceMax")}<strong>{numberFormat(price[1])}</strong> {t("moneyUnit")}</span>
               </div>
               <Slider
                 onChange={handlePrice}

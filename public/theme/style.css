@@ -1352,11 +1352,11 @@ header .wrapper .navbar li a {
   padding-bottom: 10px;
 }
 
-
 .search-card-by-category-text {
   width: auto;
   background-color: var(--bgcontent);
   font-size: var(--fontsize14);
+  font-weight: 600;
 }
 
 .search-card-by-category-text-1 {
@@ -1374,7 +1374,7 @@ header .wrapper .navbar li a {
 .search-card-by-category-input {
   display: flex;
   align-items: center;
-  padding-top: 1px;
+  margin-top: 2px;
 }
 
 .search-card-by-price-value {

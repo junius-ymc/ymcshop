@@ -74,8 +74,6 @@ const Shop = () => {
     getProduct(newValue, 1);
   };
 
-  // console.log("totalPages", totalPages);
-
   // ✅ ฟังก์ชันสร้างเลขหน้า
   const renderPageNumbers = () => {
     const pages = [];
@@ -94,7 +92,7 @@ const Shop = () => {
     if (currentPage > 2) {
       pages.push(
         <button key="first" onClick={() => goToPage(1)} className="bttn shop-pagination-bnt shop-pagination-bnt-first-end">
-          {"<<"}
+          {"1"}
         </button>
       );
     }
@@ -145,7 +143,7 @@ const Shop = () => {
     if (currentPage < totalPagesToShow - 1) {
       pages.push(
         <button key="last" onClick={() => goToPage(totalPagesToShow)} className="bttn shop-pagination-bnt shop-pagination-bnt-first-end">
-          {">>"}
+          {totalPagesToShow}
         </button>
       );
     }
