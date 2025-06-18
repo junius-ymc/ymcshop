@@ -7,6 +7,8 @@ import IconCategorySneaker from "../icon/IconCategorySneaker";
 import IconCategoryVintage from "../icon/IconCategoryVintage";
 import IconCategoryScreenPrinted from "../icon/IconCategoryScreenPrinted";
 import IconShopping from "../icon/IconShopping";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 // import useEcomStore from "../../store/ecom-store";
 // import { useTranslation } from "react-i18next";
 
@@ -22,10 +24,21 @@ const CategoryMenu = ({ resetSearching }) => {
 
   return (
     <>
-      <section className="shop-head-category-menu-box mb-3 py-2">
-        <div className="">
-          <ul className="flex items-center justify-between px-2">
-            {/* {categories.map((item, index) => (
+      <section className="shop-head-category-menu-box p-2">
+        <Swiper
+          slidesPerView={6}
+          spaceBetween={10}
+          centeredSlides={false}
+          navigation={false}
+          modules={[Autoplay, Navigation]}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+        // className="object-cover rounded-md flex justify-center items-center"
+        >
+
+          {/* {categories.map((item, index) => (
               sbCategoryId = item.id === 1 ? <IconCategoryVintage className="w-10"/>
                 : item.id === 2 ? <IconCategoryTShirt className="w-10"/>
                   : item.id === 3 ? <IconCategoryScreenPrinted className="w-10"/>
@@ -43,73 +56,72 @@ const CategoryMenu = ({ resetSearching }) => {
                 </Link>
               </li>
             ))} */}
-            <li className="pr-2">
-              <Link to={`/shop?categoryId=1`}>
-                {/* <IconCategoryVintage className="max-w-8 w-[100%] h-auto" /> */}
-                <IconCategoryVintage className={`
+
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=1`}>
+              <IconCategoryVintage className={`
                   icon-category icon-category-1 icon-category-vintage py-1
                   ${localStorage?.getItem("categId") === '1' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
-              </Link>
-            </li>
-            <li className="pr-2">
-              <Link to={`/shop?categoryId=2`}>
-                <IconCategoryTShirt className={`
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=2`}>
+              <IconCategoryTShirt className={`
                 icon-category icon-category-2 icon-category-tshirt
                 ${localStorage?.getItem("categId") === '2' && "bg-[--gray] rounded-md stroke-[--red]"}
                  `} />
-              </Link>
-            </li>
-            <li className="pr-2">
-              <Link to={`/shop?categoryId=3`}>
-                <IconCategoryScreenPrinted className={`
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=3`}>
+              <IconCategoryScreenPrinted className={`
                 icon-category icon-category-2 icon-category-screen-printed
                 ${localStorage?.getItem("categId") === '3' && "bg-[--gray] rounded-md fill-[--red]"}
                 `} />
-              </Link>
-            </li>
-            <li className="pr-2">
-              <Link to={`/shop?categoryId=4`}>
-                <IconCategoryHat className={`
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=4`}>
+              <IconCategoryHat className={`
                 icon-category icon-category-2 icon-category-hat
                 ${localStorage?.getItem("categId") === '4' && "bg-[--gray] rounded-md fill-[--red]"}
                 `} />
-              </Link>
-            </li>
-            <li className="pr-2">
-              <Link to={`/shop?categoryId=5`}>
-                <IconCategorySneaker className={`
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=5`}>
+              <IconCategorySneaker className={`
                 icon-category icon-category-2 icon-category-sneaker
                 ${localStorage?.getItem("categId") === '5' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
-              </Link>
-            </li>
-            <li className="pr-2">
-              <Link to={`/shop?categoryId=7`}>
-                <IconCategoryJeans className={`
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=7`}>
+              <IconCategoryJeans className={`
                 icon-category icon-category-2 icon-category-jeans
                 ${localStorage?.getItem("categId") === '7' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
-              </Link>
-            </li>
-            <li className="pr-2">
-              <Link to={`/shop?categoryId=8`}>
-                <IconCategoryJackets className={`
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=8`}>
+              <IconCategoryJackets className={`
                 icon-category icon-category-1 icon-category-jackets py-1
                 ${localStorage?.getItem("categId") === '8' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
-              </Link>
-            </li>
-            <li className="pl-2 pr-1">
-              <Link to={`/shop`}>
-                <button onClick={resetSearch}>
-                  {/* {t("sAllProd")} */}
-                  <IconShopping className="icon-category icon-category-2 icon-category-shopping" />
-                </button>
-              </Link>
-            </li>
-          </ul>
-        </div>
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop`}>
+              <button onClick={resetSearch}>
+                {/* {t("sAllProd")} */}
+                <IconShopping className="icon-category icon-category-2 icon-category-shopping" />
+              </button>
+            </Link>
+          </SwiperSlide>
+        </Swiper>
       </section>
     </>
   )

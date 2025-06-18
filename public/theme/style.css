@@ -1063,7 +1063,12 @@ header .wrapper .navbar li a {
 
 .shop-head-category-menu-box {
   border: 1px solid var(--bghead);
-  border-radius: 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  max-height: 50px;
 }
 
 .icon-category {
