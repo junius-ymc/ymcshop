@@ -93,111 +93,117 @@ const SearchCard = ({ resetPage }) => {
   };
 
   return (
-      <div className="search-card-head">
-        <div className="div-head modal-cartcard-head setdiv-3">
-          <span>
-            <IconSearchTitle className="icon-search-title" />
-          </span>
-          {t("sbSearch")}
-        </div>
-        <div className="search-card-box">
+    <div className="search-card-head">
+      <div className="div-head modal-cartcard-head setdiv-3">
+        <span>
+          <IconSearchTitle className="icon-search-title" />
+        </span>
+        {t("sbSearch")}
+      </div>
+      <div className="search-card-box">
 
-          <div className="">
-            {/* Tabs */}
-            <div className="flex items-center justify-between px-4">
-              <button className={tabStyle("category")} onClick={() => setActiveTab("category")}>
-                {t("sbCategory")}
-              </button>
-              <button className={tabStyle("search")} onClick={() => setActiveTab("search")}>
-                {t("sbProd")}
-              </button>
-              <button className={tabStyle("price")} onClick={() => setActiveTab("price")}>
-                {t("sbPrice")}
-              </button>
-            </div>
-
-            {/* Content */}
-            <div className="flex items-center w-full min-h-[120px] rounded-md border border-[--red]">
-
-              {activeTab === "category" && <div className="w-full p-4 px-5">
-                {/* Search by Category */}
-                <div className="search-card-by-category-box">
-                  <div className="search-card-by-category">{t("sbCategory")}
-                    <span className="search-card-by-category-text-1">{t("sbCategorySelect")}</span>
-                  </div>
-                  <div className="search-card-by-category-check-status">
-
-                    {categories.map((item, index) => (
-
-                      sbCategoryId = item.id === 1 ? t("sbCategoryId1")
-                        : item.id === 2 ? t("sbCategoryId2")
-                          : item.id === 3 ? t("sbCategoryId3")
-                            : item.id === 4 ? t("sbCategoryId4")
-                              : item.id === 5 ? t("sbCategoryId5")
-                                : item.id === 6 ? t("sbCategoryId6")
-                                  : item.id === 7 ? t("sbCategoryId7")
-                                    : item.id === 8 ? t("sbCategoryId8")
-                                      : item.name,
-
-                      // <div key={index} className="search-card-by-category-input">
-                      //   <label>
-                      //     <input onChange={handleCheck} value={item.id} type="checkbox" />
-                      //     <span className="check-box-mod search-card-by-category-text"> {sbCategoryId} </span>
-                      //   </label>
-                      // </div>
-
-                      <div key={index} className="checkbox-wrapper-19 search-card-by-category-input">
-                        <input type="checkbox" onChange={handleCheck} value={item.id} id={item.id} />
-                        <label for={item.id} className="check-box" />
-                        <label for={item.id} className="check-box-mod search-card-by-category-text">
-                          <span>
-                            {sbCategoryId}
-                          </span>
-                        </label>
-                      </div>
-
-                    ))}
-                  </div>
-                </div>
-              </div>}
-
-              {activeTab === "search" && <div className="w-full p-4 px-5">
-                {/* Search by Text */}
-                <div className="search-card-by-text w-full">{t("sbProd")}</div>
-                <input
-                  onChange={(e) => setText(e.target.value)}
-                  type="text"
-                  placeholder={t("sbSearch") + " " + t("sbProd") + "...."}
-                  className="form-input"
-                />
-              </div>}
-
-              {activeTab === "price" && <div className="w-full p-4 px-5">
-                {/* Search by Price */}
-                <div className="search-card-by-price-box">
-                  <h1 className="search-card-by-price">{t("sbPrice")}</h1>
-                  <div>
-                    <div className="search-card-by-price-value ">
-                      <span>{t("sbPriceMin")}<strong>{numberFormat(price[0])}</strong> {t("moneyUnit")}</span>
-                      <span>{t("sbPriceMax")}<strong>{numberFormat(price[1])}</strong> {t("moneyUnit")}</span>
-                    </div>
-                    <Slider
-                      onChange={handlePrice}
-                      range
-                      min={sPriceStart}
-                      max={sPriceOver}
-                      defaultValue={[sPriceMin, sPriceMax]}
-                    />
-                  </div>
-                </div>
-              </div>}
-
-            </div>
+        <div className="">
+          {/* Tabs */}
+          <div className="flex items-center justify-between px-4">
+            <button className={tabStyle("category")} onClick={() => setActiveTab("category")}>
+              {t("sbSearchCategory")}
+            </button>
+            <button className={tabStyle("search")} onClick={() => setActiveTab("search")}>
+              {t("sbSearchProduct")}
+            </button>
+            <button className={tabStyle("price")} onClick={() => setActiveTab("price")}>
+              {t("sbSearchPrice")}
+            </button>
           </div>
 
+          {/* Content */}
+          <div className="flex items-center w-full min-h-[120px] rounded-md border border-[--red]">
+
+            {activeTab === "category" && <div className="w-full p-4 px-5">
+              {/* Search by Category */}
+              <div className="search-card-by-category-box">
+                <div className="search-card-by-category">{t("sbCategory")}
+                  <p className="search-card-by-category-text-1">{t("sbCategorySelect")}</p>
+                </div>
+                <div className="search-card-by-category-check-status">
+
+                  {categories.map((item, index) => (
+
+                    sbCategoryId = item.id === 1 ? t("sbCategoryId1")
+                      : item.id === 2 ? t("sbCategoryId2")
+                        : item.id === 3 ? t("sbCategoryId3")
+                          : item.id === 4 ? t("sbCategoryId4")
+                            : item.id === 5 ? t("sbCategoryId5")
+                              : item.id === 6 ? t("sbCategoryId6")
+                                : item.id === 7 ? t("sbCategoryId7")
+                                  : item.id === 8 ? t("sbCategoryId8")
+                                    : item.name,
+
+                    // <div key={index} className="search-card-by-category-input">
+                    //   <label>
+                    //     <input onChange={handleCheck} value={item.id} type="checkbox" />
+                    //     <span className="check-box-mod search-card-by-category-text"> {sbCategoryId} </span>
+                    //   </label>
+                    // </div>
+
+                    <div key={index} className="checkbox-wrapper-19 search-card-by-category-input">
+                      <input type="checkbox" onChange={handleCheck} value={item.id} id={item.id} />
+                      <label for={item.id} className="check-box" />
+                      <label for={item.id} className="check-box-mod search-card-by-category-text">
+                        <span>
+                          {sbCategoryId}
+                        </span>
+                      </label>
+                    </div>
+
+                  ))}
+                </div>
+              </div>
+            </div>}
+
+            {activeTab === "search" && <div className="w-full p-4 px-5">
+              {/* Search by Text */}
+              <div className="search-card-by-text">
+                {t("sbProd")}
+                <p className="search-card-by-category-text-1">{t("sbProdSelect")}</p>
+              </div>
+              <input
+                onChange={(e) => setText(e.target.value)}
+                type="text"
+                placeholder={t("sbSearch") + " " + t("sbProd") + "...."}
+                className="form-input"
+              />
+            </div>}
+
+            {activeTab === "price" && <div className="w-full p-4 px-5">
+              {/* Search by Price */}
+              <div className="search-card-by-price-box">
+                <div className="search-card-by-price">
+                  {t("sbPrice")}
+                  <p className="search-card-by-category-text-1">{t("sbPriceSelect")}</p>
+                </div>
+                <div>
+                  <div className="search-card-by-price-value ">
+                    <span>{t("sbPriceMin")}<strong>{numberFormat(price[0])}</strong> {t("moneyUnit")}</span>
+                    <span>{t("sbPriceMax")}<strong>{numberFormat(price[1])}</strong> {t("moneyUnit")}</span>
+                  </div>
+                  <Slider
+                    onChange={handlePrice}
+                    range
+                    min={sPriceStart}
+                    max={sPriceOver}
+                    defaultValue={[sPriceMin, sPriceMax]}
+                  />
+                </div>
+              </div>
+            </div>}
+
+          </div>
         </div>
 
       </div>
+
+    </div>
   );
 };
 
