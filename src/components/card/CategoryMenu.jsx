@@ -16,7 +16,7 @@ const CategoryMenu = ({ resetSearching }) => {
 
   // const categories = useEcomStore((state) => state.categories);
   // let sbCategoryId = [];
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const resetSearch = () => {
     resetSearching();
