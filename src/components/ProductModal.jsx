@@ -96,6 +96,9 @@ const ProductModal = ({ isOpen, onClose, product }) => {
                   >
                     {/* <span onClick={onClose}>{t("ccAddToCart")}</span> */}
                     {t("ccAddToCart")}
+                    <span className="flex items-center">
+                      <IconCart className="rounded-sm size-6 bg-[--red] fill-[--bgcontent]" />
+                    </span>
                   </button>
                 </span>
               }
