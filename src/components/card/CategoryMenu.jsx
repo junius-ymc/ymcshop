@@ -10,13 +10,13 @@ import IconShopping from "../icon/IconShopping";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 // import useEcomStore from "../../store/ecom-store";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const CategoryMenu = ({ resetSearching }) => {
 
   // const categories = useEcomStore((state) => state.categories);
-  // const { t } = useTranslation();
   // let sbCategoryId = [];
+  // const { t } = useTranslation();
 
   const resetSearch = () => {
     resetSearching();
