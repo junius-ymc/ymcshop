@@ -13,6 +13,7 @@ import "swiper/css";
 import 'swiper/css/zoom';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import IconCart from "./icon/IconCart";
 
 const ProductModal = ({ isOpen, onClose, product }) => {
 
