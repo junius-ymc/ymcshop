@@ -46,7 +46,7 @@
     "sbProd": "Products",
     "sbProdSelect": " (Search such as product name, details)",
     "sbCategory": "Category",
-    "sbCategorySelect": " (Multiple Selections Allowed)",
+    "sbCategorySelect": " (Show products by category. Multiple items can be selected.)",
     "sbCategoryId1": "Vintage",
     "sbCategoryId2": "T-Shirt",
     "sbCategoryId3": "Hand Screen Printed",

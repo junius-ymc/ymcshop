@@ -202,7 +202,7 @@ const Shop = () => {
       setTimeout(() => {
         resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
         window.scrollTo({ top: 0, behavior: "smooth" });
-        // navigate("/shop", { replace: true });
+        navigate("/shop", { replace: true });
       }, 550);
       // console.log([categoryId]);
     }
