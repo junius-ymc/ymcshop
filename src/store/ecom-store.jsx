@@ -15,6 +15,7 @@ const ecomStore = (set, get) => ({
   products: [],
   carts: [],
   userLocationData: [],
+  categId: null,
   logout: () => {
     set({
       user: null,
@@ -23,6 +24,7 @@ const ecomStore = (set, get) => ({
       products: [],
       carts: [],
       userLocationData: [],
+      categId: null,
     });
   },
   loading: false, // ✅ เพิ่มตัวแปร Loading
@@ -124,6 +126,8 @@ const ecomStore = (set, get) => ({
       console.error("ไม่สามารถดึงประเทศได้:", err);
     }
   },
+
+  categoryIdSe: (arg) => set({ categId: arg }),
 
 });
 

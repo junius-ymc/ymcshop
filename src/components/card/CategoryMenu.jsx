@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom"
 import IconCategoryHat from "../icon/IconCategoryHat";
 import IconCategoryJackets from "../icon/IconCategoryJackets";
@@ -9,18 +10,24 @@ import IconCategoryScreenPrinted from "../icon/IconCategoryScreenPrinted";
 import IconShopping from "../icon/IconShopping";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-// import useEcomStore from "../../store/ecom-store";
+import useEcomStore from "../../store/ecom-store";
 import { useTranslation } from "react-i18next";
 
 const CategoryMenu = ({ resetSearching }) => {
 
   // const categories = useEcomStore((state) => state.categories);
   // let sbCategoryId = [];
+  const categoryIdSe = useEcomStore((state) => state.categoryIdSe);
+  const categId = useEcomStore((state) => state.categId);
   const { t } = useTranslation();
 
   const resetSearch = () => {
     resetSearching();
   };
+
+  useEffect(() => {
+    categoryIdSe();
+  }, []);
 
   return (
     <>
@@ -61,7 +68,7 @@ const CategoryMenu = ({ resetSearching }) => {
             <Link to={`/shop?categoryId=1`} className="justify-items-center">
               <IconCategoryVintage className={`
                   icon-category icon-category-1 icon-category-vintage py-1
-                  ${localStorage?.getItem("categId") === '1' && "bg-[--gray] rounded-md stroke-[--red]"}
+                  ${categId === '1' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
             </Link>
           </SwiperSlide>
@@ -69,7 +76,7 @@ const CategoryMenu = ({ resetSearching }) => {
             <Link to={`/shop?categoryId=4`} className="justify-items-center">
               <IconCategoryHat className={`
                   icon-category icon-category-2 icon-category-hat
-                  ${localStorage?.getItem("categId") === '4' && "bg-[--gray] rounded-md fill-[--red]"}
+                  ${categId === '4' && "bg-[--gray] rounded-md fill-[--red]"}
                   `} />
             </Link>
           </SwiperSlide>
@@ -77,7 +84,7 @@ const CategoryMenu = ({ resetSearching }) => {
             <Link to={`/shop?categoryId=2`} className="justify-items-center">
               <IconCategoryTShirt className={`
                 icon-category icon-category-2 icon-category-tshirt
-                ${localStorage?.getItem("categId") === '2' && "bg-[--gray] rounded-md stroke-[--red]"}
+                ${categId === '2' && "bg-[--gray] rounded-md stroke-[--red]"}
                  `} />
             </Link>
           </SwiperSlide>
@@ -85,7 +92,7 @@ const CategoryMenu = ({ resetSearching }) => {
             <Link to={`/shop?categoryId=3`} className="justify-items-center">
               <IconCategoryScreenPrinted className={`
                 icon-category icon-category-2 icon-category-screen-printed
-                ${localStorage?.getItem("categId") === '3' && "bg-[--gray] rounded-md fill-[--red]"}
+                ${categId === '3' && "bg-[--gray] rounded-md fill-[--red]"}
                 `} />
             </Link>
           </SwiperSlide>
@@ -93,7 +100,7 @@ const CategoryMenu = ({ resetSearching }) => {
             <Link to={`/shop?categoryId=7`} className="justify-items-center">
               <IconCategoryJeans className={`
                 icon-category icon-category-2 icon-category-jeans
-                ${localStorage?.getItem("categId") === '7' && "bg-[--gray] rounded-md stroke-[--red]"}
+                ${categId === '7' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
             </Link>
           </SwiperSlide>
@@ -101,7 +108,7 @@ const CategoryMenu = ({ resetSearching }) => {
             <Link to={`/shop?categoryId=5`} className="justify-items-center">
               <IconCategorySneaker className={`
                 icon-category icon-category-2 icon-category-sneaker
-                ${localStorage?.getItem("categId") === '5' && "bg-[--gray] rounded-md stroke-[--red]"}
+                ${categId === '5' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
             </Link>
           </SwiperSlide>
@@ -109,7 +116,7 @@ const CategoryMenu = ({ resetSearching }) => {
             <Link to={`/shop?categoryId=8`} className="justify-items-center">
               <IconCategoryJackets className={`
                 icon-category icon-category-1 icon-category-jackets py-1
-                ${localStorage?.getItem("categId") === '8' && "bg-[--gray] rounded-md stroke-[--red]"}
+                ${categId === '8' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
             </Link>
           </SwiperSlide>
@@ -122,14 +129,14 @@ const CategoryMenu = ({ resetSearching }) => {
             </Link>
           </SwiperSlide>
           <div className="flex items-center justify-center text-md text-[--red]">
-            {localStorage?.getItem("categId") === '1' && t("sbCategoryId1")}
-            {localStorage?.getItem("categId") === '2' && t("sbCategoryId2")}
-            {localStorage?.getItem("categId") === '3' && t("sbCategoryId3")}
-            {localStorage?.getItem("categId") === '4' && t("sbCategoryId4")}
-            {localStorage?.getItem("categId") === '5' && t("sbCategoryId5")}
-            {localStorage?.getItem("categId") === '6' && t("sbCategoryId6")}
-            {localStorage?.getItem("categId") === '7' && t("sbCategoryId7")}
-            {localStorage?.getItem("categId") === '8' && t("sbCategoryId8")}
+            {categId === '1' && t("sbCategoryId1")}
+            {categId === '2' && t("sbCategoryId2")}
+            {categId === '3' && t("sbCategoryId3")}
+            {categId === '4' && t("sbCategoryId4")}
+            {categId === '5' && t("sbCategoryId5")}
+            {categId === '6' && t("sbCategoryId6")}
+            {categId === '7' && t("sbCategoryId7")}
+            {categId === '8' && t("sbCategoryId8")}
           </div>
         </Swiper>
       </section>

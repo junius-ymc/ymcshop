@@ -26,6 +26,7 @@ const Shop = () => {
   const productId = queryParams.get("productId"); // ✅ ดึง productId จาก URL
   const categoryId = queryParams.get("categoryId");
   const actionSearchFilters = useEcomStore((state) => state.actionSearchFilters);
+  const categoryIdSe = useEcomStore((state) => state.categoryIdSe);
 
   // State สำหรับ Pagination
   const totalPages = useEcomStore((state) => state.totalPages);
@@ -49,7 +50,8 @@ const Shop = () => {
   const getSearching = localStorage.getItem("searching") || "off"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
   const resetSearching = () => {
     localStorage.setItem("searching", "off");
-    localStorage.setItem("categId", "");
+    // localStorage.setItem("categId", "");
+    categoryIdSe();
     getProduct();
     setCurrentPage(1);
     navigate("/shop", { replace: true });
@@ -198,7 +200,8 @@ const Shop = () => {
   useEffect(() => {
     if (categoryId) {
       actionSearchFilters({ category: [categoryId] });
-      localStorage.setItem("categId", categoryId);
+      // localStorage.setItem("categId", categoryId);
+      categoryIdSe(categoryId);
       setTimeout(() => {
         resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
         window.scrollTo({ top: 0, behavior: "smooth" });
