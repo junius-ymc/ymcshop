@@ -4,6 +4,8 @@ import ScrollToTopButton from "./ScrollToTopButton";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import { toast } from "react-toastify";
 import IconLogout from "./icon/IconLogout";
+import { useEffect, useState } from "react";
+import usePwaStore from "../store/pwa-store";
 
 const Footer = () => {
 
@@ -25,6 +27,26 @@ const Footer = () => {
     navigate("/"); // กลับไปหน้า Home
   };
 
+  const prompt = usePwaStore((s) => s.deferredPrompt);
+  const [showBtn, setShowBtn] = useState(false);
+
+  useEffect(() => {
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+    if (!isStandalone && prompt) {
+      setShowBtn(true);
+    }
+  }, [prompt]);
+
+  const handleClick = async () => {
+    if (prompt) {
+      prompt.prompt();
+      const result = await prompt.userChoice;
+      if (result.outcome === "accepted") {
+        console.log("ติดตั้งแล้ว 🎉");
+      }
+    }
+  };
+
   return (
     <div>
       <footer>
@@ -33,7 +55,7 @@ const Footer = () => {
           <div className="setdiv-1">
             <div className="setdiv-2">
 
-              <div className="setdiv-3 footer-left">
+              <div onClick={handleClick} className="setdiv-3 footer-left">
                 <p>&copy; YMC Shop, 2025</p>
               </div>
 
