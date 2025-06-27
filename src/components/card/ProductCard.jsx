@@ -81,7 +81,7 @@ const ProductCard = ({ item }) => {
 
             {(item?.quantity === 0)
               ?
-              <div className="flex items-center">
+              <div className="flex items-center h-[36px]">
                 {/* <IconCart className="icon-shopping-cart" /> */}
               </div>
               :
