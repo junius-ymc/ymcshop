@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="setdiv-1">
             <div className="setdiv-2">
 
-              <div onClick={handleClick} className="setdiv-3 footer-left">
+              <div onClick={handleClick} className="setdiv-3 footer-left cursor-pointer">
                 <p>&copy; YMC Shop, 2025</p>
               </div>
 
