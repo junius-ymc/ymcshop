@@ -30,27 +30,27 @@ const ImageModal = ({ product, arrimg, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
       {/* ปิดโมดัล */}
-      <button onClick={onClose} className="zoomed-btn-close absolute top-4 right-6 text-3xl font-bold z-[55]">
+      <button onClick={onClose} className="zoomed-btn-close absolute top-1 right-50% text-3xl font-bold z-[55]">
         ✕
       </button>
 
       <div onClick={onClose} className="loader-on-top z-0"></div>
 
       {/* กล่องรูป */}
-      <div className="bg-[--white] p-4 rounded-lg max-w-[90vw] max-h-[90vh] flex flex-col md:flex-row gap-2 overflow-hidden z-50">
+      <div className="zoomed-img-s-box bg-[--white] p-4 rounded-lg max-w-[90vw] max-h-[90vh] z-50">
 
         {/* รูปเล็ก */}
-        <div className="flex md:flex-col gap-2 overflow-y-auto">
+        <div className="zoomed-img-s">
           {product.images?.map((img, index) => (
             // <div key={index} className="justify-items-center">
             <div key={index} className="">
               <img
                 src={img.url}
                 alt={product.title}
-                loading="lazy"
                 onClick={() => setCurrentImage(img.url)}
-                className={`w-16 h-16 object-cover border cursor-pointer rounded-md ${currentImage === img.url ? "border-[--bluelite]" : "border-transparent"
-                  }`}
+                className={`w-16 h-16 object-cover border cursor-pointer rounded-md ${currentImage === img.url ? "border-[--red]" : "border-transparent"
+                }`}
+                loading="lazy"
               />
             </div>
           ))}
@@ -65,6 +65,7 @@ const ImageModal = ({ product, arrimg, onClose }) => {
                 src={currentImage}
                 alt="main"
                 className="max-w-[80vw] max-h-[90vh] object-contain rounded-md"
+                loading="lazy"
               />
             </Zoom>
           ) : (
@@ -78,6 +79,7 @@ const ImageModal = ({ product, arrimg, onClose }) => {
                 className={`max-w-[80vw] max-h-[90vh] object-contain rounded-md transition-transform duration-200 ${isZoomed ? "zoomed-image" : ""
                   }`}
                 style={isZoomed ? zoomStyle : {}}
+                loading="lazy"
               />
               {/* <p className="text-sm text-gray-600 text-center mt-1">
                 {isZoomed ? "คลิกอีกครั้งเพื่อออกจากการซูม" : "คลิกรูปเพื่อซูม"}

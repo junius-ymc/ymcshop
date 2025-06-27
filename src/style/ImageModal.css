@@ -13,3 +13,27 @@
   color: var(--bluelite);
   background-color: var(--white);
 }
+
+.zoomed-img-s-box {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+
+.zoomed-img-s {
+  display: flex;
+  overflow-y: auto;
+  gap: 0.5rem;
+}
+
+@media (min-width: 550px) {
+
+  .zoomed-img-s-box {
+    flex-direction: row;
+  }
+
+  .zoomed-img-s {
+    flex-direction: column;
+  }
+}
