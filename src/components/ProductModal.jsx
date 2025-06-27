@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { numberFormat } from "../utils/number";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, Zoom } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import IconClose from "./icon/IconClose";
 import { Helmet } from "react-helmet-async";
 import useEcomStore from "../store/ecom-store";
 import { createNofity } from "../utils/createAlert";
+import IconCart from "./icon/IconCart";
+import ImageModal from "./ImageModal";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 import "swiper/css";
-import 'swiper/css/zoom';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import IconCart from "./icon/IconCart";
 
 const ProductModal = ({ isOpen, onClose, product }) => {
 
@@ -22,7 +24,18 @@ const ProductModal = ({ isOpen, onClose, product }) => {
   const savedLanguageSeo = localStorage.getItem("languageSeo") || "th_TH"; // โหลดค่าภาษาจาก Local Storage ถ้ามี
   const actionAddtoCart = useEcomStore((state) => state.actionAddtoCart);
 
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [arrimg, setArrimg] = useState(null);
+  const handleImageZoom = (arrimg) => {
+    setArrimg(arrimg)
+    setSelectedProduct(product, arrimg);
+    setShowModal(true);
+  };
+
   if (!isOpen || !product) return null;
+
+  // console.log(product);
 
   return (
     <AnimatePresence>
@@ -50,28 +63,28 @@ const ProductModal = ({ isOpen, onClose, product }) => {
           {/* Swiper สำหรับเลื่อนดูรูปภาพ */}
           <div className="modal-wrap">
             <Swiper
-              modules={[Navigation, Pagination, Autoplay, Zoom]}
+              modules={[Navigation, Pagination, Autoplay]}
               navigation
               pagination={{ clickable: true }}
               autoplay={{
                 delay: 5000,
                 disableOnInteraction: true,
               }}
-              zoom={{ maxRatio: 2.8 }} // อัตราการซูมกำหนดเองได้เลยเ เช่น 2.5 เท่า
-              // zoom={true}
-              grabCursor={true} // ไอคอนรูปมือจับ
               className="modal-swiper-size"
             >
               {product.images?.map((img, index) => (
                 <SwiperSlide key={index}>
-                  <div className="swiper-zoom-container modal-swiper-slide">
-                    <img
-                      src={img.url}
-                      alt={product.title}
-                      title={t("ttTileClickToZoom")}
-                      loading="lazy"
-                    />
-                  </div>
+                  <Zoom>
+                    {/* <div className="swiper-zoom-container modal-swiper-slide"> */}
+                    <div onClick={() => handleImageZoom(img.url)} className="swiper-zoom-container modal-swiper-slide">
+                      <img
+                        src={img.url}
+                        alt={product.title}
+                        title={t("ttTileClickToZoom")}
+                        loading="lazy"
+                      />
+                    </div>
+                  </Zoom>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -81,7 +94,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
               {(product?.quantity === 0)
                 ?
                 <div className="flex items-center">
-                  <button className="bttn btn-mod-1 mt-2" disabled>{t("sSoldOut")}</button>
+                  <span className="bttn btn-mod-1 mt-2" disabled>{t("sSoldOut")}</span>
                 </div>
                 :
                 <span onClick={onClose}>
@@ -105,6 +118,13 @@ const ProductModal = ({ isOpen, onClose, product }) => {
               }
             </div>
           </div>
+          {showModal && (
+            <ImageModal
+              product={selectedProduct}
+              arrimg={arrimg}
+              onClose={() => setShowModal(false)}
+            />
+          )}
           <Helmet>
             <title>{product.title} | {t("shopName")}</title>
             <meta name="description" content={product.description?.replace(/\n/g, ' ').slice(0, 160) ?? ""} />

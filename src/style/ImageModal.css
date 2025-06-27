@@ -1,0 +1,15 @@
+.zoomed-image {
+  transform: scale(2);
+  cursor: zoom-out;
+}
+
+.zoomed-btn-close {
+  color: var(--red);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.zoomed-btn-close:hover {
+  color: var(--bluelite);
+  background-color: var(--white);
+}

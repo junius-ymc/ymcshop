@@ -82,7 +82,7 @@ const ProductCard = ({ item }) => {
             {(item?.quantity === 0)
               ?
               <div className="flex items-center">
-                <IconCart className="icon-shopping-cart" />
+                {/* <IconCart className="icon-shopping-cart" /> */}
               </div>
               :
               <button
