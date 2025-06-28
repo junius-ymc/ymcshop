@@ -32,7 +32,7 @@ const CategoryMenu = ({ resetSearching }) => {
   return (
     <>
       {/* <section className="shop-head-category-menu-box p-2"> */}
-      <section className="p-2">
+      <section className="mb-[10px] p-2 bg-[--btbgact] rounded-md">
         <Swiper
           slidesPerView={6}
           spaceBetween={10}
