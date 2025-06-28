@@ -128,15 +128,87 @@ const CategoryMenu = ({ resetSearching }) => {
               </button>
             </Link>
           </SwiperSlide>
-          <div className="flex items-center justify-center text-md text-[--red]">
-            {categId === '1' && t("sbCategoryId1")}
-            {categId === '2' && t("sbCategoryId2")}
-            {categId === '3' && t("sbCategoryId3")}
-            {categId === '4' && t("sbCategoryId4")}
-            {categId === '5' && t("sbCategoryId5")}
-            {categId === '6' && t("sbCategoryId6")}
-            {categId === '7' && t("sbCategoryId7")}
-            {categId === '8' && t("sbCategoryId8")}
+          <div className="flex items-center justify-center text-md">
+            {categId === '1' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId1")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail1")}
+                </div>
+              </div>
+            }
+            {categId === '2' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId2")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail2")}
+                </div>
+              </div>
+            }
+            {categId === '3' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId3")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail3")}
+                </div>
+              </div>
+            }
+            {categId === '4' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId4")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail4")}
+                </div>
+              </div>
+            }
+            {categId === '5' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId5")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail5")}
+                </div>
+              </div>
+            }
+            {categId === '6' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId6")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail6")}
+                </div>
+              </div>
+            }
+            {categId === '7' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId7")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail7")}
+                </div>
+              </div>
+            }
+            {categId === '8' &&
+              <div className="w-full">
+                <div className="flex items-center justify-center font-bold">
+                  {t("sbCategoryId8")}
+                </div>
+                <div className="text-center">
+                  {t("catrgoryDetail8")}
+                </div>
+              </div>
+            }
           </div>
         </Swiper>
       </section>
