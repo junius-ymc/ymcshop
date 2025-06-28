@@ -31,7 +31,8 @@ const CategoryMenu = ({ resetSearching }) => {
 
   return (
     <>
-      <section className="shop-head-category-menu-box p-2">
+      {/* <section className="shop-head-category-menu-box p-2"> */}
+      <section className="p-2">
         <Swiper
           slidesPerView={6}
           spaceBetween={10}
