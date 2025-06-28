@@ -29,7 +29,7 @@ const HowToPay = () => {
           <div className="div-content-box">
 
             {/* ปุ่มด้านบน */}
-            <div className="flex items-center justify-end mb-2">
+            {/* <div className="flex items-center justify-end mb-2">
               <NavLink
                 to="/howtostatusorders"
                 className="bttn btn-mod"
@@ -38,7 +38,7 @@ const HowToPay = () => {
                 <IconHowTo className="icon-shopping" />
                 {t("mHowToStatus")}
               </NavLink>
-            </div>
+            </div> */}
 
             <hr /><br />
             <div className="howtopay">

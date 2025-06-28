@@ -29,7 +29,7 @@ const HowToStatusOrders = () => {
           <div className="div-content-box">
 
             {/* ปุ่มด้านบน */}
-            <div className="flex items-center justify-end mb-2">
+            {/* <div className="flex items-center justify-end mb-2">
               <NavLink
                 to="/howtopay"
                 className="bttn btn-mod"
@@ -38,7 +38,7 @@ const HowToStatusOrders = () => {
                 <IconHowTo className="icon-shopping" />
                 {t("mHowToPay")}
               </NavLink>
-            </div>
+            </div> */}
 
             <hr />
 
