@@ -151,6 +151,19 @@ const ListCart = () => {
                   />
                 </div>
               )}
+              <div className="cart-list-right-text-1 text-sm">
+                <span>{t("htrTotal")}{t("htrPrice")}</span>
+                <span className="cart-list-right-text-2 text-sm">
+                  {numberFormat(getTotalPrice())} {t("moneyUnit")}
+                </span>
+              </div>
+              <div className="cart-list-right-text-1 text-sm">
+                <span>{t("scShippingCosts")}</span>
+                <span className="cart-list-right-text-2 text-sm">
+                  {numberFormat(shippingFee)} {t("moneyUnit")}
+                </span>
+              </div>
+              <hr />
               <div className="cart-list-right-text-1">
                 <span>{t("lcNetTotal")}</span>
                 <span className="cart-list-right-text-2">

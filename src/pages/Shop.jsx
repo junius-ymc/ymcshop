@@ -266,7 +266,7 @@ const Shop = () => {
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}
                 {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
                 {getSearching === "on" && (
-                  <span onClick={resetSearching} className="btn-mod-1 text-nowrap cursor-pointer text-sm rounded-md">
+                  <span onClick={resetSearching} className="btn-mod-1 text-nowrap cursor-pointer text-sm rounded-md border-[1px] border-[--red">
                     {t("sbResetSearch")}
                   </span>
                 )}
@@ -281,7 +281,7 @@ const Shop = () => {
               </div>
               <div className="shop-head-title-top shop-head-title-bottom flex flex-col items-center justify-center">
                 {getSearching === "on" && (
-                  <span onClick={resetSearching} className="btn-mod-1 text-nowrap cursor-pointer text-sm rounded-md">
+                  <span onClick={resetSearching} className="btn-mod-1 text-nowrap cursor-pointer text-sm rounded-md border-[1px] border-[--red]">
                     {t("sbResetSearch")}
                   </span>
                 )}

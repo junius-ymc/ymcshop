@@ -133,7 +133,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '1' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId1")}
+                 {t("sbSearchCategory")} : {t("sbCategoryId1")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail1")}
@@ -143,7 +143,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '2' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId2")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId2")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail2")}
@@ -153,7 +153,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '3' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId3")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId3")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail3")}
@@ -163,7 +163,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '4' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId4")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId4")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail4")}
@@ -173,7 +173,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '5' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId5")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId5")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail5")}
@@ -183,7 +183,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '6' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId6")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId6")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail6")}
@@ -193,7 +193,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '7' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId7")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId7")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail7")}
@@ -203,7 +203,7 @@ const CategoryMenu = ({ resetSearching }) => {
             {categId === '8' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                  {t("sbCategoryId8")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId8")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail8")}
