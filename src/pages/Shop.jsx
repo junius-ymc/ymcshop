@@ -266,7 +266,7 @@ const Shop = () => {
                 {t("sAllProd")} {products.length} {t("sItem")}{", "}
                 {t("sPage")} {currentPage}/{Math.ceil(products.length / itemsPerPage)}
                 {getSearching === "on" && (
-                  <span onClick={resetSearching} className="btn-mod-1 text-nowrap cursor-pointer text-sm rounded-md border-[1px] border-[--red">
+                  <span onClick={resetSearching} className="btn-mod-1 text-nowrap cursor-pointer text-sm rounded-md border-[1px] border-[--red]">
                     {t("sbResetSearch")}
                   </span>
                 )}
