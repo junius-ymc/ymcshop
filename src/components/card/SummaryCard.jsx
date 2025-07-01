@@ -44,7 +44,8 @@ const SummaryCard = () => {
   if (!initialName) {
     initialName = {
       fullName: "",
-      phone: ""
+      phone: "",
+      country: ""
     };
   }
 
@@ -220,7 +221,13 @@ const SummaryCard = () => {
                     />
                     <label>{t("scPhone")}</label>
                   </div>
-                  <div className="form-input flex items-center mb-4">
+                  <input
+                    name="country"
+                    // value={nameData.country || (nameData.country = userLocationData?.countryCode)}
+                    value={(nameData.country = userLocationData?.countryCode)}
+                    type="hidden"
+                  />
+                  <div className="flex items-center mb-4 font-bold">
                     {t("lcSelectedCountry")} ({countryList.find((c) => c.code === userLocationData.countryCode)?.emoji}) : {userLocationData.country}
                     <span>
                       <img
