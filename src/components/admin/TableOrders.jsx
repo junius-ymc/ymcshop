@@ -130,6 +130,7 @@ const TableOrders = () => {
                     </p>
                     <p className="font-semibold">{nameData.phone || "N/A"}</p>
                     <p className="text-xs text-gray-500">{item.orderedBy.email}</p>
+                    <p className="text-xs text-gray-500">{nameData.social || "N/A"}</p>
                   </td>
                   <td className="admin-table-td-orders text-center text-xs">{dateFormat(item.createdAt)}</td>
                   <td className="admin-table-td-orders">
