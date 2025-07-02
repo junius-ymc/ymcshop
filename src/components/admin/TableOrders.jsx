@@ -143,6 +143,24 @@ const TableOrders = () => {
                       <li className="text-xs pt-2">
                         ค่าจัดส่ง+ {(item?.amount - item?.cartTotal)}
                       </li>
+                      <li className="text-xs pt-2">
+                        ({nameData.country})
+                        <span>
+                          <img
+                            src={`https://flagcdn.com/24x18/${nameData.country}.png`}
+                            alt={nameData.country}
+                            title={nameData.country}
+                            style={{
+                              display: "inline-block",
+                              marginLeft: "10px",
+                              marginRight: "10px",
+                              verticalAlign: "middle",
+                              width: "24px",
+                              height: "18px",
+                            }}
+                          />
+                        </span>
+                      </li>
                     </ul>
                   </td>
                   <td className="admin-table-td-orders text-center text-xs font-semibold">{numberFormat(item.amount)}</td>
