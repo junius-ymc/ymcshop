@@ -83,6 +83,7 @@
     "scProvince": "Province",
     "scZipCode": "Postal Code",
     "scPhone": "Phone Number 📞",
+    "scSocial": "Social media such as Facebook,Line, etc.",
     "scSaveAddress": "Save Address",
     "scYourOrder": "Your Order",
     "scQuantity": "Quantity",

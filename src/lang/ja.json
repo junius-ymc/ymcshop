@@ -83,6 +83,7 @@
     "scProvince": "都道府県",
     "scZipCode": "郵便番号",
     "scPhone": "電話番号 📞",
+    "scSocial": "Facebook、Lineなどの他のソーシャルメディア",
     "scSaveAddress": "住所を保存",
     "scYourOrder": "ご注文内容",
     "scQuantity": "量",

@@ -45,6 +45,7 @@ const SummaryCard = () => {
     initialName = {
       fullName: "",
       phone: "",
+      social: "",
       country: ""
     };
   }
@@ -221,12 +222,18 @@ const SummaryCard = () => {
                     />
                     <label>{t("scPhone")}</label>
                   </div>
-                  <input
-                    name="country"
-                    // value={nameData.country || (nameData.country = userLocationData?.countryCode)}
-                    value={(nameData.country = userLocationData?.countryCode)}
-                    type="hidden"
-                  />
+                  <div className="input-group">
+                    <input
+                      name="social"
+                      value={nameData.social}
+                      onChange={handleNameChange}
+                      placeholder=""
+                      title={t("scSocial")}
+                      className="form-input checkout-input"
+                    />
+                    <label>{t("scSocial")}</label>
+                  </div>
+                  <hr />
                   <div className="flex items-center mb-4 font-bold">
                     {t("lcSelectedCountry")} ({countryList.find((c) => c.code === userLocationData.countryCode)?.emoji}) : {userLocationData.country}
                     <span>
@@ -243,6 +250,12 @@ const SummaryCard = () => {
                         }}
                       />
                     </span>
+                    <input
+                    name="country"
+                    // value={nameData.country || (nameData.country = userLocationData?.countryCode)}
+                    value={(nameData.country = userLocationData?.countryCode)}
+                    type="hidden"
+                  />
                   </div>
                   <hr />
                   <div className="summary-card-div-btn">
@@ -298,13 +311,26 @@ const SummaryCard = () => {
                 </div>
                 <div className="summary-card-right-list-other-box">
                   <hr />
+                  <div className="cart-list-right-text-1 text-sm">
+                    <span>{t("htrTotal")}{t("htrPrice")}</span>
+                    <span className="cart-list-right-text-2 text-sm">
+                      {numberFormat(cartTotal)} {t("moneyUnit")}
+                    </span>
+                  </div>
+                  <div className="cart-list-right-text-1 text-sm">
+                    <span>{t("scShippingCosts")}</span>
+                    <span className="cart-list-right-text-2 text-sm">
+                      {numberFormat(shippingFee)} {t("moneyUnit")}
+                    </span>
+                  </div>
+                  <hr className="border-[1px]" />
                   <div className="summary-card-right-list-other">
                     <p className="summary-card-right-list-total">{t("scNetTotal")}:</p>
                     <p className="summary-card-right-list-total-price">{numberFormat(grandTotal) + ' '}
                       <span className="summary-card-right-list-total-price-unit">{t("moneyUnit")}</span>
                     </p>
                   </div>
-                  <hr />
+                  <hr className="border-[1px]" />
                 </div>
                 <div>
                   <div className="summary-card-div-btn">
