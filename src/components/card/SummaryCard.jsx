@@ -234,7 +234,7 @@ const SummaryCard = () => {
                     <label>{t("scSocial")}</label>
                   </div>
                   <hr />
-                  <div className="flex items-center mb-4 font-bold">
+                  <div className="flex items-center my-2 font-bold">
                     {t("lcSelectedCountry")} ({countryList.find((c) => c.code === userLocationData.countryCode)?.emoji}) : {userLocationData.country}
                     <span>
                       <img
