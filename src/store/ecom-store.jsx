@@ -4,6 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { listCategory } from "../api/Category";
 import { listProduct, searchFilters } from "../api/product";
 import { userLocation } from "../api/user";
+import { currentUser } from "../api/auth";
 import _ from "lodash";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -16,6 +17,8 @@ const ecomStore = (set, get) => ({
   carts: [],
   userLocationData: [],
   categId: null,
+  loading: false, // ✅ เพิ่มตัวแปร Loading
+
   logout: () => {
     set({
       user: null,
@@ -27,8 +30,7 @@ const ecomStore = (set, get) => ({
       categId: null,
     });
   },
-  loading: false, // ✅ เพิ่มตัวแปร Loading
-
+  
   actionAddtoCart: (product) => {
     const carts = get().carts;
     const updateCart = [...carts, { ...product, count: 1 }];
@@ -124,6 +126,16 @@ const ecomStore = (set, get) => ({
       console.log("ประเทศผู้ใช้จากหลังบ้านคือ:", res.data);
     } catch (err) {
       console.error("ไม่สามารถดึงประเทศได้:", err);
+    }
+  },
+
+  actionGetUserUpdate: async (token) => {
+    try {
+      const res = await currentUser(token);
+      set({ user: res.data.user });
+      // console.log(res.data.user);
+    } catch (err) {
+      console.log(err);
     }
   },
 

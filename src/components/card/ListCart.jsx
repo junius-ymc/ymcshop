@@ -1,5 +1,5 @@
 // rafce
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useEcomStore from "../../store/ecom-store";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserCart } from "../../api/user";
@@ -22,6 +22,7 @@ const ListCart = () => {
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const [loading, setLoading] = useState(false);  // ✅ เพิ่มตัวแปร loading
   const [shippingFee, setShippingFee] = useState(0);
+  const actionGetUserUpdate = useEcomStore((state) => state.actionGetUserUpdate);
 
   const handleSaveCart = async () => {
     setLoading(true); // เริ่มโหลด
@@ -76,6 +77,13 @@ const ListCart = () => {
     setIsOpen(false); // ✅ ปิด modal
     setSelectedProduct(null); // ✅ เคลียร์ข้อมูลสินค้า
   };
+
+  useEffect(() => {
+    if (user && token) {
+      actionGetUserUpdate(token)
+    }
+    // console.log(user)
+  }, []);
 
   return (
     <div className="div-wrap">
