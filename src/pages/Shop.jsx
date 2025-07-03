@@ -238,7 +238,8 @@ const Shop = () => {
           <span>
             <IconSearch className="icon-search-btn" />
           </span>
-          <div className="shop-search-text"><strong>{t("sbSearch")}</strong></div>
+          <div className="shop-search-text text-start hover:text-[--red]"><strong>{t("sbSearch")}</strong></div>
+          <div className="shop-search-text text-start hover:text-[--red] my-[-6px]"><strong>{t("htrProducts")}</strong></div>
         </button>
 
         {/* ✅ Modal ค้นหา */}
