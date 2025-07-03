@@ -90,14 +90,6 @@ const CategoryMenu = ({ resetSearching }) => {
             </Link>
           </SwiperSlide>
           <SwiperSlide className="flex items-center justify-center">
-            <Link to={`/shop?categoryId=3`} className="justify-items-center">
-              <IconCategoryScreenPrinted className={`
-                icon-category icon-category-2 icon-category-screen-printed
-                ${categId === '3' && "bg-[--gray] rounded-md fill-[--red]"}
-                `} />
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center">
             <Link to={`/shop?categoryId=7`} className="justify-items-center">
               <IconCategoryJeans className={`
                 icon-category icon-category-2 icon-category-jeans
@@ -110,6 +102,14 @@ const CategoryMenu = ({ resetSearching }) => {
               <IconCategorySneaker className={`
                 icon-category icon-category-2 icon-category-sneaker
                 ${categId === '5' && "bg-[--gray] rounded-md stroke-[--red]"}
+                `} />
+            </Link>
+          </SwiperSlide>
+          <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop?categoryId=3`} className="justify-items-center">
+              <IconCategoryScreenPrinted className={`
+                icon-category icon-category-2 icon-category-screen-printed
+                ${categId === '3' && "bg-[--gray] rounded-md fill-[--red]"}
                 `} />
             </Link>
           </SwiperSlide>
