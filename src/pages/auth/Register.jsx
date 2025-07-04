@@ -1,7 +1,6 @@
 // rafce
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import zxcvbn from "zxcvbn";
@@ -11,6 +10,7 @@ import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัว�
 import LoaderDiv from "../../components/LoaderDiv";
 import IconRegister from "../../components/icon/IconRegister";
 import { Helmet } from "react-helmet-async";
+import { createAlert } from "../../utils/createAlert";
 
 const Register = () => {
   // Javascript
@@ -55,9 +55,9 @@ const Register = () => {
     try {
       const res = await axios.post(`${BASE_URL}/api/register`, data);
       //console.log(res.data);
-      toast.success(`${t("rgtRegisterSuccess")}`, {
-        bodyClassName: "toastify-toast-modify",
-      });
+      createAlert("success",
+        `${t("rgtRegisterSuccess")}`,
+        `${t("ttClose")}`);
       setTimeout(() => {
         navigate("/login");
       }, 2000);
@@ -67,9 +67,9 @@ const Register = () => {
       let chgLngMsg = msgNotif === "1" ? t("rgtEmailCheck")
         : msgNotif === "2" ? t("rgtServerError")
           : t("rgtServerError");
-      toast.error(`${chgLngMsg}`, {
-        bodyClassName: "toastify-toast-modify",
-      });
+      createAlert("error",
+        `${chgLngMsg}`,
+        `${t("ttClose")}`);
     } finally {
       setLoading(false); // โหลดเสร็จ
     }
