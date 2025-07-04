@@ -59,7 +59,7 @@ const Register = () => {
         bodyClassName: "toastify-toast-modify",
       });
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 2000);
     } catch (err) {
       //console.log(err);

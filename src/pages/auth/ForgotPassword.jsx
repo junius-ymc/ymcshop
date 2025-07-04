@@ -3,13 +3,15 @@ import { forgotPwd } from "../../api/auth";
 import LoaderDiv from "../../components/LoaderDiv";
 import { useTranslation } from "react-i18next";
 import IconLogin from "../../components/icon/IconLogin";
-import { createAlert } from "../../utils/createAlert";
+import { createNofity } from "../../utils/createAlert";
+import { useNavigate } from "react-router-dom";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -18,15 +20,18 @@ function ForgotPassword() {
       const res = await forgotPwd({ email });
       console.log(res.data.message);
       setMessage(res.data.message);
-      createAlert("success",
+      createNofity("success",
+        `${email}`,
         `${t("liForgotPwdSent")}`,
         `${t("ttClose")}`,
-        `6000`);
+        `20000`);
+        navigate("/login");
     } catch (err) {
       // console.log(err);
       console.log(err.response.data.message);
       setMessage(err.response.data.message);
-      createAlert("error",
+      createNofity("error",
+        `${email}`,
         `${t("liForgotPwdUnF")}`,
         `${t("ttClose")}`);
     } finally {

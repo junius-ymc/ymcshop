@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import IconLogin from "../../components/icon/IconLogin";
 import { useTranslation } from "react-i18next";
 import LoaderDiv from "../../components/LoaderDiv";
@@ -13,28 +13,39 @@ function ResetPassword() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     setLoading(true);
-        e.preventDefault();
-        try {
-          const res = await resetPwd({ token, password });
-          console.log(res.data.message);
-          setMessage(res.data.message);
-          createAlert("success",
-                  `${t("liResetPwdSuccess")}`,
-                  `${t("ttClose")}`,
-                  `6000`);
-        } catch (err) {
-          // console.log(err);
-          console.log(err.response.data.message);
-          setMessage(err.response.data.message);
-          createAlert("error",
+    e.preventDefault();
+
+    if (password.length < 6) {
+      createAlert("warning",
+        `${t("rgtPassChk")}`,
+        `${t("ttClose")}`);
+        // console.log(password.length);
+        return setLoading(false);
+    }
+
+    try {
+      const res = await resetPwd({ token, password });
+      console.log(res.data.message);
+      setMessage(res.data.message);
+      createAlert("success",
+        `${t("liResetPwdSuccess")}`,
+        `${t("ttClose")}`,
+        `4000`);
+      navigate("/login");
+    } catch (err) {
+      // console.log(err);
+      console.log(err.response.data.message);
+      setMessage(err.response.data.message);
+      createAlert("error",
         `${t("liResetPwdErr")}`,
         `${t("ttClose")}`);
-        } finally {
-          setLoading(false);
-        }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,9 +60,11 @@ function ResetPassword() {
         <div className="div-content-box flex items-center justify-center">
           {loading && (<div className="loader-on-top"><LoaderDiv /></div>)}
           <form onSubmit={handleSubmit} className="justify-items-center mb-2">
+            <div className="text-center mb-8">{t("liResetPwdTitle")}</div>
             <div className="input-group">
               <input
-                autoComplete="new-password"
+                autoComplete="off"
+                // autoComplete="new-password"
                 value={password}
                 placeholder=""
                 className="form-input"
@@ -72,4 +85,5 @@ function ResetPassword() {
     </div>
   );
 }
+
 export default ResetPassword;
