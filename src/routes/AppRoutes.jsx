@@ -31,6 +31,8 @@ import ContactList from '../pages/admin/ContactList'
 import Review from '../pages/user/Review'
 import EditReview from '../pages/user/EditReview'
 import AllReviews from '../pages/admin/AllReviews'
+import ForgotPassword from '../pages/auth/ForgotPassword';
+import ResetPassword from '../pages/auth/ResetPassword';
 
 
 const router = createBrowserRouter([
@@ -49,6 +51,8 @@ const router = createBrowserRouter([
             { path: 'contactus', element: <ContactUs /> },
             { path: 'howtopay', element: <HowToPay /> },
             { path: 'howtostatusorders', element: <HowToStatusOrders /> },
+            { path: 'forgot-password', element: <ForgotPassword /> },
+            { path: 'reset-password', element: <ResetPassword /> },
         ]
     },
     {

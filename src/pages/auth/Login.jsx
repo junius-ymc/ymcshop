@@ -132,6 +132,9 @@ const Login = () => {
                 </div>
               </form>
             </div>
+            <div className="check-box-mod text-form-go-to">
+              <Link to="/forgot-password">{t("liForgotPwd")}?</Link>
+            </div>
           </div>
 
         </div>

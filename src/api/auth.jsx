@@ -14,3 +14,11 @@ export const currentAdmin = async (token) => {
         }
     })
 }
+
+export const forgotPwd = async (email) => {
+  return await axios.post(`${BASE_URL}/api/forgot-password`, email, )
+}
+
+export const resetPwd = async (token, password) => {
+  return await axios.post(`${BASE_URL}/api/reset-password`, token, password, )
+}
