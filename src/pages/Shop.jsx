@@ -201,11 +201,11 @@ const Shop = () => {
     if (categoryId) {
       categoryIdSe(categoryId);
       resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
-      actionSearchFilters({ category: [categoryId] });
       setTimeout(() => {
+        actionSearchFilters({ category: [categoryId] });
         window.scrollTo({ top: 0, behavior: "smooth" });
         navigate("/shop", { replace: true });
-      }, 600);
+      }, 500);
       // console.log([categoryId]);
     }
   }, [categoryId]);

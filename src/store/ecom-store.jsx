@@ -139,7 +139,15 @@ const ecomStore = (set, get) => ({
     }
   },
 
-  categoryIdSe: (arg) => set({ categId: arg }),
+  categoryIdSe: async (id) => {
+    try {
+      set({ loading: true });
+      await set({ categId: id });
+    } catch (error) {
+      set({ loading: false });
+      console.log("Error",error);
+    }
+  },
 
 });
 
