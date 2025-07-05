@@ -80,7 +80,10 @@ const SearchCard = ({ resetPage }) => {
 
   // ✅ Step 3: ค้นหาด้วย Price
   useEffect(() => {
-    actionSearchFilters({ price });
+    if (ok) {
+      // console.log(price);
+      actionSearchFilters({ price });
+    }
   }, [ok]);
   const handlePrice = (value) => {
     //  console.log(value);
