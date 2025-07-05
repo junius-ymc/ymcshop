@@ -200,9 +200,9 @@ const Shop = () => {
   useEffect(() => {
     if (categoryId) {
       categoryIdSe(categoryId);
+      resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
       actionSearchFilters({ category: [categoryId] });
       setTimeout(() => {
-        resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
         window.scrollTo({ top: 0, behavior: "smooth" });
         navigate("/shop", { replace: true });
       }, 600);
