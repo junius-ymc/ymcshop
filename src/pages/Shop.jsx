@@ -183,7 +183,7 @@ const Shop = () => {
           // ✅ ลบ productId จาก URL หลังเปลี่ยนหน้าเสร็จ
           const timer = setTimeout(() => {
             navigate("/shop", { replace: true });
-          }, 510);
+          }, 550);
           return () => clearTimeout(timer);
         }
       }, 500); // ✅ รอให้เปลี่ยนหน้าเสร็จ แล้วค่อยเลื่อน
@@ -199,14 +199,13 @@ const Shop = () => {
 
   useEffect(() => {
     if (categoryId) {
-      actionSearchFilters({ category: [categoryId] });
-      // localStorage.setItem("categId", categoryId);
       categoryIdSe(categoryId);
       setTimeout(() => {
+        actionSearchFilters({ category: [categoryId] });
         resetToFirstPage(); // ✅ รีเซ็ตไปหน้าแรก
         window.scrollTo({ top: 0, behavior: "smooth" });
         navigate("/shop", { replace: true });
-      }, 610);
+      }, 600);
       // console.log([categoryId]);
     }
   }, [categoryId]);
