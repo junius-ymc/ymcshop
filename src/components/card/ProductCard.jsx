@@ -68,7 +68,7 @@ const ProductCard = ({ item }) => {
           </div>
           {/* ส่วนข้อมูลสินค้า */}
           <div className="shop-product-data">
-            <p className="shop-product-data-id">ID: {item.id}</p>
+            {/* <p className="shop-product-data-id">ID: {item.id}</p> */}
             <p className="shop-product-data-text-cut shop-product-data-title">{item.title}</p>
             <div className="h-[44px] overflow-hidden">
               <p className="shop-product-data-description text-sm line-clamp-2">{item.description}</p>
