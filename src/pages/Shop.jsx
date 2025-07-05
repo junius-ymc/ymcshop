@@ -205,7 +205,7 @@ const Shop = () => {
         actionSearchFilters({ category: [categoryId] });
         window.scrollTo({ top: 0, behavior: "smooth" });
         navigate("/shop", { replace: true });
-      }, 300);
+      }, 400);
       // console.log([categoryId]);
     }
   }, [categoryId]);
