@@ -17,7 +17,7 @@ const ScrollToTopButton = () => {
       setScrollingDown(false);
     }
 
-    setShowButton(currentScroll > 200);
+    setShowButton(currentScroll > 150);
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   };
@@ -48,7 +48,8 @@ const ScrollToTopButton = () => {
           onClick={backToTop}
           style={{
             opacity: scrollingDown ? 0.3 : 0.4,
-            pointerEvents: scrollingDown ? 'auto' : 'none'
+            // pointerEvents: scrollingDown ? 'auto' : 'none' // ถ้าเลื่อนขึ้นจะคลิ้กไม่ได้
+            pointerEvents: scrollingDown ? 'auto' : 'auto'
           }}
           className="back-to-top"
         >
