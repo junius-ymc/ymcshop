@@ -47,7 +47,7 @@ const ScrollToTopButton = () => {
         <div
           onClick={backToTop}
           style={{
-            opacity: scrollingDown ? 0.4 : 0,
+            opacity: scrollingDown ? 0.3 : 0.4,
             pointerEvents: scrollingDown ? 'auto' : 'none'
           }}
           className="back-to-top"

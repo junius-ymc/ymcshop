@@ -62,7 +62,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
 
           {/* Swiper สำหรับเลื่อนดูรูปภาพ */}
           <div className="modal-wrap">
-            <p className="modal-title">{product.title}: {numberFormat(product.price)} {t("moneyUnit")}</p>
+            <p className="modal-title">{product.title} : {numberFormat(product.price)} {t("moneyUnit")}</p>
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               navigation
