@@ -17,7 +17,7 @@ const ScrollToTopButton = () => {
       setScrollingDown(false);
     }
 
-    setShowButton(currentScroll > 80);
+    setShowButton(currentScroll > 200);
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   };
