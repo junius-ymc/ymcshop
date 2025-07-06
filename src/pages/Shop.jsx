@@ -54,7 +54,9 @@ const Shop = () => {
     categoryIdSe();
     getProduct();
     setCurrentPage(1);
-    navigate("/shop", { replace: true });
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ สกอร์ขึ้นด้านบนถ้ามีการเปลี่ยนหน้า
+    }, 300);
   };
 
   // ✅ เพิ่มฟังก์ชันให้เปลี่ยนหน้าเป็นหน้าแรก
