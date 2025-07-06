@@ -62,7 +62,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
 
           {/* Swiper สำหรับเลื่อนดูรูปภาพ */}
           <div className="modal-wrap">
-            <p className="modal-title">{product.title} : {numberFormat(product.price)} {t("moneyUnit")}</p>
+            <p className="modal-title">{product.title}</p>
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               navigation
@@ -91,6 +91,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
             </Swiper>
             <div className="text-[--texclact] text-center text-xs">{t("ttTileClickToZoom")}</div>
             <div className="flex items-center justify-center"><p className="modal-description">{product.description}</p></div>
+            <div className="modal-title ">{t("sbSearchPrice")} : {numberFormat(product.price)} {t("moneyUnit")}</div>
             <div className="flex items-center justify-center">
               {(product?.quantity === 0)
                 ?
