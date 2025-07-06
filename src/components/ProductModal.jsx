@@ -27,6 +27,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [arrimg, setArrimg] = useState(null);
+
   const handleImageZoom = (arrimg) => {
     setArrimg(arrimg)
     setSelectedProduct(product, arrimg);
@@ -76,8 +77,7 @@ const ProductModal = ({ isOpen, onClose, product }) => {
               {product.images?.map((img, index) => (
                 <SwiperSlide key={index}>
                   <Zoom>
-                    {/* <div className="swiper-zoom-container modal-swiper-slide"> */}
-                    <div onClick={() => handleImageZoom(img.url)} className="swiper-zoom-container modal-swiper-slide">
+                    <div onClick={() => handleImageZoom(img.url)} className="bg-[--btbgact] pt-2 rounded-md rounded-bl-none rounded-br-none modal-swiper-slide">
                       <img
                         src={img.url}
                         alt={product.title}
@@ -89,9 +89,10 @@ const ProductModal = ({ isOpen, onClose, product }) => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="text-[--texclact] text-center text-xs">{t("ttTileClickToZoom")}</div>
+            <div className="bg-[--btbgact] rounded-md rounded-tl-none rounded-tr-none text-[--texclact] text-center text-xs">{t("ttTileClickToZoom")}</div>
+            <div className="flex items-center justify-center"><p className="modal-title mb-0 mt-2">{t("ttDetails")}</p></div>
             <div className="flex items-center justify-center"><p className="modal-description">{product.description}</p></div>
-            <div className="modal-title ">{t("sbSearchPrice")} : {numberFormat(product.price)} {t("moneyUnit")}</div>
+            <div className="modal-title">{t("sbSearchPrice")} : {numberFormat(product.price)} {t("moneyUnit")}</div>
             <div className="flex items-center justify-center">
               {(product?.quantity === 0)
                 ?
