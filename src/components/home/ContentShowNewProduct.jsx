@@ -14,6 +14,7 @@ const ContentShowNewProduct = () => {
 
   const { t } = useTranslation(); // ✅ ใช้ตัวช่วยแปลภาษา
   const [loading, setLoading] = useState(true); // เพิ่มตัวแปร Loading
+    let sbCategoryId = [];
 
   useEffect(() => {
     loadData();
@@ -55,6 +56,15 @@ const ContentShowNewProduct = () => {
         ) : (
           <div className=" first-box relative">
             {data?.map((item, index) => (
+              sbCategoryId = item.category.id === 1 ? t("sbCategoryId1")
+                : item.category.id === 2 ? t("sbCategoryId2")
+                  : item.category.id === 3 ? t("sbCategoryId3")
+                    : item.category.id === 4 ? t("sbCategoryId4")
+                      : item.category.id === 5 ? t("sbCategoryId5")
+                        : item.category.id === 6 ? t("sbCategoryId6")
+                          : item.category.id === 7 ? t("sbCategoryId7")
+                            : item.category.id === 8 ? t("sbCategoryId8")
+                              : item.category.name,
               <div className="first-box-content" key={index} onClick={() => openModal(item)}>
                 <div>
                   {item.images && item.images.length > 0 ? (
@@ -80,7 +90,7 @@ const ContentShowNewProduct = () => {
                 </div>
 
                 <div className="first-content">
-                  <div className="first-content-catagory">{item.category.name}</div>
+                  <div className="first-content-catagory">{sbCategoryId}</div>
                   <h4>{item.title}</h4>
                   <p>{dateFormat(item.updatedAt)}</p>
                   {/* <p>{item.updatedAt}</p> */}
