@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัว�
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 import IconHowTo from "../components/icon/IconHowTo";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 const HowToStatusOrders = () => {
 
@@ -48,9 +50,9 @@ const HowToStatusOrders = () => {
                 <div className="howtopay-text-b">{t("htpText1")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus0.png" title={t("mHowToStatus")} target="_howtopay">
+                <Zoom>
                   <img src="/img/ordersstatus/ordersstatus0.png" alt={t("mHowToStatus")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -60,15 +62,15 @@ const HowToStatusOrders = () => {
                 <br />{t("htpText3")}<div className="howtopay-text-b">{t("mHistory")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus1.png" title={t("mHistory")} target="_howtopay">
+                <Zoom>
                   <img src="/img/ordersstatus/ordersstatus1.png" alt={t("mHistory")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
               {t("mOdersStatusOr")}
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus2.png" title={t("mHistory")} target="_howtopay">
+                <Zoom>
                   <img src="/img/ordersstatus/ordersstatus2.png" alt={t("mHistory")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -80,9 +82,9 @@ const HowToStatusOrders = () => {
                 <div className="howtopay-text-b">{t("htrNotProcess")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus3.png" title={t("htrNotProcess")} target="_howtopay">
+                <Zoom>
                   <img src="/img/ordersstatus/ordersstatus3.png" alt={t("htrNotProcess")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -94,9 +96,9 @@ const HowToStatusOrders = () => {
                 <div className="howtopay-text-b">{t("htrProcessing")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus4.png" title={t("htrProcessing")} target="_howtopay">
+                <Zoom>
                   <img src="/img/ordersstatus/ordersstatus4.png" alt={t("htrProcessing")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -110,9 +112,9 @@ const HowToStatusOrders = () => {
                 {t("mHowToStatusCheck")}
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/ordersstatus/ordersstatus5.png" title={t("htrCompleted")} target="_howtopay">
+                <Zoom>
                   <img src="/img/ordersstatus/ordersstatus5.png" alt={t("htrCompleted")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br />

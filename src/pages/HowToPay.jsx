@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัว�
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 import IconHowTo from "../components/icon/IconHowTo";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 const HowToPay = () => {
 
@@ -46,9 +48,9 @@ const HowToPay = () => {
                 <div className="howtopay-text-b">{t("htpText1")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/howtopay/01.png" title={t("mHowToPay")} target="_howtopay">
+                <Zoom>
                   <img src="/img/howtopay/01.png" alt={t("mHowToPay")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -58,9 +60,9 @@ const HowToPay = () => {
                 <br />{t("htpText3")}<div className="howtopay-text-b">{t("lcOrderProducts")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/howtopay/02.png" title={t("lcOrderProducts")} target="_howtopay">
+                <Zoom>
                   <img src="/img/howtopay/02.png" alt={t("lcOrderProducts")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -71,9 +73,9 @@ const HowToPay = () => {
                 <br />{t("htpText6")}{t("htpText3")}<div className="howtopay-text-b">2. {t("scProceedWithPayment")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/howtopay/03.png" title={t("scShippingAddress")} target="_howtopay">
+                <Zoom>
                   <img src="/img/howtopay/03.png" alt={t("scShippingAddress")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -86,9 +88,9 @@ const HowToPay = () => {
                 <br />1.3 {t("htpText3")}<div className="howtopay-text-b">{t("pmPayNow")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/howtopay/04.png" title={t("htpText8") + t("htpText9")} target="_howtopay">
+                <Zoom>
                   <img src="/img/howtopay/04.png" alt={t("pmPayment")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -101,9 +103,9 @@ const HowToPay = () => {
                 <br />2.3 {t("htpText3")}<div className="howtopay-text-b">{t("pmPayNow")}</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/howtopay/05.png" title={t("htpText11") + t("htpText12")} target="_howtopay">
+                <Zoom>
                   <img src="/img/howtopay/05.png" alt={t("pmPayment")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr /><br />
@@ -118,9 +120,9 @@ const HowToPay = () => {
                 <br />ธนาคารกรุงศรีอยุธยา<div className="howtopay-text-b"> (Krungsri)</div>
               </div>
               <div className="howtopay-div-img">
-                <a href="/img/howtopay/06.png" title={t("htpText13") + t("htpText12") + t("htpText14") + t("htpText16")} target="_howtopay">
+                <Zoom>
                   <img src="/img/howtopay/06.png" alt={t("pmPayment")} loading="lazy" />
-                </a>
+                </Zoom>
               </div>
             </div>
             <br /><hr />
