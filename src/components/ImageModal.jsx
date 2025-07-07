@@ -37,7 +37,7 @@ const ImageModal = ({ product, arrimg, onClose }) => {
       <div onClick={onClose} className="loader-on-top z-0"></div>
 
       {/* กล่องรูป */}
-      <div className="zoomed-img-s-box bg-[--white] p-4 rounded-lg max-w-[90vw] max-h-[90vh] z-50">
+      <div className="zoomed-img-s-box bg-[--white] p-[12px] rounded-lg max-w-[90vw] max-h-[90vh] z-50">
 
         {/* รูปเล็ก */}
         <div className="zoomed-img-s">
@@ -48,7 +48,7 @@ const ImageModal = ({ product, arrimg, onClose }) => {
                 src={img.url}
                 alt={product.title}
                 onClick={() => setCurrentImage(img.url)}
-                className={`w-16 h-16 object-cover border cursor-pointer rounded-md ${currentImage === img.url ? "border-[--red]" : "border-transparent"
+                className={`w-16 h-16 object-cover border cursor-pointer rounded-md ${currentImage === img.url ? "border-[--red] border-2" : "border-transparent"
                 }`}
                 loading="lazy"
               />
@@ -64,7 +64,7 @@ const ImageModal = ({ product, arrimg, onClose }) => {
               <img
                 src={currentImage}
                 alt="main"
-                className="max-w-[80vw] max-h-[90vh] object-contain rounded-md"
+                className="max-w-[80vw] max-h-[90vh] object-contain rounded-md border-[--red] border-[1px]"
                 loading="lazy"
               />
             </Zoom>
