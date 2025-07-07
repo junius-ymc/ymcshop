@@ -76,7 +76,7 @@ const ImageModal = ({ product, arrimg, onClose }) => {
                 alt="main"
                 onClick={() => setIsZoomed(!isZoomed)}
                 onMouseMove={handleZoom}
-                className={`max-w-[80vw] max-h-[90vh] object-contain rounded-md transition-transform duration-200 ${isZoomed ? "zoomed-image" : ""
+                className={`max-w-[80vw] max-h-[90vh] object-contain rounded-md border-[--red] border-[1px] transition-transform duration-200 ${isZoomed ? "zoomed-image" : ""
                   }`}
                 style={isZoomed ? zoomStyle : {}}
                 loading="lazy"
