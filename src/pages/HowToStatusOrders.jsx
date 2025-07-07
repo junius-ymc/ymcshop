@@ -106,6 +106,8 @@ const HowToStatusOrders = () => {
                 {t("mOdersStatus")}:
                 <br />
                 <div className="howtopay-text-b">{t("htrCompleted")}</div>
+                <br /><br />
+                {t("mHowToStatusCheck")}
               </div>
               <div className="howtopay-div-img">
                 <a href="/img/ordersstatus/ordersstatus5.png" title={t("htrCompleted")} target="_howtopay">
