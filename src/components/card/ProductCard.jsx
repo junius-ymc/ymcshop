@@ -75,6 +75,7 @@ const ProductCard = ({ item }) => {
             <div className="h-[44px] overflow-hidden">
               <p className="shop-product-data-description text-sm line-clamp-2">{item.description}</p>
             </div>
+            <p className="text-xs text-center cursor-pointer" onClick={handleImageClick}>{t("sReadMore")}...</p>
           </div>
 
           {/* ส่วนปุ่มและราคา */}

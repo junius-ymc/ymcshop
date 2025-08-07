@@ -2,9 +2,9 @@ import { useState } from "react";
 import { forgotPwd } from "../../api/auth";
 import LoaderDiv from "../../components/LoaderDiv";
 import { useTranslation } from "react-i18next";
-import IconLogin from "../../components/icon/IconLogin";
 import { createNofity } from "../../utils/createAlert";
 import { useNavigate } from "react-router-dom";
+import IconRegister from "../../components/icon/IconRegister";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -45,7 +45,7 @@ function ForgotPassword() {
     <div className="div-wrap">
       <div className="div-head">
         <span className="setdiv-3">
-          <IconLogin className="icon-register" />
+          <IconRegister className="icon-register" />
           {t("liForgotPwd")}
         </span>
       </div>
