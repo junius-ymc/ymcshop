@@ -32,11 +32,10 @@ const Footer = () => {
       prompt.prompt();
       const result = await prompt.userChoice;
       if (result.outcome === "accepted") {
-        toast.success(`Installed 🎉`, {
+        toast.success(`✅ Installed 🎉`, {
           bodyClassName: "toastify-toast-modify",
         });
-        consol
-        console.log("Installed 🎉");
+        console.log("✅ Installed 🎉");
       }
     }
   };

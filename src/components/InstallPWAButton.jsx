@@ -18,7 +18,10 @@ const InstallPWAButton = () => {
       prompt.prompt();
       const result = await prompt.userChoice;
       if (result.outcome === "accepted") {
-        console.log("Installed 🎉");
+        toast.success(`✅ Installed 🎉`, {
+          bodyClassName: "toastify-toast-modify",
+        });
+        console.log("✅ Installed 🎉");
       }
     }
   };

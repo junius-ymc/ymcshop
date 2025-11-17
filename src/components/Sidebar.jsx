@@ -133,7 +133,10 @@ const Sidebar = () => {
       prompt.prompt();
       const result = await prompt.userChoice;
       if (result.outcome === "accepted") {
-        console.log("ติดตั้งแล้ว 🎉");
+        toast.success(`✅ Installed 🎉`, {
+          bodyClassName: "toastify-toast-modify",
+        });
+        console.log("✅ Installed 🎉");
       }
     }
   };
