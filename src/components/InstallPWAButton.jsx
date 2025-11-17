@@ -18,7 +18,7 @@ const InstallPWAButton = () => {
       prompt.prompt();
       const result = await prompt.userChoice;
       if (result.outcome === "accepted") {
-        console.log("ติดตั้งแล้ว 🎉");
+        console.log("Installed 🎉");
       }
     }
   };
@@ -30,7 +30,7 @@ const InstallPWAButton = () => {
           onClick={handleClick}
           className="fixed bottom-6 left-4 bg-blue-600 text-white px-4 py-2 rounded shadow z-50"
         >
-          📲 ติดตั้งแอป YMC Shop
+          📲 Install YMC Shop
         </button>
       )}
       {/* <button onClick={handleClick}> */}

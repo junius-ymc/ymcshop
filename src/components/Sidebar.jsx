@@ -128,12 +128,6 @@ const Sidebar = () => {
   }
 
   const prompt = usePwaStore((s) => s.deferredPrompt);
-  // useEffect(() => {
-  //   const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
-  //   if (!isStandalone && prompt) {
-  //     setShowBtn(true);
-  //   }
-  // }, [prompt]);
   const handleClick = async () => {
     if (prompt) {
       prompt.prompt();
