@@ -20,9 +20,11 @@ import IconMenuSideBar from "./icon/IconMenuSideBar";
 import IconHowTo from "./icon/IconHowTo";
 import IconAboutUs from "./icon/IconAboutUs";
 import IconContactUs from "./icon/IconContactUs";
+import IconInstallWebApp from "./icon/IconInstallWebApp";
 import flagth from '../assets/icon/flagth.png'; // (ไว้ในโฟลเดอร์ assets)
 import flagen from '../assets/icon/flagen.png';
 import flagjp from '../assets/icon/flagjp.png';
+import usePwaStore from "../store/pwa-store";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(window.innerWidth <= 1425);
@@ -124,6 +126,23 @@ const Sidebar = () => {
 
     return <div>{truncated}</div>;
   }
+
+  const prompt = usePwaStore((s) => s.deferredPrompt);
+  // useEffect(() => {
+  //   const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+  //   if (!isStandalone && prompt) {
+  //     setShowBtn(true);
+  //   }
+  // }, [prompt]);
+  const handleClick = async () => {
+    if (prompt) {
+      prompt.prompt();
+      const result = await prompt.userChoice;
+      if (result.outcome === "accepted") {
+        console.log("ติดตั้งแล้ว 🎉");
+      }
+    }
+  };
 
   return (
     <>
@@ -346,6 +365,13 @@ const Sidebar = () => {
               <NavLink className="nav-link" to="/contactus" title={t("mContactUs")} onClick={toggleSidebar}>
                 <div className="icon-menu"><IconContactUs className="icon-menu" /></div>
                 <span className="nav-label">{t("mContactUs")}</span>
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="#" title={t("mIconInstallWebApp")} onClick={handleClick}>
+                <div className="icon-menu"><IconInstallWebApp className="icon-menu" /></div>
+                <span className="nav-label">{t("mIconInstallWebApp")}</span>
               </NavLink>
             </li>
 
