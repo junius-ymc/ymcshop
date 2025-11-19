@@ -144,6 +144,7 @@ const Sidebar = () => {
         bodyClassName: "toastify-toast-modify",
       });
     }
+    toggleSidebar(true);
   };
 
   return (
