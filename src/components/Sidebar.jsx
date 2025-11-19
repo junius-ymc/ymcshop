@@ -128,19 +128,18 @@ const Sidebar = () => {
   }
 
   const prompt = usePwaStore((s) => s.deferredPrompt);
-  const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
   const handleClick = async () => {
     if (prompt) {
       prompt.prompt();
       const result = await prompt.userChoice;
       if (result.outcome === "accepted") {
-        toast.success(`✅ Installed. 🎉`, {
+        toast.success(`✅ Installed.`, {
           bodyClassName: "toastify-toast-modify",
         });
-        console.log("✅ Installed. 🎉");
+        console.log("✅ Installed.");
       }
-    } else if (isStandalone) {
-      toast.success(`✅ Installed. 🎉`, {
+    } else {
+      toast.success(`✅ Installed.`, {
         bodyClassName: "toastify-toast-modify",
       });
     }
