@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ เพิ่มตัวช่วยแปลภาษา
 import LoaderDiv from "./LoaderDiv";
 import { createAlert, createNofity } from "../utils/createAlert";
+import IconStripe from "../components/icon/IconStripe";
 
 export default function CheckoutForm() {
   const token = useEcomStore((state) => state.token);
@@ -102,7 +103,14 @@ export default function CheckoutForm() {
               {/* Show any error or success messages */}
               {message && <div id="payment-message">{message}</div>}
             </form>
-
+            <div>
+              <span className="flex items-center justify-center color-[#635BFF] text-[#635BFF]">
+                {t("scStripePayment")}
+              </span>
+              <span className="flex items-center justify-center">
+                <IconStripe className="fill-[#635BFF] w-auto h-[60px]" />
+              </span>
+            </div>
           </div>
         </div>
 

@@ -7,7 +7,6 @@ import IconCategoryTShirt from "../icon/IconCategoryTShirt";
 import IconCategorySneaker from "../icon/IconCategorySneaker";
 import IconCategoryVintage from "../icon/IconCategoryVintage";
 import IconCategoryScreenPrinted from "../icon/IconCategoryScreenPrinted";
-import IconShopping from "../icon/IconShopping";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import useEcomStore from "../../store/ecom-store";
@@ -119,14 +118,6 @@ const CategoryMenu = ({ resetSearching }) => {
                 icon-category icon-category-1 icon-category-jackets py-1
                 ${categId === '8' && "bg-[--gray] rounded-md stroke-[--red]"}
                 `} />
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="flex items-center justify-center">
-            <Link to={`/shop`} className="justify-items-center">
-              <button onClick={resetSearch}>
-                {/* {t("sAllProd")} */}
-                <IconShopping className="icon-category icon-category-2 icon-category-shopping" />
-              </button>
             </Link>
           </SwiperSlide>
           <div className="flex items-center justify-center text-md">

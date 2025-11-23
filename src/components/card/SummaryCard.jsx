@@ -8,6 +8,7 @@ import LoaderDiv from "../LoaderDiv";
 import { Helmet } from "react-helmet-async";
 import { createAlert } from "../../utils/createAlert";
 import { countryList } from "../../utils/ShippingZones";
+import IconStripe from "../../components/icon/IconStripe";
 
 const SummaryCard = () => {
   const token = useEcomStore((state) => state.token);
@@ -251,11 +252,11 @@ const SummaryCard = () => {
                       />
                     </span>
                     <input
-                    name="country"
-                    // value={nameData.country || (nameData.country = userLocationData?.countryCode)}
-                    value={(nameData.country = userLocationData?.countryCode)}
-                    type="hidden"
-                  />
+                      name="country"
+                      // value={nameData.country || (nameData.country = userLocationData?.countryCode)}
+                      value={(nameData.country = userLocationData?.countryCode)}
+                      type="hidden"
+                    />
                   </div>
                   <hr />
                   <div className="summary-card-div-btn">
@@ -336,6 +337,14 @@ const SummaryCard = () => {
                   <div className="summary-card-div-btn">
                     <button onClick={hdlGoToPayment} className="bttn btn-mod">2. {t("scProceedWithPayment")}</button>
                   </div>
+                </div>
+                <div>
+                  <span className="flex items-center justify-center mt-6 color-[#635BFF] text-[#635BFF]">
+                    {t("scStripePayment")}
+                  </span>
+                  <span className="flex items-center justify-center">
+                    <IconStripe className="fill-[#635BFF] w-auto h-[60px]" />
+                  </span>
                 </div>
               </div>
             </div>
