@@ -11,8 +11,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import useEcomStore from "../../store/ecom-store";
 import { useTranslation } from "react-i18next";
+// import IconShopping from "../icon/IconShopping";
 
-const CategoryMenu = ({ resetSearching }) => {
+// const CategoryMenu = ({ resetSearching }) => {
+const CategoryMenu = () => {
 
   // const categories = useEcomStore((state) => state.categories);
   // let sbCategoryId = [];
@@ -20,9 +22,9 @@ const CategoryMenu = ({ resetSearching }) => {
   const categId = useEcomStore((state) => state.categId);
   const { t } = useTranslation();
 
-  const resetSearch = () => {
-    resetSearching();
-  };
+  // const resetSearch = () => {
+  //   resetSearching();
+  // };
 
   useEffect(() => {
     categoryIdSe();
@@ -120,11 +122,18 @@ const CategoryMenu = ({ resetSearching }) => {
                 `} />
             </Link>
           </SwiperSlide>
+          {/* <SwiperSlide className="flex items-center justify-center">
+            <Link to={`/shop`} className="justify-items-center">
+              <button onClick={resetSearch}>
+                <IconShopping className="icon-category icon-category-2 icon-category-shopping" />
+              </button>
+            </Link>
+          </SwiperSlide> */}
           <div className="flex items-center justify-center text-md">
             {categId === '1' &&
               <div className="w-full">
                 <div className="flex items-center justify-center font-bold">
-                 {t("sbSearchCategory")} : {t("sbCategoryId1")}
+                  {t("sbSearchCategory")} : {t("sbCategoryId1")}
                 </div>
                 <div className="text-center">
                   {t("catrgoryDetail1")}

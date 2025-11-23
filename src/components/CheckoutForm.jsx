@@ -101,10 +101,10 @@ export default function CheckoutForm() {
                 </span>
               </button>
               {/* Show any error or success messages */}
-              {message && <div id="payment-message">{message}</div>}
+              {message && <div id="payment-message" className="text-[red] text-center pb-1">{message}</div>}
             </form>
             <div>
-              <span className="flex items-center justify-center color-[#635BFF] text-[#635BFF]">
+              <span className="flex items-center justify-center mt-6 text-[#635BFF]">
                 {t("scStripePayment")}
               </span>
               <span className="flex items-center justify-center">
