@@ -7,7 +7,6 @@ import "./i18n"; // นำเข้าไฟล์ตั้งค่า i18n ต
 import { HelmetProvider } from "react-helmet-async";
 import { registerSW } from 'virtual:pwa-register';
 import usePwaStore from './store/pwa-store';
-import useEcomStore from './store/ecom-store';
 
 const App = () => {
 
@@ -37,36 +36,32 @@ const App = () => {
     }
   });
 
-  const user = useEcomStore((state) => state.user);
   // ปิด Pull-to-Refresh
   // ป้องกันไม่ให้เว็บรีเฟรชเองตอน "ลากลง" จากด้านบนสุด
-  // if (user?.role === "admin" && user?.role === "staff"){
-  if (!user) {
-    useEffect(() => {
-      let touchStartY = 0;
+  // useEffect(() => {
+  //   let touchStartY = 0;
 
-      const handleTouchStart = (e) => {
-        touchStartY = e.touches[0].clientY;
-      };
+  //   const handleTouchStart = (e) => {
+  //     touchStartY = e.touches[0].clientY;
+  //   };
 
-      const handleTouchMove = (e) => {
-        const touchY = e.touches[0].clientY;
-        const scrollY = window.scrollY || document.documentElement.scrollTop;
+  //   const handleTouchMove = (e) => {
+  //     const touchY = e.touches[0].clientY;
+  //     const scrollY = window.scrollY || document.documentElement.scrollTop;
 
-        if (scrollY === 0 && touchY > touchStartY) {
-          e.preventDefault();
-        }
-      };
+  //     if (scrollY === 0 && touchY > touchStartY) {
+  //       e.preventDefault();
+  //     }
+  //   };
 
-      document.addEventListener("touchstart", handleTouchStart);
-      document.addEventListener("touchmove", handleTouchMove, { passive: false });
+  //   document.addEventListener("touchstart", handleTouchStart);
+  //   document.addEventListener("touchmove", handleTouchMove, { passive: false });
 
-      return () => {
-        document.removeEventListener("touchstart", handleTouchStart);
-        document.removeEventListener("touchmove", handleTouchMove);
-      };
-    }, []);
-  }
+  //   return () => {
+  //     document.removeEventListener("touchstart", handleTouchStart);
+  //     document.removeEventListener("touchmove", handleTouchMove);
+  //   };
+  // }, []);
 
   return (
     <>
