@@ -205,7 +205,7 @@ const Sidebar = () => {
                 </li>
                 {(user?.role === "staff" || user?.role === "admin") && (
                   <li>
-                    <a href="/admin/" target="_YMCshop-Admin">
+                    <a href="/admin/" target="_YMCshop">
                       <div className="flex justify-start items-center">
                         <span className="mr-1">For: </span>
                         <span>{user?.role}</span>

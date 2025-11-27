@@ -2,8 +2,26 @@
 
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import useEcomStore from "../../store/ecom-store";
 
 const HeaderAdmin = () => {
+
+    // ฟังก์ชัน Logout เพื่อลบ Token
+    const logout = useEcomStore((s) => s.logout);
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
+        logout(true);
+        // ลบ Token
+        toast.success("Logged out.", {
+            bodyClassName: "toastify-toast-modify",
+        });
+        localStorage.removeItem("authToken");
+        sessionStorage.removeItem("authToken");
+        navigate("/"); // กลับไปหน้า Home
+    };
+
     return (
         <div className='header-admin-bar'>
             <div className="setdiv-1">
@@ -84,10 +102,10 @@ const HeaderAdmin = () => {
 
                     </div>
                     <div className="setdiv-3">
-                    <a className="bttn header-admin-menu" href='/' target='_YMCshop-Home'>
-                    Homepage
+                        <a className="bttn header-admin-menu" href='/' target='_YMCshop'>
+                            Homepage
                         </a>
-                        <NavLink className="bttn header-admin-menu">
+                        <NavLink onClick={() => handleLogout()} className="bttn header-admin-menu">
                             Logout
                         </NavLink>
 

@@ -8,9 +8,26 @@ import {
   ListOrdered,
   LogOut
 } from "lucide-react";
+import { toast } from "react-toastify";
+import useEcomStore from "../../store/ecom-store";
 // import IconLogout from "../icon/IconLogout";
 
 const SidebarAdmin = () => {
+
+  // ฟังก์ชัน Logout เพื่อลบ Token
+  const logout = useEcomStore((s) => s.logout);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    // เรียกใช้งานฟังก์ชัน logout จาก Zustand store
+    logout(true);
+    // ลบ Token
+    toast.success("Logged out.", {
+      bodyClassName: "toastify-toast-modify",
+    });
+    localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
+    navigate("/"); // กลับไปหน้า Home
+  };
 
   return (
     <div className="sidebar-admin">
@@ -106,7 +123,7 @@ const SidebarAdmin = () => {
 
       </nav>
       <div>
-        <NavLink className="bttn sidebar-admin-menu">
+        <NavLink onClick={() => handleLogout()} className="bttn sidebar-admin-menu">
           {/* <div><IconLogout className="icon-menu-s icon-menu-stroke" /></div> */}
           <LogOut className="mr-2" />
           Logout
