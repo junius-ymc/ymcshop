@@ -10,6 +10,7 @@ const ProtectRouteUser = ({ element }) => {
     const token = useEcomStore((state) => state.token);
     const logout = useEcomStore((state) => state.logout); // ✅ ฟังก์ชัน logout ที่เคลียร์ state
 
+    // เช็ค Token หมดอายุ
     useEffect(() => {
         if (user && token) {
             try {
