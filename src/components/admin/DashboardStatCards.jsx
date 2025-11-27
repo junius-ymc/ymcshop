@@ -1,10 +1,13 @@
 // components/admin/DashboardStatCards.jsx
 import React from "react";
 import { BarChart, ShoppingCart, Users, Mail, MessageSquareDiff } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const DashboardStatCards = ({ stats }) => {
   return (
     <div className="admin-dashboard-stats-grid">
+
+      <NavLink to={"orders"}>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-blue-500">
           {stats.ordersToday > 0 && (
@@ -22,6 +25,9 @@ const DashboardStatCards = ({ stats }) => {
           <p>{stats.totalOrders}</p>
         </div>
       </div>
+      </NavLink>
+
+      <NavLink to={"manage"}>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-green-500">
           {stats.usersToday > 0 && (
@@ -39,6 +45,9 @@ const DashboardStatCards = ({ stats }) => {
           <p>{stats.totalUsers}</p>
         </div>
       </div>
+      </NavLink>
+
+      <NavLink to={"product"}>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-yellow-500">
           <BarChart />
@@ -48,6 +57,9 @@ const DashboardStatCards = ({ stats }) => {
           <p>{stats.totalProducts}</p>
         </div>
       </div>
+      </NavLink>
+
+      <NavLink to={"contactlist"}>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-red-500">
           {stats.contactsToday > 0 && (
@@ -65,6 +77,9 @@ const DashboardStatCards = ({ stats }) => {
           <p>{stats.totalContacts}</p>
         </div>
       </div>
+      </NavLink>
+
+      <NavLink to={"allreviews"}>
       <div className="admin-dashboard-stat-card">
         <div className="stat-icon bg-sky-500">
           {stats.reviewsToday > 0 && (
@@ -82,6 +97,8 @@ const DashboardStatCards = ({ stats }) => {
           <p>{stats.totalReviews}</p>
         </div>
       </div>
+      </NavLink>
+
     </div>
   );
 };
